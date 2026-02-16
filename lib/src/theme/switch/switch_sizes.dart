@@ -1,31 +1,31 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/switch/switch_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/switch/switch_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonSwitchSizes extends ThemeExtension<MoonSwitchSizes>
+class SelenicSwitchSizes extends ThemeExtension<SelenicSwitchSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the (2x) extra small MoonSwitch.
-  final MoonSwitchSizeProperties x2s;
+  /// The properties of the (2x) extra small SelenicSwitch.
+  final SelenicSwitchSizeProperties x2s;
 
-  /// The properties of the extra small MoonSwitch.
-  final MoonSwitchSizeProperties xs;
+  /// The properties of the extra small SelenicSwitch.
+  final SelenicSwitchSizeProperties xs;
 
-  /// The properties of the small MoonSwitch.
-  final MoonSwitchSizeProperties sm;
+  /// The properties of the small SelenicSwitch.
+  final SelenicSwitchSizeProperties sm;
 
-  MoonSwitchSizes({
+  SelenicSwitchSizes({
     required this.tokens,
-    MoonSwitchSizeProperties? x2s,
-    MoonSwitchSizeProperties? xs,
-    MoonSwitchSizeProperties? sm,
+    SelenicSwitchSizeProperties? x2s,
+    SelenicSwitchSizeProperties? xs,
+    SelenicSwitchSizeProperties? sm,
   })  : x2s = x2s ??
-            MoonSwitchSizeProperties(
+            SelenicSwitchSizeProperties(
               height: tokens.sizes.x2s,
               width: 2 * tokens.sizes.x3s + 2 * tokens.sizes.x5s,
               thumbSizeValue: tokens.sizes.x3s,
@@ -35,7 +35,7 @@ class MoonSwitchSizes extends ThemeExtension<MoonSwitchSizes>
                   tokens.typography.body.text6.copyWith(letterSpacing: 0),
             ),
         xs = xs ??
-            MoonSwitchSizeProperties(
+            SelenicSwitchSizeProperties(
               height: tokens.sizes.xs,
               width: 2 * tokens.sizes.x2s + 3 * tokens.sizes.x5s,
               thumbSizeValue: tokens.sizes.x2s,
@@ -45,7 +45,7 @@ class MoonSwitchSizes extends ThemeExtension<MoonSwitchSizes>
                   tokens.typography.body.text8.copyWith(letterSpacing: 0.1),
             ),
         sm = sm ??
-            MoonSwitchSizeProperties(
+            SelenicSwitchSizeProperties(
               height: tokens.sizes.sm,
               width: 2 * tokens.sizes.xs + 3 * tokens.sizes.x5s,
               thumbSizeValue: tokens.sizes.xs,
@@ -56,13 +56,13 @@ class MoonSwitchSizes extends ThemeExtension<MoonSwitchSizes>
             );
 
   @override
-  MoonSwitchSizes copyWith({
-    MoonTokens? tokens,
-    MoonSwitchSizeProperties? x2s,
-    MoonSwitchSizeProperties? xs,
-    MoonSwitchSizeProperties? sm,
+  SelenicSwitchSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicSwitchSizeProperties? x2s,
+    SelenicSwitchSizeProperties? xs,
+    SelenicSwitchSizeProperties? sm,
   }) {
-    return MoonSwitchSizes(
+    return SelenicSwitchSizes(
       tokens: tokens ?? this.tokens,
       x2s: x2s ?? this.x2s,
       xs: xs ?? this.xs,
@@ -71,10 +71,10 @@ class MoonSwitchSizes extends ThemeExtension<MoonSwitchSizes>
   }
 
   @override
-  MoonSwitchSizes lerp(ThemeExtension<MoonSwitchSizes>? other, double t) {
-    if (other is! MoonSwitchSizes) return this;
+  SelenicSwitchSizes lerp(ThemeExtension<SelenicSwitchSizes>? other, double t) {
+    if (other is! SelenicSwitchSizes) return this;
 
-    return MoonSwitchSizes(
+    return SelenicSwitchSizes(
       tokens: tokens.lerp(other.tokens, t),
       x2s: x2s.lerp(other.x2s, t),
       xs: xs.lerp(other.xs, t),
@@ -86,10 +86,10 @@ class MoonSwitchSizes extends ThemeExtension<MoonSwitchSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonSwitchSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonSwitchSizeProperties>("x2s", x2s))
-      ..add(DiagnosticsProperty<MoonSwitchSizeProperties>("xs", xs))
-      ..add(DiagnosticsProperty<MoonSwitchSizeProperties>("sm", sm));
+      ..add(DiagnosticsProperty("type", "SelenicSwitchSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicSwitchSizeProperties>("x2s", x2s))
+      ..add(DiagnosticsProperty<SelenicSwitchSizeProperties>("xs", xs))
+      ..add(DiagnosticsProperty<SelenicSwitchSizeProperties>("sm", sm));
   }
 }

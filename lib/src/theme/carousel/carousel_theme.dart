@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/carousel/carousel_colors.dart';
-import 'package:moon_design/src/theme/carousel/carousel_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/carousel/carousel_colors.dart';
+import 'package:selenic_design/src/theme/carousel/carousel_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonCarouselTheme extends ThemeExtension<MoonCarouselTheme>
+class SelenicCarouselTheme extends ThemeExtension<SelenicCarouselTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonCarousel.
-  final MoonCarouselColors colors;
+  /// The colors of the SelenicCarousel.
+  final SelenicCarouselColors colors;
 
-  /// The properties of the MoonCarousel.
-  final MoonCarouselProperties properties;
+  /// The properties of the SelenicCarousel.
+  final SelenicCarouselProperties properties;
 
-  MoonCarouselTheme({
+  SelenicCarouselTheme({
     required this.tokens,
-    MoonCarouselColors? colors,
-    MoonCarouselProperties? properties,
+    SelenicCarouselColors? colors,
+    SelenicCarouselProperties? properties,
   })  : colors = colors ??
-            MoonCarouselColors(
+            SelenicCarouselColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
             ),
         properties = properties ??
-            MoonCarouselProperties(
+            SelenicCarouselProperties(
               gap: tokens.sizes.x2s,
               textStyle: tokens.typography.body.textDefault,
               autoPlayDelay: const Duration(seconds: 3),
@@ -36,12 +36,12 @@ class MoonCarouselTheme extends ThemeExtension<MoonCarouselTheme>
             );
 
   @override
-  MoonCarouselTheme copyWith({
-    MoonTokens? tokens,
-    MoonCarouselColors? colors,
-    MoonCarouselProperties? properties,
+  SelenicCarouselTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicCarouselColors? colors,
+    SelenicCarouselProperties? properties,
   }) {
-    return MoonCarouselTheme(
+    return SelenicCarouselTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -49,10 +49,11 @@ class MoonCarouselTheme extends ThemeExtension<MoonCarouselTheme>
   }
 
   @override
-  MoonCarouselTheme lerp(ThemeExtension<MoonCarouselTheme>? other, double t) {
-    if (other is! MoonCarouselTheme) return this;
+  SelenicCarouselTheme lerp(
+      ThemeExtension<SelenicCarouselTheme>? other, double t) {
+    if (other is! SelenicCarouselTheme) return this;
 
-    return MoonCarouselTheme(
+    return SelenicCarouselTheme(
       tokens: tokens,
       properties: properties.lerp(other.properties, t),
       colors: colors.lerp(other.colors, t),
@@ -63,11 +64,12 @@ class MoonCarouselTheme extends ThemeExtension<MoonCarouselTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonCarouselTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonCarouselColors>("colors", colors))
+      ..add(DiagnosticsProperty("type", "SelenicCarouselTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicCarouselColors>("colors", colors))
       ..add(
-        DiagnosticsProperty<MoonCarouselProperties>("properties", properties),
+        DiagnosticsProperty<SelenicCarouselProperties>(
+            "properties", properties),
       );
   }
 }

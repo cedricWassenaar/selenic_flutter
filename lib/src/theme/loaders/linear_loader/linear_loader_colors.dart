@@ -1,41 +1,42 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonLinearLoaderColors extends ThemeExtension<MoonLinearLoaderColors>
+class SelenicLinearLoaderColors
+    extends ThemeExtension<SelenicLinearLoaderColors>
     with DiagnosticableTreeMixin {
-  /// The color of the MoonLinearLoader.
+  /// The color of the SelenicLinearLoader.
   final Color color;
 
-  /// The background color of the MoonLinearLoader.
+  /// The background color of the SelenicLinearLoader.
   final Color backgroundColor;
 
-  const MoonLinearLoaderColors({
+  const SelenicLinearLoaderColors({
     required this.color,
     required this.backgroundColor,
   });
 
   @override
-  MoonLinearLoaderColors copyWith({
+  SelenicLinearLoaderColors copyWith({
     Color? color,
     Color? backgroundColor,
   }) {
-    return MoonLinearLoaderColors(
+    return SelenicLinearLoaderColors(
       color: color ?? this.color,
       backgroundColor: backgroundColor ?? this.backgroundColor,
     );
   }
 
   @override
-  MoonLinearLoaderColors lerp(
-    ThemeExtension<MoonLinearLoaderColors>? other,
+  SelenicLinearLoaderColors lerp(
+    ThemeExtension<SelenicLinearLoaderColors>? other,
     double t,
   ) {
-    if (other is! MoonLinearLoaderColors) return this;
+    if (other is! SelenicLinearLoaderColors) return this;
 
-    return MoonLinearLoaderColors(
+    return SelenicLinearLoaderColors(
       color: colorPremulLerp(color, other.color, t)!,
       backgroundColor:
           colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
@@ -46,7 +47,7 @@ class MoonLinearLoaderColors extends ThemeExtension<MoonLinearLoaderColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonLinearLoaderColors"))
+      ..add(DiagnosticsProperty("type", "SelenicLinearLoaderColors"))
       ..add(ColorProperty("color", color))
       ..add(ColorProperty("backgroundColor", backgroundColor));
   }

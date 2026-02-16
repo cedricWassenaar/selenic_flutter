@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 enum _AccordionItems { first, second }
 
@@ -106,7 +106,7 @@ class _AccordionTestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MoonAccordion<_AccordionItems>(
+        body: SelenicAccordion<_AccordionItems>(
           key: accordionKey,
           label: const Text(_accordionLabel),
         ),
@@ -124,7 +124,7 @@ class _SingleAccordionTestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MoonAccordion<_AccordionItems>(
+        body: SelenicAccordion<_AccordionItems>(
           key: _firstAccordionKey,
           isDisabled: isDisabled,
           leading: const Icon(_accordionTrailingIcon),
@@ -159,14 +159,14 @@ class _GroupedAccordionTestWidgetState
       home: Scaffold(
         body: ListView(
           children: [
-            MoonAccordion<_AccordionItems>(
+            SelenicAccordion<_AccordionItems>(
               key: _firstAccordionKey,
               identityValue: _AccordionItems.first,
               groupIdentityValue: _currentlyOpenAccordionItem,
               onExpansionChanged: (_AccordionItems? value) =>
                   setState(() => _currentlyOpenAccordionItem = value),
               leading: const Icon(MoonIcons.other_frame_24_light),
-              label: const Text("Grouped MoonAccordion item #1"),
+              label: const Text("Grouped SelenicAccordion item #1"),
               children: const [
                 Text(
                   key: _firstAccordionChildKey,
@@ -174,14 +174,14 @@ class _GroupedAccordionTestWidgetState
                 ),
               ],
             ),
-            MoonAccordion<_AccordionItems>(
+            SelenicAccordion<_AccordionItems>(
               key: _secondAccordionKey,
               identityValue: _AccordionItems.second,
               groupIdentityValue: _currentlyOpenAccordionItem,
               onExpansionChanged: (_AccordionItems? value) =>
                   setState(() => _currentlyOpenAccordionItem = value),
               leading: const Icon(MoonIcons.other_frame_24_light),
-              label: const Text("Grouped MoonAccordion item #2"),
+              label: const Text("Grouped SelenicAccordion item #2"),
               children: const [
                 Text(
                   key: _secondAccordionChildKey,

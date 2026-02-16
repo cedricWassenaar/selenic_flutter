@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class Icons extends StatelessWidget {
   const Icons({super.key});

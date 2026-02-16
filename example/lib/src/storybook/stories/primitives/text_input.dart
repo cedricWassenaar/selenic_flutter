@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class TextInputStory extends StatefulWidget {
@@ -23,20 +23,20 @@ class _TextInputStoryState extends State<TextInputStory> {
   Widget build(BuildContext context) {
     final textInputSizeKnob = context.knobs.nullable.options(
       label: "textInputSize",
-      description: "Size variants for MoonTextInput.",
+      description: "Size variants for SelenicTextInput.",
       enabled: false,
-      initial: MoonTextInputSize.md,
+      initial: SelenicTextInputSize.md,
       options: const [
-        Option(label: "sm", value: MoonTextInputSize.sm),
-        Option(label: "md", value: MoonTextInputSize.md),
-        Option(label: "lg", value: MoonTextInputSize.lg),
-        Option(label: "xl", value: MoonTextInputSize.xl),
+        Option(label: "sm", value: SelenicTextInputSize.sm),
+        Option(label: "md", value: SelenicTextInputSize.md),
+        Option(label: "lg", value: SelenicTextInputSize.lg),
+        Option(label: "xl", value: SelenicTextInputSize.xl),
       ],
     );
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for MoonTextInput text.",
+      description: "MoonColors variants for SelenicTextInput text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -47,7 +47,7 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final hintTextColorKnob = context.knobs.nullable.options(
       label: "hintTextColor",
-      description: "MoonColors variants for MoonTextInput hint text.",
+      description: "MoonColors variants for SelenicTextInput hint text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -58,7 +58,7 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonTextInput background.",
+      description: "MoonColors variants for SelenicTextInput background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -69,7 +69,7 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for MoonTextInput active border.",
+      description: "MoonColors variants for SelenicTextInput active border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -80,7 +80,7 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for MoonTextInput inactive border.",
+      description: "MoonColors variants for SelenicTextInput inactive border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -92,7 +92,7 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final hoverBorderColorKnob = context.knobs.nullable.options(
       label: "hoverBorderColor",
-      description: "MoonColors variants for MoonTextInput border on hover.",
+      description: "MoonColors variants for SelenicTextInput border on hover.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -103,7 +103,7 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final errorColorKnob = context.knobs.nullable.options(
       label: "errorColor",
-      description: "MoonColors variants for MoonTextInput in error state.",
+      description: "MoonColors variants for SelenicTextInput in error state.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -114,7 +114,7 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonTextInput.",
+      description: "Border radius for SelenicTextInput.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -128,24 +128,24 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final hasFloatingLabelKnob = context.knobs.boolean(
       label: "hasFloatingLabel",
-      description: "Whether MoonTextInput has floating label.",
+      description: "Whether SelenicTextInput has floating label.",
     );
 
     final showLeadingKnob = context.knobs.boolean(
       label: "leading",
-      description: "Show widget in MoonTextInput leading slot.",
+      description: "Show widget in SelenicTextInput leading slot.",
       initial: true,
     );
 
     final showTrailingKnob = context.knobs.boolean(
       label: "trailing",
-      description: "Show widget in MoonTextInput trailing slot.",
+      description: "Show widget in SelenicTextInput trailing slot.",
       initial: true,
     );
 
     final showHelperKnob = context.knobs.boolean(
       label: "helper",
-      description: "Show widget in MoonTextInput helper slot.",
+      description: "Show widget in SelenicTextInput helper slot.",
     );
 
     final BorderRadiusGeometry? borderRadius = borderRadiusKnob != null
@@ -161,7 +161,7 @@ class _TextInputStoryState extends State<TextInputStory> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MoonFormTextInput(
+                  SelenicFormTextInput(
                     controller: _textController,
                     enabled: enabledKnob,
                     textInputSize: textInputSizeKnob,
@@ -205,7 +205,7 @@ class _TextInputStoryState extends State<TextInputStory> {
                   const SizedBox(height: 16),
                   StatefulBuilder(
                     builder: (context, setState) {
-                      return MoonFormTextInput(
+                      return SelenicFormTextInput(
                         controller: _passwordController,
                         enabled: enabledKnob,
                         keyboardType: TextInputType.visiblePassword,
@@ -262,7 +262,7 @@ class _TextInputStoryState extends State<TextInputStory> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  MoonFormTextInput(
+                  SelenicFormTextInput(
                     readOnly: true,
                     controller: _dateController,
                     enabled: enabledKnob,
@@ -313,7 +313,7 @@ class _TextInputStoryState extends State<TextInputStory> {
                         showHelperKnob ? const Text("Supporting text") : null,
                   ),
                   const SizedBox(height: 32),
-                  MoonFilledButton(
+                  SelenicFilledButton(
                     label: const Text("Submit"),
                     onTap: () => Form.of(context).validate(),
                   ),

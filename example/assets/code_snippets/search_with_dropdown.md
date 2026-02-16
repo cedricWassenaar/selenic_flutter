@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 enum Options {
   accordion,
@@ -82,24 +82,24 @@ class _SearchWithDropdownState extends State<SearchWithDropdown> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: MoonDropdown(
+      child: SelenicDropdown(
         show: _showDropdown,
         distanceToTarget: 0,
         constrainWidthToChild: true,
         decoration: BoxDecoration(
-          color: context.moonColors!.goku,
+          color: context.selenicColors!.goku,
           borderRadius: const BorderRadius.vertical(bottom: Radius.circular(8.0)),
           border: Border(
-            left: BorderSide(color: context.moonColors!.beerus),
-            right: BorderSide(color: context.moonColors!.beerus),
-            bottom: BorderSide(color: context.moonColors!.beerus),
+            left: BorderSide(color: context.selenicColors!.beerus),
+            right: BorderSide(color: context.selenicColors!.beerus),
+            bottom: BorderSide(color: context.selenicColors!.beerus),
           ),
         ),
         onTapOutside: () => _handleDropdownTapOutside(),
         content: ConstrainedBox(
           constraints: const BoxConstraints(maxHeight: 200),
           child: _filteredOptionsList.isEmpty
-              ? const MoonMenuItem(
+              ? const SelenicMenuItem(
                   label: Text('No results found.'),
                 )
               : ListView.builder(
@@ -110,14 +110,14 @@ class _SearchWithDropdownState extends State<SearchWithDropdown> {
                     if (index >= _filteredOptionsList.length) return const SizedBox.shrink();
                     final Options option = _filteredOptionsList[index];
 
-                    return MoonMenuItem(
+                    return SelenicMenuItem(
                       onTap: () => _handleSelect(option),
                       label: Text(option.name),
                     );
                   },
                 ),
         ),
-        child: MoonTextInput(
+        child: SelenicTextInput(
           hintText: "Search components",
           controller: _searchController,
           borderRadius: _showDropdown ? const BorderRadius.vertical(top: Radius.circular(8)) : null,
@@ -126,13 +126,13 @@ class _SearchWithDropdownState extends State<SearchWithDropdown> {
           onTap: () => _performSearch(),
           onChanged: (String _) => _performSearch(),
           leading: const Icon(MoonIcons.generic_search_24_light),
-          trailing: MoonButton(
+          trailing: SelenicButton(
             padding: EdgeInsets.zero,
             hoverEffectColor: Colors.transparent,
             onTap: () => _handleClearButton(),
             label: Text(
               'Clear',
-              style: TextStyle(color: context.moonColors!.trunks),
+              style: TextStyle(color: context.selenicColors!.trunks),
             ),
           ),
         ),

@@ -1,35 +1,35 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonRadioColors extends ThemeExtension<MoonRadioColors>
+class SelenicRadioColors extends ThemeExtension<SelenicRadioColors>
     with DiagnosticableTreeMixin {
-  /// The color of the selected MoonRadio button.
+  /// The color of the selected SelenicRadio button.
   final Color activeColor;
 
-  /// The background color of the unselected MoonRadio button.
+  /// The background color of the unselected SelenicRadio button.
   final Color inactiveColor;
 
-  const MoonRadioColors({
+  const SelenicRadioColors({
     required this.activeColor,
     required this.inactiveColor,
   });
 
   @override
-  MoonRadioColors copyWith({Color? activeColor, Color? inactiveColor}) {
-    return MoonRadioColors(
+  SelenicRadioColors copyWith({Color? activeColor, Color? inactiveColor}) {
+    return SelenicRadioColors(
       activeColor: activeColor ?? this.activeColor,
       inactiveColor: inactiveColor ?? this.inactiveColor,
     );
   }
 
   @override
-  MoonRadioColors lerp(ThemeExtension<MoonRadioColors>? other, double t) {
-    if (other is! MoonRadioColors) return this;
+  SelenicRadioColors lerp(ThemeExtension<SelenicRadioColors>? other, double t) {
+    if (other is! SelenicRadioColors) return this;
 
-    return MoonRadioColors(
+    return SelenicRadioColors(
       activeColor: colorPremulLerp(activeColor, other.activeColor, t)!,
       inactiveColor: colorPremulLerp(inactiveColor, other.inactiveColor, t)!,
     );
@@ -39,7 +39,7 @@ class MoonRadioColors extends ThemeExtension<MoonRadioColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonRadioColors"))
+      ..add(DiagnosticsProperty("type", "SelenicRadioColors"))
       ..add(ColorProperty("activeColor", activeColor))
       ..add(ColorProperty("inactiveColor", inactiveColor));
   }

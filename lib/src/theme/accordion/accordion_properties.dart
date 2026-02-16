@@ -2,39 +2,40 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonAccordionProperties extends ThemeExtension<MoonAccordionProperties>
+class SelenicAccordionProperties
+    extends ThemeExtension<SelenicAccordionProperties>
     with DiagnosticableTreeMixin {
-  /// The duration of the MoonAccordion transition animation
+  /// The duration of the SelenicAccordion transition animation
   /// (expand and collapse).
   final Duration transitionDuration;
 
-  /// The curve of the MoonAccordion transition animation (expand and collapse).
+  /// The curve of the SelenicAccordion transition animation (expand and collapse).
   final Curve transitionCurve;
 
-  const MoonAccordionProperties({
+  const SelenicAccordionProperties({
     required this.transitionDuration,
     required this.transitionCurve,
   });
 
   @override
-  MoonAccordionProperties copyWith({
+  SelenicAccordionProperties copyWith({
     Duration? transitionDuration,
     Curve? transitionCurve,
   }) {
-    return MoonAccordionProperties(
+    return SelenicAccordionProperties(
       transitionDuration: transitionDuration ?? this.transitionDuration,
       transitionCurve: transitionCurve ?? this.transitionCurve,
     );
   }
 
   @override
-  MoonAccordionProperties lerp(
-    ThemeExtension<MoonAccordionProperties>? other,
+  SelenicAccordionProperties lerp(
+    ThemeExtension<SelenicAccordionProperties>? other,
     double t,
   ) {
-    if (other is! MoonAccordionProperties) return this;
+    if (other is! SelenicAccordionProperties) return this;
 
-    return MoonAccordionProperties(
+    return SelenicAccordionProperties(
       transitionDuration:
           lerpDuration(transitionDuration, other.transitionDuration, t),
       transitionCurve: other.transitionCurve,
@@ -46,7 +47,7 @@ class MoonAccordionProperties extends ThemeExtension<MoonAccordionProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonAccordionProperties"),
+        DiagnosticsProperty("type", "SelenicAccordionProperties"),
       )
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),

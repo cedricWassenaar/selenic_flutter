@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/loaders/circular_loader/circular_loader_size_properties.dart';
-import 'package:moon_design/src/theme/loaders/circular_loader/circular_loader_sizes.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/widgets/common/progress_indicators/circular_progress_indicator.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonCircularLoaderSize {
+import 'package:selenic_design/src/theme/loaders/circular_loader/circular_loader_size_properties.dart';
+import 'package:selenic_design/src/theme/loaders/circular_loader/circular_loader_sizes.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/widgets/common/progress_indicators/circular_progress_indicator.dart';
+
+enum SelenicCircularLoaderSize {
   x2s,
   xs,
   sm,
@@ -15,7 +16,7 @@ enum MoonCircularLoaderSize {
   lg,
 }
 
-class MoonCircularLoader extends StatelessWidget {
+class SelenicCircularLoader extends StatelessWidget {
   /// The color of the circular loader.
   final Color? color;
 
@@ -30,13 +31,13 @@ class MoonCircularLoader extends StatelessWidget {
   final double? strokeWidth;
 
   /// The size of the circular loader.
-  final MoonCircularLoaderSize? circularLoaderSize;
+  final SelenicCircularLoaderSize? circularLoaderSize;
 
   /// The shape of the end of the stroke (stroke-cap) for the circular loader.
   final StrokeCap? strokeCap;
 
-  /// Creates a Moon Design circular loader.
-  const MoonCircularLoader({
+  /// Creates a Selenic Design circular loader.
+  const SelenicCircularLoader({
     super.key,
     this.color,
     this.backgroundColor,
@@ -46,43 +47,43 @@ class MoonCircularLoader extends StatelessWidget {
     this.strokeCap,
   });
 
-  MoonCircularLoaderSizeProperties _getMoonLoaderSize(
+  SelenicCircularLoaderSizeProperties _getSelenicLoaderSize(
     BuildContext context,
-    MoonCircularLoaderSize? moonLoaderSize,
+    SelenicCircularLoaderSize? loadSize,
   ) {
-    switch (moonLoaderSize) {
-      case MoonCircularLoaderSize.x2s:
-        return context.moonTheme?.circularLoaderTheme.sizes.x2s ??
-            MoonCircularLoaderSizes(tokens: MoonTokens.light).x2s;
-      case MoonCircularLoaderSize.xs:
-        return context.moonTheme?.circularLoaderTheme.sizes.xs ??
-            MoonCircularLoaderSizes(tokens: MoonTokens.light).xs;
-      case MoonCircularLoaderSize.sm:
-        return context.moonTheme?.circularLoaderTheme.sizes.sm ??
-            MoonCircularLoaderSizes(tokens: MoonTokens.light).sm;
-      case MoonCircularLoaderSize.md:
-        return context.moonTheme?.circularLoaderTheme.sizes.md ??
-            MoonCircularLoaderSizes(tokens: MoonTokens.light).md;
-      case MoonCircularLoaderSize.lg:
-        return context.moonTheme?.circularLoaderTheme.sizes.lg ??
-            MoonCircularLoaderSizes(tokens: MoonTokens.light).lg;
+    switch (loadSize) {
+      case SelenicCircularLoaderSize.x2s:
+        return context.selenicTheme?.circularLoaderTheme.sizes.x2s ??
+            SelenicCircularLoaderSizes(tokens: SelenicTokens.light).x2s;
+      case SelenicCircularLoaderSize.xs:
+        return context.selenicTheme?.circularLoaderTheme.sizes.xs ??
+            SelenicCircularLoaderSizes(tokens: SelenicTokens.light).xs;
+      case SelenicCircularLoaderSize.sm:
+        return context.selenicTheme?.circularLoaderTheme.sizes.sm ??
+            SelenicCircularLoaderSizes(tokens: SelenicTokens.light).sm;
+      case SelenicCircularLoaderSize.md:
+        return context.selenicTheme?.circularLoaderTheme.sizes.md ??
+            SelenicCircularLoaderSizes(tokens: SelenicTokens.light).md;
+      case SelenicCircularLoaderSize.lg:
+        return context.selenicTheme?.circularLoaderTheme.sizes.lg ??
+            SelenicCircularLoaderSizes(tokens: SelenicTokens.light).lg;
       default:
-        return context.moonTheme?.circularLoaderTheme.sizes.md ??
-            MoonCircularLoaderSizes(tokens: MoonTokens.light).md;
+        return context.selenicTheme?.circularLoaderTheme.sizes.md ??
+            SelenicCircularLoaderSizes(tokens: SelenicTokens.light).md;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final MoonCircularLoaderSizeProperties effectiveLoaderSize =
-        _getMoonLoaderSize(context, circularLoaderSize);
+    final SelenicCircularLoaderSizeProperties effectiveLoaderSize =
+        _getSelenicLoaderSize(context, circularLoaderSize);
 
     final Color effectiveColor = color ??
-        context.moonTheme?.circularLoaderTheme.colors.color ??
+        context.selenicTheme?.circularLoaderTheme.colors.color ??
         MoonColors.light.piccolo;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.circularLoaderTheme.colors.backgroundColor ??
+        context.selenicTheme?.circularLoaderTheme.colors.backgroundColor ??
         Colors.transparent;
 
     final double effectiveSize =
@@ -96,7 +97,7 @@ class MoonCircularLoader extends StatelessWidget {
     return SizedBox(
       height: effectiveSize,
       width: effectiveSize,
-      child: MoonCircularProgressIndicator(
+      child: SelenicCircularProgressIndicator(
         color: effectiveColor,
         backgroundColor: effectiveBackgroundColor,
         strokeWidth: effectiveStrokeWidth,

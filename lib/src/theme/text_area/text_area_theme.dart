@@ -1,28 +1,28 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/text_area/text_area_colors.dart';
-import 'package:moon_design/src/theme/text_area/text_area_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/text_area/text_area_colors.dart';
+import 'package:selenic_design/src/theme/text_area/text_area_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonTextAreaTheme extends ThemeExtension<MoonTextAreaTheme>
+class SelenicTextAreaTheme extends ThemeExtension<SelenicTextAreaTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonTextArea.
-  final MoonTextAreaColors colors;
+  /// The colors of the SelenicTextArea.
+  final SelenicTextAreaColors colors;
 
-  /// The properties of the MoonTextArea.
-  final MoonTextAreaProperties properties;
+  /// The properties of the SelenicTextArea.
+  final SelenicTextAreaProperties properties;
 
-  MoonTextAreaTheme({
+  SelenicTextAreaTheme({
     required this.tokens,
-    MoonTextAreaColors? colors,
-    MoonTextAreaProperties? properties,
+    SelenicTextAreaColors? colors,
+    SelenicTextAreaProperties? properties,
   })  : colors = colors ??
-            MoonTextAreaColors(
+            SelenicTextAreaColors(
               backgroundColor: tokens.colors.goku,
               activeBorderColor: tokens.colors.piccolo,
               inactiveBorderColor: tokens.colors.beerus,
@@ -32,7 +32,7 @@ class MoonTextAreaTheme extends ThemeExtension<MoonTextAreaTheme>
               helperTextColor: tokens.colors.trunks,
             ),
         properties = properties ??
-            MoonTextAreaProperties(
+            SelenicTextAreaProperties(
               borderRadius: tokens.borders.interactiveSm,
               transitionDuration: tokens.transitions.defaultTransitionDuration,
               transitionCurve: tokens.transitions.defaultTransitionCurve,
@@ -43,12 +43,12 @@ class MoonTextAreaTheme extends ThemeExtension<MoonTextAreaTheme>
             );
 
   @override
-  MoonTextAreaTheme copyWith({
-    MoonTokens? tokens,
-    MoonTextAreaColors? colors,
-    MoonTextAreaProperties? properties,
+  SelenicTextAreaTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicTextAreaColors? colors,
+    SelenicTextAreaProperties? properties,
   }) {
-    return MoonTextAreaTheme(
+    return SelenicTextAreaTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -56,10 +56,11 @@ class MoonTextAreaTheme extends ThemeExtension<MoonTextAreaTheme>
   }
 
   @override
-  MoonTextAreaTheme lerp(ThemeExtension<MoonTextAreaTheme>? other, double t) {
-    if (other is! MoonTextAreaTheme) return this;
+  SelenicTextAreaTheme lerp(
+      ThemeExtension<SelenicTextAreaTheme>? other, double t) {
+    if (other is! SelenicTextAreaTheme) return this;
 
-    return MoonTextAreaTheme(
+    return SelenicTextAreaTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -70,11 +71,12 @@ class MoonTextAreaTheme extends ThemeExtension<MoonTextAreaTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonTextAreaTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonTextAreaColors>("colors", colors))
+      ..add(DiagnosticsProperty("type", "SelenicTextAreaTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicTextAreaColors>("colors", colors))
       ..add(
-        DiagnosticsProperty<MoonTextAreaProperties>("properties", properties),
+        DiagnosticsProperty<SelenicTextAreaProperties>(
+            "properties", properties),
       );
   }
 }

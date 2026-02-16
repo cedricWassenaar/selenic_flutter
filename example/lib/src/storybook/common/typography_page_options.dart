@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
-enum MoonTextStyle {
+enum SelenicTextStyle {
   body,
   heading,
 }
 
-enum MoonTextSize {
+enum SelenicTextSize {
   size6,
   size8,
   size9,
@@ -31,44 +31,44 @@ enum MoonTextSize {
   }
 }
 
-TextStyle getBodyTextStyle(BuildContext context, MoonTextSize textSize) =>
+TextStyle getBodyTextStyle(BuildContext context, SelenicTextSize textSize) =>
     switch (textSize) {
-      MoonTextSize.size6 => context.moonTypography!.body.text6,
-      MoonTextSize.size8 => context.moonTypography!.body.text8,
-      MoonTextSize.size9 => context.moonTypography!.body.text9,
-      MoonTextSize.size10 => context.moonTypography!.body.text10,
-      MoonTextSize.size12 => context.moonTypography!.body.text12,
-      MoonTextSize.size14 => context.moonTypography!.body.text14,
-      MoonTextSize.size16 => context.moonTypography!.body.text16,
-      MoonTextSize.size18 => context.moonTypography!.body.text18,
-      MoonTextSize.size20 => context.moonTypography!.body.text20,
-      MoonTextSize.size24 => context.moonTypography!.body.text24,
-      MoonTextSize.size32 => context.moonTypography!.body.text32,
-      MoonTextSize.size40 => context.moonTypography!.body.text40,
-      MoonTextSize.size48 => context.moonTypography!.body.text48,
-      MoonTextSize.size56 => context.moonTypography!.body.text56,
-      MoonTextSize.size64 => context.moonTypography!.body.text64,
-      MoonTextSize.size72 => context.moonTypography!.body.text72,
+      SelenicTextSize.size6 => context.selenicTypography!.body.text6,
+      SelenicTextSize.size8 => context.selenicTypography!.body.text8,
+      SelenicTextSize.size9 => context.selenicTypography!.body.text9,
+      SelenicTextSize.size10 => context.selenicTypography!.body.text10,
+      SelenicTextSize.size12 => context.selenicTypography!.body.text12,
+      SelenicTextSize.size14 => context.selenicTypography!.body.text14,
+      SelenicTextSize.size16 => context.selenicTypography!.body.text16,
+      SelenicTextSize.size18 => context.selenicTypography!.body.text18,
+      SelenicTextSize.size20 => context.selenicTypography!.body.text20,
+      SelenicTextSize.size24 => context.selenicTypography!.body.text24,
+      SelenicTextSize.size32 => context.selenicTypography!.body.text32,
+      SelenicTextSize.size40 => context.selenicTypography!.body.text40,
+      SelenicTextSize.size48 => context.selenicTypography!.body.text48,
+      SelenicTextSize.size56 => context.selenicTypography!.body.text56,
+      SelenicTextSize.size64 => context.selenicTypography!.body.text64,
+      SelenicTextSize.size72 => context.selenicTypography!.body.text72,
     };
 
-TextStyle getHeadingTextStyle(BuildContext context, MoonTextSize textSize) =>
+TextStyle getHeadingTextStyle(BuildContext context, SelenicTextSize textSize) =>
     switch (textSize) {
-      MoonTextSize.size6 => context.moonTypography!.heading.text6,
-      MoonTextSize.size8 => context.moonTypography!.heading.text8,
-      MoonTextSize.size9 => context.moonTypography!.heading.text9,
-      MoonTextSize.size10 => context.moonTypography!.heading.text10,
-      MoonTextSize.size12 => context.moonTypography!.heading.text12,
-      MoonTextSize.size14 => context.moonTypography!.heading.text14,
-      MoonTextSize.size16 => context.moonTypography!.heading.text16,
-      MoonTextSize.size18 => context.moonTypography!.heading.text18,
-      MoonTextSize.size20 => context.moonTypography!.heading.text20,
-      MoonTextSize.size24 => context.moonTypography!.heading.text24,
-      MoonTextSize.size32 => context.moonTypography!.heading.text32,
-      MoonTextSize.size40 => context.moonTypography!.heading.text40,
-      MoonTextSize.size48 => context.moonTypography!.heading.text48,
-      MoonTextSize.size56 => context.moonTypography!.heading.text56,
-      MoonTextSize.size64 => context.moonTypography!.heading.text64,
-      MoonTextSize.size72 => context.moonTypography!.heading.text72,
+      SelenicTextSize.size6 => context.selenicTypography!.heading.text6,
+      SelenicTextSize.size8 => context.selenicTypography!.heading.text8,
+      SelenicTextSize.size9 => context.selenicTypography!.heading.text9,
+      SelenicTextSize.size10 => context.selenicTypography!.heading.text10,
+      SelenicTextSize.size12 => context.selenicTypography!.heading.text12,
+      SelenicTextSize.size14 => context.selenicTypography!.heading.text14,
+      SelenicTextSize.size16 => context.selenicTypography!.heading.text16,
+      SelenicTextSize.size18 => context.selenicTypography!.heading.text18,
+      SelenicTextSize.size20 => context.selenicTypography!.heading.text20,
+      SelenicTextSize.size24 => context.selenicTypography!.heading.text24,
+      SelenicTextSize.size32 => context.selenicTypography!.heading.text32,
+      SelenicTextSize.size40 => context.selenicTypography!.heading.text40,
+      SelenicTextSize.size48 => context.selenicTypography!.heading.text48,
+      SelenicTextSize.size56 => context.selenicTypography!.heading.text56,
+      SelenicTextSize.size64 => context.selenicTypography!.heading.text64,
+      SelenicTextSize.size72 => context.selenicTypography!.heading.text72,
     };
 
 enum TypographyPageSection {

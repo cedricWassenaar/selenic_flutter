@@ -110,7 +110,7 @@ enum Component {
         dropdown =>
           "Dropdown list allows users to choose one value from a menu by clicking.",
         icons =>
-          'Commonly used interface icons provided by Moon Design System.',
+          'Commonly used interface icons provided by Selenic Design System.',
         linearLoader =>
           "Loaders provide visual feedback for in-progress tasks.",
         linearProgress =>

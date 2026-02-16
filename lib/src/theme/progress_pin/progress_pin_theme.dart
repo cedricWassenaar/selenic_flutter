@@ -1,28 +1,28 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/progress_pin/progress_pin_colors.dart';
-import 'package:moon_design/src/theme/progress_pin/progress_pin_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/progress_pin/progress_pin_colors.dart';
+import 'package:selenic_design/src/theme/progress_pin/progress_pin_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonProgressPinTheme extends ThemeExtension<MoonProgressPinTheme>
+class SelenicProgressPinTheme extends ThemeExtension<SelenicProgressPinTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonProgressPin.
-  final MoonProgressPinColors colors;
+  /// The colors of the SelenicProgressPin.
+  final SelenicProgressPinColors colors;
 
-  /// The properties of the MoonProgressPin.
-  final MoonProgressPinProperties properties;
+  /// The properties of the SelenicProgressPin.
+  final SelenicProgressPinProperties properties;
 
-  MoonProgressPinTheme({
+  SelenicProgressPinTheme({
     required this.tokens,
-    MoonProgressPinColors? colors,
-    MoonProgressPinProperties? properties,
+    SelenicProgressPinColors? colors,
+    SelenicProgressPinProperties? properties,
   })  : colors = colors ??
-            MoonProgressPinColors(
+            SelenicProgressPinColors(
               pinColor: tokens.colors.popo,
               pinBorderColor: tokens.colors.goten,
               thumbColor: tokens.colors.goten,
@@ -30,7 +30,7 @@ class MoonProgressPinTheme extends ThemeExtension<MoonProgressPinTheme>
               textColor: tokens.colors.goten,
             ),
         properties = properties ??
-            MoonProgressPinProperties(
+            SelenicProgressPinProperties(
               arrowHeight: 6,
               arrowWidth: tokens.sizes.x4s,
               pinDistance: tokens.sizes.x5s,
@@ -41,12 +41,12 @@ class MoonProgressPinTheme extends ThemeExtension<MoonProgressPinTheme>
             );
 
   @override
-  MoonProgressPinTheme copyWith({
-    MoonTokens? tokens,
-    MoonProgressPinColors? colors,
-    MoonProgressPinProperties? properties,
+  SelenicProgressPinTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicProgressPinColors? colors,
+    SelenicProgressPinProperties? properties,
   }) {
-    return MoonProgressPinTheme(
+    return SelenicProgressPinTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -54,13 +54,13 @@ class MoonProgressPinTheme extends ThemeExtension<MoonProgressPinTheme>
   }
 
   @override
-  MoonProgressPinTheme lerp(
-    ThemeExtension<MoonProgressPinTheme>? other,
+  SelenicProgressPinTheme lerp(
+    ThemeExtension<SelenicProgressPinTheme>? other,
     double t,
   ) {
-    if (other is! MoonProgressPinTheme) return this;
+    if (other is! SelenicProgressPinTheme) return this;
 
-    return MoonProgressPinTheme(
+    return SelenicProgressPinTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -71,11 +71,11 @@ class MoonProgressPinTheme extends ThemeExtension<MoonProgressPinTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonProgressPinTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonProgressPinColors>("colors", colors))
+      ..add(DiagnosticsProperty("type", "SelenicProgressPinTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicProgressPinColors>("colors", colors))
       ..add(
-        DiagnosticsProperty<MoonProgressPinProperties>(
+        DiagnosticsProperty<SelenicProgressPinProperties>(
           "properties",
           properties,
         ),

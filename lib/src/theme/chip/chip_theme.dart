@@ -1,42 +1,42 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/chip/chip_colors.dart';
-import 'package:moon_design/src/theme/chip/chip_sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/chip/chip_colors.dart';
+import 'package:selenic_design/src/theme/chip/chip_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonChipTheme extends ThemeExtension<MoonChipTheme>
+class SelenicChipTheme extends ThemeExtension<SelenicChipTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonChip.
-  final MoonChipColors colors;
+  /// The colors of the SelenicChip.
+  final SelenicChipColors colors;
 
-  /// The sizes of the MoonChip.
-  final MoonChipSizes sizes;
+  /// The sizes of the SelenicChip.
+  final SelenicChipSizes sizes;
 
-  MoonChipTheme({
+  SelenicChipTheme({
     required this.tokens,
-    MoonChipColors? colors,
-    MoonChipSizes? sizes,
+    SelenicChipColors? colors,
+    SelenicChipSizes? sizes,
   })  : colors = colors ??
-            MoonChipColors(
+            SelenicChipColors(
               activeColor: tokens.colors.piccolo,
               backgroundColor: tokens.colors.goku,
               activeBackgroundColor: tokens.colors.jiren,
               textColor: tokens.colors.textPrimary,
             ),
-        sizes = sizes ?? MoonChipSizes(tokens: tokens);
+        sizes = sizes ?? SelenicChipSizes(tokens: tokens);
 
   @override
-  MoonChipTheme copyWith({
-    MoonTokens? tokens,
-    MoonChipColors? colors,
-    MoonChipSizes? sizes,
+  SelenicChipTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicChipColors? colors,
+    SelenicChipSizes? sizes,
   }) {
-    return MoonChipTheme(
+    return SelenicChipTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       sizes: sizes ?? this.sizes,
@@ -44,10 +44,10 @@ class MoonChipTheme extends ThemeExtension<MoonChipTheme>
   }
 
   @override
-  MoonChipTheme lerp(ThemeExtension<MoonChipTheme>? other, double t) {
-    if (other is! MoonChipTheme) return this;
+  SelenicChipTheme lerp(ThemeExtension<SelenicChipTheme>? other, double t) {
+    if (other is! SelenicChipTheme) return this;
 
-    return MoonChipTheme(
+    return SelenicChipTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       sizes: sizes.lerp(other.sizes, t),
@@ -58,9 +58,9 @@ class MoonChipTheme extends ThemeExtension<MoonChipTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonChipTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonChipColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonChipSizes>("sizes", sizes));
+      ..add(DiagnosticsProperty("type", "SelenicChipTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicChipColors>("colors", colors))
+      ..add(DiagnosticsProperty<SelenicChipSizes>("sizes", sizes));
   }
 }

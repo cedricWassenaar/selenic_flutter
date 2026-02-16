@@ -1,24 +1,24 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonModalColors extends ThemeExtension<MoonModalColors>
+class SelenicModalColors extends ThemeExtension<SelenicModalColors>
     with DiagnosticableTreeMixin {
-  /// The text color of the MoonModal.
+  /// The text color of the SelenicModal.
   final Color textColor;
 
-  /// The icon color of the MoonModal.
+  /// The icon color of the SelenicModal.
   final Color iconColor;
 
-  /// The background color of the MoonModal.
+  /// The background color of the SelenicModal.
   final Color backgroundColor;
 
-  /// The color of the MoonModal barrier.
+  /// The color of the SelenicModal barrier.
   final Color barrierColor;
 
-  const MoonModalColors({
+  const SelenicModalColors({
     required this.textColor,
     required this.iconColor,
     required this.backgroundColor,
@@ -26,13 +26,13 @@ class MoonModalColors extends ThemeExtension<MoonModalColors>
   });
 
   @override
-  MoonModalColors copyWith({
+  SelenicModalColors copyWith({
     Color? textColor,
     Color? iconColor,
     Color? backgroundColor,
     Color? barrierColor,
   }) {
-    return MoonModalColors(
+    return SelenicModalColors(
       textColor: textColor ?? this.textColor,
       iconColor: iconColor ?? this.iconColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -41,10 +41,10 @@ class MoonModalColors extends ThemeExtension<MoonModalColors>
   }
 
   @override
-  MoonModalColors lerp(ThemeExtension<MoonModalColors>? other, double t) {
-    if (other is! MoonModalColors) return this;
+  SelenicModalColors lerp(ThemeExtension<SelenicModalColors>? other, double t) {
+    if (other is! SelenicModalColors) return this;
 
-    return MoonModalColors(
+    return SelenicModalColors(
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
       iconColor: colorPremulLerp(iconColor, other.iconColor, t)!,
       backgroundColor:
@@ -57,7 +57,7 @@ class MoonModalColors extends ThemeExtension<MoonModalColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonModalColors"))
+      ..add(DiagnosticsProperty("type", "SelenicModalColors"))
       ..add(ColorProperty("textColor", textColor))
       ..add(ColorProperty("iconColor", iconColor))
       ..add(ColorProperty("backgroundColor", backgroundColor))

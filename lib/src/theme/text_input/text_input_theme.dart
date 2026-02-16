@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/text_input/text_input_colors.dart';
-import 'package:moon_design/src/theme/text_input/text_input_properties.dart';
-import 'package:moon_design/src/theme/text_input/text_input_sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/text_input/text_input_colors.dart';
+import 'package:selenic_design/src/theme/text_input/text_input_properties.dart';
+import 'package:selenic_design/src/theme/text_input/text_input_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonTextInputTheme extends ThemeExtension<MoonTextInputTheme>
+class SelenicTextInputTheme extends ThemeExtension<SelenicTextInputTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonTextInput.
-  final MoonTextInputColors colors;
+  /// The colors of the SelenicTextInput.
+  final SelenicTextInputColors colors;
 
-  /// The properties of the MoonTextInput.
-  final MoonTextInputProperties properties;
+  /// The properties of the SelenicTextInput.
+  final SelenicTextInputProperties properties;
 
-  /// The sizes of the MoonTextInput.
-  final MoonTextInputSizes sizes;
+  /// The sizes of the SelenicTextInput.
+  final SelenicTextInputSizes sizes;
 
-  MoonTextInputTheme({
+  SelenicTextInputTheme({
     required this.tokens,
-    MoonTextInputColors? colors,
-    MoonTextInputProperties? properties,
-    MoonTextInputSizes? sizes,
+    SelenicTextInputColors? colors,
+    SelenicTextInputProperties? properties,
+    SelenicTextInputSizes? sizes,
   })  : colors = colors ??
-            MoonTextInputColors(
+            SelenicTextInputColors(
               backgroundColor: tokens.colors.goku,
               activeBorderColor: tokens.colors.piccolo,
               inactiveBorderColor: tokens.colors.beerus,
@@ -37,7 +37,7 @@ class MoonTextInputTheme extends ThemeExtension<MoonTextInputTheme>
               helperTextColor: tokens.colors.textSecondary,
             ),
         properties = properties ??
-            MoonTextInputProperties(
+            SelenicTextInputProperties(
               // The duration value extracted from:
               // https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/textfield/TextInputLayout.java
               transitionDuration: const Duration(milliseconds: 167),
@@ -45,16 +45,16 @@ class MoonTextInputTheme extends ThemeExtension<MoonTextInputTheme>
               helperPadding: EdgeInsets.only(top: tokens.sizes.x4s),
               helperTextStyle: tokens.typography.body.text12,
             ),
-        sizes = sizes ?? MoonTextInputSizes(tokens: tokens);
+        sizes = sizes ?? SelenicTextInputSizes(tokens: tokens);
 
   @override
-  MoonTextInputTheme copyWith({
-    MoonTokens? tokens,
-    MoonTextInputColors? colors,
-    MoonTextInputProperties? properties,
-    MoonTextInputSizes? sizes,
+  SelenicTextInputTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicTextInputColors? colors,
+    SelenicTextInputProperties? properties,
+    SelenicTextInputSizes? sizes,
   }) {
-    return MoonTextInputTheme(
+    return SelenicTextInputTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -63,10 +63,11 @@ class MoonTextInputTheme extends ThemeExtension<MoonTextInputTheme>
   }
 
   @override
-  MoonTextInputTheme lerp(ThemeExtension<MoonTextInputTheme>? other, double t) {
-    if (other is! MoonTextInputTheme) return this;
+  SelenicTextInputTheme lerp(
+      ThemeExtension<SelenicTextInputTheme>? other, double t) {
+    if (other is! SelenicTextInputTheme) return this;
 
-    return MoonTextInputTheme(
+    return SelenicTextInputTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -79,19 +80,20 @@ class MoonTextInputTheme extends ThemeExtension<MoonTextInputTheme>
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
       ..add(
-        DiagnosticsProperty("type", "MoonTextInputTheme"),
+        DiagnosticsProperty("type", "SelenicTextInputTheme"),
       )
       ..add(
-        DiagnosticsProperty<MoonTokens>("tokens", tokens),
+        DiagnosticsProperty<SelenicTokens>("tokens", tokens),
       )
       ..add(
-        DiagnosticsProperty<MoonTextInputColors>("colors", colors),
+        DiagnosticsProperty<SelenicTextInputColors>("colors", colors),
       )
       ..add(
-        DiagnosticsProperty<MoonTextInputProperties>("properties", properties),
+        DiagnosticsProperty<SelenicTextInputProperties>(
+            "properties", properties),
       )
       ..add(
-        DiagnosticsProperty<MoonTextInputSizes>("sizes", sizes),
+        DiagnosticsProperty<SelenicTextInputSizes>("sizes", sizes),
       );
   }
 }

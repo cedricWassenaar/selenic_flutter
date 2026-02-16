@@ -1,35 +1,35 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/text_input/text_input_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/text_input/text_input_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonTextInputSizes extends ThemeExtension<MoonTextInputSizes>
+class SelenicTextInputSizes extends ThemeExtension<SelenicTextInputSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the small MoonTextInput.
-  final MoonTextInputSizeProperties sm;
+  /// The properties of the small SelenicTextInput.
+  final SelenicTextInputSizeProperties sm;
 
-  /// The properties of the medium MoonTextInput.
-  final MoonTextInputSizeProperties md;
+  /// The properties of the medium SelenicTextInput.
+  final SelenicTextInputSizeProperties md;
 
-  /// The properties of the large MoonTextInput.
-  final MoonTextInputSizeProperties lg;
+  /// The properties of the large SelenicTextInput.
+  final SelenicTextInputSizeProperties lg;
 
-  /// The properties of the extra large MoonTextInput.
-  final MoonTextInputSizeProperties xl;
+  /// The properties of the extra large SelenicTextInput.
+  final SelenicTextInputSizeProperties xl;
 
-  MoonTextInputSizes({
+  SelenicTextInputSizes({
     required this.tokens,
-    MoonTextInputSizeProperties? sm,
-    MoonTextInputSizeProperties? md,
-    MoonTextInputSizeProperties? lg,
-    MoonTextInputSizeProperties? xl,
+    SelenicTextInputSizeProperties? sm,
+    SelenicTextInputSizeProperties? md,
+    SelenicTextInputSizeProperties? lg,
+    SelenicTextInputSizeProperties? xl,
   })  : sm = sm ??
-            MoonTextInputSizeProperties(
+            SelenicTextInputSizeProperties(
               borderRadius: tokens.borders.interactiveXs,
               height: tokens.sizes.sm,
               gap: tokens.sizes.x4s,
@@ -41,7 +41,7 @@ class MoonTextInputSizes extends ThemeExtension<MoonTextInputSizes>
               textStyle: tokens.typography.body.textDefault,
             ),
         md = md ??
-            MoonTextInputSizeProperties(
+            SelenicTextInputSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               height: tokens.sizes.md,
               gap: tokens.sizes.x4s,
@@ -53,7 +53,7 @@ class MoonTextInputSizes extends ThemeExtension<MoonTextInputSizes>
               textStyle: tokens.typography.body.textDefault,
             ),
         lg = lg ??
-            MoonTextInputSizeProperties(
+            SelenicTextInputSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               height: tokens.sizes.lg,
               gap: tokens.sizes.x4s,
@@ -65,7 +65,7 @@ class MoonTextInputSizes extends ThemeExtension<MoonTextInputSizes>
               textStyle: tokens.typography.body.text16,
             ),
         xl = xl ??
-            MoonTextInputSizeProperties(
+            SelenicTextInputSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               height: tokens.sizes.xl,
               gap: tokens.sizes.x2s,
@@ -78,14 +78,14 @@ class MoonTextInputSizes extends ThemeExtension<MoonTextInputSizes>
             );
 
   @override
-  MoonTextInputSizes copyWith({
-    MoonTokens? tokens,
-    MoonTextInputSizeProperties? sm,
-    MoonTextInputSizeProperties? md,
-    MoonTextInputSizeProperties? lg,
-    MoonTextInputSizeProperties? xl,
+  SelenicTextInputSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicTextInputSizeProperties? sm,
+    SelenicTextInputSizeProperties? md,
+    SelenicTextInputSizeProperties? lg,
+    SelenicTextInputSizeProperties? xl,
   }) {
-    return MoonTextInputSizes(
+    return SelenicTextInputSizes(
       tokens: tokens ?? this.tokens,
       sm: sm ?? this.sm,
       md: md ?? this.md,
@@ -95,10 +95,11 @@ class MoonTextInputSizes extends ThemeExtension<MoonTextInputSizes>
   }
 
   @override
-  MoonTextInputSizes lerp(ThemeExtension<MoonTextInputSizes>? other, double t) {
-    if (other is! MoonTextInputSizes) return this;
+  SelenicTextInputSizes lerp(
+      ThemeExtension<SelenicTextInputSizes>? other, double t) {
+    if (other is! SelenicTextInputSizes) return this;
 
-    return MoonTextInputSizes(
+    return SelenicTextInputSizes(
       tokens: tokens.lerp(other.tokens, t),
       sm: sm.lerp(other.sm, t),
       md: md.lerp(other.md, t),
@@ -111,11 +112,11 @@ class MoonTextInputSizes extends ThemeExtension<MoonTextInputSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonTextInputSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonTextInputSizeProperties>("sm", sm))
-      ..add(DiagnosticsProperty<MoonTextInputSizeProperties>("md", md))
-      ..add(DiagnosticsProperty<MoonTextInputSizeProperties>("lg", lg))
-      ..add(DiagnosticsProperty<MoonTextInputSizeProperties>("xl", xl));
+      ..add(DiagnosticsProperty("type", "SelenicTextInputSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicTextInputSizeProperties>("sm", sm))
+      ..add(DiagnosticsProperty<SelenicTextInputSizeProperties>("md", md))
+      ..add(DiagnosticsProperty<SelenicTextInputSizeProperties>("lg", lg))
+      ..add(DiagnosticsProperty<SelenicTextInputSizeProperties>("xl", xl));
   }
 }

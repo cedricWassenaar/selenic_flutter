@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class DotIndicatorStory extends StatefulWidget {
@@ -19,7 +19,7 @@ class _DotIndicatorStoryState extends State<DotIndicatorStory> {
   Widget build(BuildContext context) {
     final selectedColorKnob = context.knobs.nullable.options(
       label: "selectedColor",
-      description: "MoonColors variants for MoonDotIndicator selected dot.",
+      description: "MoonColors variants for SelenicDotIndicator selected dot.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -30,7 +30,8 @@ class _DotIndicatorStoryState extends State<DotIndicatorStory> {
 
     final unselectedColorKnob = context.knobs.nullable.options(
       label: "unselectedColor",
-      description: "MoonColors variants for MoonDotIndicator unselected dot.",
+      description:
+          "MoonColors variants for SelenicDotIndicator unselected dot.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -41,7 +42,7 @@ class _DotIndicatorStoryState extends State<DotIndicatorStory> {
 
     final sizeKnob = context.knobs.nullable.sliderInt(
       label: "size",
-      description: "Dot size for MoonDotIndicator.",
+      description: "Dot size for SelenicDotIndicator.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -49,7 +50,7 @@ class _DotIndicatorStoryState extends State<DotIndicatorStory> {
 
     final gapKnob = context.knobs.nullable.sliderInt(
       label: "gap",
-      description: "Gap between MoonDotIndicator dots.",
+      description: "Gap between SelenicDotIndicator dots.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -61,7 +62,7 @@ class _DotIndicatorStoryState extends State<DotIndicatorStory> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MoonDotIndicator(
+            SelenicDotIndicator(
               selectedDot: _selectedDot,
               dotCount: 4,
               size: sizeKnob?.toDouble(),
@@ -76,7 +77,7 @@ class _DotIndicatorStoryState extends State<DotIndicatorStory> {
                 4,
                 (int index) => Padding(
                   padding: EdgeInsets.only(right: index != 3 ? 8.0 : 0),
-                  child: MoonFilledButton(
+                  child: SelenicFilledButton(
                     label: Text("${index + 1}"),
                     onTap: () => setState(() => _selectedDot = index),
                   ),

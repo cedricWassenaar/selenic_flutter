@@ -2,9 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTransitions extends ThemeExtension<MoonTransitions>
+class SelenicTransitions extends ThemeExtension<SelenicTransitions>
     with DiagnosticableTreeMixin {
-  static const transitions = MoonTransitions(
+  static const transitions = SelenicTransitions(
     defaultTransitionDuration: Duration(milliseconds: 200),
     defaultTransitionCurve: Curves.easeInOutCubic,
   );
@@ -15,17 +15,17 @@ class MoonTransitions extends ThemeExtension<MoonTransitions>
   /// The default transition curve.
   final Curve defaultTransitionCurve;
 
-  const MoonTransitions({
+  const SelenicTransitions({
     required this.defaultTransitionDuration,
     required this.defaultTransitionCurve,
   });
 
   @override
-  MoonTransitions copyWith({
+  SelenicTransitions copyWith({
     Duration? defaultTransitionDuration,
     Curve? defaultTransitionCurve,
   }) {
-    return MoonTransitions(
+    return SelenicTransitions(
       defaultTransitionDuration:
           defaultTransitionDuration ?? this.defaultTransitionDuration,
       defaultTransitionCurve:
@@ -34,10 +34,10 @@ class MoonTransitions extends ThemeExtension<MoonTransitions>
   }
 
   @override
-  MoonTransitions lerp(ThemeExtension<MoonTransitions>? other, double t) {
-    if (other is! MoonTransitions) return this;
+  SelenicTransitions lerp(ThemeExtension<SelenicTransitions>? other, double t) {
+    if (other is! SelenicTransitions) return this;
 
-    return MoonTransitions(
+    return SelenicTransitions(
       defaultTransitionDuration: lerpDuration(
         defaultTransitionDuration,
         other.defaultTransitionDuration,
@@ -54,7 +54,7 @@ class MoonTransitions extends ThemeExtension<MoonTransitions>
       ..add(
         DiagnosticsProperty(
           "type",
-          "MoonTransitions",
+          "SelenicTransitions",
         ),
       )
       ..add(

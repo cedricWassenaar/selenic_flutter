@@ -4,31 +4,32 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTabBarSizeProperties extends ThemeExtension<MoonTabBarSizeProperties>
+class SelenicTabBarSizeProperties
+    extends ThemeExtension<SelenicTabBarSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonTabBar pill tab.
+  /// The border radius of the SelenicTabBar pill tab.
   final BorderRadiusGeometry borderRadius;
 
-  /// The height of the MoonTabBar.
+  /// The height of the SelenicTabBar.
   final double height;
 
-  /// The size value of the MoonTabBar icon.
+  /// The size value of the SelenicTabBar icon.
   final double iconSizeValue;
 
-  /// The height of the MoonTabBar tab indicator.
+  /// The height of the SelenicTabBar tab indicator.
   final double indicatorHeight;
 
   /// The horizontal gap between the leading, label and trailing widgets of the
-  /// MoonTabBar tab.
+  /// SelenicTabBar tab.
   final double tabGap;
 
-  /// The padding of the MoonTabBar tab.
+  /// The padding of the SelenicTabBar tab.
   final EdgeInsetsGeometry tabPadding;
 
-  /// The text style of the MoonTabBar.
+  /// The text style of the SelenicTabBar.
   final TextStyle textStyle;
 
-  const MoonTabBarSizeProperties({
+  const SelenicTabBarSizeProperties({
     required this.borderRadius,
     required this.height,
     required this.iconSizeValue,
@@ -39,7 +40,7 @@ class MoonTabBarSizeProperties extends ThemeExtension<MoonTabBarSizeProperties>
   });
 
   @override
-  MoonTabBarSizeProperties copyWith({
+  SelenicTabBarSizeProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? height,
     double? iconSizeValue,
@@ -48,7 +49,7 @@ class MoonTabBarSizeProperties extends ThemeExtension<MoonTabBarSizeProperties>
     EdgeInsetsGeometry? tabPadding,
     TextStyle? textStyle,
   }) {
-    return MoonTabBarSizeProperties(
+    return SelenicTabBarSizeProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       height: height ?? this.height,
       iconSizeValue: iconSizeValue ?? this.iconSizeValue,
@@ -60,13 +61,13 @@ class MoonTabBarSizeProperties extends ThemeExtension<MoonTabBarSizeProperties>
   }
 
   @override
-  MoonTabBarSizeProperties lerp(
-    ThemeExtension<MoonTabBarSizeProperties>? other,
+  SelenicTabBarSizeProperties lerp(
+    ThemeExtension<SelenicTabBarSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonTabBarSizeProperties) return this;
+    if (other is! SelenicTabBarSizeProperties) return this;
 
-    return MoonTabBarSizeProperties(
+    return SelenicTabBarSizeProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       height: lerpDouble(height, other.height, t)!,
@@ -83,7 +84,7 @@ class MoonTabBarSizeProperties extends ThemeExtension<MoonTabBarSizeProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonTabBarSizeProperties"),
+        DiagnosticsProperty("type", "SelenicTabBarSizeProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/component_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 enum _Section { input, dropdown }
@@ -77,7 +77,7 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
   Widget build(BuildContext context) {
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for MoonTextInput active border.",
+      description: "MoonColors variants for SelenicTextInput active border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -88,7 +88,7 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for MoonTextInput inactive border.",
+      description: "MoonColors variants for SelenicTextInput inactive border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -100,7 +100,7 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
 
     final hoverBorderColorKnob = context.knobs.nullable.options(
       label: "hoverBorderColor",
-      description: "MoonColors variants for MoonTextInput border on hover.",
+      description: "MoonColors variants for SelenicTextInput border on hover.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -111,7 +111,7 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonTextInput background.",
+      description: "MoonColors variants for SelenicTextInput background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -122,7 +122,7 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonTextInput and MoonDropdown",
+      description: "Border radius for SelenicTextInput and SelenicDropdown",
       enabled: false,
       initial: 8,
       max: 32,
@@ -138,19 +138,20 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
 
     final showShadowKnob = context.knobs.boolean(
       label: "Show shadow",
-      description: "Show shadows for MoonDropdown.",
+      description: "Show shadows for SelenicDropdown.",
       initial: true,
     );
 
     final enabledKnob = context.knobs.boolean(
       label: "enabled",
-      description: "Switch between MoonTextInput enabled and disabled states.",
+      description:
+          "Switch between SelenicTextInput enabled and disabled states.",
       initial: true,
     );
 
     final hasFloatingLabelKnob = context.knobs.boolean(
       label: "hasFloatingLabel",
-      description: "Whether MoonTextInput has floating label.",
+      description: "Whether SelenicTextInput has floating label.",
     );
 
     BorderRadiusGeometry? getBorderRadius(_Section variant) {
@@ -177,14 +178,14 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
         children: [
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-              return MoonDropdown(
+              return SelenicDropdown(
                 show: _showDropdown && enabledKnob,
                 constrainWidthToChild: true,
                 distanceToTarget: distanceToTargetKnob ?? 0,
                 backgroundColor: backgroundColor,
                 borderRadius: getBorderRadius(_Section.dropdown),
                 decoration: BoxDecoration(
-                  color: context.moonColors!.goku,
+                  color: context.selenicColors!.goku,
                   borderRadius: getBorderRadius(_Section.dropdown),
                   boxShadow: showShadowKnob == true
                       ? const [
@@ -197,13 +198,13 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
                         ]
                       : [],
                   border: Border(
-                    left: BorderSide(color: context.moonColors!.beerus),
-                    right: BorderSide(color: context.moonColors!.beerus),
-                    bottom: BorderSide(color: context.moonColors!.beerus),
+                    left: BorderSide(color: context.selenicColors!.beerus),
+                    right: BorderSide(color: context.selenicColors!.beerus),
+                    bottom: BorderSide(color: context.selenicColors!.beerus),
                     top: distanceToTargetKnob == null ||
                             distanceToTargetKnob == 0
                         ? BorderSide.none
-                        : BorderSide(color: context.moonColors!.beerus),
+                        : BorderSide(color: context.selenicColors!.beerus),
                   ),
                 ),
                 onTapOutside: () => _handleDropdownTapOutside(),
@@ -215,7 +216,7 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
                         behavior:
                             const ScrollBehavior().copyWith(scrollbars: false),
                         child: _filteredOptionsList.isEmpty
-                            ? const MoonMenuItem(
+                            ? const SelenicMenuItem(
                                 label: Text('No results found.'),
                               )
                             : ClipRRect(
@@ -234,7 +235,7 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
                                     final Component option =
                                         _filteredOptionsList[index];
 
-                                    return MoonMenuItem(
+                                    return SelenicMenuItem(
                                       onTap: () => _handleSelect(option),
                                       label: Text(option.name),
                                     );
@@ -245,12 +246,12 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
                     );
                   },
                 ),
-                child: MoonTextInput(
+                child: SelenicTextInput(
                   enabled: enabledKnob,
                   width: constraints.maxWidth,
                   hasFloatingLabel: hasFloatingLabelKnob,
                   activeBorderColor:
-                      activeBorderColor ?? context.moonColors!.beerus,
+                      activeBorderColor ?? context.selenicColors!.beerus,
                   inactiveBorderColor: inactiveBorderColor,
                   backgroundColor: backgroundColor,
                   hoverBorderColor: hoverBorderColor,
@@ -260,13 +261,13 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
                   onTap: () => _performSearch(),
                   onChanged: (String _) => _performSearch(),
                   leading: const Icon(MoonIcons.generic_search_24_light),
-                  trailing: MoonButton(
+                  trailing: SelenicButton(
                     padding: EdgeInsets.zero,
                     hoverEffectColor: Colors.transparent,
                     onTap: () => _handleClearButton(),
                     label: Text(
                       'Clear',
-                      style: TextStyle(color: context.moonColors!.trunks),
+                      style: TextStyle(color: context.selenicColors!.trunks),
                     ),
                   ),
                 ),
@@ -275,7 +276,7 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
           ),
           if (!_showDropdown)
             const Align(
-              child: Text('Search results displayed within MoonDropdown.'),
+              child: Text('Search results displayed within SelenicDropdown.'),
             ),
         ],
       ),

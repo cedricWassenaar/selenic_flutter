@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class TooltipStory extends StatefulWidget {
@@ -20,32 +20,32 @@ class _TooltipStoryState extends State<TooltipStory> {
   @override
   Widget build(BuildContext context) {
     final customLabelTextKnob = context.knobs.text(
-      label: "Custom MoonTooltip text",
-      initial: "Custom MoonTooltip text",
+      label: "Custom SelenicTooltip text",
+      initial: "Custom SelenicTooltip text",
     );
 
     final tooltipPositionKnob = context.knobs.nullable.options(
       label: "tooltipPosition",
-      description: "Position variants for MoonTooltip.",
+      description: "Position variants for SelenicTooltip.",
       enabled: false,
-      initial: MoonTooltipPosition.top,
+      initial: SelenicTooltipPosition.top,
       options: const [
-        Option(label: "top", value: MoonTooltipPosition.top),
-        Option(label: "bottom", value: MoonTooltipPosition.bottom),
-        Option(label: "left", value: MoonTooltipPosition.left),
-        Option(label: "right", value: MoonTooltipPosition.right),
-        Option(label: "topLeft", value: MoonTooltipPosition.topLeft),
-        Option(label: "topRight", value: MoonTooltipPosition.topRight),
-        Option(label: "bottomLeft", value: MoonTooltipPosition.bottomLeft),
-        Option(label: "bottomRight", value: MoonTooltipPosition.bottomRight),
-        Option(label: "vertical", value: MoonTooltipPosition.vertical),
-        Option(label: "horizontal", value: MoonTooltipPosition.horizontal),
+        Option(label: "top", value: SelenicTooltipPosition.top),
+        Option(label: "bottom", value: SelenicTooltipPosition.bottom),
+        Option(label: "left", value: SelenicTooltipPosition.left),
+        Option(label: "right", value: SelenicTooltipPosition.right),
+        Option(label: "topLeft", value: SelenicTooltipPosition.topLeft),
+        Option(label: "topRight", value: SelenicTooltipPosition.topRight),
+        Option(label: "bottomLeft", value: SelenicTooltipPosition.bottomLeft),
+        Option(label: "bottomRight", value: SelenicTooltipPosition.bottomRight),
+        Option(label: "vertical", value: SelenicTooltipPosition.vertical),
+        Option(label: "horizontal", value: SelenicTooltipPosition.horizontal),
       ],
     );
 
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for MoonTooltip text.",
+      description: "MoonColors variants for SelenicTooltip text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -56,7 +56,7 @@ class _TooltipStoryState extends State<TooltipStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonTooltip background.",
+      description: "MoonColors variants for SelenicTooltip background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -67,7 +67,7 @@ class _TooltipStoryState extends State<TooltipStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for MoonTooltip border.",
+      description: "MoonColors variants for SelenicTooltip border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -78,7 +78,7 @@ class _TooltipStoryState extends State<TooltipStory> {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonTooltip.",
+      description: "Border radius for SelenicTooltip.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -86,7 +86,7 @@ class _TooltipStoryState extends State<TooltipStory> {
 
     final arrowOffsetKnob = context.knobs.nullable.slider(
       label: "arrowOffsetValue",
-      description: "Offset for MoonTooltip arrow.",
+      description: "Offset for SelenicTooltip arrow.",
       enabled: false,
       initial: 0,
       min: -100,
@@ -103,7 +103,7 @@ class _TooltipStoryState extends State<TooltipStory> {
 
     final arrowBaseWidthKnob = context.knobs.nullable.slider(
       label: "arrowBaseWidth",
-      description: "Base width for MoonTooltip arrow.",
+      description: "Base width for SelenicTooltip arrow.",
       enabled: false,
       initial: 16,
       max: 100,
@@ -111,7 +111,7 @@ class _TooltipStoryState extends State<TooltipStory> {
 
     final arrowLengthKnob = context.knobs.nullable.slider(
       label: "arrowLength",
-      description: "Length for MoonTooltip arrow.",
+      description: "Length for SelenicTooltip arrow.",
       enabled: false,
       initial: 8,
       max: 100,
@@ -119,13 +119,13 @@ class _TooltipStoryState extends State<TooltipStory> {
 
     final showShadowKnob = context.knobs.boolean(
       label: "tooltipShadows",
-      description: "Show shadows for MoonTooltip.",
+      description: "Show shadows for SelenicTooltip.",
       initial: true,
     );
 
     final showArrowKnob = context.knobs.boolean(
       label: "hasArrow",
-      description: "Show MoonTooltip with an arrow (tail).",
+      description: "Show SelenicTooltip with an arrow (tail).",
       initial: true,
     );
 
@@ -140,19 +140,19 @@ class _TooltipStoryState extends State<TooltipStory> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const TextDivider(
-              text: "MoonTooltip",
+              text: "SelenicTooltip",
               paddingTop: 0,
             ),
             StatefulBuilder(
               builder: (context, setState) {
-                return MoonTooltip(
+                return SelenicTooltip(
                   show: showOnTap,
                   backgroundColor: backgroundColor,
                   borderWidth: 1,
                   borderColor: borderColor ?? Colors.transparent,
                   borderRadius: borderRadius,
                   tooltipPosition:
-                      tooltipPositionKnob ?? MoonTooltipPosition.top,
+                      tooltipPositionKnob ?? SelenicTooltipPosition.top,
                   hasArrow: showArrowKnob,
                   arrowBaseWidth: arrowBaseWidthKnob,
                   arrowLength: arrowLengthKnob,
@@ -163,21 +163,23 @@ class _TooltipStoryState extends State<TooltipStory> {
                     customLabelTextKnob,
                     style: TextStyle(color: textColor),
                   ),
-                  child: MoonFilledButton(
+                  child: SelenicFilledButton(
                     onTap: () => setState(() => showOnTap = true),
                     label: const Text("Tap me"),
                   ),
                 );
               },
             ),
-            const TextDivider(text: "MoonTooltip is displayed on long-press"),
-            MoonTooltip(
+            const TextDivider(
+                text: "SelenicTooltip is displayed on long-press"),
+            SelenicTooltip(
               show: showOnLongPress,
               backgroundColor: backgroundColor,
               borderWidth: 1,
               borderColor: borderColor ?? Colors.transparent,
               borderRadius: borderRadius,
-              tooltipPosition: tooltipPositionKnob ?? MoonTooltipPosition.top,
+              tooltipPosition:
+                  tooltipPositionKnob ?? SelenicTooltipPosition.top,
               hasArrow: showArrowKnob,
               arrowBaseWidth: arrowBaseWidthKnob,
               arrowLength: arrowLengthKnob,
@@ -188,12 +190,12 @@ class _TooltipStoryState extends State<TooltipStory> {
                 customLabelTextKnob,
                 style: TextStyle(color: textColor),
               ),
-              child: MoonChip(
+              child: SelenicChip(
                 borderRadius: BorderRadius.circular(20),
-                backgroundColor: context.moonColors!.hit,
+                backgroundColor: context.selenicColors!.hit,
                 leading: const Icon(MoonIcons.other_frame_24_light),
-                textColor: context.moonColors!.goten,
-                label: const Text("MoonChip"),
+                textColor: context.selenicColors!.goten,
+                label: const Text("SelenicChip"),
                 onLongPress: () => setState(() => showOnLongPress = true),
               ),
             ),

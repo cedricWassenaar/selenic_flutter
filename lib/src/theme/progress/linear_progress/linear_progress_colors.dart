@@ -1,33 +1,34 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonLinearProgressColors extends ThemeExtension<MoonLinearProgressColors>
+class SelenicLinearProgressColors
+    extends ThemeExtension<SelenicLinearProgressColors>
     with DiagnosticableTreeMixin {
-  /// The color of the MoonLinearProgress.
+  /// The color of the SelenicLinearProgress.
   final Color color;
 
-  /// The text color of the MoonLinearProgress.
+  /// The text color of the SelenicLinearProgress.
   final Color textColor;
 
-  /// The background color of the MoonLinearProgress.
+  /// The background color of the SelenicLinearProgress.
   final Color backgroundColor;
 
-  const MoonLinearProgressColors({
+  const SelenicLinearProgressColors({
     required this.color,
     required this.textColor,
     required this.backgroundColor,
   });
 
   @override
-  MoonLinearProgressColors copyWith({
+  SelenicLinearProgressColors copyWith({
     Color? color,
     Color? textColor,
     Color? backgroundColor,
   }) {
-    return MoonLinearProgressColors(
+    return SelenicLinearProgressColors(
       color: color ?? this.color,
       textColor: textColor ?? this.textColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -35,13 +36,13 @@ class MoonLinearProgressColors extends ThemeExtension<MoonLinearProgressColors>
   }
 
   @override
-  MoonLinearProgressColors lerp(
-    ThemeExtension<MoonLinearProgressColors>? other,
+  SelenicLinearProgressColors lerp(
+    ThemeExtension<SelenicLinearProgressColors>? other,
     double t,
   ) {
-    if (other is! MoonLinearProgressColors) return this;
+    if (other is! SelenicLinearProgressColors) return this;
 
-    return MoonLinearProgressColors(
+    return SelenicLinearProgressColors(
       color: colorPremulLerp(color, other.color, t)!,
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
       backgroundColor:
@@ -53,7 +54,7 @@ class MoonLinearProgressColors extends ThemeExtension<MoonLinearProgressColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonLinearProgressColors"))
+      ..add(DiagnosticsProperty("type", "SelenicLinearProgressColors"))
       ..add(ColorProperty("color", color))
       ..add(ColorProperty("textColor", textColor))
       ..add(ColorProperty("backgroundColor", backgroundColor));

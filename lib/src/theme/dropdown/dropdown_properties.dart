@@ -4,30 +4,31 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonDropdownProperties extends ThemeExtension<MoonDropdownProperties>
+class SelenicDropdownProperties
+    extends ThemeExtension<SelenicDropdownProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonDropdown.
+  /// The border radius of the SelenicDropdown.
   final BorderRadiusGeometry borderRadius;
 
-  /// The distance between the MoonDropdown and the target child widget.
+  /// The distance between the SelenicDropdown and the target child widget.
   final double distanceToTarget;
 
-  /// The duration of the MoonDropdown transition animation (fade in or out).
+  /// The duration of the SelenicDropdown transition animation (fade in or out).
   final Duration transitionDuration;
 
-  /// The curve of the MoonDropdown transition animation (fade in or out).
+  /// The curve of the SelenicDropdown transition animation (fade in or out).
   final Curve transitionCurve;
 
-  /// The padding of the MoonDropdown content.
+  /// The padding of the SelenicDropdown content.
   final EdgeInsetsGeometry contentPadding;
 
-  /// The margin of the MoonDropdown.
+  /// The margin of the SelenicDropdown.
   final EdgeInsetsGeometry dropdownMargin;
 
-  /// The text style of the MoonDropdown.
+  /// The text style of the SelenicDropdown.
   final TextStyle textStyle;
 
-  const MoonDropdownProperties({
+  const SelenicDropdownProperties({
     required this.borderRadius,
     required this.distanceToTarget,
     required this.transitionDuration,
@@ -38,7 +39,7 @@ class MoonDropdownProperties extends ThemeExtension<MoonDropdownProperties>
   });
 
   @override
-  MoonDropdownProperties copyWith({
+  SelenicDropdownProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? distanceToTarget,
     Duration? transitionDuration,
@@ -47,7 +48,7 @@ class MoonDropdownProperties extends ThemeExtension<MoonDropdownProperties>
     EdgeInsetsGeometry? dropdownMargin,
     TextStyle? textStyle,
   }) {
-    return MoonDropdownProperties(
+    return SelenicDropdownProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       distanceToTarget: distanceToTarget ?? this.distanceToTarget,
       transitionDuration: transitionDuration ?? this.transitionDuration,
@@ -59,13 +60,13 @@ class MoonDropdownProperties extends ThemeExtension<MoonDropdownProperties>
   }
 
   @override
-  MoonDropdownProperties lerp(
-    ThemeExtension<MoonDropdownProperties>? other,
+  SelenicDropdownProperties lerp(
+    ThemeExtension<SelenicDropdownProperties>? other,
     double t,
   ) {
-    if (other is! MoonDropdownProperties) return this;
+    if (other is! SelenicDropdownProperties) return this;
 
-    return MoonDropdownProperties(
+    return SelenicDropdownProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       distanceToTarget:
@@ -86,7 +87,7 @@ class MoonDropdownProperties extends ThemeExtension<MoonDropdownProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonDropdownProperties"),
+        DiagnosticsProperty("type", "SelenicDropdownProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

@@ -1,27 +1,27 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonProgressPinColors extends ThemeExtension<MoonProgressPinColors>
+class SelenicProgressPinColors extends ThemeExtension<SelenicProgressPinColors>
     with DiagnosticableTreeMixin {
-  /// The color of the MoonProgressPin.
+  /// The color of the SelenicProgressPin.
   final Color pinColor;
 
-  /// The border color of the MoonProgressPin.
+  /// The border color of the SelenicProgressPin.
   final Color pinBorderColor;
 
-  /// The color of the MoonProgressPin thumb.
+  /// The color of the SelenicProgressPin thumb.
   final Color thumbColor;
 
-  /// The shadow color of the MoonProgressPin.
+  /// The shadow color of the SelenicProgressPin.
   final Color shadowColor;
 
-  /// The text color of the MoonProgressPin.
+  /// The text color of the SelenicProgressPin.
   final Color textColor;
 
-  const MoonProgressPinColors({
+  const SelenicProgressPinColors({
     required this.pinColor,
     required this.pinBorderColor,
     required this.thumbColor,
@@ -30,14 +30,14 @@ class MoonProgressPinColors extends ThemeExtension<MoonProgressPinColors>
   });
 
   @override
-  MoonProgressPinColors copyWith({
+  SelenicProgressPinColors copyWith({
     Color? pinColor,
     Color? pinBorderColor,
     Color? thumbColor,
     Color? shadowColor,
     Color? textColor,
   }) {
-    return MoonProgressPinColors(
+    return SelenicProgressPinColors(
       pinColor: pinColor ?? this.pinColor,
       pinBorderColor: pinBorderColor ?? this.pinBorderColor,
       thumbColor: thumbColor ?? this.thumbColor,
@@ -47,13 +47,13 @@ class MoonProgressPinColors extends ThemeExtension<MoonProgressPinColors>
   }
 
   @override
-  MoonProgressPinColors lerp(
-    ThemeExtension<MoonProgressPinColors>? other,
+  SelenicProgressPinColors lerp(
+    ThemeExtension<SelenicProgressPinColors>? other,
     double t,
   ) {
-    if (other is! MoonProgressPinColors) return this;
+    if (other is! SelenicProgressPinColors) return this;
 
-    return MoonProgressPinColors(
+    return SelenicProgressPinColors(
       pinColor: colorPremulLerp(pinColor, other.pinColor, t)!,
       pinBorderColor: colorPremulLerp(pinBorderColor, other.pinBorderColor, t)!,
       thumbColor: colorPremulLerp(thumbColor, other.thumbColor, t)!,
@@ -66,7 +66,7 @@ class MoonProgressPinColors extends ThemeExtension<MoonProgressPinColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonProgressPinColors"))
+      ..add(DiagnosticsProperty("type", "SelenicProgressPinColors"))
       ..add(ColorProperty("pinColor", pinColor))
       ..add(ColorProperty("pinBorderColor", pinBorderColor))
       ..add(ColorProperty("thumbColor", thumbColor))

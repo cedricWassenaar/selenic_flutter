@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class TextInput extends StatefulWidget {
   const TextInput({super.key});
@@ -18,7 +18,7 @@ class _TextInputState extends State<TextInput> {
         builder: (BuildContext context) {
           return Column(
             children: [
-              MoonFormTextInput(
+              SelenicFormTextInput(
                 controller: _textController,
                 validator: (String? value) => value != null && value.length < 5 
                   ? "The text should be longer than 5 characters." 
@@ -29,7 +29,7 @@ class _TextInputState extends State<TextInput> {
                   child: const Icon(MoonIcons.controls_close_small_24_light),
                 ),
               ),
-              MoonFilledButton(
+              SelenicFilledButton(
                 onTap: () => Form.of(context).validate(),
                 label: const Text("Submit"),
               ),

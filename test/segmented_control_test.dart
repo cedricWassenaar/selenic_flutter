@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _segmentedControlKey = Key("segmentControlKey");
 
@@ -115,7 +115,7 @@ class _SegmentedControlTestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MoonSegmentedControl(
+        body: SelenicSegmentedControl(
           key: segmentedControlKey,
           isDisabled: isDisabled,
           onSegmentChanged: onTap,

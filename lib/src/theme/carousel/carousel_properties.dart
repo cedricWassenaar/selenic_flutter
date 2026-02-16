@@ -4,25 +4,26 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonCarouselProperties extends ThemeExtension<MoonCarouselProperties>
+class SelenicCarouselProperties
+    extends ThemeExtension<SelenicCarouselProperties>
     with DiagnosticableTreeMixin {
-  /// The gap between the MoonCarousel items.
+  /// The gap between the SelenicCarousel items.
   final double gap;
 
-  /// The text style of the MoonCarousel items.
+  /// The text style of the SelenicCarousel items.
   final TextStyle textStyle;
 
-  /// The delay between the items in the MoonCarousel's automatic scrolling
+  /// The delay between the items in the SelenicCarousel's automatic scrolling
   /// sequence.
   final Duration autoPlayDelay;
 
-  /// The duration of the MoonCarousel autoplay transition animation.
+  /// The duration of the SelenicCarousel autoplay transition animation.
   final Duration transitionDuration;
 
-  /// The curve of the MoonCarousel autoplay transition animation.
+  /// The curve of the SelenicCarousel autoplay transition animation.
   final Curve transitionCurve;
 
-  const MoonCarouselProperties({
+  const SelenicCarouselProperties({
     required this.gap,
     required this.textStyle,
     required this.autoPlayDelay,
@@ -31,14 +32,14 @@ class MoonCarouselProperties extends ThemeExtension<MoonCarouselProperties>
   });
 
   @override
-  MoonCarouselProperties copyWith({
+  SelenicCarouselProperties copyWith({
     double? gap,
     TextStyle? textStyle,
     Duration? autoPlayDelay,
     Duration? transitionDuration,
     Curve? transitionCurve,
   }) {
-    return MoonCarouselProperties(
+    return SelenicCarouselProperties(
       gap: gap ?? this.gap,
       textStyle: textStyle ?? this.textStyle,
       autoPlayDelay: autoPlayDelay ?? this.autoPlayDelay,
@@ -48,13 +49,13 @@ class MoonCarouselProperties extends ThemeExtension<MoonCarouselProperties>
   }
 
   @override
-  MoonCarouselProperties lerp(
-    ThemeExtension<MoonCarouselProperties>? other,
+  SelenicCarouselProperties lerp(
+    ThemeExtension<SelenicCarouselProperties>? other,
     double t,
   ) {
-    if (other is! MoonCarouselProperties) return this;
+    if (other is! SelenicCarouselProperties) return this;
 
-    return MoonCarouselProperties(
+    return SelenicCarouselProperties(
       gap: lerpDouble(gap, other.gap, t)!,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t)!,
       autoPlayDelay: lerpDuration(autoPlayDelay, other.autoPlayDelay, t),
@@ -68,7 +69,7 @@ class MoonCarouselProperties extends ThemeExtension<MoonCarouselProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonCarouselProperties"))
+      ..add(DiagnosticsProperty("type", "SelenicCarouselProperties"))
       ..add(DoubleProperty("gap", gap))
       ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle))
       ..add(DiagnosticsProperty<Duration>("autoPlayDelay", autoPlayDelay))

@@ -1,35 +1,35 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/alert/alert_colors.dart';
-import 'package:moon_design/src/theme/alert/alert_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/alert/alert_colors.dart';
+import 'package:selenic_design/src/theme/alert/alert_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonAlertTheme extends ThemeExtension<MoonAlertTheme>
+class SelenicAlertTheme extends ThemeExtension<SelenicAlertTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonAlert.
-  final MoonAlertColors colors;
+  /// The colors of the SelenicAlert.
+  final SelenicAlertColors colors;
 
-  /// The properties of the MoonAlert.
-  final MoonAlertProperties properties;
+  /// The properties of the SelenicAlert.
+  final SelenicAlertProperties properties;
 
-  MoonAlertTheme({
+  SelenicAlertTheme({
     required this.tokens,
-    MoonAlertColors? colors,
-    MoonAlertProperties? properties,
+    SelenicAlertColors? colors,
+    SelenicAlertProperties? properties,
   })  : colors = colors ??
-            MoonAlertColors(
+            SelenicAlertColors(
               backgroundColor: tokens.colors.goku,
               borderColor: tokens.colors.textSecondary,
               iconColor: tokens.colors.iconPrimary,
               textColor: tokens.colors.textPrimary,
             ),
         properties = properties ??
-            MoonAlertProperties(
+            SelenicAlertProperties(
               borderRadius: tokens.borders.interactiveSm,
               horizontalGap: tokens.sizes.x3s,
               minimumHeight: tokens.sizes.xl,
@@ -42,12 +42,12 @@ class MoonAlertTheme extends ThemeExtension<MoonAlertTheme>
             );
 
   @override
-  MoonAlertTheme copyWith({
-    MoonTokens? tokens,
-    MoonAlertColors? colors,
-    MoonAlertProperties? properties,
+  SelenicAlertTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicAlertColors? colors,
+    SelenicAlertProperties? properties,
   }) {
-    return MoonAlertTheme(
+    return SelenicAlertTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -55,10 +55,10 @@ class MoonAlertTheme extends ThemeExtension<MoonAlertTheme>
   }
 
   @override
-  MoonAlertTheme lerp(ThemeExtension<MoonAlertTheme>? other, double t) {
-    if (other is! MoonAlertTheme) return this;
+  SelenicAlertTheme lerp(ThemeExtension<SelenicAlertTheme>? other, double t) {
+    if (other is! SelenicAlertTheme) return this;
 
-    return MoonAlertTheme(
+    return SelenicAlertTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -69,9 +69,10 @@ class MoonAlertTheme extends ThemeExtension<MoonAlertTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonAlertTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonAlertColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonAlertProperties>("properties", properties));
+      ..add(DiagnosticsProperty("type", "SelenicAlertTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicAlertColors>("colors", colors))
+      ..add(DiagnosticsProperty<SelenicAlertProperties>(
+          "properties", properties));
   }
 }

@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class SegmentedControlStory extends StatelessWidget {
@@ -13,18 +13,19 @@ class SegmentedControlStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final segmentedControlSizeKnob = context.knobs.nullable.options(
       label: "segmentedControlSize",
-      description: "Size variants for MoonSegmentedControl.",
+      description: "Size variants for SelenicSegmentedControl.",
       enabled: false,
-      initial: MoonSegmentedControlSize.md,
+      initial: SelenicSegmentedControlSize.md,
       options: const [
-        Option(label: "sm", value: MoonSegmentedControlSize.sm),
-        Option(label: "md", value: MoonSegmentedControlSize.md),
+        Option(label: "sm", value: SelenicSegmentedControlSize.sm),
+        Option(label: "md", value: SelenicSegmentedControlSize.md),
       ],
     );
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonSegmentedControl background.",
+      description:
+          "MoonColors variants for SelenicSegmentedControl background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -36,7 +37,7 @@ class SegmentedControlStory extends StatelessWidget {
     final selectedSegmentColorKnob = context.knobs.nullable.options(
       label: "selectedSegmentColor",
       description:
-          "MoonColors variants for MoonSegmentedControl selected segment.",
+          "MoonColors variants for SelenicSegmentedControl selected segment.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -48,7 +49,8 @@ class SegmentedControlStory extends StatelessWidget {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for MoonSegmentedControl default text.",
+      description:
+          "MoonColors variants for SelenicSegmentedControl default text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -60,7 +62,7 @@ class SegmentedControlStory extends StatelessWidget {
     final selectedTextColorKnob = context.knobs.nullable.options(
       label: "selectedTextColor",
       description:
-          "MoonColors variants for MoonSegmentedControl selected segment text.",
+          "MoonColors variants for SelenicSegmentedControl selected segment text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -71,7 +73,7 @@ class SegmentedControlStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonSegmentedControl.",
+      description: "Border radius for SelenicSegmentedControl.",
       enabled: false,
       initial: 12,
       max: 32,
@@ -79,7 +81,7 @@ class SegmentedControlStory extends StatelessWidget {
 
     final segmentBorderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "segmentBorderRadius",
-      description: "Border radius for MoonSegmentedControl segments.",
+      description: "Border radius for SelenicSegmentedControl segments.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -87,7 +89,7 @@ class SegmentedControlStory extends StatelessWidget {
 
     final gapKnob = context.knobs.nullable.sliderInt(
       label: "gap",
-      description: "Gap between MoonSegmentedControl segments.",
+      description: "Gap between SelenicSegmentedControl segments.",
       enabled: false,
       initial: 4,
       max: 12,
@@ -95,28 +97,28 @@ class SegmentedControlStory extends StatelessWidget {
 
     final showLeadingKnob = context.knobs.boolean(
       label: "leading",
-      description: "Show widget in MoonSegmentedControl leading slot.",
+      description: "Show widget in SelenicSegmentedControl leading slot.",
     );
 
     final showLabelKnob = context.knobs.boolean(
       label: "label",
-      description: "Show widget in MoonSegmentedControl label slot.",
+      description: "Show widget in SelenicSegmentedControl label slot.",
       initial: true,
     );
 
     final showTrailingKnob = context.knobs.boolean(
       label: "trailing",
-      description: "Show widget in MoonSegmentedControl trailing slot.",
+      description: "Show widget in SelenicSegmentedControl trailing slot.",
     );
 
     final isExpandedKnob = context.knobs.boolean(
       label: "isExpanded",
-      description: "Expand MoonSegmentControl horizontally.",
+      description: "Expand SelenicSegmentControl horizontally.",
     );
 
     final isDisabledKnob = context.knobs.boolean(
       label: "isDisabled",
-      description: "Disable MoonSegmentedControl.",
+      description: "Disable SelenicSegmentedControl.",
     );
 
     final SegmentStyle segmentStyle = SegmentStyle(
@@ -138,12 +140,12 @@ class SegmentedControlStory extends StatelessWidget {
         child: Column(
           children: [
             const TextDivider(
-              text: "MoonSegmentedControl",
+              text: "SelenicSegmentedControl",
               paddingTop: 0,
             ),
             Column(
               children: [
-                MoonSegmentedControl(
+                SelenicSegmentedControl(
                   isDisabled: isDisabledKnob,
                   isExpanded: isExpandedKnob,
                   gap: gapKnob?.toDouble(),
@@ -164,8 +166,8 @@ class SegmentedControlStory extends StatelessWidget {
                     ),
                   ),
                 ),
-                const TextDivider(text: "MoonSegmentedControl with icons"),
-                MoonSegmentedControl(
+                const TextDivider(text: "SelenicSegmentedControl with icons"),
+                SelenicSegmentedControl(
                   isDisabled: isDisabledKnob,
                   isExpanded: isExpandedKnob,
                   gap: gapKnob?.toDouble(),

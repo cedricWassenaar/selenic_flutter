@@ -4,30 +4,30 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonDrawerProperties extends ThemeExtension<MoonDrawerProperties>
+class SelenicDrawerProperties extends ThemeExtension<SelenicDrawerProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonDrawer.
+  /// The border radius of the SelenicDrawer.
   final BorderRadiusGeometry borderRadius;
 
-  /// The width of the MoonDrawer.
+  /// The width of the SelenicDrawer.
   final double width;
 
-  /// The text style of the MoonDrawer.
+  /// The text style of the SelenicDrawer.
   final TextStyle textStyle;
 
-  const MoonDrawerProperties({
+  const SelenicDrawerProperties({
     required this.borderRadius,
     required this.width,
     required this.textStyle,
   });
 
   @override
-  MoonDrawerProperties copyWith({
+  SelenicDrawerProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? width,
     TextStyle? textStyle,
   }) {
-    return MoonDrawerProperties(
+    return SelenicDrawerProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       width: width ?? this.width,
       textStyle: textStyle ?? this.textStyle,
@@ -35,13 +35,13 @@ class MoonDrawerProperties extends ThemeExtension<MoonDrawerProperties>
   }
 
   @override
-  MoonDrawerProperties lerp(
-    ThemeExtension<MoonDrawerProperties>? other,
+  SelenicDrawerProperties lerp(
+    ThemeExtension<SelenicDrawerProperties>? other,
     double t,
   ) {
-    if (other is! MoonDrawerProperties) return this;
+    if (other is! SelenicDrawerProperties) return this;
 
-    return MoonDrawerProperties(
+    return SelenicDrawerProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       width: lerpDouble(width, other.width, t)!,
@@ -54,7 +54,7 @@ class MoonDrawerProperties extends ThemeExtension<MoonDrawerProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonDrawerProperties"),
+        DiagnosticsProperty("type", "SelenicDrawerProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

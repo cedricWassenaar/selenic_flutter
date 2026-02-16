@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/widgets/tooltip/tooltip_shape.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonTooltipPosition {
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/shadows.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/widgets/tooltip/tooltip_shape.dart';
+
+enum SelenicTooltipPosition {
   top,
   topLeft,
   topRight,
@@ -22,9 +23,9 @@ enum MoonTooltipPosition {
   horizontal,
 }
 
-class MoonTooltip extends StatefulWidget {
+class SelenicTooltip extends StatefulWidget {
   // This is required to show only one tooltip at a time.
-  static final List<_MoonTooltipState> _openedTooltips = [];
+  static final List<_SelenicTooltipState> _openedTooltips = [];
 
   /// Whether the tooltip has an arrow (tail).
   final bool hasArrow;
@@ -107,8 +108,8 @@ class MoonTooltip extends StatefulWidget {
   final List<BoxShadow>? tooltipShadows;
 
   /// The tooltip position relative to the [child] (target).
-  /// Defaults to [MoonTooltipPosition.vertical].
-  final MoonTooltipPosition tooltipPosition;
+  /// Defaults to [SelenicTooltipPosition.vertical].
+  final SelenicTooltipPosition tooltipPosition;
 
   /// The observer to track route changes and automatically hide the tooltip
   /// when the widget's route is not active.
@@ -126,8 +127,8 @@ class MoonTooltip extends StatefulWidget {
   /// The widget to display inside the tooltip as its content.
   final Widget content;
 
-  /// Creates a Moon Design tooltip.
-  const MoonTooltip({
+  /// Creates a Selenic Design tooltip.
+  const SelenicTooltip({
     super.key,
     this.hasArrow = true,
     this.hideOnTap = true,
@@ -149,7 +150,7 @@ class MoonTooltip extends StatefulWidget {
     this.transitionCurve,
     this.contentPadding,
     this.tooltipShadows,
-    this.tooltipPosition = MoonTooltipPosition.top,
+    this.tooltipPosition = SelenicTooltipPosition.top,
     this.routeObserver,
     this.semanticLabel,
     this.onTap,
@@ -158,12 +159,13 @@ class MoonTooltip extends StatefulWidget {
   });
 
   // Clear existing tooltips, excluding the supplied one.
-  static void _removeOtherTooltips(_MoonTooltipState current) {
+  static void _removeOtherTooltips(_SelenicTooltipState current) {
     if (_openedTooltips.isNotEmpty) {
       // Avoid concurrent modification.
-      final List<_MoonTooltipState> openedTooltips = _openedTooltips.toList();
+      final List<_SelenicTooltipState> openedTooltips =
+          _openedTooltips.toList();
 
-      for (final _MoonTooltipState state in openedTooltips) {
+      for (final _SelenicTooltipState state in openedTooltips) {
         if (state == current) continue;
 
         state._clearOverlayEntry();
@@ -172,10 +174,10 @@ class MoonTooltip extends StatefulWidget {
   }
 
   @override
-  _MoonTooltipState createState() => _MoonTooltipState();
+  _SelenicTooltipState createState() => _SelenicTooltipState();
 }
 
-class _MoonTooltipState extends State<MoonTooltip>
+class _SelenicTooltipState extends State<SelenicTooltip>
     with RouteAware, SingleTickerProviderStateMixin {
   final GlobalKey _tooltipKey = GlobalKey();
   final LayerLink _layerLink = LayerLink();
@@ -195,8 +197,8 @@ class _MoonTooltipState extends State<MoonTooltip>
     );
     Overlay.of(context).insert(_overlayEntry!);
 
-    MoonTooltip._openedTooltips.add(this);
-    MoonTooltip._removeOtherTooltips(this);
+    SelenicTooltip._openedTooltips.add(this);
+    SelenicTooltip._removeOtherTooltips(this);
 
     _animationController!.value = 0;
     _animationController!.forward();
@@ -217,7 +219,7 @@ class _MoonTooltipState extends State<MoonTooltip>
 
   void _clearOverlayEntry() {
     if (_overlayEntry != null) {
-      MoonTooltip._openedTooltips.remove(this);
+      SelenicTooltip._openedTooltips.remove(this);
       _overlayEntry!.remove();
       _overlayEntry = null;
     }
@@ -244,7 +246,7 @@ class _MoonTooltipState extends State<MoonTooltip>
   }
 
   _TooltipPositionProperties _resolveTooltipPositionParameters({
-    required MoonTooltipPosition tooltipPosition,
+    required SelenicTooltipPosition tooltipPosition,
     required double arrowTipDistance,
     required double arrowLength,
     required double overlayWidth,
@@ -253,7 +255,7 @@ class _MoonTooltipState extends State<MoonTooltip>
     required double tooltipTargetGlobalRight,
   }) {
     return switch (tooltipPosition) {
-      MoonTooltipPosition.top => _TooltipPositionProperties(
+      SelenicTooltipPosition.top => _TooltipPositionProperties(
           offset: Offset(0, -(arrowTipDistance + arrowLength)),
           targetAnchor: Alignment.topCenter,
           followerAnchor: Alignment.bottomCenter,
@@ -261,7 +263,7 @@ class _MoonTooltipState extends State<MoonTooltip>
               ((overlayWidth / 2 - tooltipTargetGlobalCenter) * 2).abs() -
               widget.tooltipMargin * 2,
         ),
-      MoonTooltipPosition.bottom => _TooltipPositionProperties(
+      SelenicTooltipPosition.bottom => _TooltipPositionProperties(
           offset: Offset(0, arrowTipDistance + arrowLength),
           targetAnchor: Alignment.bottomCenter,
           followerAnchor: Alignment.topCenter,
@@ -269,7 +271,7 @@ class _MoonTooltipState extends State<MoonTooltip>
               ((overlayWidth / 2 - tooltipTargetGlobalCenter) * 2).abs() -
               widget.tooltipMargin * 2,
         ),
-      MoonTooltipPosition.left => _TooltipPositionProperties(
+      SelenicTooltipPosition.left => _TooltipPositionProperties(
           offset: Offset(-(arrowTipDistance + arrowLength), 0),
           targetAnchor: Alignment.centerLeft,
           followerAnchor: Alignment.centerRight,
@@ -278,7 +280,7 @@ class _MoonTooltipState extends State<MoonTooltip>
               arrowTipDistance -
               widget.tooltipMargin,
         ),
-      MoonTooltipPosition.right => _TooltipPositionProperties(
+      SelenicTooltipPosition.right => _TooltipPositionProperties(
           offset: Offset(arrowTipDistance + arrowLength, 0),
           targetAnchor: Alignment.centerRight,
           followerAnchor: Alignment.centerLeft,
@@ -288,26 +290,26 @@ class _MoonTooltipState extends State<MoonTooltip>
               arrowTipDistance -
               widget.tooltipMargin,
         ),
-      MoonTooltipPosition.topLeft => _TooltipPositionProperties(
+      SelenicTooltipPosition.topLeft => _TooltipPositionProperties(
           offset: Offset(0, -(arrowTipDistance + arrowLength)),
           targetAnchor: Alignment.topRight,
           followerAnchor: Alignment.bottomRight,
           tooltipMaxWidth: tooltipTargetGlobalRight - widget.tooltipMargin,
         ),
-      MoonTooltipPosition.topRight => _TooltipPositionProperties(
+      SelenicTooltipPosition.topRight => _TooltipPositionProperties(
           offset: Offset(0, -(arrowTipDistance + arrowLength)),
           targetAnchor: Alignment.topLeft,
           followerAnchor: Alignment.bottomLeft,
           tooltipMaxWidth:
               overlayWidth - tooltipTargetGlobalLeft - widget.tooltipMargin,
         ),
-      MoonTooltipPosition.bottomLeft => _TooltipPositionProperties(
+      SelenicTooltipPosition.bottomLeft => _TooltipPositionProperties(
           offset: Offset(0, arrowTipDistance + arrowLength),
           targetAnchor: Alignment.bottomRight,
           followerAnchor: Alignment.topRight,
           tooltipMaxWidth: tooltipTargetGlobalRight - widget.tooltipMargin,
         ),
-      MoonTooltipPosition.bottomRight => _TooltipPositionProperties(
+      SelenicTooltipPosition.bottomRight => _TooltipPositionProperties(
           offset: Offset(0, arrowTipDistance + arrowLength),
           targetAnchor: Alignment.bottomLeft,
           followerAnchor: Alignment.topLeft,
@@ -365,7 +367,7 @@ class _MoonTooltipState extends State<MoonTooltip>
   }
 
   @override
-  void didUpdateWidget(MoonTooltip oldWidget) {
+  void didUpdateWidget(SelenicTooltip oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.routeObserver != widget.routeObserver) {
@@ -409,55 +411,55 @@ class _MoonTooltipState extends State<MoonTooltip>
   }
 
   Widget _createOverlayContent() {
-    MoonTooltipPosition tooltipPosition = widget.tooltipPosition;
+    SelenicTooltipPosition tooltipPosition = widget.tooltipPosition;
 
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.tooltipTheme.properties.borderRadius ??
-        MoonBorders.borders.interactiveXs;
+        context.selenicTheme?.tooltipTheme.properties.borderRadius ??
+        SelenicBorders.borders.interactiveXs;
 
     final resolvedBorderRadius =
         effectiveBorderRadius.resolve(Directionality.of(context));
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.tooltipTheme.colors.backgroundColor ??
+        context.selenicTheme?.tooltipTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.tooltipTheme.colors.textColor ??
+        context.selenicTheme?.tooltipTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.tooltipTheme.colors.iconColor ??
+        context.selenicTheme?.tooltipTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final double effectiveArrowBaseWidth = widget.arrowBaseWidth ??
-        context.moonTheme?.tooltipTheme.properties.arrowBaseWidth ??
+        context.selenicTheme?.tooltipTheme.properties.arrowBaseWidth ??
         16;
 
     final double effectiveArrowLength = widget.hasArrow
         ? (widget.arrowLength ??
-            context.moonTheme?.tooltipTheme.properties.arrowLength ??
+            context.selenicTheme?.tooltipTheme.properties.arrowLength ??
             8)
         : 0;
 
     final double effectiveArrowTipDistance = widget.arrowTipDistance ??
-        context.moonTheme?.tooltipTheme.properties.arrowTipDistance ??
+        context.selenicTheme?.tooltipTheme.properties.arrowTipDistance ??
         8;
 
     final EdgeInsetsGeometry effectiveContentPadding = widget.contentPadding ??
-        context.moonTheme?.tooltipTheme.properties.contentPadding ??
+        context.selenicTheme?.tooltipTheme.properties.contentPadding ??
         const EdgeInsets.all(12);
 
     final EdgeInsets resolvedContentPadding =
         effectiveContentPadding.resolve(Directionality.of(context));
 
     final List<BoxShadow> effectiveTooltipShadows = widget.tooltipShadows ??
-        context.moonTheme?.tooltipTheme.shadows.tooltipShadows ??
-        MoonShadows.light.sm;
+        context.selenicTheme?.tooltipTheme.shadows.tooltipShadows ??
+        SelenicShadows.light.sm;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.tooltipTheme.properties.textStyle ??
-            MoonTypography.typography.body.text12;
+        context.selenicTheme?.tooltipTheme.properties.textStyle ??
+            SelenicTypography.typography.body.text12;
 
     final overlayRenderBox =
         Overlay.of(context).context.findRenderObject()! as RenderBox;
@@ -480,31 +482,31 @@ class _MoonTooltipState extends State<MoonTooltip>
     );
 
     if (Directionality.of(context) == TextDirection.rtl ||
-        tooltipPosition == MoonTooltipPosition.horizontal ||
-        tooltipPosition == MoonTooltipPosition.vertical) {
+        tooltipPosition == SelenicTooltipPosition.horizontal ||
+        tooltipPosition == SelenicTooltipPosition.vertical) {
       switch (tooltipPosition) {
-        case MoonTooltipPosition.left:
-          tooltipPosition = MoonTooltipPosition.right;
-        case MoonTooltipPosition.right:
-          tooltipPosition = MoonTooltipPosition.left;
-        case MoonTooltipPosition.topLeft:
-          tooltipPosition = MoonTooltipPosition.topRight;
-        case MoonTooltipPosition.topRight:
-          tooltipPosition = MoonTooltipPosition.topLeft;
-        case MoonTooltipPosition.bottomLeft:
-          tooltipPosition = MoonTooltipPosition.bottomRight;
-        case MoonTooltipPosition.bottomRight:
-          tooltipPosition = MoonTooltipPosition.bottomLeft;
-        case MoonTooltipPosition.vertical:
+        case SelenicTooltipPosition.left:
+          tooltipPosition = SelenicTooltipPosition.right;
+        case SelenicTooltipPosition.right:
+          tooltipPosition = SelenicTooltipPosition.left;
+        case SelenicTooltipPosition.topLeft:
+          tooltipPosition = SelenicTooltipPosition.topRight;
+        case SelenicTooltipPosition.topRight:
+          tooltipPosition = SelenicTooltipPosition.topLeft;
+        case SelenicTooltipPosition.bottomLeft:
+          tooltipPosition = SelenicTooltipPosition.bottomRight;
+        case SelenicTooltipPosition.bottomRight:
+          tooltipPosition = SelenicTooltipPosition.bottomLeft;
+        case SelenicTooltipPosition.vertical:
           tooltipPosition = tooltipTargetGlobalCenter.dy <
                   overlayRenderBox.size.center(Offset.zero).dy
-              ? MoonTooltipPosition.bottom
-              : MoonTooltipPosition.top;
-        case MoonTooltipPosition.horizontal:
+              ? SelenicTooltipPosition.bottom
+              : SelenicTooltipPosition.top;
+        case SelenicTooltipPosition.horizontal:
           tooltipPosition = tooltipTargetGlobalCenter.dx <
                   overlayRenderBox.size.center(Offset.zero).dx
-              ? MoonTooltipPosition.right
-              : MoonTooltipPosition.left;
+              ? SelenicTooltipPosition.right
+              : SelenicTooltipPosition.left;
         default:
           break;
       }
@@ -580,12 +582,12 @@ class _MoonTooltipState extends State<MoonTooltip>
   @override
   Widget build(BuildContext context) {
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.tooltipTheme.properties.transitionDuration ??
+        context.selenicTheme?.tooltipTheme.properties.transitionDuration ??
         const Duration(milliseconds: 150);
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.tooltipTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.tooltipTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     _animationController ??= AnimationController(
       duration: effectiveTransitionDuration,

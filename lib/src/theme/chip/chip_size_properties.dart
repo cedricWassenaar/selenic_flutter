@@ -4,27 +4,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonChipSizeProperties extends ThemeExtension<MoonChipSizeProperties>
+class SelenicChipSizeProperties
+    extends ThemeExtension<SelenicChipSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonChip.
+  /// The border radius of the SelenicChip.
   final BorderRadiusGeometry borderRadius;
 
-  /// The gap between the leading, label and trailing widgets of the MoonChip.
+  /// The gap between the leading, label and trailing widgets of the SelenicChip.
   final double gap;
 
-  /// The height of the MoonChip.
+  /// The height of the SelenicChip.
   final double height;
 
-  /// The size value of the MoonChip icon.
+  /// The size value of the SelenicChip icon.
   final double iconSizeValue;
 
-  /// The padding of the MoonChip.
+  /// The padding of the SelenicChip.
   final EdgeInsetsGeometry padding;
 
-  /// The text style of the MoonChip.
+  /// The text style of the SelenicChip.
   final TextStyle textStyle;
 
-  const MoonChipSizeProperties({
+  const SelenicChipSizeProperties({
     required this.borderRadius,
     required this.gap,
     required this.height,
@@ -34,7 +35,7 @@ class MoonChipSizeProperties extends ThemeExtension<MoonChipSizeProperties>
   });
 
   @override
-  MoonChipSizeProperties copyWith({
+  SelenicChipSizeProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? gap,
     double? height,
@@ -42,7 +43,7 @@ class MoonChipSizeProperties extends ThemeExtension<MoonChipSizeProperties>
     EdgeInsetsGeometry? padding,
     TextStyle? textStyle,
   }) {
-    return MoonChipSizeProperties(
+    return SelenicChipSizeProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       gap: gap ?? this.gap,
       height: height ?? this.height,
@@ -53,13 +54,13 @@ class MoonChipSizeProperties extends ThemeExtension<MoonChipSizeProperties>
   }
 
   @override
-  MoonChipSizeProperties lerp(
-    ThemeExtension<MoonChipSizeProperties>? other,
+  SelenicChipSizeProperties lerp(
+    ThemeExtension<SelenicChipSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonChipSizeProperties) return this;
+    if (other is! SelenicChipSizeProperties) return this;
 
-    return MoonChipSizeProperties(
+    return SelenicChipSizeProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       gap: lerpDouble(gap, other.gap, t)!,
@@ -75,7 +76,7 @@ class MoonChipSizeProperties extends ThemeExtension<MoonChipSizeProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonChipSizeProperties"),
+        DiagnosticsProperty("type", "SelenicChipSizeProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

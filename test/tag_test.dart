@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _tagKey = Key("tagKey");
 
@@ -100,7 +100,7 @@ class _TagTestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MoonTag(
+        body: SelenicTag(
           key: tagKey,
           onTap: onTap,
           onLongPress: onLongPress,

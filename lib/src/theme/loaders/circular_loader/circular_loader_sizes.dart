@@ -1,73 +1,74 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/loaders/circular_loader/circular_loader_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/loaders/circular_loader/circular_loader_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonCircularLoaderSizes extends ThemeExtension<MoonCircularLoaderSizes>
+class SelenicCircularLoaderSizes
+    extends ThemeExtension<SelenicCircularLoaderSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the (2x) extra small MoonCircularLoader.
-  final MoonCircularLoaderSizeProperties x2s;
+  /// The properties of the (2x) extra small SelenicCircularLoader.
+  final SelenicCircularLoaderSizeProperties x2s;
 
-  /// The properties of the extra small MoonCircularLoader.
-  final MoonCircularLoaderSizeProperties xs;
+  /// The properties of the extra small SelenicCircularLoader.
+  final SelenicCircularLoaderSizeProperties xs;
 
-  /// The properties of the small MoonCircularLoader.
-  final MoonCircularLoaderSizeProperties sm;
+  /// The properties of the small SelenicCircularLoader.
+  final SelenicCircularLoaderSizeProperties sm;
 
-  /// The properties of the medium MoonCircularLoader.
-  final MoonCircularLoaderSizeProperties md;
+  /// The properties of the medium SelenicCircularLoader.
+  final SelenicCircularLoaderSizeProperties md;
 
-  /// The properties of the large MoonCircularLoader.
-  final MoonCircularLoaderSizeProperties lg;
+  /// The properties of the large SelenicCircularLoader.
+  final SelenicCircularLoaderSizeProperties lg;
 
-  MoonCircularLoaderSizes({
+  SelenicCircularLoaderSizes({
     required this.tokens,
-    MoonCircularLoaderSizeProperties? x2s,
-    MoonCircularLoaderSizeProperties? xs,
-    MoonCircularLoaderSizeProperties? sm,
-    MoonCircularLoaderSizeProperties? md,
-    MoonCircularLoaderSizeProperties? lg,
+    SelenicCircularLoaderSizeProperties? x2s,
+    SelenicCircularLoaderSizeProperties? xs,
+    SelenicCircularLoaderSizeProperties? sm,
+    SelenicCircularLoaderSizeProperties? md,
+    SelenicCircularLoaderSizeProperties? lg,
   })  : x2s = x2s ??
-            MoonCircularLoaderSizeProperties(
+            SelenicCircularLoaderSizeProperties(
               loaderSizeValue: tokens.sizes.x2s,
               loaderStrokeWidth: tokens.sizes.x6s,
             ),
         xs = xs ??
-            MoonCircularLoaderSizeProperties(
+            SelenicCircularLoaderSizeProperties(
               loaderSizeValue: tokens.sizes.xs,
               loaderStrokeWidth: tokens.sizes.x6s,
             ),
         sm = sm ??
-            MoonCircularLoaderSizeProperties(
+            SelenicCircularLoaderSizeProperties(
               loaderSizeValue: tokens.sizes.sm,
               loaderStrokeWidth: tokens.sizes.x6s,
             ),
         md = md ??
-            MoonCircularLoaderSizeProperties(
+            SelenicCircularLoaderSizeProperties(
               loaderSizeValue: tokens.sizes.md,
               loaderStrokeWidth: tokens.sizes.x5s,
             ),
         lg = lg ??
-            MoonCircularLoaderSizeProperties(
+            SelenicCircularLoaderSizeProperties(
               loaderSizeValue: tokens.sizes.lg,
               loaderStrokeWidth: tokens.sizes.x5s,
             );
 
   @override
-  MoonCircularLoaderSizes copyWith({
-    MoonTokens? tokens,
-    MoonCircularLoaderSizeProperties? x2s,
-    MoonCircularLoaderSizeProperties? xs,
-    MoonCircularLoaderSizeProperties? sm,
-    MoonCircularLoaderSizeProperties? md,
-    MoonCircularLoaderSizeProperties? lg,
+  SelenicCircularLoaderSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicCircularLoaderSizeProperties? x2s,
+    SelenicCircularLoaderSizeProperties? xs,
+    SelenicCircularLoaderSizeProperties? sm,
+    SelenicCircularLoaderSizeProperties? md,
+    SelenicCircularLoaderSizeProperties? lg,
   }) {
-    return MoonCircularLoaderSizes(
+    return SelenicCircularLoaderSizes(
       tokens: tokens ?? this.tokens,
       x2s: x2s ?? this.x2s,
       xs: xs ?? this.xs,
@@ -78,13 +79,13 @@ class MoonCircularLoaderSizes extends ThemeExtension<MoonCircularLoaderSizes>
   }
 
   @override
-  MoonCircularLoaderSizes lerp(
-    ThemeExtension<MoonCircularLoaderSizes>? other,
+  SelenicCircularLoaderSizes lerp(
+    ThemeExtension<SelenicCircularLoaderSizes>? other,
     double t,
   ) {
-    if (other is! MoonCircularLoaderSizes) return this;
+    if (other is! SelenicCircularLoaderSizes) return this;
 
-    return MoonCircularLoaderSizes(
+    return SelenicCircularLoaderSizes(
       tokens: tokens.lerp(other.tokens, t),
       x2s: x2s.lerp(other.x2s, t),
       xs: xs.lerp(other.xs, t),
@@ -98,12 +99,13 @@ class MoonCircularLoaderSizes extends ThemeExtension<MoonCircularLoaderSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonCircularLoaderSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonCircularLoaderSizeProperties>("x2s", x2s))
-      ..add(DiagnosticsProperty<MoonCircularLoaderSizeProperties>("xs", xs))
-      ..add(DiagnosticsProperty<MoonCircularLoaderSizeProperties>("sm", sm))
-      ..add(DiagnosticsProperty<MoonCircularLoaderSizeProperties>("md", md))
-      ..add(DiagnosticsProperty<MoonCircularLoaderSizeProperties>("lg", lg));
+      ..add(DiagnosticsProperty("type", "SelenicCircularLoaderSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(
+          DiagnosticsProperty<SelenicCircularLoaderSizeProperties>("x2s", x2s))
+      ..add(DiagnosticsProperty<SelenicCircularLoaderSizeProperties>("xs", xs))
+      ..add(DiagnosticsProperty<SelenicCircularLoaderSizeProperties>("sm", sm))
+      ..add(DiagnosticsProperty<SelenicCircularLoaderSizeProperties>("md", md))
+      ..add(DiagnosticsProperty<SelenicCircularLoaderSizeProperties>("lg", lg));
   }
 }

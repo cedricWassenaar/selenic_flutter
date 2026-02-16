@@ -3,7 +3,7 @@ import 'package:example/src/storybook/common/widgets/logo.dart';
 import 'package:example/src/storybook/common/widgets/version.dart';
 import 'package:example/src/storybook/routing/route_aware_stories.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class StorybookPage extends StatelessWidget {
@@ -27,22 +27,22 @@ class StorybookPage extends StatelessWidget {
       enableLayout: false,
       autoLayoutThreshold: storybookAutoLayoutThreshold,
       canvasColor: Colors.white,
-      logoWidget: const MoonLogoWidget(),
+      logoWidget: const SelenicLogoWidget(),
       routeWrapperBuilder: RouteWrapperBuilder(
-        title: "Moon Design for Flutter",
+        title: "Selenic Design for Flutter",
         theme: ThemeData.light().copyWith(
           scaffoldBackgroundColor: const Color(0xFFF6F7F9), // Gohan light.
           extensions: <ThemeExtension<dynamic>>[
-            MoonTheme(
-              tokens: MoonTokens.light.copyWith(
+            SelenicTheme(
+              tokens: SelenicTokens.light.copyWith(
                 colors: mdsLightColors,
-                typography: MoonTypography.typography.copyWith(
-                  heading: MoonTypography.typography.heading.apply(
+                typography: SelenicTypography.typography.copyWith(
+                  heading: SelenicTypography.typography.heading.apply(
                     fontFamily: "DMSans",
                     fontWeightDelta: -1,
                     fontVariations: [const FontVariation('wght', 500)],
                   ),
-                  body: MoonTypography.typography.body.apply(
+                  body: SelenicTypography.typography.body.apply(
                     fontFamily: "DMSans",
                   ),
                 ),
@@ -53,16 +53,16 @@ class StorybookPage extends StatelessWidget {
         darkTheme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: const Color(0xFF1F1F1F), // Gohan dark.
           extensions: <ThemeExtension<dynamic>>[
-            MoonTheme(
-              tokens: MoonTokens.dark.copyWith(
+            SelenicTheme(
+              tokens: SelenicTokens.dark.copyWith(
                 colors: mdsDarkColors,
-                typography: MoonTypography.typography.copyWith(
-                  heading: MoonTypography.typography.heading.apply(
+                typography: SelenicTypography.typography.copyWith(
+                  heading: SelenicTypography.typography.heading.apply(
                     fontFamily: "DMSans",
                     fontWeightDelta: -1,
                     fontVariations: [const FontVariation('wght', 500)],
                   ),
-                  body: MoonTypography.typography.body.apply(
+                  body: SelenicTypography.typography.body.apply(
                     fontFamily: "DMSans",
                   ),
                 ),
@@ -81,7 +81,7 @@ class StorybookPage extends StatelessWidget {
           ),
         ),
       ),
-      brandingWidget: const MoonVersionWidget(),
+      brandingWidget: const SelenicVersionWidget(),
       stories: routeAwareStories,
     );
   }

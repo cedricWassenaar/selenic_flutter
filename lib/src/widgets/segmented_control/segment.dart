@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/widgets/segmented_control/segment_style.dart';
+import 'package:selenic_design/src/widgets/segmented_control/segment_style.dart';
 
 class Segment {
   /// {@macro flutter.widgets.Focus.autofocus}
@@ -34,7 +34,7 @@ class Segment {
   /// The widget to display after the [label] widget of the segment.
   final Widget? trailing;
 
-  /// Creates a Moon Design segment.
+  /// Creates a Selenic Design segment.
   const Segment({
     this.autoFocus = false,
     this.isFocusable = true,

@@ -7,19 +7,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
-import 'package:moon_design/src/theme/text_input/text_input_size_properties.dart';
-import 'package:moon_design/src/theme/text_input/text_input_sizes.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/widgets/common/border_container.dart';
-import 'package:moon_design/src/widgets/common/error_message_widgets.dart';
 import 'package:moon_tokens/moon_tokens.dart';
+
+import 'package:selenic_design/src/theme/text_input/text_input_size_properties.dart';
+import 'package:selenic_design/src/theme/text_input/text_input_sizes.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/opacities.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/widgets/common/border_container.dart';
+import 'package:selenic_design/src/widgets/common/error_message_widgets.dart';
 
 export 'package:flutter/services.dart'
     show
@@ -29,19 +30,19 @@ export 'package:flutter/services.dart'
         TextInputAction,
         TextInputType;
 
-enum MoonTextInputSize {
+enum SelenicTextInputSize {
   sm,
   md,
   lg,
   xl,
 }
 
-typedef MoonTextInputErrorBuilder = Widget Function(
+typedef SelenicTextInputErrorBuilder = Widget Function(
   BuildContext context,
   String? errorText,
 );
 
-class MoonTextInput extends StatefulWidget {
+class SelenicTextInput extends StatefulWidget {
   /// If [maxLength] is set to this value, only the "current input length" part
   /// of the character counter is displayed.
   static const int noMaxLength = -1;
@@ -55,7 +56,7 @@ class MoonTextInput extends StatefulWidget {
     );
   }
 
-  // Moon Design System properties.
+  // Selenic Design System properties.
   /// Whether the text input has floating label.
   final bool hasFloatingLabel;
 
@@ -92,7 +93,7 @@ class MoonTextInput extends StatefulWidget {
   /// The gap between the [leading] widget, text input and [trailing] widget.
   final double? gap;
 
-  /// The height of the text input (does not include the space taken by [MoonTextInput.errorBuilder]).
+  /// The height of the text input (does not include the space taken by [SelenicTextInput.errorBuilder]).
   final double? height;
 
   /// The width of the text input.
@@ -111,7 +112,7 @@ class MoonTextInput extends StatefulWidget {
   final EdgeInsetsGeometry? helperPadding;
 
   /// The size of the text input.
-  final MoonTextInputSize? textInputSize;
+  final SelenicTextInputSize? textInputSize;
 
   /// The error text can be used to force text input into an error state (useful for asynchronous errors).
   ///
@@ -129,7 +130,7 @@ class MoonTextInput extends StatefulWidget {
   final TextStyle? helperTextStyle;
 
   /// A builder to build the text input error widget.
-  final MoonTextInputErrorBuilder? errorBuilder;
+  final SelenicTextInputErrorBuilder? errorBuilder;
 
   /// The widget to display before the text input.
   final Widget? leading;
@@ -288,7 +289,7 @@ class MoonTextInput extends StatefulWidget {
   /// If set, a character counter will be displayed below the
   /// field showing how many characters have been entered. If set to a number
   /// greater than 0, it will also display the maximum number allowed. If set
-  /// to [MoonTextInput.noMaxLength] then only the current character count is displayed.
+  /// to [SelenicTextInput.noMaxLength] then only the current character count is displayed.
   ///
   /// After [maxLength] characters have been input, additional input
   /// is ignored, unless [maxLengthEnforcement] is set to [MaxLengthEnforcement.none].
@@ -296,9 +297,9 @@ class MoonTextInput extends StatefulWidget {
   /// The text field enforces the length with a [LengthLimitingTextInputFormatter],
   /// which is evaluated after the supplied [inputFormatters], if any.
   ///
-  /// This value must be either null, [MoonTextInput.noMaxLength], or greater than 0.
+  /// This value must be either null, [SelenicTextInput.noMaxLength], or greater than 0.
   /// If null (the default) then there is no limit to the number of characters
-  /// that can be entered. If set to [MoonTextInput.noMaxLength], then no limit will
+  /// that can be entered. If set to [SelenicTextInput.noMaxLength], then no limit will
   /// be enforced, but the number of characters entered will still be displayed.
   ///
   /// Whitespace characters (e.g. newline, space, tab) are included in the character count.
@@ -370,7 +371,7 @@ class MoonTextInput extends StatefulWidget {
   /// the field.
   final Color? cursorColor;
 
-  /// The color of the cursor when the [MoonTextInput] is showing an error.
+  /// The color of the cursor when the [SelenicTextInput] is showing an error.
   final Color? cursorErrorColor;
 
   /// Controls how tall the selection highlight boxes are computed to be.
@@ -437,10 +438,10 @@ class MoonTextInput extends StatefulWidget {
   ///
   /// {@tool dartpad}
   /// This example shows how to use a 'TextFieldTapRegion' to wrap a set of
-  /// "spinner" buttons that increment and decrement a value in the [MoonTextInput]
+  /// "spinner" buttons that increment and decrement a value in the [SelenicTextInput]
   /// without causing the text field to lose keyboard focus.
   ///
-  /// This example includes a generic 'SpinnerField<T>' class that you can copy
+  /// This example includes a generic [SpinnerField<T>] class that you can copy
   /// into your own project and customize.
   ///
   /// ** See code in examples/api/lib/widgets/tap_region/text_field_tap_region.0.dart **
@@ -490,7 +491,7 @@ class MoonTextInput extends StatefulWidget {
   final String? restorationId;
 
   /// {@macro flutter.widgets.editableText.scribbleEnabled}
-  final bool scribbleEnabled;
+  final bool stylusHandwritingEnabled;
 
   /// {@macro flutter.services.TextInputConfiguration.enableIMEPersonalizedLearning}
   final bool enableIMEPersonalizedLearning;
@@ -523,7 +524,7 @@ class MoonTextInput extends StatefulWidget {
   /// configuration, then [materialMisspelledTextStyle] is used by default.
   final SpellCheckConfiguration? spellCheckConfiguration;
 
-  /// Creates a Moon Design text input.
+  /// Creates a Selenic Design text input.
   ///
   /// The [maxLines] property can be set to null to remove the restriction on
   /// the number of lines. By default, it is one, meaning this is a single-line
@@ -535,7 +536,7 @@ class MoonTextInput extends StatefulWidget {
   /// field showing how many characters have been entered. If the value is
   /// set to a positive integer it will also display the maximum allowed
   /// number of characters to be entered. If the value is set to
-  /// [MoonTextInput.noMaxLength] then only the current length is displayed.
+  /// [SelenicTextInput.noMaxLength] then only the current length is displayed.
   ///
   /// After [maxLength] characters have been input, additional input
   /// is ignored, unless [maxLengthEnforcement] is set to
@@ -566,8 +567,8 @@ class MoonTextInput extends StatefulWidget {
   ///
   ///  * [maxLength], which discusses the precise meaning of "number of
   ///    characters" and how it may differ from the intuitive meaning.
-  const MoonTextInput({
-    // Moon Design System properties.
+  const SelenicTextInput({
+    // Selenic Design System properties.
     this.hasFloatingLabel = false,
     this.borderRadius,
     this.backgroundColor,
@@ -652,7 +653,7 @@ class MoonTextInput extends StatefulWidget {
     this.contentInsertionConfiguration,
     this.clipBehavior = Clip.hardEdge,
     this.restorationId,
-    this.scribbleEnabled = true,
+    this.stylusHandwritingEnabled = true,
     this.enableIMEPersonalizedLearning = true,
     this.contextMenuBuilder = _defaultContextMenuBuilder,
     this.canRequestFocus = true,
@@ -679,7 +680,7 @@ class MoonTextInput extends StatefulWidget {
         ),
         assert(
           maxLength == null ||
-              maxLength == MoonTextInput.noMaxLength ||
+              maxLength == SelenicTextInput.noMaxLength ||
               maxLength > 0,
         ),
         // Assert the following to prevent unexpected changes in the user's set value.
@@ -687,7 +688,7 @@ class MoonTextInput extends StatefulWidget {
           !identical(textInputAction, TextInputAction.newline) ||
               maxLines == 1 ||
               !identical(keyboardType, TextInputType.text),
-          'Use keyboardType TextInputType.multiline when using TextInputAction.newline on a multiline MoonTextInput.',
+          'Use keyboardType TextInputType.multiline when using TextInputAction.newline on a multiline SelenicTextInput.',
         ),
         smartDashesType = smartDashesType ??
             (obscureText ? SmartDashesType.disabled : SmartDashesType.enabled),
@@ -702,7 +703,7 @@ class MoonTextInput extends StatefulWidget {
   bool get selectionEnabled => enableInteractiveSelection;
 
   @override
-  State<MoonTextInput> createState() => _MoonTextInputState();
+  State<SelenicTextInput> createState() => _SelenicTextInputState();
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
@@ -915,7 +916,7 @@ class MoonTextInput extends StatefulWidget {
     properties.add(
       DiagnosticsProperty<bool>(
         'scribbleEnabled',
-        scribbleEnabled,
+        stylusHandwritingEnabled,
         defaultValue: true,
       ),
     );
@@ -945,7 +946,7 @@ class MoonTextInput extends StatefulWidget {
   }
 }
 
-class _MoonTextInputState extends State<MoonTextInput>
+class _SelenicTextInputState extends State<SelenicTextInput>
     with RestorationMixin
     implements TextSelectionGestureDetectorBuilderDelegate, AutofillClient {
   @override
@@ -955,7 +956,7 @@ class _MoonTextInputState extends State<MoonTextInput>
   @override
   late bool forcePressEnabled;
 
-  late _MoonTextInputSelectionGestureDetectorBuilder
+  late _SelenicTextInputSelectionGestureDetectorBuilder
       _selectionGestureDetectorBuilder;
 
   RestorableTextEditingController? _controller;
@@ -1006,12 +1007,12 @@ class _MoonTextInputState extends State<MoonTextInput>
         Theme.of(context).platform,
       );
 
-  Set<MaterialState> get _materialState {
-    return <MaterialState>{
-      if (!_isEnabled) MaterialState.disabled,
-      if (_isHovering) MaterialState.hovered,
-      if (_hasFocus) MaterialState.focused,
-      if (_hasError) MaterialState.error,
+  Set<WidgetState> get _materialState {
+    return <WidgetState>{
+      if (!_isEnabled) WidgetState.disabled,
+      if (_isHovering) WidgetState.hovered,
+      if (_hasFocus) WidgetState.focused,
+      if (_hasError) WidgetState.error,
     };
   }
 
@@ -1122,32 +1123,34 @@ class _MoonTextInputState extends State<MoonTextInput>
     }
     if (!_isEnabled) return false;
     if (cause == SelectionChangedCause.longPress ||
-        cause == SelectionChangedCause.scribble) return true;
+        cause == SelectionChangedCause.stylusHandwriting) {
+      return true;
+    }
     if (_effectiveController.text.isNotEmpty) return true;
 
     return false;
   }
 
-  MoonTextInputSizeProperties _getMoonTextInputSize(
+  SelenicTextInputSizeProperties _getSelenicTextInputSize(
     BuildContext context,
-    MoonTextInputSize? moonTextInputSize,
+    SelenicTextInputSize? textInputSize,
   ) {
-    switch (moonTextInputSize) {
-      case MoonTextInputSize.sm:
-        return context.moonTheme?.textInputTheme.sizes.sm ??
-            MoonTextInputSizes(tokens: MoonTokens.light).sm;
-      case MoonTextInputSize.md:
-        return context.moonTheme?.textInputTheme.sizes.md ??
-            MoonTextInputSizes(tokens: MoonTokens.light).md;
-      case MoonTextInputSize.lg:
-        return context.moonTheme?.textInputTheme.sizes.lg ??
-            MoonTextInputSizes(tokens: MoonTokens.light).lg;
-      case MoonTextInputSize.xl:
-        return context.moonTheme?.textInputTheme.sizes.xl ??
-            MoonTextInputSizes(tokens: MoonTokens.light).xl;
+    switch (textInputSize) {
+      case SelenicTextInputSize.sm:
+        return context.selenicTheme?.textInputTheme.sizes.sm ??
+            SelenicTextInputSizes(tokens: SelenicTokens.light).sm;
+      case SelenicTextInputSize.md:
+        return context.selenicTheme?.textInputTheme.sizes.md ??
+            SelenicTextInputSizes(tokens: SelenicTokens.light).md;
+      case SelenicTextInputSize.lg:
+        return context.selenicTheme?.textInputTheme.sizes.lg ??
+            SelenicTextInputSizes(tokens: SelenicTokens.light).lg;
+      case SelenicTextInputSize.xl:
+        return context.selenicTheme?.textInputTheme.sizes.xl ??
+            SelenicTextInputSizes(tokens: SelenicTokens.light).xl;
       default:
-        return context.moonTheme?.textInputTheme.sizes.md ??
-            MoonTextInputSizes(tokens: MoonTokens.light).md;
+        return context.selenicTheme?.textInputTheme.sizes.md ??
+            SelenicTextInputSizes(tokens: SelenicTokens.light).md;
     }
   }
 
@@ -1160,7 +1163,7 @@ class _MoonTextInputState extends State<MoonTextInput>
     super.initState();
 
     _selectionGestureDetectorBuilder =
-        _MoonTextInputSelectionGestureDetectorBuilder(state: this);
+        _SelenicTextInputSelectionGestureDetectorBuilder(state: this);
 
     if (widget.controller == null) _createLocalController();
 
@@ -1176,7 +1179,7 @@ class _MoonTextInputState extends State<MoonTextInput>
   }
 
   @override
-  void didUpdateWidget(MoonTextInput oldWidget) {
+  void didUpdateWidget(SelenicTextInput oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.controller == null && oldWidget.controller != null) {
@@ -1236,114 +1239,115 @@ class _MoonTextInputState extends State<MoonTextInput>
     final TextEditingController controller = _effectiveController;
     final FocusNode focusNode = _effectiveFocusNode;
 
-    final MoonTextInputSizeProperties effectiveMoonTextInputSize =
-        _getMoonTextInputSize(context, widget.textInputSize);
+    final SelenicTextInputSizeProperties effectiveSelenicTextInputSize =
+        _getSelenicTextInputSize(context, widget.textInputSize);
 
     final BorderRadiusGeometry effectiveBorderRadius =
-        widget.borderRadius ?? effectiveMoonTextInputSize.borderRadius;
+        widget.borderRadius ?? effectiveSelenicTextInputSize.borderRadius;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.textInputTheme.colors.backgroundColor ??
+        context.selenicTheme?.textInputTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveActiveBorderColor = widget.activeBorderColor ??
-        context.moonTheme?.textInputTheme.colors.activeBorderColor ??
+        context.selenicTheme?.textInputTheme.colors.activeBorderColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveInactiveBorderColor = widget.inactiveBorderColor ??
-        context.moonTheme?.textInputTheme.colors.inactiveBorderColor ??
+        context.selenicTheme?.textInputTheme.colors.inactiveBorderColor ??
         MoonColors.light.beerus;
 
     final Color effectiveErrorColor = widget.errorColor ??
-        context.moonTheme?.textInputTheme.colors.errorColor ??
+        context.selenicTheme?.textInputTheme.colors.errorColor ??
         MoonColors.light.chichi;
 
     final Color effectiveCursorErrorColor = widget.cursorErrorColor ??
-        context.moonTheme?.textInputTheme.colors.errorColor ??
+        context.selenicTheme?.textInputTheme.colors.errorColor ??
         MoonColors.light.chichi;
 
     final Color effectiveHoverBorderColor = widget.hoverBorderColor ??
-        context.moonTheme?.textInputTheme.colors.hoverBorderColor ??
+        context.selenicTheme?.textInputTheme.colors.hoverBorderColor ??
         MoonColors.light.beerus;
 
     final Color effectiveTextColor = widget.textColor ??
-        context.moonTheme?.textInputTheme.colors.textColor ??
+        context.selenicTheme?.textInputTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveHintTextColor = widget.hintTextColor ??
-        context.moonTheme?.textInputTheme.colors.helperTextColor ??
+        context.selenicTheme?.textInputTheme.colors.helperTextColor ??
         MoonColors.light.trunks;
 
-    final double effectiveGap = widget.gap ?? effectiveMoonTextInputSize.gap;
+    final double effectiveGap = widget.gap ?? effectiveSelenicTextInputSize.gap;
 
     final double effectiveHeight =
-        widget.height ?? effectiveMoonTextInputSize.height;
+        widget.height ?? effectiveSelenicTextInputSize.height;
 
     final double effectiveDisabledOpacityValue =
-        context.moonOpacities?.disabled ?? MoonOpacities.opacities.disabled;
+        context.selenicOpacities?.disabled ??
+            SelenicOpacities.opacities.disabled;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.textInputTheme.properties.transitionDuration ??
+        context.selenicTheme?.textInputTheme.properties.transitionDuration ??
         const Duration(milliseconds: 167);
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.textInputTheme.properties.transitionCurve ??
+        context.selenicTheme?.textInputTheme.properties.transitionCurve ??
         Curves.fastOutSlowIn;
 
     final EdgeInsetsGeometry effectivePadding =
-        widget.padding ?? effectiveMoonTextInputSize.padding;
+        widget.padding ?? effectiveSelenicTextInputSize.padding;
 
     final EdgeInsets resolvedContentPadding =
         effectivePadding.resolve(Directionality.of(context));
 
     final EdgeInsetsGeometry effectiveHelperPadding = widget.helperPadding ??
-        context.moonTheme?.textInputTheme.properties.helperPadding ??
+        context.selenicTheme?.textInputTheme.properties.helperPadding ??
         EdgeInsets.only(
-          left: MoonSizes.sizes.x3s,
-          top: MoonSizes.sizes.x4s,
-          right: MoonSizes.sizes.x3s,
+          left: SelenicSizes.sizes.x3s,
+          top: SelenicSizes.sizes.x4s,
+          right: SelenicSizes.sizes.x3s,
         );
 
     final TextStyle effectiveTextStyle =
-        widget.style ?? effectiveMoonTextInputSize.textStyle;
+        widget.style ?? effectiveSelenicTextInputSize.textStyle;
 
     final TextStyle effectiveHelperTextStyle = widget.helperTextStyle ??
-        context.moonTheme?.textInputTheme.properties.helperTextStyle ??
-        MoonTypography.typography.body.text12;
+        context.selenicTheme?.textInputTheme.properties.helperTextStyle ??
+        SelenicTypography.typography.body.text12;
 
-    final MoonSquircleBorder defaultBorder = MoonSquircleBorder(
+    final SelenicSquircleBorder defaultBorder = SelenicSquircleBorder(
       borderRadius: effectiveBorderRadius.squircleBorderRadius(context),
       side: BorderSide(
         color: effectiveInactiveBorderColor,
-        width: MoonBorders.borders.defaultBorderWidth,
+        width: SelenicBorders.borders.defaultBorderWidth,
       ),
     );
 
-    final MoonSquircleBorder hoverBorder = MoonSquircleBorder(
+    final SelenicSquircleBorder hoverBorder = SelenicSquircleBorder(
       borderRadius: effectiveBorderRadius.squircleBorderRadius(context),
       side: BorderSide(
         color: effectiveHoverBorderColor,
-        width: MoonBorders.borders.activeBorderWidth,
+        width: SelenicBorders.borders.activeBorderWidth,
       ),
     );
 
-    final MoonSquircleBorder focusBorder = MoonSquircleBorder(
+    final SelenicSquircleBorder focusBorder = SelenicSquircleBorder(
       borderRadius: effectiveBorderRadius.squircleBorderRadius(context),
       side: BorderSide(
         color: effectiveActiveBorderColor,
-        width: MoonBorders.borders.activeBorderWidth,
+        width: SelenicBorders.borders.activeBorderWidth,
       ),
     );
 
-    final MoonSquircleBorder errorBorder = MoonSquircleBorder(
+    final SelenicSquircleBorder errorBorder = SelenicSquircleBorder(
       borderRadius: effectiveBorderRadius.squircleBorderRadius(context),
       side: BorderSide(
         color: widget.errorBorderColor ?? effectiveErrorColor,
-        width: MoonBorders.borders.activeBorderWidth,
+        width: SelenicBorders.borders.activeBorderWidth,
       ),
     );
 
-    final MoonSquircleBorder resolvedBorder = _hasError
+    final SelenicSquircleBorder resolvedBorder = _hasError
         ? errorBorder
         : _hasFocus
             ? focusBorder
@@ -1363,8 +1367,8 @@ class _MoonTextInputState extends State<MoonTextInput>
     TextSelectionControls? textSelectionControls = widget.selectionControls;
 
     final MouseCursor effectiveMouseCursor =
-        MaterialStateProperty.resolveAs<MouseCursor>(
-      widget.mouseCursor ?? MaterialStateMouseCursor.textable,
+        WidgetStateProperty.resolveAs<MouseCursor>(
+      widget.mouseCursor ?? WidgetStateMouseCursor.textable,
       _materialState,
     );
 
@@ -1416,7 +1420,7 @@ class _MoonTextInputState extends State<MoonTextInput>
             ? effectiveCursorErrorColor
             : widget.cursorColor ?? effectiveTextColor;
         selectionColor = selectionStyle.selectionColor ??
-            cupertinoTheme.primaryColor.withOpacity(0.40);
+            cupertinoTheme.primaryColor.withValues(alpha: 0.40);
         cursorRadius ??= const Radius.circular(2.0);
         cursorOffset = Offset(
           iOSHorizontalOffset / MediaQuery.devicePixelRatioOf(context),
@@ -1434,14 +1438,14 @@ class _MoonTextInputState extends State<MoonTextInput>
             ? effectiveCursorErrorColor
             : widget.cursorColor ?? effectiveTextColor;
         selectionColor = selectionStyle.selectionColor ??
-            cupertinoTheme.primaryColor.withOpacity(0.40);
+            cupertinoTheme.primaryColor.withValues(alpha: 0.40);
         cursorRadius ??= const Radius.circular(2.0);
         cursorOffset = Offset(
           iOSHorizontalOffset / MediaQuery.devicePixelRatioOf(context),
           0,
         );
         handleDidGainAccessibilityFocus = () {
-          // Automatically activates MoonTextInput on receiving accessibility focus.
+          // Automatically activates SelenicTextInput on receiving accessibility focus.
           if (!_hasFocus && _effectiveFocusNode.canRequestFocus) {
             _effectiveFocusNode.requestFocus();
           }
@@ -1457,7 +1461,7 @@ class _MoonTextInputState extends State<MoonTextInput>
             ? effectiveCursorErrorColor
             : widget.cursorColor ?? effectiveTextColor;
         selectionColor = selectionStyle.selectionColor ??
-            theme.colorScheme.primary.withOpacity(0.40);
+            theme.colorScheme.primary.withValues(alpha: 0.40);
 
       case TargetPlatform.linux:
         forcePressEnabled = false;
@@ -1468,7 +1472,7 @@ class _MoonTextInputState extends State<MoonTextInput>
             ? effectiveCursorErrorColor
             : widget.cursorColor ?? effectiveTextColor;
         selectionColor = selectionStyle.selectionColor ??
-            theme.colorScheme.primary.withOpacity(0.40);
+            theme.colorScheme.primary.withValues(alpha: 0.40);
 
       case TargetPlatform.windows:
         forcePressEnabled = false;
@@ -1479,9 +1483,9 @@ class _MoonTextInputState extends State<MoonTextInput>
             ? effectiveCursorErrorColor
             : widget.cursorColor ?? effectiveTextColor;
         selectionColor = selectionStyle.selectionColor ??
-            theme.colorScheme.primary.withOpacity(0.40);
+            theme.colorScheme.primary.withValues(alpha: 0.40);
         handleDidGainAccessibilityFocus = () {
-          // Automatically activates MoonTextInput on receiving accessibility focus.
+          // Automatically activates SelenicTextInput on receiving accessibility focus.
           if (!_hasFocus && _effectiveFocusNode.canRequestFocus) {
             _effectiveFocusNode.requestFocus();
           }
@@ -1522,7 +1526,7 @@ class _MoonTextInputState extends State<MoonTextInput>
           maxLines: widget.maxLines,
           minLines: widget.minLines,
           mouseCursor: MouseCursor.defer,
-          // MoonTextInput will handle the cursor.
+          // SelenicTextInput will handle the cursor.
           obscureText: widget.obscureText,
           obscuringCharacter: widget.obscuringCharacter,
           onAppPrivateCommand: widget.onAppPrivateCommand,
@@ -1536,7 +1540,7 @@ class _MoonTextInputState extends State<MoonTextInput>
           readOnly: widget.readOnly || !_isEnabled,
           rendererIgnoresPointer: true,
           restorationId: 'editable',
-          scribbleEnabled: widget.scribbleEnabled,
+          stylusHandwritingEnabled: widget.stylusHandwritingEnabled,
           scrollController: widget.scrollController,
           scrollPadding: widget.scrollPadding,
           scrollPhysics: widget.scrollPhysics,
@@ -1701,8 +1705,8 @@ class _MoonTextInputState extends State<MoonTextInput>
                       ? widget.errorBuilder?.call(context, widget.errorText) ??
                           Padding(
                             padding: effectiveHelperPadding,
-                            child:
-                                MoonErrorMessage(errorText: widget.errorText!),
+                            child: SelenicErrorMessage(
+                                errorText: widget.errorText!),
                           )
                       : Padding(
                           padding: effectiveHelperPadding,
@@ -1754,14 +1758,14 @@ class _MoonTextInputState extends State<MoonTextInput>
   }
 }
 
-class _MoonTextInputSelectionGestureDetectorBuilder
+class _SelenicTextInputSelectionGestureDetectorBuilder
     extends TextSelectionGestureDetectorBuilder {
-  _MoonTextInputSelectionGestureDetectorBuilder({
-    required _MoonTextInputState state,
+  _SelenicTextInputSelectionGestureDetectorBuilder({
+    required _SelenicTextInputState state,
   })  : _state = state,
         super(delegate: state);
 
-  final _MoonTextInputState _state;
+  final _SelenicTextInputState _state;
 
   @override
   void onForcePressStart(ForcePressDetails details) {

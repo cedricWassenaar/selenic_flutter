@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 enum Options {
   accordion,
@@ -81,14 +81,14 @@ class _ComboboxMultiSelectState extends State<ComboboxMultiSelect> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: MoonDropdown(
+      child: SelenicDropdown(
         show: _showDropdown,
         constrainWidthToChild: true,
         onTapOutside: () => _handleDropdownTapOutside(),
         content: ConstrainedBox(
           constraints: const BoxConstraints(maxHeight: 200),
           child: _filteredOptionsList.isEmpty
-              ? const MoonMenuItem(
+              ? const SelenicMenuItem(
                   label: Text('Nothing found.'),
                 )
               : ListView.builder(
@@ -100,11 +100,11 @@ class _ComboboxMultiSelectState extends State<ComboboxMultiSelect> {
                     final Options currentOption = _filteredOptionsList[index];
                     final bool isSelected = _selectedOptions.containsKey(currentOption);
 
-                    return MoonMenuItem(
+                    return SelenicMenuItem(
                       absorbGestures: true,
                       onTap: () => _handleSelect(currentOption, !isSelected),
                       label: Text(currentOption.name),
-                      trailing: MoonCheckbox(
+                      trailing: SelenicCheckbox(
                         value: isSelected,
                         tapAreaSizeValue: 0,
                         onChanged: (bool? _) {},
@@ -113,7 +113,7 @@ class _ComboboxMultiSelectState extends State<ComboboxMultiSelect> {
                   },
                 ),
         ),
-        child: MoonTextInput(
+        child: SelenicTextInput(
           focusNode: _focusNode,
           hintText: "Select multiple components",
           controller: _searchController,
@@ -126,23 +126,23 @@ class _ComboboxMultiSelectState extends State<ComboboxMultiSelect> {
               ? Center(
                   child: GestureDetector(
                     onTap: () => setState(() => _selectedOptions.clear()),
-                    child: MoonTag(
-                      tagSize: MoonTagSize.xs,
-                      backgroundColor: context.moonColors!.bulma,
+                    child: SelenicTag(
+                      tagSize: SelenicTagSize.xs,
+                      backgroundColor: context.selenicColors!.bulma,
                       label: Text(
                         "${_selectedOptions.keys.length}",
-                        style: TextStyle(color: context.moonColors!.gohan),
+                        style: TextStyle(color: context.selenicColors!.gohan),
                       ),
                       trailing: Icon(
                         MoonIcons.controls_close_small_16_light,
-                        color: context.moonColors!.gohan,
+                        color: context.selenicColors!.gohan,
                       ),
                     ),
                   ),
                 )
               : null,
-          trailing: MoonButton.icon(
-            buttonSize: MoonButtonSize.xs,
+          trailing: SelenicButton.icon(
+            buttonSize: SelenicButtonSize.xs,
             hoverEffectColor: Colors.transparent,
             onTap: () => _showAllOptionsList(),
             icon: AnimatedRotation(

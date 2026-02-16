@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:moon_design/src/widgets/buttons/filled_button.dart';
-import 'package:moon_design/src/widgets/tooltip/tooltip.dart';
+import 'package:selenic_design/src/widgets/buttons/filled_button.dart';
+import 'package:selenic_design/src/widgets/tooltip/tooltip.dart';
 
 const Key _tooltipKey = Key("tooltipKey");
 const Key _showButtonKey = Key("_showButtonKey");
@@ -75,7 +75,7 @@ void main() {
     expect(
       find.byWidgetPredicate(
         (Widget widget) =>
-            widget is MoonTooltip && widget.backgroundColor == Colors.blue,
+            widget is SelenicTooltip && widget.backgroundColor == Colors.blue,
       ),
       findsOneWidget,
     );
@@ -105,12 +105,12 @@ class _ToastTestWidgetState extends State<_ToastTestWidget> {
         body: Builder(
           builder: (BuildContext context) {
             return Center(
-              child: MoonTooltip(
+              child: SelenicTooltip(
                 key: widget.tooltipKey,
                 show: _show,
                 backgroundColor: widget.color,
                 content: _tooltipContent,
-                child: MoonFilledButton(
+                child: SelenicFilledButton(
                   key: _showButtonKey,
                   onTap: () => setState(() => _show = true),
                 ),

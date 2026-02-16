@@ -1,72 +1,72 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/effects/control_effect.dart';
-import 'package:moon_design/src/theme/effects/focus_effect.dart';
-import 'package:moon_design/src/theme/effects/hover_effect.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/effects/control_effect.dart';
+import 'package:selenic_design/src/theme/effects/focus_effect.dart';
+import 'package:selenic_design/src/theme/effects/hover_effect.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonEffectsTheme extends ThemeExtension<MoonEffectsTheme>
+class SelenicEffectsTheme extends ThemeExtension<SelenicEffectsTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
   /// The focus effect properties of the control widgets.
-  final MoonFocusEffect controlFocusEffect;
+  final SelenicFocusEffect controlFocusEffect;
 
   /// The hover effect properties of the control widgets.
-  final MoonHoverEffect controlHoverEffect;
+  final SelenicHoverEffect controlHoverEffect;
 
   /// The pulse effect properties of the control widgets.
-  final MoonControlEffect controlPulseEffect;
+  final SelenicControlEffect controlPulseEffect;
 
   /// The scale effect properties of the control widgets.
-  final MoonControlEffect controlScaleEffect;
+  final SelenicControlEffect controlScaleEffect;
 
-  MoonEffectsTheme({
+  SelenicEffectsTheme({
     required this.tokens,
-    MoonFocusEffect? controlFocusEffect,
-    MoonHoverEffect? controlHoverEffect,
-    MoonControlEffect? controlPulseEffect,
-    MoonControlEffect? controlScaleEffect,
+    SelenicFocusEffect? controlFocusEffect,
+    SelenicHoverEffect? controlHoverEffect,
+    SelenicControlEffect? controlPulseEffect,
+    SelenicControlEffect? controlScaleEffect,
   })  : controlFocusEffect = controlFocusEffect ??
-            MoonFocusEffect(
-              effectColor: tokens.colors.bulma.withOpacity(0.25),
+            SelenicFocusEffect(
+              effectColor: tokens.colors.bulma.withValues(alpha: 0.25),
               effectExtent: 4,
               effectDuration: tokens.transitions.defaultTransitionDuration,
               effectCurve: tokens.transitions.defaultTransitionCurve,
             ),
         controlHoverEffect = controlHoverEffect ??
-            MoonHoverEffect(
+            SelenicHoverEffect(
               primaryHoverColor: tokens.colors.heles,
               secondaryHoverColor: tokens.colors.jiren,
               hoverDuration: tokens.transitions.defaultTransitionDuration,
               hoverCurve: tokens.transitions.defaultTransitionCurve,
             ),
         controlPulseEffect = controlPulseEffect ??
-            MoonControlEffect(
+            SelenicControlEffect(
               effectColor: tokens.colors.piccolo,
               effectDuration: const Duration(milliseconds: 1400),
               effectCurve: tokens.transitions.defaultTransitionCurve,
               effectExtent: 24,
             ),
         controlScaleEffect = controlScaleEffect ??
-            MoonControlEffect(
+            SelenicControlEffect(
               effectDuration: tokens.transitions.defaultTransitionDuration,
               effectCurve: tokens.transitions.defaultTransitionCurve,
               effectScalar: 0.95,
             );
 
   @override
-  MoonEffectsTheme copyWith({
-    MoonTokens? tokens,
-    MoonFocusEffect? controlFocusEffect,
-    MoonHoverEffect? controlHoverEffect,
-    MoonControlEffect? controlPulseEffect,
-    MoonControlEffect? controlScaleEffect,
+  SelenicEffectsTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicFocusEffect? controlFocusEffect,
+    SelenicHoverEffect? controlHoverEffect,
+    SelenicControlEffect? controlPulseEffect,
+    SelenicControlEffect? controlScaleEffect,
   }) {
-    return MoonEffectsTheme(
+    return SelenicEffectsTheme(
       tokens: tokens ?? this.tokens,
       controlFocusEffect: controlFocusEffect ?? this.controlFocusEffect,
       controlHoverEffect: controlHoverEffect ?? this.controlHoverEffect,
@@ -76,10 +76,11 @@ class MoonEffectsTheme extends ThemeExtension<MoonEffectsTheme>
   }
 
   @override
-  MoonEffectsTheme lerp(ThemeExtension<MoonEffectsTheme>? other, double t) {
-    if (other is! MoonEffectsTheme) return this;
+  SelenicEffectsTheme lerp(
+      ThemeExtension<SelenicEffectsTheme>? other, double t) {
+    if (other is! SelenicEffectsTheme) return this;
 
-    return MoonEffectsTheme(
+    return SelenicEffectsTheme(
       tokens: tokens.lerp(other.tokens, t),
       controlFocusEffect: controlFocusEffect.lerp(other.controlFocusEffect, t),
       controlHoverEffect: controlHoverEffect.lerp(other.controlHoverEffect, t),
@@ -92,28 +93,28 @@ class MoonEffectsTheme extends ThemeExtension<MoonEffectsTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonEffectsTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty("type", "SelenicEffectsTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
       ..add(
-        DiagnosticsProperty<MoonControlEffect>(
+        DiagnosticsProperty<SelenicControlEffect>(
           "controlScaleEffect",
           controlScaleEffect,
         ),
       )
       ..add(
-        DiagnosticsProperty<MoonControlEffect>(
+        DiagnosticsProperty<SelenicControlEffect>(
           "controlPulseEffect",
           controlPulseEffect,
         ),
       )
       ..add(
-        DiagnosticsProperty<MoonFocusEffect>(
+        DiagnosticsProperty<SelenicFocusEffect>(
           "controlFocusEffect",
           controlFocusEffect,
         ),
       )
       ..add(
-        DiagnosticsProperty<MoonHoverEffect>(
+        DiagnosticsProperty<SelenicHoverEffect>(
           "controlHoverEffect",
           controlHoverEffect,
         ),

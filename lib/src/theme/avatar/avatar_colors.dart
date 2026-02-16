@@ -1,24 +1,24 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonAvatarColors extends ThemeExtension<MoonAvatarColors>
+class SelenicAvatarColors extends ThemeExtension<SelenicAvatarColors>
     with DiagnosticableTreeMixin {
-  /// The background color of the MoonAvatar.
+  /// The background color of the SelenicAvatar.
   final Color backgroundColor;
 
-  /// The color of the MoonAvatar badge.
+  /// The color of the SelenicAvatar badge.
   final Color badgeColor;
 
-  /// The icon color of the MoonAvatar.
+  /// The icon color of the SelenicAvatar.
   final Color iconColor;
 
-  /// The text color of the MoonAvatar.
+  /// The text color of the SelenicAvatar.
   final Color textColor;
 
-  const MoonAvatarColors({
+  const SelenicAvatarColors({
     required this.backgroundColor,
     required this.badgeColor,
     required this.iconColor,
@@ -26,13 +26,13 @@ class MoonAvatarColors extends ThemeExtension<MoonAvatarColors>
   });
 
   @override
-  MoonAvatarColors copyWith({
+  SelenicAvatarColors copyWith({
     Color? backgroundColor,
     Color? badgeColor,
     Color? iconColor,
     Color? textColor,
   }) {
-    return MoonAvatarColors(
+    return SelenicAvatarColors(
       backgroundColor: backgroundColor ?? this.backgroundColor,
       badgeColor: badgeColor ?? this.badgeColor,
       iconColor: iconColor ?? this.iconColor,
@@ -41,10 +41,11 @@ class MoonAvatarColors extends ThemeExtension<MoonAvatarColors>
   }
 
   @override
-  MoonAvatarColors lerp(ThemeExtension<MoonAvatarColors>? other, double t) {
-    if (other is! MoonAvatarColors) return this;
+  SelenicAvatarColors lerp(
+      ThemeExtension<SelenicAvatarColors>? other, double t) {
+    if (other is! SelenicAvatarColors) return this;
 
-    return MoonAvatarColors(
+    return SelenicAvatarColors(
       backgroundColor:
           colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
       badgeColor: colorPremulLerp(badgeColor, other.badgeColor, t)!,
@@ -57,7 +58,7 @@ class MoonAvatarColors extends ThemeExtension<MoonAvatarColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonAvatarColors"))
+      ..add(DiagnosticsProperty("type", "SelenicAvatarColors"))
       ..add(ColorProperty("backgroundColor", backgroundColor))
       ..add(ColorProperty("badgeColor", badgeColor))
       ..add(ColorProperty("iconColor", iconColor))

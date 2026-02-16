@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/widgets/segmented_control/segment.dart';
+import 'package:selenic_design/src/widgets/segmented_control/segment.dart';
 
 class SegmentStyle {
   /// The border radius of the segment.
@@ -34,7 +34,7 @@ class SegmentStyle {
   /// [selectedTextColor].
   final TextStyle? textStyle;
 
-  /// Defines a Moon Design segment style.
+  /// Defines a Selenic Design segment style.
   const SegmentStyle({
     this.segmentBorderRadius,
     this.focusEffectColor,

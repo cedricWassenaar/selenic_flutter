@@ -1,34 +1,26 @@
-# Moon Design System
-
-[![Version](https://img.shields.io/pub/v/moon_design.svg)](https://pub.dev/packages/moon_design) ![Build](https://github.com/coingaming/moon_flutter/actions/workflows/analyze_and_test.yml/badge.svg) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
-
-<img width="644" alt="Moon Design System" src="https://user-images.githubusercontent.com/232199/133601344-e63bd62f-dd0f-47a1-9d1e-b5cb065e5a90.png">
-
-_Note: This project uses **[Release Please](https://github.com/googleapis/release-please)** and **[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)** spec, please follow the conventions or consider using **[Commitizen](https://github.com/commitizen/cz-cli)**
-to write commit messages._
+# Selenic Design System
 
 ## Disclaimer
 
-The current major release, v1.0.0, will be maintained as-is and will not receive further updates, except for patches. The v1 theming is based on the soon-to-be deprecated Moon Design Figma v1 and lacks flexibility. For greater control over theming with v1 of moon_flutter, it is recommended to create custom wrapper widgets around the moon_flutter widgets that align with your project's specific theming requirements.
-
-There is ongoing background work for v2 which aims to be more modular, scalable and themable.
+This project is a fork of moon_design (MIT-licensed), this project is not affiliated with yolo.com or moon.io.
+The latest release of the Moon Design System has been archived and has not received an update in a year. The team seems to have decided to focus on React which is why this repository was created.
 
 ## Resources
 
-- 📱 [Playground](https://flutter.moon.io)
+- No resources yet
 
 ## Applying theming and overrides
 
 - Declare tokens variable and optionally override values:
 
 ```dart
-final lightTokens = MoonTokens.light.copyWith(
+final lightTokens = SelenicTokens.light.copyWith(
   colors: MoonColors.light.copyWith(
     piccolo: Colors.blue,
     textPrimary: Colors.amber,
   ),
-  typography: MoonTypography.typography.copyWith(
-    heading: MoonTypography.typography.heading.apply(
+  typography: SelenicTypography.typography.copyWith(
+    heading: SelenicTypography.typography.heading.apply(
       // Using variable font and bumping down the font weight compared to the
       // baseline 600 for heading.
       fontFamily: "DMSans",
@@ -39,7 +31,7 @@ final lightTokens = MoonTokens.light.copyWith(
 );
 
 final lightTheme = ThemeData.light().copyWith(
-    extensions: <ThemeExtension<dynamic>>[MoonTheme(tokens: lightTokens)],
+    extensions: <ThemeExtension<dynamic>>[SelenicTheme(tokens: lightTokens)],
   );
 ```
 
@@ -48,9 +40,9 @@ final lightTheme = ThemeData.light().copyWith(
 ```dart
 final lightTheme = ThemeData.light().copyWith(
   extensions: <ThemeExtension<dynamic>>[
-    MoonTheme(tokens: lightTokens).copyWith(
-      accordionTheme: MoonAccordionTheme(tokens: lightTokens).copyWith(
-        colors: MoonAccordionTheme(tokens: lightTokens).colors.copyWith(
+    SelenicTheme(tokens: lightTokens).copyWith(
+      accordionTheme: SelenicAccordionTheme(tokens: lightTokens).copyWith(
+        colors: SelenicAccordionTheme(tokens: lightTokens).colors.copyWith(
               backgroundColor: Colors.green,
             ),
       ),
@@ -63,7 +55,7 @@ final lightTheme = ThemeData.light().copyWith(
 
 ```dart
 return MaterialApp(
-      title: 'Moon Design System example',
+      title: 'Selenic Design System example',
       theme: lightTheme,
       home: const HomePage(),
  );

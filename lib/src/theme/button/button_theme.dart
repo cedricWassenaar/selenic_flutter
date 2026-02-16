@@ -1,28 +1,28 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/button/button_colors.dart';
-import 'package:moon_design/src/theme/button/button_sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/button/button_colors.dart';
+import 'package:selenic_design/src/theme/button/button_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonButtonTheme extends ThemeExtension<MoonButtonTheme>
+class SelenicButtonTheme extends ThemeExtension<SelenicButtonTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonButton.
-  final MoonButtonColors colors;
+  /// The colors of the SelenicButton.
+  final SelenicButtonColors colors;
 
-  /// The sizes of the MoonButton.
-  final MoonButtonSizes sizes;
+  /// The sizes of the SelenicButton.
+  final SelenicButtonSizes sizes;
 
-  MoonButtonTheme({
+  SelenicButtonTheme({
     required this.tokens,
-    MoonButtonColors? colors,
-    MoonButtonSizes? sizes,
+    SelenicButtonColors? colors,
+    SelenicButtonSizes? sizes,
   })  : colors = colors ??
-            MoonButtonColors(
+            SelenicButtonColors(
               borderColor: tokens.colors.trunks,
               textColor: tokens.colors.textPrimary,
               filledVariantBackgroundColor: tokens.colors.piccolo,
@@ -31,15 +31,15 @@ class MoonButtonTheme extends ThemeExtension<MoonButtonTheme>
               textVariantFocusColor: tokens.colors.piccolo,
               textVariantHoverColor: tokens.colors.jiren,
             ),
-        sizes = sizes ?? MoonButtonSizes(tokens: tokens);
+        sizes = sizes ?? SelenicButtonSizes(tokens: tokens);
 
   @override
-  MoonButtonTheme copyWith({
-    MoonTokens? tokens,
-    MoonButtonColors? colors,
-    MoonButtonSizes? sizes,
+  SelenicButtonTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicButtonColors? colors,
+    SelenicButtonSizes? sizes,
   }) {
-    return MoonButtonTheme(
+    return SelenicButtonTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       sizes: sizes ?? this.sizes,
@@ -47,10 +47,10 @@ class MoonButtonTheme extends ThemeExtension<MoonButtonTheme>
   }
 
   @override
-  MoonButtonTheme lerp(ThemeExtension<MoonButtonTheme>? other, double t) {
-    if (other is! MoonButtonTheme) return this;
+  SelenicButtonTheme lerp(ThemeExtension<SelenicButtonTheme>? other, double t) {
+    if (other is! SelenicButtonTheme) return this;
 
-    return MoonButtonTheme(
+    return SelenicButtonTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       sizes: sizes.lerp(other.sizes, t),
@@ -61,9 +61,9 @@ class MoonButtonTheme extends ThemeExtension<MoonButtonTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonButtonTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonButtonColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonButtonSizes>("sizes", sizes));
+      ..add(DiagnosticsProperty("type", "SelenicButtonTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicButtonColors>("colors", colors))
+      ..add(DiagnosticsProperty<SelenicButtonSizes>("sizes", sizes));
   }
 }

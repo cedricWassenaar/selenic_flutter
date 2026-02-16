@@ -1,73 +1,73 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/loaders/linear_loader/linear_loader_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/loaders/linear_loader/linear_loader_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonLinearLoaderSizes extends ThemeExtension<MoonLinearLoaderSizes>
+class SelenicLinearLoaderSizes extends ThemeExtension<SelenicLinearLoaderSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the (6x) extra small MoonLinearLoader.
-  final MoonLinearLoaderSizeProperties x6s;
+  /// The properties of the (6x) extra small SelenicLinearLoader.
+  final SelenicLinearLoaderSizeProperties x6s;
 
-  /// The properties of the (5x) extra small MoonLinearLoader.
-  final MoonLinearLoaderSizeProperties x5s;
+  /// The properties of the (5x) extra small SelenicLinearLoader.
+  final SelenicLinearLoaderSizeProperties x5s;
 
-  /// The properties of the (4x) extra small MoonLinearLoader.
-  final MoonLinearLoaderSizeProperties x4s;
+  /// The properties of the (4x) extra small SelenicLinearLoader.
+  final SelenicLinearLoaderSizeProperties x4s;
 
-  /// The properties of the (3x) extra small MoonLinearLoader.
-  final MoonLinearLoaderSizeProperties x3s;
+  /// The properties of the (3x) extra small SelenicLinearLoader.
+  final SelenicLinearLoaderSizeProperties x3s;
 
-  /// The properties of the (2x) extra small MoonLinearLoader.
-  final MoonLinearLoaderSizeProperties x2s;
+  /// The properties of the (2x) extra small SelenicLinearLoader.
+  final SelenicLinearLoaderSizeProperties x2s;
 
-  MoonLinearLoaderSizes({
+  SelenicLinearLoaderSizes({
     required this.tokens,
-    MoonLinearLoaderSizeProperties? x6s,
-    MoonLinearLoaderSizeProperties? x5s,
-    MoonLinearLoaderSizeProperties? x4s,
-    MoonLinearLoaderSizeProperties? x3s,
-    MoonLinearLoaderSizeProperties? x2s,
+    SelenicLinearLoaderSizeProperties? x6s,
+    SelenicLinearLoaderSizeProperties? x5s,
+    SelenicLinearLoaderSizeProperties? x4s,
+    SelenicLinearLoaderSizeProperties? x3s,
+    SelenicLinearLoaderSizeProperties? x2s,
   })  : x6s = x6s ??
-            MoonLinearLoaderSizeProperties(
+            SelenicLinearLoaderSizeProperties(
               borderRadius: tokens.borders.surfaceXs,
               loaderHeight: tokens.sizes.x6s,
             ),
         x5s = x5s ??
-            MoonLinearLoaderSizeProperties(
+            SelenicLinearLoaderSizeProperties(
               borderRadius: tokens.borders.surfaceXs,
               loaderHeight: tokens.sizes.x5s,
             ),
         x4s = x4s ??
-            MoonLinearLoaderSizeProperties(
+            SelenicLinearLoaderSizeProperties(
               borderRadius: tokens.borders.surfaceSm,
               loaderHeight: tokens.sizes.x4s,
             ),
         x3s = x3s ??
-            MoonLinearLoaderSizeProperties(
+            SelenicLinearLoaderSizeProperties(
               borderRadius: tokens.borders.surfaceMd,
               loaderHeight: tokens.sizes.x3s,
             ),
         x2s = x2s ??
-            MoonLinearLoaderSizeProperties(
+            SelenicLinearLoaderSizeProperties(
               borderRadius: tokens.borders.surfaceLg,
               loaderHeight: tokens.sizes.x2s,
             );
 
   @override
-  MoonLinearLoaderSizes copyWith({
-    MoonTokens? tokens,
-    MoonLinearLoaderSizeProperties? x6s,
-    MoonLinearLoaderSizeProperties? x5s,
-    MoonLinearLoaderSizeProperties? x4s,
-    MoonLinearLoaderSizeProperties? x3s,
-    MoonLinearLoaderSizeProperties? x2s,
+  SelenicLinearLoaderSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicLinearLoaderSizeProperties? x6s,
+    SelenicLinearLoaderSizeProperties? x5s,
+    SelenicLinearLoaderSizeProperties? x4s,
+    SelenicLinearLoaderSizeProperties? x3s,
+    SelenicLinearLoaderSizeProperties? x2s,
   }) {
-    return MoonLinearLoaderSizes(
+    return SelenicLinearLoaderSizes(
       tokens: tokens ?? this.tokens,
       x6s: x6s ?? this.x6s,
       x5s: x5s ?? this.x5s,
@@ -78,13 +78,13 @@ class MoonLinearLoaderSizes extends ThemeExtension<MoonLinearLoaderSizes>
   }
 
   @override
-  MoonLinearLoaderSizes lerp(
-    ThemeExtension<MoonLinearLoaderSizes>? other,
+  SelenicLinearLoaderSizes lerp(
+    ThemeExtension<SelenicLinearLoaderSizes>? other,
     double t,
   ) {
-    if (other is! MoonLinearLoaderSizes) return this;
+    if (other is! SelenicLinearLoaderSizes) return this;
 
-    return MoonLinearLoaderSizes(
+    return SelenicLinearLoaderSizes(
       tokens: tokens.lerp(other.tokens, t),
       x6s: x6s.lerp(other.x6s, t),
       x5s: x5s.lerp(other.x5s, t),
@@ -98,12 +98,12 @@ class MoonLinearLoaderSizes extends ThemeExtension<MoonLinearLoaderSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonLinearLoaderSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonLinearLoaderSizeProperties>("x6s", x6s))
-      ..add(DiagnosticsProperty<MoonLinearLoaderSizeProperties>("x5s", x5s))
-      ..add(DiagnosticsProperty<MoonLinearLoaderSizeProperties>("x4s", x4s))
-      ..add(DiagnosticsProperty<MoonLinearLoaderSizeProperties>("x3s", x3s))
-      ..add(DiagnosticsProperty<MoonLinearLoaderSizeProperties>("x2s", x2s));
+      ..add(DiagnosticsProperty("type", "SelenicLinearLoaderSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicLinearLoaderSizeProperties>("x6s", x6s))
+      ..add(DiagnosticsProperty<SelenicLinearLoaderSizeProperties>("x5s", x5s))
+      ..add(DiagnosticsProperty<SelenicLinearLoaderSizeProperties>("x4s", x4s))
+      ..add(DiagnosticsProperty<SelenicLinearLoaderSizeProperties>("x3s", x3s))
+      ..add(DiagnosticsProperty<SelenicLinearLoaderSizeProperties>("x2s", x2s));
   }
 }

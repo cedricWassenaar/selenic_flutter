@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _carouselKey = Key("carouselKey");
 
@@ -46,7 +46,7 @@ class _CarouselTestWidget extends StatelessWidget {
         body: SizedBox(
           height: 114,
           width: 200,
-          child: MoonCarousel(
+          child: SelenicCarousel(
             key: carouselKey,
             gap: 0,
             itemCount: 10,

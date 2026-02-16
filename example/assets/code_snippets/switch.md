@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class Switch extends StatefulWidget {
   const Switch({super.key});
@@ -13,9 +13,9 @@ class _SwitchState extends State<Switch> {
 
   @override
   Widget build(BuildContext context) {
-    return MoonSwitch(
+    return SelenicSwitch(
       value: switchValue,
-      switchSize: MoonSwitchSize.sm,
+      switchSize: SelenicSwitchSize.sm,
       onChanged: (bool newValue) => setState(() => switchValue = newValue),
     );
   }

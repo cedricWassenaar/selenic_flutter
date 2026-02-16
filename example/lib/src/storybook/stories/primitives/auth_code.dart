@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class AuthCodeStory extends StatelessWidget {
@@ -13,7 +13,7 @@ class AuthCodeStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final mainAxisAlignmentKnob = context.knobs.nullable.options(
       label: "mainAxisAlignment",
-      description: "Horizontal alignment for MoonAuthCode input fields.",
+      description: "Horizontal alignment for SelenicAuthCode input fields.",
       enabled: false,
       initial: MainAxisAlignment.center,
       options: const [
@@ -28,7 +28,7 @@ class AuthCodeStory extends StatelessWidget {
 
     final shapeKnob = context.knobs.nullable.options(
       label: "shape",
-      description: "Shape of MoonAuthCode input fields.",
+      description: "Shape of SelenicAuthCode input fields.",
       enabled: false,
       initial: AuthFieldShape.box,
       options: const [
@@ -40,7 +40,7 @@ class AuthCodeStory extends StatelessWidget {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for MoonAuthCode text.",
+      description: "MoonColors variants for SelenicAuthCode text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -51,7 +51,7 @@ class AuthCodeStory extends StatelessWidget {
 
     final cursorColorKnob = context.knobs.nullable.options(
       label: "authFieldCursorColor",
-      description: "MoonColors variants for MoonAuthCode cursor.",
+      description: "MoonColors variants for SelenicAuthCode cursor.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -62,7 +62,8 @@ class AuthCodeStory extends StatelessWidget {
 
     final selectedFillColorKnob = context.knobs.nullable.options(
       label: "selectedFillColor",
-      description: "MoonColors variants for MoonAuthCode selected input field.",
+      description:
+          "MoonColors variants for SelenicAuthCode selected input field.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -73,7 +74,8 @@ class AuthCodeStory extends StatelessWidget {
 
     final activeFillColorKnob = context.knobs.nullable.options(
       label: "activeFillColor",
-      description: "MoonColors variants for MoonAuthCode active input field.",
+      description:
+          "MoonColors variants for SelenicAuthCode active input field.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -84,7 +86,8 @@ class AuthCodeStory extends StatelessWidget {
 
     final inactiveFillColorKnob = context.knobs.nullable.options(
       label: "inactiveFillColor",
-      description: "MoonColors variants for MoonAuthCode inactive input field.",
+      description:
+          "MoonColors variants for SelenicAuthCode inactive input field.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -96,7 +99,7 @@ class AuthCodeStory extends StatelessWidget {
     final selectedBorderColorKnob = context.knobs.nullable.options(
       label: "selectedBorderColor",
       description:
-          "MoonColors variants for MoonAuthCode selected input field border.",
+          "MoonColors variants for SelenicAuthCode selected input field border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -109,7 +112,7 @@ class AuthCodeStory extends StatelessWidget {
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
       description:
-          "MoonColors variants for MoonAuthCode active input field border.",
+          "MoonColors variants for SelenicAuthCode active input field border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -121,7 +124,7 @@ class AuthCodeStory extends StatelessWidget {
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
       description:
-          "MoonColors variants for MoonAuthCode inactive input field border.",
+          "MoonColors variants for SelenicAuthCode inactive input field border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -133,7 +136,7 @@ class AuthCodeStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonAuthCode input fields.",
+      description: "Border radius for SelenicAuthCode input fields.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -141,7 +144,7 @@ class AuthCodeStory extends StatelessWidget {
 
     final gapKnob = context.knobs.nullable.sliderInt(
       label: "gap",
-      description: "Gap between MoonAuthCode input fields.",
+      description: "Gap between SelenicAuthCode input fields.",
       enabled: false,
       initial: 8,
       max: 12,
@@ -149,12 +152,12 @@ class AuthCodeStory extends StatelessWidget {
 
     final enableKnob = context.knobs.boolean(
       label: "enabled",
-      description: "Enable MoonAuthCode.",
+      description: "Enable SelenicAuthCode.",
     );
 
     final obscuringKnob = context.knobs.boolean(
       label: "obscureText",
-      description: "Obscure MoonAuthCode input fields.",
+      description: "Obscure SelenicAuthCode input fields.",
     );
 
     final peekWhenObscuringKnob = context.knobs.boolean(
@@ -178,10 +181,10 @@ class AuthCodeStory extends StatelessWidget {
         child: Column(
           children: [
             const TextDivider(
-              text: "Disabled MoonAuthCode",
+              text: "Disabled SelenicAuthCode",
               paddingTop: 0,
             ),
-            MoonAuthCode(
+            SelenicAuthCode(
               enabled: enableKnob,
               enableInputFill: true,
               authInputFieldCount: 4,
@@ -204,8 +207,8 @@ class AuthCodeStory extends StatelessWidget {
               errorBuilder: (BuildContext context, String? errorText) =>
                   const SizedBox(),
             ),
-            const TextDivider(text: "Active MoonAuthCode"),
-            MoonAuthCode(
+            const TextDivider(text: "Active SelenicAuthCode"),
+            SelenicAuthCode(
               autoFocus: true,
               enableInputFill: true,
               mainAxisAlignment:
@@ -227,10 +230,10 @@ class AuthCodeStory extends StatelessWidget {
               errorBuilder: (BuildContext context, String? errorText) =>
                   const SizedBox(),
             ),
-            const TextDivider(text: "Error MoonAuthCode"),
+            const TextDivider(text: "Error SelenicAuthCode"),
             SizedBox(
               height: 95,
-              child: MoonAuthCode(
+              child: SelenicAuthCode(
                 enableInputFill: true,
                 authInputFieldCount: 4,
                 mainAxisAlignment:

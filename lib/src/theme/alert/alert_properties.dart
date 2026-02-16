@@ -4,37 +4,37 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonAlertProperties extends ThemeExtension<MoonAlertProperties>
+class SelenicAlertProperties extends ThemeExtension<SelenicAlertProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonAlert.
+  /// The border radius of the SelenicAlert.
   final BorderRadiusGeometry borderRadius;
 
   /// The horizontal gap between the leading, label and trailing widgets of the
-  /// MoonAlert.
+  /// SelenicAlert.
   final double horizontalGap;
 
-  /// The minimum height of the MoonAlert.
+  /// The minimum height of the SelenicAlert.
   final double minimumHeight;
 
-  /// The vertical gap between the MoonAlert header and content.
+  /// The vertical gap between the SelenicAlert header and content.
   final double verticalGap;
 
-  /// The duration of the MoonAlert transition animation (fade in or out).
+  /// The duration of the SelenicAlert transition animation (fade in or out).
   final Duration transitionDuration;
 
-  /// The curve of the MoonAlert transition animation (fade in or out).
+  /// The curve of the SelenicAlert transition animation (fade in or out).
   final Curve transitionCurve;
 
-  /// The padding of the MoonAlert.
+  /// The padding of the SelenicAlert.
   final EdgeInsetsGeometry padding;
 
-  /// The text style of the MoonAlert content.
+  /// The text style of the SelenicAlert content.
   final TextStyle contentTextStyle;
 
-  /// The text style of the MoonAlert label.
+  /// The text style of the SelenicAlert label.
   final TextStyle labelTextStyle;
 
-  const MoonAlertProperties({
+  const SelenicAlertProperties({
     required this.borderRadius,
     required this.horizontalGap,
     required this.minimumHeight,
@@ -47,7 +47,7 @@ class MoonAlertProperties extends ThemeExtension<MoonAlertProperties>
   });
 
   @override
-  MoonAlertProperties copyWith({
+  SelenicAlertProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? horizontalGap,
     double? minimumHeight,
@@ -58,7 +58,7 @@ class MoonAlertProperties extends ThemeExtension<MoonAlertProperties>
     TextStyle? contentTextStyle,
     TextStyle? labelTextStyle,
   }) {
-    return MoonAlertProperties(
+    return SelenicAlertProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       horizontalGap: horizontalGap ?? this.horizontalGap,
       minimumHeight: minimumHeight ?? this.minimumHeight,
@@ -72,13 +72,13 @@ class MoonAlertProperties extends ThemeExtension<MoonAlertProperties>
   }
 
   @override
-  MoonAlertProperties lerp(
-    ThemeExtension<MoonAlertProperties>? other,
+  SelenicAlertProperties lerp(
+    ThemeExtension<SelenicAlertProperties>? other,
     double t,
   ) {
-    if (other is! MoonAlertProperties) return this;
+    if (other is! SelenicAlertProperties) return this;
 
-    return MoonAlertProperties(
+    return SelenicAlertProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       horizontalGap: lerpDouble(horizontalGap, other.horizontalGap, t)!,
@@ -99,7 +99,7 @@ class MoonAlertProperties extends ThemeExtension<MoonAlertProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonAlertProperties"),
+        DiagnosticsProperty("type", "SelenicAlertProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

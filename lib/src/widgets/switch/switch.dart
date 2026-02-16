@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:moon_design/src/theme/effects/effects_theme.dart';
-import 'package:moon_design/src/theme/switch/switch_size_properties.dart';
-import 'package:moon_design/src/theme/switch/switch_sizes.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border_radius.dart';
-import 'package:moon_design/src/widgets/common/effects/focus_effect.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonSwitchSize {
+import 'package:selenic_design/src/theme/effects/effects_theme.dart';
+import 'package:selenic_design/src/theme/switch/switch_size_properties.dart';
+import 'package:selenic_design/src/theme/switch/switch_sizes.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/opacities.dart';
+import 'package:selenic_design/src/theme/tokens/shadows.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border_radius.dart';
+import 'package:selenic_design/src/widgets/common/effects/focus_effect.dart';
+
+enum SelenicSwitchSize {
   x2s,
   xs,
   sm,
 }
 
-class MoonSwitch extends StatefulWidget {
+class SelenicSwitch extends StatefulWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
   final bool autofocus;
 
@@ -63,7 +64,7 @@ class MoonSwitch extends StatefulWidget {
   final FocusNode? focusNode;
 
   /// The size of the switch.
-  final MoonSwitchSize? switchSize;
+  final SelenicSwitchSize? switchSize;
 
   /// The semantic label for the switch.
   final String? semanticLabel;
@@ -86,8 +87,8 @@ class MoonSwitch extends StatefulWidget {
   /// The widget to display inside the thumb when the switch is inactive (off).
   final Widget? inactiveThumbWidget;
 
-  /// Creates a Moon Design switch.
-  const MoonSwitch({
+  /// Creates a Selenic Design switch.
+  const SelenicSwitch({
     super.key,
     this.autofocus = false,
     this.hasHapticFeedback = true,
@@ -112,10 +113,10 @@ class MoonSwitch extends StatefulWidget {
   });
 
   @override
-  _MoonSwitchState createState() => _MoonSwitchState();
+  _SelenicSwitchState createState() => _SelenicSwitchState();
 }
 
-class _MoonSwitchState extends State<MoonSwitch>
+class _SelenicSwitchState extends State<SelenicSwitch>
     with SingleTickerProviderStateMixin {
   late final Map<Type, Action<Intent>> _actions = {
     ActivateIntent: CallbackAction<Intent>(onInvoke: (_) => _handleTap()),
@@ -140,23 +141,23 @@ class _MoonSwitchState extends State<MoonSwitch>
 
   bool get _isInteractive => widget.onChanged != null;
 
-  MoonSwitchSizeProperties _getMoonSwitchSize(
+  SelenicSwitchSizeProperties _getSelenicSwitchSize(
     BuildContext context,
-    MoonSwitchSize? moonSwitchSize,
+    SelenicSwitchSize? switchSize,
   ) {
-    switch (moonSwitchSize) {
-      case MoonSwitchSize.x2s:
-        return context.moonTheme?.switchTheme.sizes.x2s ??
-            MoonSwitchSizes(tokens: MoonTokens.light).x2s;
-      case MoonSwitchSize.xs:
-        return context.moonTheme?.switchTheme.sizes.xs ??
-            MoonSwitchSizes(tokens: MoonTokens.light).xs;
-      case MoonSwitchSize.sm:
-        return context.moonTheme?.switchTheme.sizes.sm ??
-            MoonSwitchSizes(tokens: MoonTokens.light).sm;
+    switch (switchSize) {
+      case SelenicSwitchSize.x2s:
+        return context.selenicTheme?.switchTheme.sizes.x2s ??
+            SelenicSwitchSizes(tokens: SelenicTokens.light).x2s;
+      case SelenicSwitchSize.xs:
+        return context.selenicTheme?.switchTheme.sizes.xs ??
+            SelenicSwitchSizes(tokens: SelenicTokens.light).xs;
+      case SelenicSwitchSize.sm:
+        return context.selenicTheme?.switchTheme.sizes.sm ??
+            SelenicSwitchSizes(tokens: SelenicTokens.light).sm;
       default:
-        return context.moonTheme?.switchTheme.sizes.xs ??
-            MoonSwitchSizes(tokens: MoonTokens.light).xs;
+        return context.selenicTheme?.switchTheme.sizes.xs ??
+            SelenicSwitchSizes(tokens: SelenicTokens.light).xs;
     }
   }
 
@@ -250,7 +251,7 @@ class _MoonSwitchState extends State<MoonSwitch>
   }
 
   @override
-  void didUpdateWidget(MoonSwitch oldWidget) {
+  void didUpdateWidget(SelenicSwitch oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (_needsPositionAnimation || oldWidget.value != widget.value) {
@@ -276,34 +277,36 @@ class _MoonSwitchState extends State<MoonSwitch>
   Widget build(BuildContext context) {
     if (_needsPositionAnimation) _resumePositionAnimation();
 
-    final MoonSwitchSizeProperties effectiveMoonSwitchSize =
-        _getMoonSwitchSize(context, widget.switchSize);
+    final SelenicSwitchSizeProperties effectiveSelenicSwitchSize =
+        _getSelenicSwitchSize(context, widget.switchSize);
 
     final Color effectiveActiveTrackColor = widget.activeTrackColor ??
-        context.moonTheme?.switchTheme.colors.activeTrackColor ??
+        context.selenicTheme?.switchTheme.colors.activeTrackColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveInactiveTrackColor = widget.inactiveTrackColor ??
-        context.moonTheme?.switchTheme.colors.inactiveTrackColor ??
+        context.selenicTheme?.switchTheme.colors.inactiveTrackColor ??
         MoonColors.light.beerus;
 
     final Color effectiveThumbColor = widget.thumbColor ??
-        context.moonTheme?.switchTheme.colors.thumbColor ??
+        context.selenicTheme?.switchTheme.colors.thumbColor ??
         MoonColors.light.goten;
 
     final double effectiveHeight =
-        widget.height ?? effectiveMoonSwitchSize.height;
+        widget.height ?? effectiveSelenicSwitchSize.height;
 
-    final double effectiveWidth = widget.width ?? effectiveMoonSwitchSize.width;
+    final double effectiveWidth =
+        widget.width ?? effectiveSelenicSwitchSize.width;
 
     final double effectiveThumbSizeValue =
-        widget.thumbSizeValue ?? effectiveMoonSwitchSize.thumbSizeValue;
+        widget.thumbSizeValue ?? effectiveSelenicSwitchSize.thumbSizeValue;
 
     final double effectiveDisabledOpacityValue =
-        context.moonOpacities?.disabled ?? MoonOpacities.opacities.disabled;
+        context.selenicOpacities?.disabled ??
+            SelenicOpacities.opacities.disabled;
 
     final EdgeInsetsGeometry effectivePadding =
-        widget.padding ?? effectiveMoonSwitchSize.padding;
+        widget.padding ?? effectiveSelenicSwitchSize.padding;
 
     final EdgeInsets resolvedDirectionalPadding =
         effectivePadding.resolve(Directionality.of(context));
@@ -312,38 +315,38 @@ class _MoonSwitchState extends State<MoonSwitch>
         BorderRadius.circular(effectiveThumbSizeValue / 2);
 
     final List<BoxShadow> effectiveThumbShadow =
-        context.moonTheme?.switchTheme.shadows.thumbShadows ??
-            MoonShadows.light.sm;
+        context.selenicTheme?.switchTheme.shadows.thumbShadows ??
+            SelenicShadows.light.sm;
 
     final Duration effectiveDuration = widget.duration ??
-        context.moonTheme?.switchTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.switchTheme.properties.transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.curve ??
-        context.moonTheme?.switchTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.switchTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     final double effectiveFocusEffectExtent =
-        context.moonEffects?.controlFocusEffect.effectExtent ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectExtent ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectExtent;
 
     final Color effectiveFocusEffectColor =
-        context.moonEffects?.controlFocusEffect.effectColor ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectColor ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectColor;
 
     final Duration effectiveFocusEffectDuration =
-        context.moonEffects?.controlFocusEffect.effectDuration ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectDuration ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectDuration;
 
     final Curve effectiveFocusEffectCurve =
-        context.moonEffects?.controlFocusEffect.effectCurve ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectCurve ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectCurve;
 
@@ -375,16 +378,16 @@ class _MoonSwitchState extends State<MoonSwitch>
     _trackDecorationAnimation = DecorationTween(
       begin: ShapeDecorationWithPremultipliedAlpha(
         color: effectiveInactiveTrackColor,
-        shape: MoonSquircleBorder(
-          borderRadius: MoonSquircleBorderRadius(
+        shape: SelenicSquircleBorder(
+          borderRadius: SelenicSquircleBorderRadius(
             cornerRadius: effectiveHeight / 2,
           ),
         ),
       ),
       end: ShapeDecorationWithPremultipliedAlpha(
         color: effectiveActiveTrackColor,
-        shape: MoonSquircleBorder(
-          borderRadius: MoonSquircleBorderRadius(
+        shape: SelenicSquircleBorder(
+          borderRadius: SelenicSquircleBorderRadius(
             cornerRadius: effectiveHeight / 2,
           ),
         ),
@@ -419,23 +422,23 @@ class _MoonSwitchState extends State<MoonSwitch>
     );
 
     final Color effectiveActiveTextColor =
-        context.moonTheme?.switchTheme.colors.activeTextColor ??
-            MoonTokens.dark.colors.textPrimary;
+        context.selenicTheme?.switchTheme.colors.activeTextColor ??
+            SelenicTokens.dark.colors.textPrimary;
 
     final Color effectiveInactiveTextColor =
-        context.moonTheme?.switchTheme.colors.inactiveTextColor ??
+        context.selenicTheme?.switchTheme.colors.inactiveTextColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveActiveIconColor =
-        context.moonTheme?.switchTheme.colors.activeIconColor ??
-            MoonTokens.dark.colors.iconPrimary;
+        context.selenicTheme?.switchTheme.colors.activeIconColor ??
+            SelenicTokens.dark.colors.iconPrimary;
 
     final Color effectiveInactiveIconColor =
-        context.moonTheme?.switchTheme.colors.inactiveIconColor ??
+        context.selenicTheme?.switchTheme.colors.inactiveIconColor ??
             MoonColors.light.iconPrimary;
 
     final Color effectiveThumbIconColor =
-        context.moonTheme?.switchTheme.colors.thumbIconColor ??
+        context.selenicTheme?.switchTheme.colors.thumbIconColor ??
             MoonColors.light.iconPrimary;
 
     return Semantics(
@@ -489,10 +492,11 @@ class _MoonSwitchState extends State<MoonSwitch>
                                 IconTheme(
                                   data: IconThemeData(
                                     color: effectiveActiveIconColor,
-                                    size: effectiveMoonSwitchSize.iconSizeValue,
+                                    size: effectiveSelenicSwitchSize
+                                        .iconSizeValue,
                                   ),
                                   child: DefaultTextStyle(
-                                    style: effectiveMoonSwitchSize.textStyle
+                                    style: effectiveSelenicSwitchSize.textStyle
                                         .copyWith(
                                       color: effectiveActiveTextColor,
                                     ),
@@ -512,10 +516,11 @@ class _MoonSwitchState extends State<MoonSwitch>
                                 IconTheme(
                                   data: IconThemeData(
                                     color: effectiveInactiveIconColor,
-                                    size: effectiveMoonSwitchSize.iconSizeValue,
+                                    size: effectiveSelenicSwitchSize
+                                        .iconSizeValue,
                                   ),
                                   child: DefaultTextStyle(
-                                    style: effectiveMoonSwitchSize.textStyle
+                                    style: effectiveSelenicSwitchSize.textStyle
                                         .copyWith(
                                       color: effectiveInactiveTextColor,
                                     ),
@@ -536,14 +541,15 @@ class _MoonSwitchState extends State<MoonSwitch>
                               child: IconTheme(
                                 data: IconThemeData(
                                   color: effectiveThumbIconColor,
-                                  size: effectiveMoonSwitchSize.iconSizeValue,
+                                  size:
+                                      effectiveSelenicSwitchSize.iconSizeValue,
                                 ),
                                 child: DefaultTextStyle(
-                                  style: effectiveMoonSwitchSize.textStyle
+                                  style: effectiveSelenicSwitchSize.textStyle
                                       .copyWith(
                                     color: effectiveInactiveTextColor,
                                   ),
-                                  child: MoonFocusEffect(
+                                  child: SelenicFocusEffect(
                                     show: _isFocused,
                                     effectColor: effectiveFocusEffectColor,
                                     childBorderRadius: effectiveBorderRadius,
@@ -559,7 +565,7 @@ class _MoonSwitchState extends State<MoonSwitch>
                                           ShapeDecorationWithPremultipliedAlpha(
                                         color: effectiveThumbColor,
                                         shadows: effectiveThumbShadow,
-                                        shape: MoonSquircleBorder(
+                                        shape: SelenicSquircleBorder(
                                           borderRadius: effectiveBorderRadius
                                               .squircleBorderRadius(context),
                                         ),

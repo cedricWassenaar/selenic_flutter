@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart'; 
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class Toast extends StatelessWidget { 
   const Toast({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MoonFilledButton(
-      onTap: () => MoonToast.show(
+    return SelenicFilledButton(
+      onTap: () => SelenicToast.show(
         context,
-        label: const Text('This is MoonToast'),
+        label: const Text('This is SelenicToast'),
       ),
-      label: const Text("Show MoonToast"),
+      label: const Text("Show SelenicToast"),
     );
   }
 }

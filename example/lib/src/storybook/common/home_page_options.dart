@@ -4,11 +4,9 @@ enum HomePageContentType {
   bodyTitle;
 
   String get text => switch (this) {
-        headerTitle => 'Moon Design System',
-        headerSubtitle => 'Moon is Yolo Group product design system that helps'
-            ' us maintain the integrity of their user experience and optimize '
-            'design and development resources.',
+        headerTitle => 'Selenic Design System',
+        headerSubtitle => 'Selenic Design is based on moon_flutter',
         bodyTitle => 'Accelerate your mobile development journey with Flutter '
-            'moon components.',
+            'selenic components.',
       };
 }

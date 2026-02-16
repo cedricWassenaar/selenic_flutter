@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _breadcrumbKey = Key("breadcrumbKey");
 
@@ -127,14 +127,14 @@ class _BreadCrumbTestWidget extends StatelessWidget {
       home: Scaffold(
         body: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: MoonBreadcrumb(
+          child: SelenicBreadcrumb(
             key: breadcrumbKey,
             visibleItemCount: itemsToShow ?? 3,
             divider: const Icon(_breadcrumbDividerIcon),
             items: [
               ...List.generate(4, (i) => i).map(
                 (int index) {
-                  return MoonBreadcrumbItem(
+                  return SelenicBreadcrumbItem(
                     label: Text('$_breadcrumbItem $index'),
                     leading:
                         showLeading ? const Icon(_breadcrumbLeadingIcon) : null,

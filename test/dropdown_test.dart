@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:moon_design/src/widgets/buttons/filled_button.dart';
-import 'package:moon_design/src/widgets/dropdown/dropdown.dart';
+import 'package:selenic_design/src/widgets/buttons/filled_button.dart';
+import 'package:selenic_design/src/widgets/dropdown/dropdown.dart';
 
 const Key _dropdownKey = Key("dropdownKey");
 const Key _showButtonKey = Key("showButtonKey");
@@ -89,7 +89,7 @@ void main() {
     expect(
       find.byWidgetPredicate(
         (Widget widget) =>
-            widget is MoonDropdown && widget.backgroundColor == Colors.blue,
+            widget is SelenicDropdown && widget.backgroundColor == Colors.blue,
       ),
       findsOneWidget,
     );
@@ -119,13 +119,13 @@ class _DropdownTestWidgetState extends State<_DropdownTestWidget> {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: MoonDropdown(
+          child: SelenicDropdown(
             key: widget.dropdownKey,
             show: _show,
             backgroundColor: widget.color,
             onTapOutside: () => setState(() => _show = !widget.isDismissible),
             content: _drawerContent,
-            child: MoonFilledButton(
+            child: SelenicFilledButton(
               key: _showButtonKey,
               onTap: () => setState(() => _show = true),
             ),

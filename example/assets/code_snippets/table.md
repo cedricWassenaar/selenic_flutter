@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const int _rowsCount = 50;
 
@@ -65,11 +65,11 @@ class _TableState extends State<Table> {
     _tableData = _generateTableData();
   }
 
-  MoonTableHeader _generateTableHeader() {
-    return MoonTableHeader(
+  SelenicTableHeader _generateTableHeader() {
+    return SelenicTableHeader(
       columns: List.generate(
         5,
-        (int index) => MoonTableColumn(
+        (int index) => SelenicTableColumn(
           onSort: (int columnIndex, bool sortAscending) => _onSort(columnIndex, sortAscending),
           cell: Text(_columnNames[index]),
         ),
@@ -77,10 +77,10 @@ class _TableState extends State<Table> {
     );
   }
 
-  List<MoonTableRow> _generateTableRows() {
+  List<SelenicTableRow> _generateTableRows() {
     return List.generate(
       _rowsCount,
-      (int index) => MoonTableRow(
+      (int index) => SelenicTableRow(
         cells: [
           Text(_tableData[index].id.toString()),
           Text(_tableData[index].firstName),
@@ -96,10 +96,10 @@ class _TableState extends State<Table> {
   Widget build(BuildContext context) {
     return OverflowBox(
       maxWidth: MediaQuery.of(context).size.width,
-      child: MoonTable(
+      child: SelenicTable(
         columnsCount: 5,
         width: 564,
-        rowSize: MoonTableRowSize.sm,
+        rowSize: SelenicTableRowSize.sm,
         tablePadding: const EdgeInsets.symmetric(horizontal: 16),
         sortAscending: _sortAscending,
         sortColumnIndex: _sortColumnIndex,

@@ -4,22 +4,22 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonDotIndicatorProperties
-    extends ThemeExtension<MoonDotIndicatorProperties>
+class SelenicDotIndicatorProperties
+    extends ThemeExtension<SelenicDotIndicatorProperties>
     with DiagnosticableTreeMixin {
-  /// The gap between the MoonDotIndicator dots.
+  /// The gap between the SelenicDotIndicator dots.
   final double gap;
 
-  /// The size of each MoonDotIndicator dot.
+  /// The size of each SelenicDotIndicator dot.
   final double size;
 
-  /// The duration of the MoonDotIndicator transition animation.
+  /// The duration of the SelenicDotIndicator transition animation.
   final Duration transitionDuration;
 
-  /// The curve of the MoonDotIndicator transition animation.
+  /// The curve of the SelenicDotIndicator transition animation.
   final Curve transitionCurve;
 
-  const MoonDotIndicatorProperties({
+  const SelenicDotIndicatorProperties({
     required this.size,
     required this.transitionDuration,
     required this.transitionCurve,
@@ -27,13 +27,13 @@ class MoonDotIndicatorProperties
   });
 
   @override
-  MoonDotIndicatorProperties copyWith({
+  SelenicDotIndicatorProperties copyWith({
     double? gap,
     double? size,
     Duration? transitionDuration,
     Curve? transitionCurve,
   }) {
-    return MoonDotIndicatorProperties(
+    return SelenicDotIndicatorProperties(
       gap: gap ?? this.gap,
       size: size ?? this.size,
       transitionDuration: transitionDuration ?? this.transitionDuration,
@@ -42,13 +42,13 @@ class MoonDotIndicatorProperties
   }
 
   @override
-  MoonDotIndicatorProperties lerp(
-    ThemeExtension<MoonDotIndicatorProperties>? other,
+  SelenicDotIndicatorProperties lerp(
+    ThemeExtension<SelenicDotIndicatorProperties>? other,
     double t,
   ) {
-    if (other is! MoonDotIndicatorProperties) return this;
+    if (other is! SelenicDotIndicatorProperties) return this;
 
-    return MoonDotIndicatorProperties(
+    return SelenicDotIndicatorProperties(
       gap: lerpDouble(gap, other.gap, t)!,
       size: lerpDouble(size, other.size, t)!,
       transitionDuration: lerpDuration(
@@ -65,7 +65,7 @@ class MoonDotIndicatorProperties
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonDotIndicatorProperties"),
+        DiagnosticsProperty("type", "SelenicDotIndicatorProperties"),
       )
       ..add(
         DoubleProperty("gap", gap),

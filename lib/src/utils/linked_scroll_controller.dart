@@ -71,7 +71,7 @@ class LinkedScrollControllerGroup {
     double offset, {
     required Curve curve,
     required Duration duration,
-  }) async {
+  }) {
     final animations = <Future<void>>[];
 
     for (final controller in _attachedControllers) {

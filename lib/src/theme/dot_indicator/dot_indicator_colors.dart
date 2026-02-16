@@ -1,41 +1,42 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonDotIndicatorColors extends ThemeExtension<MoonDotIndicatorColors>
+class SelenicDotIndicatorColors
+    extends ThemeExtension<SelenicDotIndicatorColors>
     with DiagnosticableTreeMixin {
-  /// The color of the selected MoonDotIndicator dot.
+  /// The color of the selected SelenicDotIndicator dot.
   final Color selectedColor;
 
-  /// The color of the unselected MoonDotIndicator dot.
+  /// The color of the unselected SelenicDotIndicator dot.
   final Color unselectedColor;
 
-  const MoonDotIndicatorColors({
+  const SelenicDotIndicatorColors({
     required this.selectedColor,
     required this.unselectedColor,
   });
 
   @override
-  MoonDotIndicatorColors copyWith({
+  SelenicDotIndicatorColors copyWith({
     Color? selectedColor,
     Color? unselectedColor,
   }) {
-    return MoonDotIndicatorColors(
+    return SelenicDotIndicatorColors(
       selectedColor: selectedColor ?? this.selectedColor,
       unselectedColor: unselectedColor ?? this.unselectedColor,
     );
   }
 
   @override
-  MoonDotIndicatorColors lerp(
-    ThemeExtension<MoonDotIndicatorColors>? other,
+  SelenicDotIndicatorColors lerp(
+    ThemeExtension<SelenicDotIndicatorColors>? other,
     double t,
   ) {
-    if (other is! MoonDotIndicatorColors) return this;
+    if (other is! SelenicDotIndicatorColors) return this;
 
-    return MoonDotIndicatorColors(
+    return SelenicDotIndicatorColors(
       selectedColor: colorPremulLerp(selectedColor, other.selectedColor, t)!,
       unselectedColor: colorPremulLerp(
         unselectedColor,
@@ -49,7 +50,7 @@ class MoonDotIndicatorColors extends ThemeExtension<MoonDotIndicatorColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonDotIndicatorColors"))
+      ..add(DiagnosticsProperty("type", "SelenicDotIndicatorColors"))
       ..add(ColorProperty("selectedColor", selectedColor))
       ..add(ColorProperty("unselectedColor", unselectedColor));
   }

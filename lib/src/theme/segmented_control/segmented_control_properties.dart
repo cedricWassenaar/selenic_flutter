@@ -4,25 +4,25 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonSegmentedControlProperties
-    extends ThemeExtension<MoonSegmentedControlProperties>
+class SelenicSegmentedControlProperties
+    extends ThemeExtension<SelenicSegmentedControlProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonSegmentedControl.
+  /// The border radius of the SelenicSegmentedControl.
   final BorderRadiusGeometry borderRadius;
 
-  /// The gap between the MoonSegmentedControl segments.
+  /// The gap between the SelenicSegmentedControl segments.
   final double gap;
 
-  /// The duration of the MoonSegmentedControl transition animation.
+  /// The duration of the SelenicSegmentedControl transition animation.
   final Duration transitionDuration;
 
-  /// The curve of the MoonSegmentedControl transition animation.
+  /// The curve of the SelenicSegmentedControl transition animation.
   final Curve transitionCurve;
 
-  /// The padding of the MoonSegmentedControl.
+  /// The padding of the SelenicSegmentedControl.
   final EdgeInsetsGeometry padding;
 
-  const MoonSegmentedControlProperties({
+  const SelenicSegmentedControlProperties({
     required this.borderRadius,
     required this.gap,
     required this.transitionDuration,
@@ -31,14 +31,14 @@ class MoonSegmentedControlProperties
   });
 
   @override
-  MoonSegmentedControlProperties copyWith({
+  SelenicSegmentedControlProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? gap,
     Duration? transitionDuration,
     Curve? transitionCurve,
     EdgeInsetsGeometry? padding,
   }) {
-    return MoonSegmentedControlProperties(
+    return SelenicSegmentedControlProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       gap: gap ?? this.gap,
       transitionDuration: transitionDuration ?? this.transitionDuration,
@@ -48,13 +48,13 @@ class MoonSegmentedControlProperties
   }
 
   @override
-  MoonSegmentedControlProperties lerp(
-    ThemeExtension<MoonSegmentedControlProperties>? other,
+  SelenicSegmentedControlProperties lerp(
+    ThemeExtension<SelenicSegmentedControlProperties>? other,
     double t,
   ) {
-    if (other is! MoonSegmentedControlProperties) return this;
+    if (other is! SelenicSegmentedControlProperties) return this;
 
-    return MoonSegmentedControlProperties(
+    return SelenicSegmentedControlProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       gap: lerpDouble(gap, other.gap, t)!,
@@ -70,7 +70,7 @@ class MoonSegmentedControlProperties
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonSegmentedControlProperties"),
+        DiagnosticsProperty("type", "SelenicSegmentedControlProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

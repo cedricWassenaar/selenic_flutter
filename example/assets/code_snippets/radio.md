@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 enum RadioSelection { first, second }
 
@@ -17,16 +17,16 @@ class _RadioState extends State<Radio> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        MoonRadio(
+        SelenicRadio(
           value: RadioSelection.first,
           groupValue: radioSelection,
           onChanged: (RadioSelection? selection) => setState(() => radioSelection = selection),
         ),
-        MoonMenuItem(
+        SelenicMenuItem(
           absorbGestures: true,
           onTap: () => setState(() => radioSelection = RadioSelection.second),
-          label: const Text("MoonRadio with label"),
-          trailing: MoonRadio(
+          label: const Text("SelenicRadio with label"),
+          trailing: SelenicRadio(
             value: RadioSelection.second,
             groupValue: radioSelection,
             tapAreaSizeValue: 0,

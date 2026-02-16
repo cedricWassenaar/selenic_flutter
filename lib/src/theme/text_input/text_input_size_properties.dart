@@ -4,29 +4,29 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTextInputSizeProperties
-    extends ThemeExtension<MoonTextInputSizeProperties>
+class SelenicTextInputSizeProperties
+    extends ThemeExtension<SelenicTextInputSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonTextInput.
+  /// The border radius of the SelenicTextInput.
   final BorderRadiusGeometry borderRadius;
 
-  /// The height of the MoonTextInput.
+  /// The height of the SelenicTextInput.
   final double height;
 
   /// The gap between the leading, label and trailing widgets of the
-  /// MoonTextInput.
+  /// SelenicTextInput.
   final double gap;
 
-  /// The size value of the MoonTextInput icon.
+  /// The size value of the SelenicTextInput icon.
   final double iconSizeValue;
 
-  /// The padding of the MoonTextInput.
+  /// The padding of the SelenicTextInput.
   final EdgeInsetsGeometry padding;
 
-  /// The text style of the MoonTextInput.
+  /// The text style of the SelenicTextInput.
   final TextStyle textStyle;
 
-  const MoonTextInputSizeProperties({
+  const SelenicTextInputSizeProperties({
     required this.borderRadius,
     required this.height,
     required this.gap,
@@ -36,7 +36,7 @@ class MoonTextInputSizeProperties
   });
 
   @override
-  MoonTextInputSizeProperties copyWith({
+  SelenicTextInputSizeProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? height,
     double? gap,
@@ -44,7 +44,7 @@ class MoonTextInputSizeProperties
     EdgeInsetsGeometry? padding,
     TextStyle? textStyle,
   }) {
-    return MoonTextInputSizeProperties(
+    return SelenicTextInputSizeProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       height: height ?? this.height,
       gap: gap ?? this.gap,
@@ -55,13 +55,13 @@ class MoonTextInputSizeProperties
   }
 
   @override
-  MoonTextInputSizeProperties lerp(
-    ThemeExtension<MoonTextInputSizeProperties>? other,
+  SelenicTextInputSizeProperties lerp(
+    ThemeExtension<SelenicTextInputSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonTextInputSizeProperties) return this;
+    if (other is! SelenicTextInputSizeProperties) return this;
 
-    return MoonTextInputSizeProperties(
+    return SelenicTextInputSizeProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       height: lerpDouble(height, other.height, t)!,
@@ -77,7 +77,7 @@ class MoonTextInputSizeProperties
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonTextInputSizeProperties"),
+        DiagnosticsProperty("type", "SelenicTextInputSizeProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

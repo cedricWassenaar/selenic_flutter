@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _menuItemKey = Key("menuItemKey");
 
@@ -83,7 +83,7 @@ class _MenuItemTestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MoonMenuItem(
+        body: SelenicMenuItem(
           key: menuItemKey,
           onTap: onTap,
           leading: showLeading ? const Icon(_menuItemLeadingIcon) : null,

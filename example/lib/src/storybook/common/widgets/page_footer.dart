@@ -3,7 +3,7 @@ import 'package:example/src/storybook/common/social_media_options.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class PageFooter extends StatelessWidget {
   const PageFooter({super.key});
@@ -18,8 +18,8 @@ class PageFooter extends StatelessWidget {
           final int derivedIndex = index ~/ 2;
 
           return index.isEven
-              ? MoonTextButton(
-                  buttonSize: MoonButtonSize.sm,
+              ? SelenicTextButton(
+                  buttonSize: SelenicButtonSize.sm,
                   onTap: () => launchURL(SocialMedia.values[derivedIndex].url),
                   label: Text(
                     SocialMedia.values[derivedIndex].name,
@@ -30,7 +30,7 @@ class PageFooter extends StatelessWidget {
                   padding: const EdgeInsets.all(4.0),
                   child: Text(
                     '•',
-                    style: TextStyle(color: context.moonColors!.trunks),
+                    style: TextStyle(color: context.selenicColors!.trunks),
                   ),
                 );
         },
@@ -47,11 +47,11 @@ class PageFooter extends StatelessWidget {
           textAlign: TextAlign.center,
           TextSpan(
             text: 'With the help of ',
-            style: context.moonTypography!.body.text14,
+            style: context.selenicTypography!.body.text14,
             children: [
               TextSpan(
                 text: 'Yolo Group',
-                style: context.moonTypography!.heading.text14,
+                style: context.selenicTypography!.heading.text14,
                 recognizer: TapGestureRecognizer()
                   ..onTap = () => launchURL(yoloUrl),
               ),

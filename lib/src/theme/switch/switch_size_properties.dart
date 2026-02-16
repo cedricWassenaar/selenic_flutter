@@ -4,27 +4,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonSwitchSizeProperties extends ThemeExtension<MoonSwitchSizeProperties>
+class SelenicSwitchSizeProperties
+    extends ThemeExtension<SelenicSwitchSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The height of the MoonSwitch.
+  /// The height of the SelenicSwitch.
   final double height;
 
-  /// The width of the MoonSwitch.
+  /// The width of the SelenicSwitch.
   final double width;
 
-  /// The size value of the MoonSwitch thumb.
+  /// The size value of the SelenicSwitch thumb.
   final double thumbSizeValue;
 
-  /// The size value of the MoonSwitch icon.
+  /// The size value of the SelenicSwitch icon.
   final double iconSizeValue;
 
-  /// The padding of the MoonSwitch.
+  /// The padding of the SelenicSwitch.
   final EdgeInsetsGeometry padding;
 
-  /// The text style of the MoonSwitch.
+  /// The text style of the SelenicSwitch.
   final TextStyle textStyle;
 
-  const MoonSwitchSizeProperties({
+  const SelenicSwitchSizeProperties({
     required this.height,
     required this.width,
     required this.thumbSizeValue,
@@ -34,7 +35,7 @@ class MoonSwitchSizeProperties extends ThemeExtension<MoonSwitchSizeProperties>
   });
 
   @override
-  MoonSwitchSizeProperties copyWith({
+  SelenicSwitchSizeProperties copyWith({
     double? height,
     double? width,
     double? thumbSizeValue,
@@ -42,7 +43,7 @@ class MoonSwitchSizeProperties extends ThemeExtension<MoonSwitchSizeProperties>
     EdgeInsetsGeometry? padding,
     TextStyle? textStyle,
   }) {
-    return MoonSwitchSizeProperties(
+    return SelenicSwitchSizeProperties(
       height: height ?? this.height,
       width: width ?? this.width,
       thumbSizeValue: thumbSizeValue ?? this.thumbSizeValue,
@@ -53,13 +54,13 @@ class MoonSwitchSizeProperties extends ThemeExtension<MoonSwitchSizeProperties>
   }
 
   @override
-  MoonSwitchSizeProperties lerp(
-    ThemeExtension<MoonSwitchSizeProperties>? other,
+  SelenicSwitchSizeProperties lerp(
+    ThemeExtension<SelenicSwitchSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonSwitchSizeProperties) return this;
+    if (other is! SelenicSwitchSizeProperties) return this;
 
-    return MoonSwitchSizeProperties(
+    return SelenicSwitchSizeProperties(
       height: lerpDouble(height, other.height, t)!,
       width: lerpDouble(width, other.width, t)!,
       thumbSizeValue: lerpDouble(thumbSizeValue, other.thumbSizeValue, t)!,
@@ -73,7 +74,7 @@ class MoonSwitchSizeProperties extends ThemeExtension<MoonSwitchSizeProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonSwitchSizeProperties"))
+      ..add(DiagnosticsProperty("type", "SelenicSwitchSizeProperties"))
       ..add(DoubleProperty("height", height))
       ..add(DoubleProperty("width", width))
       ..add(DoubleProperty("thumbSizeValue", thumbSizeValue))

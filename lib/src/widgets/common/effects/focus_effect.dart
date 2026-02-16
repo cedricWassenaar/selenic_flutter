@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/widgets/common/effects/painters/focus_effect_painter.dart';
+import 'package:selenic_design/src/widgets/common/effects/painters/focus_effect_painter.dart';
 
-class MoonFocusEffect extends StatefulWidget {
+class SelenicFocusEffect extends StatefulWidget {
   final bool show;
   final BorderRadiusGeometry? childBorderRadius;
   final Color effectColor;
@@ -11,8 +11,8 @@ class MoonFocusEffect extends StatefulWidget {
   final Curve effectCurve;
   final Widget child;
 
-  /// Creates a Moon Design focus effect.
-  const MoonFocusEffect({
+  /// Creates a Selenic Design focus effect.
+  const SelenicFocusEffect({
     super.key,
     required this.show,
     this.childBorderRadius,
@@ -24,15 +24,15 @@ class MoonFocusEffect extends StatefulWidget {
   });
 
   @override
-  State<MoonFocusEffect> createState() => _MoonFocusEffectState();
+  State<SelenicFocusEffect> createState() => _SelenicFocusEffectState();
 }
 
-class _MoonFocusEffectState extends State<MoonFocusEffect>
+class _SelenicFocusEffectState extends State<SelenicFocusEffect>
     with SingleTickerProviderStateMixin {
   late final AnimationController _animationController = AnimationController(
     vsync: this,
     duration: widget.effectDuration,
-    debugLabel: "MoonFocusEffect animation controller.",
+    debugLabel: "SelenicFocusEffect animation controller.",
   );
 
   late final CurvedAnimation _focusAnimation = CurvedAnimation(
@@ -41,7 +41,7 @@ class _MoonFocusEffectState extends State<MoonFocusEffect>
   );
 
   @override
-  void didUpdateWidget(MoonFocusEffect oldWidget) {
+  void didUpdateWidget(SelenicFocusEffect oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     widget.show

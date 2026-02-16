@@ -4,27 +4,27 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonOpacities extends ThemeExtension<MoonOpacities>
+class SelenicOpacities extends ThemeExtension<SelenicOpacities>
     with DiagnosticableTreeMixin {
-  static const opacities = MoonOpacities(disabled: 0.6);
+  static const opacities = SelenicOpacities(disabled: 0.6);
 
   /// The disabled opacity value.
   final double disabled;
 
-  const MoonOpacities({required this.disabled});
+  const SelenicOpacities({required this.disabled});
 
   @override
-  MoonOpacities copyWith({double? disabled}) {
-    return MoonOpacities(
+  SelenicOpacities copyWith({double? disabled}) {
+    return SelenicOpacities(
       disabled: disabled ?? this.disabled,
     );
   }
 
   @override
-  MoonOpacities lerp(ThemeExtension<MoonOpacities>? other, double t) {
-    if (other is! MoonOpacities) return this;
+  SelenicOpacities lerp(ThemeExtension<SelenicOpacities>? other, double t) {
+    if (other is! SelenicOpacities) return this;
 
-    return MoonOpacities(
+    return SelenicOpacities(
       disabled: lerpDouble(disabled, other.disabled, t)!,
     );
   }
@@ -33,7 +33,7 @@ class MoonOpacities extends ThemeExtension<MoonOpacities>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonOpacities"))
+      ..add(DiagnosticsProperty("type", "SelenicOpacities"))
       ..add(DoubleProperty("disabled", disabled));
   }
 }

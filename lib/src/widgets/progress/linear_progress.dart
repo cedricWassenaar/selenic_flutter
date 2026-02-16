@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/progress/linear_progress/linear_progress_size_properties.dart';
-import 'package:moon_design/src/theme/progress/linear_progress/linear_progress_sizes.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/widgets/common/progress_indicators/linear_progress_indicator.dart';
-import 'package:moon_design/src/widgets/progress_pin/pin_style.dart';
-import 'package:moon_design/src/widgets/progress_pin/progress_pin.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonLinearProgressSize {
+import 'package:selenic_design/src/theme/progress/linear_progress/linear_progress_size_properties.dart';
+import 'package:selenic_design/src/theme/progress/linear_progress/linear_progress_sizes.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/widgets/common/progress_indicators/linear_progress_indicator.dart';
+import 'package:selenic_design/src/widgets/progress_pin/pin_style.dart';
+import 'package:selenic_design/src/widgets/progress_pin/progress_pin.dart';
+
+enum SelenicLinearProgressSize {
   x6s,
   x5s,
   x4s,
@@ -18,7 +19,7 @@ enum MoonLinearProgressSize {
   x2s,
 }
 
-class MoonLinearProgress extends StatelessWidget {
+class SelenicLinearProgress extends StatelessWidget {
   /// Whether to show the thumb and the pin for the linear progress.
   final bool showPin;
 
@@ -59,7 +60,7 @@ class MoonLinearProgress extends StatelessWidget {
   final double value;
 
   /// The size of the linear progress.
-  final MoonLinearProgressSize? linearProgressSize;
+  final SelenicLinearProgressSize? linearProgressSize;
 
   /// The styling options for the linear progress pin.
   final PinStyle? pinStyle;
@@ -73,8 +74,8 @@ class MoonLinearProgress extends StatelessWidget {
   /// The widget to display the maximum progress value of the linear progress.
   final Widget? maxLabel;
 
-  /// Creates a Moon Design linear progress.
-  const MoonLinearProgress({
+  /// Creates a Selenic Design linear progress.
+  const SelenicLinearProgress({
     super.key,
     this.showPin = false,
     this.showMinLabel = false,
@@ -94,36 +95,36 @@ class MoonLinearProgress extends StatelessWidget {
     this.maxLabel,
   });
 
-  MoonLinearProgressSizeProperties _getMoonProgressSize(
+  SelenicLinearProgressSizeProperties _getSelenicProgressSize(
     BuildContext context,
-    MoonLinearProgressSize? moonProgressSize,
+    SelenicLinearProgressSize? progressSize,
   ) {
-    switch (moonProgressSize) {
-      case MoonLinearProgressSize.x6s:
-        return context.moonTheme?.linearProgressTheme.sizes.x6s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x6s;
-      case MoonLinearProgressSize.x5s:
-        return context.moonTheme?.linearProgressTheme.sizes.x5s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x5s;
-      case MoonLinearProgressSize.x4s:
-        return context.moonTheme?.linearProgressTheme.sizes.x4s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x4s;
-      case MoonLinearProgressSize.x3s:
-        return context.moonTheme?.linearProgressTheme.sizes.x3s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x3s;
-      case MoonLinearProgressSize.x2s:
-        return context.moonTheme?.linearProgressTheme.sizes.x2s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x2s;
+    switch (progressSize) {
+      case SelenicLinearProgressSize.x6s:
+        return context.selenicTheme?.linearProgressTheme.sizes.x6s ??
+            SelenicLinearProgressSizes(tokens: SelenicTokens.light).x6s;
+      case SelenicLinearProgressSize.x5s:
+        return context.selenicTheme?.linearProgressTheme.sizes.x5s ??
+            SelenicLinearProgressSizes(tokens: SelenicTokens.light).x5s;
+      case SelenicLinearProgressSize.x4s:
+        return context.selenicTheme?.linearProgressTheme.sizes.x4s ??
+            SelenicLinearProgressSizes(tokens: SelenicTokens.light).x4s;
+      case SelenicLinearProgressSize.x3s:
+        return context.selenicTheme?.linearProgressTheme.sizes.x3s ??
+            SelenicLinearProgressSizes(tokens: SelenicTokens.light).x3s;
+      case SelenicLinearProgressSize.x2s:
+        return context.selenicTheme?.linearProgressTheme.sizes.x2s ??
+            SelenicLinearProgressSizes(tokens: SelenicTokens.light).x2s;
       default:
-        return context.moonTheme?.linearProgressTheme.sizes.x4s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x4s;
+        return context.selenicTheme?.linearProgressTheme.sizes.x4s ??
+            SelenicLinearProgressSizes(tokens: SelenicTokens.light).x4s;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final MoonLinearProgressSizeProperties effectiveProgressSize =
-        _getMoonProgressSize(context, linearProgressSize);
+    final SelenicLinearProgressSizeProperties effectiveProgressSize =
+        _getSelenicProgressSize(context, linearProgressSize);
 
     final BorderRadiusGeometry effectiveBorderRadius =
         borderRadius ?? effectiveProgressSize.borderRadius;
@@ -144,15 +145,15 @@ class MoonLinearProgress extends StatelessWidget {
     };
 
     final Color effectiveColor = color ??
-        context.moonTheme?.linearProgressTheme.colors.color ??
+        context.selenicTheme?.linearProgressTheme.colors.color ??
         MoonColors.light.piccolo;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.linearProgressTheme.colors.backgroundColor ??
+        context.selenicTheme?.linearProgressTheme.colors.backgroundColor ??
         MoonColors.light.beerus;
 
     final Color effectiveTextColor = textColor ??
-        context.moonTheme?.linearProgressTheme.colors.textColor ??
+        context.selenicTheme?.linearProgressTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final double effectiveHeight =
@@ -165,15 +166,15 @@ class MoonLinearProgress extends StatelessWidget {
         pinStyle?.thumbSizeValue ?? effectiveProgressSize.thumbSizeValue;
 
     final double effectivePinWidth = pinStyle?.pinWidth ??
-        context.moonTheme?.progressPinTheme.properties.pinWidth ??
+        context.selenicTheme?.progressPinTheme.properties.pinWidth ??
         36;
 
     final double effectivePinDistance = pinStyle?.pinDistance ??
-        context.moonTheme?.progressPinTheme.properties.pinDistance ??
-        MoonSizes.sizes.x5s;
+        context.selenicTheme?.progressPinTheme.properties.pinDistance ??
+        SelenicSizes.sizes.x5s;
 
     final double effectivePinArrowHeight = pinStyle?.arrowHeight ??
-        context.moonTheme?.progressPinTheme.properties.arrowHeight ??
+        context.selenicTheme?.progressPinTheme.properties.arrowHeight ??
         6;
 
     final TextStyle effectiveTextStyle = effectiveProgressSize.textStyle;
@@ -188,7 +189,7 @@ class MoonLinearProgress extends StatelessWidget {
         effectivePinDistance +
         effectiveThumbSizeValue;
 
-    Widget child = MoonLinearProgressIndicator(
+    Widget child = SelenicLinearProgressIndicator(
       value: value,
       color: effectiveColor,
       backgroundColor: effectiveBackgroundColor,
@@ -198,7 +199,7 @@ class MoonLinearProgress extends StatelessWidget {
     );
 
     if (showPin) {
-      child = MoonProgressPin(
+      child = SelenicProgressPin(
         progressValue: value,
         pinText: '${(value * 100).round()}%',
         pinStyle: pinStyle?.copyWith(thumbSizeValue: effectiveThumbSizeValue),

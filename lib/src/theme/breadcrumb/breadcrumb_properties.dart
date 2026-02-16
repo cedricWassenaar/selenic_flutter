@@ -4,32 +4,33 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonBreadcrumbProperties extends ThemeExtension<MoonBreadcrumbProperties>
+class SelenicBreadcrumbProperties
+    extends ThemeExtension<SelenicBreadcrumbProperties>
     with DiagnosticableTreeMixin {
-  /// The gap between the divider widget and the MoonBreadcrumb item.
+  /// The gap between the divider widget and the SelenicBreadcrumb item.
   final double gap;
 
   /// The gap between the leading, label and trailing widgets of the
-  /// MoonBreadcrumb item.
+  /// SelenicBreadcrumb item.
   final double itemGap;
 
-  /// The duration of the MoonBreadcrumb item transition animation.
+  /// The duration of the SelenicBreadcrumb item transition animation.
   final Duration transitionDuration;
 
-  /// The curve of the MoonBreadcrumb item transition animation.
+  /// The curve of the SelenicBreadcrumb item transition animation.
   final Curve transitionCurve;
 
-  /// The text style of the MoonBreadcrumb item.
+  /// The text style of the SelenicBreadcrumb item.
   final TextStyle itemTextStyle;
 
-  /// The text style of the current MoonBreadcrumb item.
+  /// The text style of the current SelenicBreadcrumb item.
   final TextStyle currentItemTextStyle;
 
-  /// The text style of the MoonBreadcrumb single custom widget to replace all
+  /// The text style of the SelenicBreadcrumb single custom widget to replace all
   /// the breadcrumb collapsed items with.
   final TextStyle showMoreItemTextStyle;
 
-  const MoonBreadcrumbProperties({
+  const SelenicBreadcrumbProperties({
     required this.gap,
     required this.itemGap,
     required this.transitionDuration,
@@ -40,7 +41,7 @@ class MoonBreadcrumbProperties extends ThemeExtension<MoonBreadcrumbProperties>
   });
 
   @override
-  MoonBreadcrumbProperties copyWith({
+  SelenicBreadcrumbProperties copyWith({
     double? gap,
     double? itemGap,
     Duration? transitionDuration,
@@ -49,7 +50,7 @@ class MoonBreadcrumbProperties extends ThemeExtension<MoonBreadcrumbProperties>
     TextStyle? currentItemTextStyle,
     TextStyle? showMoreItemTextStyle,
   }) {
-    return MoonBreadcrumbProperties(
+    return SelenicBreadcrumbProperties(
       gap: gap ?? this.gap,
       itemGap: itemGap ?? this.itemGap,
       transitionDuration: transitionDuration ?? this.transitionDuration,
@@ -62,13 +63,13 @@ class MoonBreadcrumbProperties extends ThemeExtension<MoonBreadcrumbProperties>
   }
 
   @override
-  MoonBreadcrumbProperties lerp(
-    ThemeExtension<MoonBreadcrumbProperties>? other,
+  SelenicBreadcrumbProperties lerp(
+    ThemeExtension<SelenicBreadcrumbProperties>? other,
     double t,
   ) {
-    if (other is! MoonBreadcrumbProperties) return this;
+    if (other is! SelenicBreadcrumbProperties) return this;
 
-    return MoonBreadcrumbProperties(
+    return SelenicBreadcrumbProperties(
       gap: lerpDouble(gap, other.gap, t)!,
       itemGap: lerpDouble(itemGap, other.itemGap, t)!,
       transitionDuration:
@@ -90,7 +91,7 @@ class MoonBreadcrumbProperties extends ThemeExtension<MoonBreadcrumbProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonBreadcrumbProperties"),
+        DiagnosticsProperty("type", "SelenicBreadcrumbProperties"),
       )
       ..add(
         DoubleProperty("gap", gap),

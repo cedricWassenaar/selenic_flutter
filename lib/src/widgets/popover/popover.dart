@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonPopoverPosition {
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/shadows.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+
+enum SelenicPopoverPosition {
   top,
   topLeft,
   topRight,
@@ -22,9 +23,9 @@ enum MoonPopoverPosition {
   horizontal,
 }
 
-class MoonPopover extends StatefulWidget {
+class SelenicPopover extends StatefulWidget {
   // This is necessary to ensure that only one popover is visible at a time.
-  static final List<MoonPopoverState> _openedPopovers = [];
+  static final List<SelenicPopoverState> _openedPopovers = [];
 
   /// Whether to show the popover.
   final bool show;
@@ -92,8 +93,8 @@ class MoonPopover extends StatefulWidget {
   final List<BoxShadow>? popoverShadows;
 
   /// Sets the popover position relative to the [child] (target).
-  /// Defaults to [MoonPopoverPosition.vertical].
-  final MoonPopoverPosition popoverPosition;
+  /// Defaults to [SelenicPopoverPosition.vertical].
+  final SelenicPopoverPosition popoverPosition;
 
   /// The observer to keep track of the route changes and automatically hide
   /// the popover when the widget's route is not active.
@@ -111,8 +112,8 @@ class MoonPopover extends StatefulWidget {
   /// The widget to display inside the popover as its content.
   final Widget content;
 
-  /// Creates a Moon Design popover.
-  const MoonPopover({
+  /// Creates a Selenic Design popover.
+  const SelenicPopover({
     super.key,
     required this.show,
     this.borderRadius,
@@ -130,7 +131,7 @@ class MoonPopover extends StatefulWidget {
     this.transitionCurve,
     this.contentPadding,
     this.popoverShadows,
-    this.popoverPosition = MoonPopoverPosition.top,
+    this.popoverPosition = SelenicPopoverPosition.top,
     this.routeObserver,
     this.semanticLabel,
     this.onTapOutside,
@@ -139,12 +140,12 @@ class MoonPopover extends StatefulWidget {
   });
 
   // Remove all existing popovers except the provided one.
-  static void _removeOtherPopovers(MoonPopoverState current) {
+  static void _removeOtherPopovers(SelenicPopoverState current) {
     if (_openedPopovers.isNotEmpty) {
       // Avoid concurrent modification.
-      final List<MoonPopoverState> openedPopovers = _openedPopovers.toList();
+      final List<SelenicPopoverState> openedPopovers = _openedPopovers.toList();
 
-      for (final MoonPopoverState state in openedPopovers) {
+      for (final SelenicPopoverState state in openedPopovers) {
         if (state == current) continue;
 
         state._clearOverlayEntry();
@@ -153,10 +154,10 @@ class MoonPopover extends StatefulWidget {
   }
 
   @override
-  MoonPopoverState createState() => MoonPopoverState();
+  SelenicPopoverState createState() => SelenicPopoverState();
 }
 
-class MoonPopoverState extends State<MoonPopover>
+class SelenicPopoverState extends State<SelenicPopover>
     with RouteAware, SingleTickerProviderStateMixin {
   late final ObjectKey _regionKey = ObjectKey(widget);
   final LayerLink _layerLink = LayerLink();
@@ -176,8 +177,8 @@ class MoonPopoverState extends State<MoonPopover>
     );
     Overlay.of(context).insert(_overlayEntry!);
 
-    MoonPopover._openedPopovers.add(this);
-    MoonPopover._removeOtherPopovers(this);
+    SelenicPopover._openedPopovers.add(this);
+    SelenicPopover._removeOtherPopovers(this);
 
     _animationController!.value = 0;
     _animationController!.forward();
@@ -202,14 +203,14 @@ class MoonPopoverState extends State<MoonPopover>
 
   void _clearOverlayEntry() {
     if (_overlayEntry != null) {
-      MoonPopover._openedPopovers.remove(this);
+      SelenicPopover._openedPopovers.remove(this);
       _overlayEntry!.remove();
       _overlayEntry = null;
     }
   }
 
   _PopoverPositionProperties _resolvePopoverPositionParameters({
-    required MoonPopoverPosition popoverPosition,
+    required SelenicPopoverPosition popoverPosition,
     required double distanceToTarget,
     required double overlayWidth,
     required double popoverTargetGlobalLeft,
@@ -217,7 +218,7 @@ class MoonPopoverState extends State<MoonPopover>
     required double popoverTargetGlobalRight,
   }) {
     return switch (popoverPosition) {
-      MoonPopoverPosition.top => _PopoverPositionProperties(
+      SelenicPopoverPosition.top => _PopoverPositionProperties(
           offset: Offset(0, -distanceToTarget),
           targetAnchor: Alignment.topCenter,
           followerAnchor: Alignment.bottomCenter,
@@ -225,7 +226,7 @@ class MoonPopoverState extends State<MoonPopover>
               ((overlayWidth / 2 - popoverTargetGlobalCenter) * 2).abs() -
               widget.popoverMargin * 2,
         ),
-      MoonPopoverPosition.bottom => _PopoverPositionProperties(
+      SelenicPopoverPosition.bottom => _PopoverPositionProperties(
           offset: Offset(0, distanceToTarget),
           targetAnchor: Alignment.bottomCenter,
           followerAnchor: Alignment.topCenter,
@@ -233,14 +234,14 @@ class MoonPopoverState extends State<MoonPopover>
               ((overlayWidth / 2 - popoverTargetGlobalCenter) * 2).abs() -
               widget.popoverMargin * 2,
         ),
-      MoonPopoverPosition.left => _PopoverPositionProperties(
+      SelenicPopoverPosition.left => _PopoverPositionProperties(
           offset: Offset(-distanceToTarget, 0),
           targetAnchor: Alignment.centerLeft,
           followerAnchor: Alignment.centerRight,
           popoverMaxWidth:
               popoverTargetGlobalLeft - distanceToTarget - widget.popoverMargin,
         ),
-      MoonPopoverPosition.right => _PopoverPositionProperties(
+      SelenicPopoverPosition.right => _PopoverPositionProperties(
           offset: Offset(distanceToTarget, 0),
           targetAnchor: Alignment.centerRight,
           followerAnchor: Alignment.centerLeft,
@@ -249,26 +250,26 @@ class MoonPopoverState extends State<MoonPopover>
               distanceToTarget -
               widget.popoverMargin,
         ),
-      MoonPopoverPosition.topLeft => _PopoverPositionProperties(
+      SelenicPopoverPosition.topLeft => _PopoverPositionProperties(
           offset: Offset(0, -distanceToTarget),
           targetAnchor: Alignment.topRight,
           followerAnchor: Alignment.bottomRight,
           popoverMaxWidth: popoverTargetGlobalRight - widget.popoverMargin,
         ),
-      MoonPopoverPosition.topRight => _PopoverPositionProperties(
+      SelenicPopoverPosition.topRight => _PopoverPositionProperties(
           offset: Offset(0, -distanceToTarget),
           targetAnchor: Alignment.topLeft,
           followerAnchor: Alignment.bottomLeft,
           popoverMaxWidth:
               overlayWidth - popoverTargetGlobalLeft - widget.popoverMargin,
         ),
-      MoonPopoverPosition.bottomLeft => _PopoverPositionProperties(
+      SelenicPopoverPosition.bottomLeft => _PopoverPositionProperties(
           offset: Offset(0, distanceToTarget),
           targetAnchor: Alignment.bottomRight,
           followerAnchor: Alignment.topRight,
           popoverMaxWidth: popoverTargetGlobalRight - widget.popoverMargin,
         ),
-      MoonPopoverPosition.bottomRight => _PopoverPositionProperties(
+      SelenicPopoverPosition.bottomRight => _PopoverPositionProperties(
           offset: Offset(0, distanceToTarget),
           targetAnchor: Alignment.bottomLeft,
           followerAnchor: Alignment.topLeft,
@@ -324,7 +325,7 @@ class MoonPopoverState extends State<MoonPopover>
   }
 
   @override
-  void didUpdateWidget(MoonPopover oldWidget) {
+  void didUpdateWidget(SelenicPopover oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.routeObserver != widget.routeObserver) {
@@ -368,42 +369,42 @@ class MoonPopoverState extends State<MoonPopover>
   }
 
   Widget _createOverlayContent() {
-    MoonPopoverPosition popoverPosition = widget.popoverPosition;
+    SelenicPopoverPosition popoverPosition = widget.popoverPosition;
 
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.popoverTheme.properties.borderRadius ??
+        context.selenicTheme?.popoverTheme.properties.borderRadius ??
         BorderRadius.circular(12);
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.popoverTheme.colors.backgroundColor ??
+        context.selenicTheme?.popoverTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.popoverTheme.colors.textColor ??
+        context.selenicTheme?.popoverTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.popoverTheme.colors.iconColor ??
+        context.selenicTheme?.popoverTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.popoverTheme.properties.textStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.selenicTheme?.popoverTheme.properties.textStyle ??
+            SelenicTypography.typography.body.textDefault;
 
     final double effectiveDistanceToTarget = widget.distanceToTarget ??
-        context.moonTheme?.popoverTheme.properties.distanceToTarget ??
+        context.selenicTheme?.popoverTheme.properties.distanceToTarget ??
         8;
 
     final EdgeInsetsGeometry effectiveContentPadding = widget.contentPadding ??
-        context.moonTheme?.popoverTheme.properties.contentPadding ??
+        context.selenicTheme?.popoverTheme.properties.contentPadding ??
         const EdgeInsets.all(12);
 
     final EdgeInsets resolvedContentPadding =
         effectiveContentPadding.resolve(Directionality.of(context));
 
     final List<BoxShadow> effectivePopoverShadows = widget.popoverShadows ??
-        context.moonTheme?.popoverTheme.shadows.popoverShadows ??
-        MoonShadows.light.sm;
+        context.selenicTheme?.popoverTheme.shadows.popoverShadows ??
+        SelenicShadows.light.sm;
 
     final RenderBox overlayRenderBox =
         Overlay.of(context).context.findRenderObject()! as RenderBox;
@@ -426,31 +427,31 @@ class MoonPopoverState extends State<MoonPopover>
     );
 
     if (Directionality.of(context) == TextDirection.rtl ||
-        popoverPosition == MoonPopoverPosition.horizontal ||
-        popoverPosition == MoonPopoverPosition.vertical) {
+        popoverPosition == SelenicPopoverPosition.horizontal ||
+        popoverPosition == SelenicPopoverPosition.vertical) {
       switch (popoverPosition) {
-        case MoonPopoverPosition.left:
-          popoverPosition = MoonPopoverPosition.right;
-        case MoonPopoverPosition.right:
-          popoverPosition = MoonPopoverPosition.left;
-        case MoonPopoverPosition.topLeft:
-          popoverPosition = MoonPopoverPosition.topRight;
-        case MoonPopoverPosition.topRight:
-          popoverPosition = MoonPopoverPosition.topLeft;
-        case MoonPopoverPosition.bottomLeft:
-          popoverPosition = MoonPopoverPosition.bottomRight;
-        case MoonPopoverPosition.bottomRight:
-          popoverPosition = MoonPopoverPosition.bottomLeft;
-        case MoonPopoverPosition.vertical:
+        case SelenicPopoverPosition.left:
+          popoverPosition = SelenicPopoverPosition.right;
+        case SelenicPopoverPosition.right:
+          popoverPosition = SelenicPopoverPosition.left;
+        case SelenicPopoverPosition.topLeft:
+          popoverPosition = SelenicPopoverPosition.topRight;
+        case SelenicPopoverPosition.topRight:
+          popoverPosition = SelenicPopoverPosition.topLeft;
+        case SelenicPopoverPosition.bottomLeft:
+          popoverPosition = SelenicPopoverPosition.bottomRight;
+        case SelenicPopoverPosition.bottomRight:
+          popoverPosition = SelenicPopoverPosition.bottomLeft;
+        case SelenicPopoverPosition.vertical:
           popoverPosition = popoverTargetGlobalCenter.dy <
                   overlayRenderBox.size.center(Offset.zero).dy
-              ? MoonPopoverPosition.bottom
-              : MoonPopoverPosition.top;
-        case MoonPopoverPosition.horizontal:
+              ? SelenicPopoverPosition.bottom
+              : SelenicPopoverPosition.top;
+        case SelenicPopoverPosition.horizontal:
           popoverPosition = popoverTargetGlobalCenter.dx <
                   overlayRenderBox.size.center(Offset.zero).dx
-              ? MoonPopoverPosition.right
-              : MoonPopoverPosition.left;
+              ? SelenicPopoverPosition.right
+              : SelenicPopoverPosition.left;
         default:
           break;
       }
@@ -501,7 +502,7 @@ class MoonPopoverState extends State<MoonPopover>
                           ShapeDecorationWithPremultipliedAlpha(
                             color: effectiveBackgroundColor,
                             shadows: effectivePopoverShadows,
-                            shape: MoonSquircleBorder(
+                            shape: SelenicSquircleBorder(
                               borderRadius: effectiveBorderRadius
                                   .squircleBorderRadius(context),
                               side: BorderSide(
@@ -528,12 +529,12 @@ class MoonPopoverState extends State<MoonPopover>
   @override
   Widget build(BuildContext context) {
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.popoverTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.popoverTheme.properties.transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.popoverTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.popoverTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     _animationController ??= AnimationController(
       duration: effectiveTransitionDuration,

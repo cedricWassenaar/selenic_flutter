@@ -3,10 +3,10 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonFocusEffect extends ThemeExtension<MoonFocusEffect>
+class SelenicFocusEffect extends ThemeExtension<SelenicFocusEffect>
     with DiagnosticableTreeMixin {
   /// The color of the focus effect.
   final Color effectColor;
@@ -20,7 +20,7 @@ class MoonFocusEffect extends ThemeExtension<MoonFocusEffect>
   /// The curve of the focus effect.
   final Curve effectCurve;
 
-  const MoonFocusEffect({
+  const SelenicFocusEffect({
     required this.effectColor,
     required this.effectExtent,
     required this.effectDuration,
@@ -28,13 +28,13 @@ class MoonFocusEffect extends ThemeExtension<MoonFocusEffect>
   });
 
   @override
-  MoonFocusEffect copyWith({
+  SelenicFocusEffect copyWith({
     Color? effectColor,
     double? effectExtent,
     Duration? effectDuration,
     Curve? effectCurve,
   }) {
-    return MoonFocusEffect(
+    return SelenicFocusEffect(
       effectColor: effectColor ?? this.effectColor,
       effectExtent: effectExtent ?? this.effectExtent,
       effectDuration: effectDuration ?? this.effectDuration,
@@ -43,10 +43,10 @@ class MoonFocusEffect extends ThemeExtension<MoonFocusEffect>
   }
 
   @override
-  MoonFocusEffect lerp(ThemeExtension<MoonFocusEffect>? other, double t) {
-    if (other is! MoonFocusEffect) return this;
+  SelenicFocusEffect lerp(ThemeExtension<SelenicFocusEffect>? other, double t) {
+    if (other is! SelenicFocusEffect) return this;
 
-    return MoonFocusEffect(
+    return SelenicFocusEffect(
       effectColor: colorPremulLerp(effectColor, other.effectColor, t)!,
       effectExtent: lerpDouble(effectExtent, other.effectExtent, t)!,
       effectDuration: lerpDuration(effectDuration, other.effectDuration, t),
@@ -58,7 +58,7 @@ class MoonFocusEffect extends ThemeExtension<MoonFocusEffect>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonFocusEffects"))
+      ..add(DiagnosticsProperty("type", "SelenicFocusEffects"))
       ..add(ColorProperty("effectColor", effectColor))
       ..add(DoubleProperty("effectExtent", effectExtent))
       ..add(DiagnosticsProperty<Duration>("effectDuration", effectDuration))

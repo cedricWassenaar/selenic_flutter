@@ -1,41 +1,41 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/progress/circular_progress/circular_progress_colors.dart';
-import 'package:moon_design/src/theme/progress/circular_progress/circular_progress_sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/progress/circular_progress/circular_progress_colors.dart';
+import 'package:selenic_design/src/theme/progress/circular_progress/circular_progress_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonCircularProgressTheme
-    extends ThemeExtension<MoonCircularProgressTheme>
+class SelenicCircularProgressTheme
+    extends ThemeExtension<SelenicCircularProgressTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonCircularProgress.
-  final MoonCircularProgressColors colors;
+  /// The colors of the SelenicCircularProgress.
+  final SelenicCircularProgressColors colors;
 
-  /// The sizes of the MoonCircularProgress.
-  final MoonCircularProgressSizes sizes;
+  /// The sizes of the SelenicCircularProgress.
+  final SelenicCircularProgressSizes sizes;
 
-  MoonCircularProgressTheme({
+  SelenicCircularProgressTheme({
     required this.tokens,
-    MoonCircularProgressColors? colors,
-    MoonCircularProgressSizes? sizes,
+    SelenicCircularProgressColors? colors,
+    SelenicCircularProgressSizes? sizes,
   })  : colors = colors ??
-            MoonCircularProgressColors(
+            SelenicCircularProgressColors(
               color: tokens.colors.piccolo,
               backgroundColor: tokens.colors.beerus,
             ),
-        sizes = sizes ?? MoonCircularProgressSizes(tokens: tokens);
+        sizes = sizes ?? SelenicCircularProgressSizes(tokens: tokens);
 
   @override
-  MoonCircularProgressTheme copyWith({
-    MoonTokens? tokens,
-    MoonCircularProgressColors? colors,
-    MoonCircularProgressSizes? sizes,
+  SelenicCircularProgressTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicCircularProgressColors? colors,
+    SelenicCircularProgressSizes? sizes,
   }) {
-    return MoonCircularProgressTheme(
+    return SelenicCircularProgressTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       sizes: sizes ?? this.sizes,
@@ -43,13 +43,13 @@ class MoonCircularProgressTheme
   }
 
   @override
-  MoonCircularProgressTheme lerp(
-    ThemeExtension<MoonCircularProgressTheme>? other,
+  SelenicCircularProgressTheme lerp(
+    ThemeExtension<SelenicCircularProgressTheme>? other,
     double t,
   ) {
-    if (other is! MoonCircularProgressTheme) return this;
+    if (other is! SelenicCircularProgressTheme) return this;
 
-    return MoonCircularProgressTheme(
+    return SelenicCircularProgressTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       sizes: sizes.lerp(other.sizes, t),
@@ -60,9 +60,10 @@ class MoonCircularProgressTheme
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonCircularProgressTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonCircularProgressColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonCircularProgressSizes>("sizes", sizes));
+      ..add(DiagnosticsProperty("type", "SelenicCircularProgressTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(
+          DiagnosticsProperty<SelenicCircularProgressColors>("colors", colors))
+      ..add(DiagnosticsProperty<SelenicCircularProgressSizes>("sizes", sizes));
   }
 }

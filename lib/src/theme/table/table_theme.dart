@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/table/table_colors.dart';
-import 'package:moon_design/src/theme/table/table_properties.dart';
-import 'package:moon_design/src/theme/table/table_sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/table/table_colors.dart';
+import 'package:selenic_design/src/theme/table/table_properties.dart';
+import 'package:selenic_design/src/theme/table/table_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonTableTheme extends ThemeExtension<MoonTableTheme>
+class SelenicTableTheme extends ThemeExtension<SelenicTableTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonTable.
-  final MoonTableColors colors;
+  /// The colors of the SelenicTable.
+  final SelenicTableColors colors;
 
-  /// The properties of the MoonTable.
-  final MoonTableProperties properties;
+  /// The properties of the SelenicTable.
+  final SelenicTableProperties properties;
 
-  /// The sizes of the MoonTable.
-  final MoonTableSizes sizes;
+  /// The sizes of the SelenicTable.
+  final SelenicTableSizes sizes;
 
-  MoonTableTheme({
+  SelenicTableTheme({
     required this.tokens,
-    MoonTableColors? colors,
-    MoonTableProperties? properties,
-    MoonTableSizes? sizes,
+    SelenicTableColors? colors,
+    SelenicTableProperties? properties,
+    SelenicTableSizes? sizes,
   })  : colors = colors ??
-            MoonTableColors(
+            SelenicTableColors(
               columnTextColor: tokens.colors.textPrimary,
               rowTextColor: tokens.colors.textPrimary,
               rowLabelTextColor: tokens.colors.textPrimary,
@@ -36,20 +36,20 @@ class MoonTableTheme extends ThemeExtension<MoonTableTheme>
               rowBackgroundColor: tokens.colors.goku,
             ),
         properties = properties ??
-            MoonTableProperties(
+            SelenicTableProperties(
               transitionDuration: const Duration(milliseconds: 400),
               transitionCurve: tokens.transitions.defaultTransitionCurve,
             ),
-        sizes = sizes ?? MoonTableSizes(tokens: tokens);
+        sizes = sizes ?? SelenicTableSizes(tokens: tokens);
 
   @override
-  MoonTableTheme copyWith({
-    MoonTokens? tokens,
-    MoonTableColors? colors,
-    MoonTableProperties? properties,
-    MoonTableSizes? sizes,
+  SelenicTableTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicTableColors? colors,
+    SelenicTableProperties? properties,
+    SelenicTableSizes? sizes,
   }) {
-    return MoonTableTheme(
+    return SelenicTableTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -58,10 +58,10 @@ class MoonTableTheme extends ThemeExtension<MoonTableTheme>
   }
 
   @override
-  MoonTableTheme lerp(ThemeExtension<MoonTableTheme>? other, double t) {
-    if (other is! MoonTableTheme) return this;
+  SelenicTableTheme lerp(ThemeExtension<SelenicTableTheme>? other, double t) {
+    if (other is! SelenicTableTheme) return this;
 
-    return MoonTableTheme(
+    return SelenicTableTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -73,10 +73,11 @@ class MoonTableTheme extends ThemeExtension<MoonTableTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonTableTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonTableColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonTableProperties>("properties", properties))
-      ..add(DiagnosticsProperty<MoonTableSizes>("sizes", sizes));
+      ..add(DiagnosticsProperty("type", "SelenicTableTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicTableColors>("colors", colors))
+      ..add(
+          DiagnosticsProperty<SelenicTableProperties>("properties", properties))
+      ..add(DiagnosticsProperty<SelenicTableSizes>("sizes", sizes));
   }
 }

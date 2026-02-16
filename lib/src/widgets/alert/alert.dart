@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-class MoonAlert extends StatefulWidget {
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+
+class SelenicAlert extends StatefulWidget {
   /// Whether to show the alert.
   final bool show;
 
@@ -69,13 +70,13 @@ class MoonAlert extends StatefulWidget {
   /// The widget to display below the alert header.
   final Widget? content;
 
-  /// Creates a Moon Design base alert.
+  /// Creates a Selenic Design base alert.
   ///
   /// See also:
   ///
-  ///   * [MoonAlert.filled], Moon Design filled alert.
-  ///   * [MoonAlert.outlined], Moon Design outlined alert.
-  const MoonAlert({
+  ///   * [SelenicAlert.filled], Selenic Design filled alert.
+  ///   * [SelenicAlert.outlined], Selenic Design outlined alert.
+  const SelenicAlert({
     super.key,
     this.show = false,
     this.showBorder = false,
@@ -98,12 +99,12 @@ class MoonAlert extends StatefulWidget {
     this.content,
   });
 
-  /// Creates a Moon Design filled alert.
+  /// Creates a Selenic Design filled alert.
   ///
   /// See also:
   ///
-  ///   * [MoonAlert.outlined], Moon Design outlined alert.
-  const MoonAlert.filled({
+  ///   * [SelenicAlert.outlined], Selenic Design outlined alert.
+  const SelenicAlert.filled({
     super.key,
     this.show = false,
     this.borderRadius,
@@ -125,12 +126,12 @@ class MoonAlert extends StatefulWidget {
         transitionDuration = null,
         transitionCurve = null;
 
-  /// Creates a Moon Design outlined alert.
+  /// Creates a Selenic Design outlined alert.
   ///
   /// See also:
   ///
-  ///   * [MoonAlert.filled], Moon Design filled alert.
-  const MoonAlert.outlined({
+  ///   * [SelenicAlert.filled], Selenic Design filled alert.
+  const SelenicAlert.outlined({
     super.key,
     this.show = false,
     this.borderRadius,
@@ -153,10 +154,10 @@ class MoonAlert extends StatefulWidget {
         transitionCurve = null;
 
   @override
-  State<MoonAlert> createState() => _MoonAlertState();
+  State<SelenicAlert> createState() => _SelenicAlertState();
 }
 
-class _MoonAlertState extends State<MoonAlert>
+class _SelenicAlertState extends State<SelenicAlert>
     with SingleTickerProviderStateMixin {
   bool _isVisible = true;
 
@@ -165,11 +166,11 @@ class _MoonAlertState extends State<MoonAlert>
 
   TextStyle _getLabelTextStyle({required BuildContext context}) {
     if (widget.content != null) {
-      return context.moonTheme?.alertTheme.properties.labelTextStyle ??
-          MoonTypography.typography.heading.textDefault;
+      return context.selenicTheme?.alertTheme.properties.labelTextStyle ??
+          SelenicTypography.typography.heading.textDefault;
     } else {
-      return context.moonTheme?.alertTheme.properties.contentTextStyle ??
-          MoonTypography.typography.body.textDefault;
+      return context.selenicTheme?.alertTheme.properties.contentTextStyle ??
+          SelenicTypography.typography.body.textDefault;
     }
   }
 
@@ -197,7 +198,7 @@ class _MoonAlertState extends State<MoonAlert>
   }
 
   @override
-  void didUpdateWidget(MoonAlert oldWidget) {
+  void didUpdateWidget(SelenicAlert oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.show != widget.show) {
@@ -215,59 +216,59 @@ class _MoonAlertState extends State<MoonAlert>
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.alertTheme.properties.borderRadius ??
-        MoonBorders.borders.interactiveSm;
+        context.selenicTheme?.alertTheme.properties.borderRadius ??
+        SelenicBorders.borders.interactiveSm;
 
     final double effectiveBorderWidth = widget.borderWidth ??
-        context.moonBorders?.defaultBorderWidth ??
-        MoonBorders.borders.defaultBorderWidth;
+        context.selenicBorders?.defaultBorderWidth ??
+        SelenicBorders.borders.defaultBorderWidth;
 
     final double effectiveHorizontalGap = widget.horizontalGap ??
-        context.moonTheme?.alertTheme.properties.horizontalGap ??
-        MoonSizes.sizes.x3s;
+        context.selenicTheme?.alertTheme.properties.horizontalGap ??
+        SelenicSizes.sizes.x3s;
 
     final double effectiveVerticalGap = widget.verticalGap ??
-        context.moonTheme?.alertTheme.properties.verticalGap ??
-        MoonSizes.sizes.x4s;
+        context.selenicTheme?.alertTheme.properties.verticalGap ??
+        SelenicSizes.sizes.x4s;
 
     final double effectiveMinimumHeight = widget.minimumHeight ??
-        context.moonTheme?.alertTheme.properties.minimumHeight ??
-        MoonSizes.sizes.xl;
+        context.selenicTheme?.alertTheme.properties.minimumHeight ??
+        SelenicSizes.sizes.xl;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.alertTheme.colors.backgroundColor ??
+        context.selenicTheme?.alertTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme?.alertTheme.colors.borderColor ??
+        context.selenicTheme?.alertTheme.colors.borderColor ??
         MoonColors.light.bulma;
 
     final Color effectiveTextColor = widget.color ??
-        context.moonTheme?.alertTheme.colors.textColor ??
+        context.selenicTheme?.alertTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveIconColor = widget.color ??
-        context.moonTheme?.alertTheme.colors.iconColor ??
+        context.selenicTheme?.alertTheme.colors.iconColor ??
         MoonColors.light.iconPrimary;
 
     final EdgeInsetsGeometry effectivePadding = widget.padding ??
-        context.moonTheme?.alertTheme.properties.padding ??
-        EdgeInsets.all(MoonSizes.sizes.x2s);
+        context.selenicTheme?.alertTheme.properties.padding ??
+        EdgeInsets.all(SelenicSizes.sizes.x2s);
 
     final TextStyle effectiveLabelTextStyle =
         _getLabelTextStyle(context: context);
 
     final TextStyle effectiveContentTextStyle =
-        context.moonTheme?.alertTheme.properties.contentTextStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.selenicTheme?.alertTheme.properties.contentTextStyle ??
+            SelenicTypography.typography.body.textDefault;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.alertTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.alertTheme.properties.transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.alertTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.alertTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     _animationController ??= AnimationController(
       duration: effectiveTransitionDuration,
@@ -292,7 +293,7 @@ class _MoonAlertState extends State<MoonAlert>
               decoration: widget.decoration ??
                   ShapeDecorationWithPremultipliedAlpha(
                     color: effectiveBackgroundColor,
-                    shape: MoonSquircleBorder(
+                    shape: SelenicSquircleBorder(
                       side: BorderSide(
                         color: effectiveBorderColor,
                         width: widget.showBorder ? effectiveBorderWidth : 0,

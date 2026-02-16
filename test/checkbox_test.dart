@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _checkboxKey = Key("checkboxKey");
 
@@ -90,7 +90,7 @@ class _CheckboxTestWidgetState extends State<_CheckboxTestWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MoonCheckbox(
+        body: SelenicCheckbox(
           key: widget.checkboxKey,
           value: _checkboxValue,
           tristate: widget.isTristate,

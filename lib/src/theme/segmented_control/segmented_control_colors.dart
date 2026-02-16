@@ -1,25 +1,25 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonSegmentedControlColors
-    extends ThemeExtension<MoonSegmentedControlColors>
+class SelenicSegmentedControlColors
+    extends ThemeExtension<SelenicSegmentedControlColors>
     with DiagnosticableTreeMixin {
-  /// The background color of the MoonSegmentedControl.
+  /// The background color of the SelenicSegmentedControl.
   final Color backgroundColor;
 
-  /// The color of the selected MoonSegmentedControl segment.
+  /// The color of the selected SelenicSegmentedControl segment.
   final Color selectedSegmentColor;
 
-  /// The text color of the MoonSegmentedControl segment.
+  /// The text color of the SelenicSegmentedControl segment.
   final Color textColor;
 
-  /// The text color of the selected MoonSegmentedControl segment.
+  /// The text color of the selected SelenicSegmentedControl segment.
   final Color selectedTextColor;
 
-  const MoonSegmentedControlColors({
+  const SelenicSegmentedControlColors({
     required this.backgroundColor,
     required this.selectedSegmentColor,
     required this.textColor,
@@ -27,13 +27,13 @@ class MoonSegmentedControlColors
   });
 
   @override
-  MoonSegmentedControlColors copyWith({
+  SelenicSegmentedControlColors copyWith({
     Color? backgroundColor,
     Color? selectedSegmentColor,
     Color? textColor,
     Color? selectedTextColor,
   }) {
-    return MoonSegmentedControlColors(
+    return SelenicSegmentedControlColors(
       backgroundColor: backgroundColor ?? this.backgroundColor,
       selectedSegmentColor: selectedSegmentColor ?? this.selectedSegmentColor,
       textColor: textColor ?? this.textColor,
@@ -42,13 +42,13 @@ class MoonSegmentedControlColors
   }
 
   @override
-  MoonSegmentedControlColors lerp(
-    ThemeExtension<MoonSegmentedControlColors>? other,
+  SelenicSegmentedControlColors lerp(
+    ThemeExtension<SelenicSegmentedControlColors>? other,
     double t,
   ) {
-    if (other is! MoonSegmentedControlColors) return this;
+    if (other is! SelenicSegmentedControlColors) return this;
 
-    return MoonSegmentedControlColors(
+    return SelenicSegmentedControlColors(
       backgroundColor:
           colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
       selectedSegmentColor:
@@ -63,7 +63,7 @@ class MoonSegmentedControlColors
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonSegmentedControlColors"))
+      ..add(DiagnosticsProperty("type", "SelenicSegmentedControlColors"))
       ..add(ColorProperty("backgroundColor", backgroundColor))
       ..add(ColorProperty("selectedSegmentColor", selectedSegmentColor))
       ..add(ColorProperty("textColor", textColor))

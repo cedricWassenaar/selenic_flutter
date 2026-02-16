@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _alertKey = Key("alertKey");
 const Key _closeButtonKey = Key("closeButtonKey");
@@ -90,13 +90,13 @@ class _AlertTestWidgetState extends State<_AlertTestWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MoonAlert(
+        body: SelenicAlert(
           key: widget.alertKey,
           show: _showAlert,
           leading: widget.showLeading ? const Icon(_alertLeadingIcon) : null,
           label: const Text(_alertLabel),
           trailing: widget.showTrailing
-              ? MoonButton.icon(
+              ? SelenicButton.icon(
                   key: _closeButtonKey,
                   icon: const Icon(_alertTrailingIcon),
                   onTap: () => setState(() => _showAlert = !_showAlert),

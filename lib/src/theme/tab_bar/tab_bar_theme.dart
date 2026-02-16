@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/tab_bar/tab_bar_colors.dart';
-import 'package:moon_design/src/theme/tab_bar/tab_bar_properties.dart';
-import 'package:moon_design/src/theme/tab_bar/tab_bar_sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tab_bar/tab_bar_colors.dart';
+import 'package:selenic_design/src/theme/tab_bar/tab_bar_properties.dart';
+import 'package:selenic_design/src/theme/tab_bar/tab_bar_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonTabBarTheme extends ThemeExtension<MoonTabBarTheme>
+class SelenicTabBarTheme extends ThemeExtension<SelenicTabBarTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonTabBar.
-  final MoonTabBarColors colors;
+  /// The colors of the SelenicTabBar.
+  final SelenicTabBarColors colors;
 
-  /// The properties of the MoonTabBar.
-  final MoonTabBarProperties properties;
+  /// The properties of the SelenicTabBar.
+  final SelenicTabBarProperties properties;
 
-  /// The sizes of the MoonTabBar.
-  final MoonTabBarSizes sizes;
+  /// The sizes of the SelenicTabBar.
+  final SelenicTabBarSizes sizes;
 
-  MoonTabBarTheme({
+  SelenicTabBarTheme({
     required this.tokens,
-    MoonTabBarColors? colors,
-    MoonTabBarProperties? properties,
-    MoonTabBarSizes? sizes,
+    SelenicTabBarColors? colors,
+    SelenicTabBarProperties? properties,
+    SelenicTabBarSizes? sizes,
   })  : colors = colors ??
-            MoonTabBarColors(
+            SelenicTabBarColors(
               indicatorColor: tokens.colors.piccolo,
               textColor: tokens.colors.textPrimary,
               selectedTextColor: tokens.colors.piccolo,
@@ -35,21 +35,21 @@ class MoonTabBarTheme extends ThemeExtension<MoonTabBarTheme>
               selectedPillTabColor: tokens.colors.goku,
             ),
         properties = properties ??
-            MoonTabBarProperties(
+            SelenicTabBarProperties(
               gap: tokens.sizes.x5s,
               transitionDuration: tokens.transitions.defaultTransitionDuration,
               transitionCurve: tokens.transitions.defaultTransitionCurve,
             ),
-        sizes = sizes ?? MoonTabBarSizes(tokens: tokens);
+        sizes = sizes ?? SelenicTabBarSizes(tokens: tokens);
 
   @override
-  MoonTabBarTheme copyWith({
-    MoonTokens? tokens,
-    MoonTabBarColors? colors,
-    MoonTabBarProperties? properties,
-    MoonTabBarSizes? sizes,
+  SelenicTabBarTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicTabBarColors? colors,
+    SelenicTabBarProperties? properties,
+    SelenicTabBarSizes? sizes,
   }) {
-    return MoonTabBarTheme(
+    return SelenicTabBarTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -58,10 +58,10 @@ class MoonTabBarTheme extends ThemeExtension<MoonTabBarTheme>
   }
 
   @override
-  MoonTabBarTheme lerp(ThemeExtension<MoonTabBarTheme>? other, double t) {
-    if (other is! MoonTabBarTheme) return this;
+  SelenicTabBarTheme lerp(ThemeExtension<SelenicTabBarTheme>? other, double t) {
+    if (other is! SelenicTabBarTheme) return this;
 
-    return MoonTabBarTheme(
+    return SelenicTabBarTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -73,10 +73,11 @@ class MoonTabBarTheme extends ThemeExtension<MoonTabBarTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonTabBarTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonTabBarColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonTabBarProperties>("properties", properties))
-      ..add(DiagnosticsProperty<MoonTabBarSizes>("sizes", sizes));
+      ..add(DiagnosticsProperty("type", "SelenicTabBarTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicTabBarColors>("colors", colors))
+      ..add(DiagnosticsProperty<SelenicTabBarProperties>(
+          "properties", properties))
+      ..add(DiagnosticsProperty<SelenicTabBarSizes>("sizes", sizes));
   }
 }

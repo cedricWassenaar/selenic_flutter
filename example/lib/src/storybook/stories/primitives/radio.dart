@@ -2,7 +2,7 @@ import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 enum ChoiceCustom { first, second }
@@ -26,7 +26,7 @@ class _RadioStoryState extends State<RadioStory> {
   Widget build(BuildContext context) {
     final activeColorKnob = context.knobs.nullable.options(
       label: "activeColor",
-      description: "MoonColors variants for checked MoonRadio.",
+      description: "MoonColors variants for checked SelenicRadio.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -37,7 +37,7 @@ class _RadioStoryState extends State<RadioStory> {
 
     final inactiveColorKnob = context.knobs.nullable.options(
       label: "inactiveColor",
-      description: "MoonColors variants for unchecked MoonRadio.",
+      description: "MoonColors variants for unchecked SelenicRadio.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -48,12 +48,12 @@ class _RadioStoryState extends State<RadioStory> {
 
     final isToggleableKnob = context.knobs.boolean(
       label: "toggleable",
-      description: "Whether selected MoonRadio can be unselected.",
+      description: "Whether selected SelenicRadio can be unselected.",
     );
 
     final isDisabledKnob = context.knobs.boolean(
       label: "Disabled",
-      description: "MoonRadio onChanged() is null.",
+      description: "SelenicRadio onChanged() is null.",
     );
 
     return Center(
@@ -62,12 +62,12 @@ class _RadioStoryState extends State<RadioStory> {
         child: Column(
           children: [
             const TextDivider(
-              text: "MoonRadio",
+              text: "SelenicRadio",
               paddingTop: 0,
             ),
             ...List.generate(
               2,
-              (int index) => MoonRadio(
+              (int index) => SelenicRadio(
                 value: ChoiceCustom.values[index],
                 groupValue: valueCustom,
                 activeColor: activeColor,
@@ -79,10 +79,10 @@ class _RadioStoryState extends State<RadioStory> {
                         setState(() => valueCustom = choice),
               ),
             ),
-            const TextDivider(text: "MoonRadio with label"),
+            const TextDivider(text: "SelenicRadio with label"),
             ...List.generate(
               2,
-              (int index) => MoonMenuItem(
+              (int index) => SelenicMenuItem(
                 absorbGestures: true,
                 onTap: isDisabledKnob
                     ? null
@@ -97,7 +97,7 @@ class _RadioStoryState extends State<RadioStory> {
                           },
                         ),
                 label: Text("With label #${index + 1}"),
-                trailing: MoonRadio(
+                trailing: SelenicRadio(
                   value: ChoiceLabel.values[index],
                   groupValue: valueLabel,
                   toggleable: isToggleableKnob,

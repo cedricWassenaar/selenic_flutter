@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/widgets/buttons/button.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-class MoonTextButton extends StatelessWidget {
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/widgets/buttons/button.dart';
+
+class SelenicTextButton extends StatelessWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
   final bool autofocus;
 
@@ -37,7 +38,7 @@ class MoonTextButton extends StatelessWidget {
   final FocusNode? focusNode;
 
   /// The size of the button.
-  final MoonButtonSize? buttonSize;
+  final SelenicButtonSize? buttonSize;
 
   /// The semantic label for the button.
   final String? semanticLabel;
@@ -57,14 +58,14 @@ class MoonTextButton extends StatelessWidget {
   /// The widget to display after the [label] widget of the button.
   final Widget? trailing;
 
-  /// Creates a Moon Design text button.
+  /// Creates a Selenic Design text button.
   ///
   /// See also:
   ///
-  ///   * [MoonFilledButton], Moon Design filled button.
-  ///   * [MoonOutlinedButton], Moon Design outlined button.
-  ///   * [MoonButton.icon], Moon Design icon button.
-  const MoonTextButton({
+  ///   * [SelenicFilledButton], Selenic Design filled button.
+  ///   * [SelenicOutlinedButton], Selenic Design outlined button.
+  ///   * [SelenicButton.icon], Selenic Design icon button.
+  const SelenicTextButton({
     super.key,
     this.autofocus = false,
     this.isFocusable = true,
@@ -88,23 +89,24 @@ class MoonTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color effectiveTextColor =
-        context.moonTheme?.buttonTheme.colors.textVariantTextColor ??
+        context.selenicTheme?.buttonTheme.colors.textVariantTextColor ??
             MoonColors.light.textSecondary;
 
     final Color effectiveHoverTextColor =
-        context.moonTheme?.buttonTheme.colors.textColor ??
+        context.selenicTheme?.buttonTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveHoverColor =
-        context.moonTheme?.buttonTheme.colors.textVariantHoverColor ??
+        context.selenicTheme?.buttonTheme.colors.textVariantHoverColor ??
             MoonColors.light.jiren;
 
     final Color effectiveFocusColor = context
-            .moonTheme?.buttonTheme.colors.textVariantFocusColor
-            .withOpacity(context.isDarkMode ? 0.8 : 0.2) ??
-        MoonColors.light.piccolo.withOpacity(context.isDarkMode ? 0.8 : 0.2);
+            .selenicTheme?.buttonTheme.colors.textVariantFocusColor
+            .withValues(alpha: context.isDarkMode ? 0.8 : 0.2) ??
+        MoonColors.light.piccolo
+            .withValues(alpha: context.isDarkMode ? 0.8 : 0.2);
 
-    return MoonButton(
+    return SelenicButton(
       autofocus: autofocus,
       isFocusable: isFocusable,
       ensureMinimalTouchTargetSize: ensureMinimalTouchTargetSize,

@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonDrawerColors extends ThemeExtension<MoonDrawerColors>
+class SelenicDrawerColors extends ThemeExtension<SelenicDrawerColors>
     with DiagnosticableTreeMixin {
-  /// The text color of the MoonDrawer.
+  /// The text color of the SelenicDrawer.
   final Color textColor;
 
-  /// The icon color of the MoonDrawer.
+  /// The icon color of the SelenicDrawer.
   final Color iconColor;
 
-  /// The background color of the MoonDrawer.
+  /// The background color of the SelenicDrawer.
   final Color backgroundColor;
 
-  const MoonDrawerColors({
+  const SelenicDrawerColors({
     required this.textColor,
     required this.iconColor,
     required this.backgroundColor,
   });
 
   @override
-  MoonDrawerColors copyWith({
+  SelenicDrawerColors copyWith({
     Color? textColor,
     Color? iconColor,
     Color? backgroundColor,
   }) {
-    return MoonDrawerColors(
+    return SelenicDrawerColors(
       textColor: textColor ?? this.textColor,
       iconColor: iconColor ?? this.iconColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -35,10 +35,11 @@ class MoonDrawerColors extends ThemeExtension<MoonDrawerColors>
   }
 
   @override
-  MoonDrawerColors lerp(ThemeExtension<MoonDrawerColors>? other, double t) {
-    if (other is! MoonDrawerColors) return this;
+  SelenicDrawerColors lerp(
+      ThemeExtension<SelenicDrawerColors>? other, double t) {
+    if (other is! SelenicDrawerColors) return this;
 
-    return MoonDrawerColors(
+    return SelenicDrawerColors(
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
       iconColor: colorPremulLerp(iconColor, other.iconColor, t)!,
       backgroundColor:
@@ -50,7 +51,7 @@ class MoonDrawerColors extends ThemeExtension<MoonDrawerColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonDrawerColors"))
+      ..add(DiagnosticsProperty("type", "SelenicDrawerColors"))
       ..add(ColorProperty("textColor", textColor))
       ..add(ColorProperty("iconColor", iconColor))
       ..add(ColorProperty("backgroundColor", backgroundColor));

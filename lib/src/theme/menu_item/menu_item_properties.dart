@@ -4,27 +4,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonMenuItemProperties extends ThemeExtension<MoonMenuItemProperties>
+class SelenicMenuItemProperties
+    extends ThemeExtension<SelenicMenuItemProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonMenuItem.
+  /// The border radius of the SelenicMenuItem.
   final BorderRadiusGeometry borderRadius;
 
-  /// The vertical gap between the label and content widgets of the MoonMenuItem.
+  /// The vertical gap between the label and content widgets of the SelenicMenuItem.
   final double verticalGap;
 
-  /// The minimum height of the MoonMenuItem.
+  /// The minimum height of the SelenicMenuItem.
   final double minimumHeight;
 
-  /// The padding of the MoonMenuItem.
+  /// The padding of the SelenicMenuItem.
   final EdgeInsetsGeometry padding;
 
-  /// The text style of the MoonMenuItem label.
+  /// The text style of the SelenicMenuItem label.
   final TextStyle labelTextStyle;
 
-  /// The text style of the MoonMenuItem content.
+  /// The text style of the SelenicMenuItem content.
   final TextStyle contentTextStyle;
 
-  const MoonMenuItemProperties({
+  const SelenicMenuItemProperties({
     required this.borderRadius,
     required this.verticalGap,
     required this.minimumHeight,
@@ -34,7 +35,7 @@ class MoonMenuItemProperties extends ThemeExtension<MoonMenuItemProperties>
   });
 
   @override
-  MoonMenuItemProperties copyWith({
+  SelenicMenuItemProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? verticalGap,
     double? minimumHeight,
@@ -42,7 +43,7 @@ class MoonMenuItemProperties extends ThemeExtension<MoonMenuItemProperties>
     TextStyle? labelTextStyle,
     TextStyle? contentTextStyle,
   }) {
-    return MoonMenuItemProperties(
+    return SelenicMenuItemProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       verticalGap: verticalGap ?? this.verticalGap,
       minimumHeight: minimumHeight ?? this.minimumHeight,
@@ -53,13 +54,13 @@ class MoonMenuItemProperties extends ThemeExtension<MoonMenuItemProperties>
   }
 
   @override
-  MoonMenuItemProperties lerp(
-    ThemeExtension<MoonMenuItemProperties>? other,
+  SelenicMenuItemProperties lerp(
+    ThemeExtension<SelenicMenuItemProperties>? other,
     double t,
   ) {
-    if (other is! MoonMenuItemProperties) return this;
+    if (other is! SelenicMenuItemProperties) return this;
 
-    return MoonMenuItemProperties(
+    return SelenicMenuItemProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       verticalGap: lerpDouble(verticalGap, other.verticalGap, t)!,
@@ -76,7 +77,7 @@ class MoonMenuItemProperties extends ThemeExtension<MoonMenuItemProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonMenuItemProperties"),
+        DiagnosticsProperty("type", "SelenicMenuItemProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

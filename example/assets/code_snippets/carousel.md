@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class Carousel extends StatefulWidget {
   const Carousel({super.key});
@@ -15,18 +15,18 @@ class _CarouselState extends State<Carousel> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Default MoonCarousel.
+        // Default SelenicCarousel.
         SizedBox(
           height: 110,
           child: OverflowBox(
             maxWidth: MediaQuery.of(context).size.width,
-            child: MoonCarousel(
+            child: SelenicCarousel(
               itemCount: 10,
               itemExtent: 110,
               itemBuilder: (BuildContext context, int itemIndex, int _) => Container(
                 decoration: ShapeDecoration(
-                  color: context.moonColors!.goku,
-                  shape: MoonSquircleBorder(
+                  color: context.selenicColors!.goku,
+                  shape: SelenicSquircleBorder(
                     borderRadius: BorderRadius.circular(12).squircleBorderRadius(context),
                   ),
                 ),
@@ -38,14 +38,14 @@ class _CarouselState extends State<Carousel> {
           ),
         ),
 
-        // Full width MoonCarousel with MoonDotIndicator.
+        // Full width SelenicCarousel with SelenicDotIndicator.
         Column(
           children: [
             SizedBox(
               height: 180,
               child: OverflowBox(
                 maxWidth: MediaQuery.of(context).size.width,
-                child: MoonCarousel(
+                child: SelenicCarousel(
                   gap: 32,
                   itemCount: 5,
                   itemExtent: MediaQuery.of(context).size.width - 32,
@@ -53,8 +53,8 @@ class _CarouselState extends State<Carousel> {
                   onIndexChanged: (int index) => setState(() => selectedDot = index),
                   itemBuilder: (BuildContext context, int itemIndex, int _) => Container(
                     decoration: ShapeDecoration(
-                      color: context.moonColors!.goku,
-                      shape: MoonSquircleBorder(
+                      color: context.selenicColors!.goku,
+                      shape: SelenicSquircleBorder(
                         borderRadius: BorderRadius.circular(12).squircleBorderRadius(context),
                       ),
                     ),
@@ -65,7 +65,7 @@ class _CarouselState extends State<Carousel> {
                 ),
               ),
             ),
-            MoonDotIndicator(
+            SelenicDotIndicator(
               selectedDot: selectedDot,
               dotCount: 5,
             ),

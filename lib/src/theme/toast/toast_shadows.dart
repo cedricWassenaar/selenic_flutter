@@ -2,25 +2,26 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonToastShadows extends ThemeExtension<MoonToastShadows>
+class SelenicToastShadows extends ThemeExtension<SelenicToastShadows>
     with DiagnosticableTreeMixin {
-  /// The list of shadows applied to the MoonToast.
+  /// The list of shadows applied to the SelenicToast.
   final List<BoxShadow> toastShadows;
 
-  const MoonToastShadows({required this.toastShadows});
+  const SelenicToastShadows({required this.toastShadows});
 
   @override
-  MoonToastShadows copyWith({List<BoxShadow>? toastShadows}) {
-    return MoonToastShadows(
+  SelenicToastShadows copyWith({List<BoxShadow>? toastShadows}) {
+    return SelenicToastShadows(
       toastShadows: toastShadows ?? this.toastShadows,
     );
   }
 
   @override
-  MoonToastShadows lerp(ThemeExtension<MoonToastShadows>? other, double t) {
-    if (other is! MoonToastShadows) return this;
+  SelenicToastShadows lerp(
+      ThemeExtension<SelenicToastShadows>? other, double t) {
+    if (other is! SelenicToastShadows) return this;
 
-    return MoonToastShadows(
+    return SelenicToastShadows(
       toastShadows: BoxShadow.lerpList(toastShadows, other.toastShadows, t)!,
     );
   }
@@ -29,7 +30,7 @@ class MoonToastShadows extends ThemeExtension<MoonToastShadows>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonToastShadows"))
+      ..add(DiagnosticsProperty("type", "SelenicToastShadows"))
       ..add(DiagnosticsProperty<List<BoxShadow>>("toastShadows", toastShadows));
   }
 }

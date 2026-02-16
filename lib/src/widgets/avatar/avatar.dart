@@ -1,17 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/avatar/avatar_size_properties.dart';
-import 'package:moon_design/src/theme/avatar/avatar_sizes.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/widgets/avatar/avatar_clipper.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonAvatarSize {
+import 'package:selenic_design/src/theme/avatar/avatar_size_properties.dart';
+import 'package:selenic_design/src/theme/avatar/avatar_sizes.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/widgets/avatar/avatar_clipper.dart';
+
+enum SelenicAvatarSize {
   xs,
   sm,
   md,
@@ -20,14 +21,14 @@ enum MoonAvatarSize {
   x2l,
 }
 
-enum MoonBadgeAlignment {
+enum SelenicBadgeAlignment {
   topLeft,
   topRight,
   bottomLeft,
   bottomRight,
 }
 
-class MoonAvatar extends StatelessWidget {
+class SelenicAvatar extends StatelessWidget {
   /// Whether to show the avatar badge.
   final bool showBadge;
 
@@ -56,10 +57,10 @@ class MoonAvatar extends StatelessWidget {
   final ImageProvider<Object>? backgroundImage;
 
   /// The size of the avatar.
-  final MoonAvatarSize? avatarSize;
+  final SelenicAvatarSize? avatarSize;
 
   /// The alignment of the avatar badge.
-  final MoonBadgeAlignment badgeAlignment;
+  final SelenicBadgeAlignment badgeAlignment;
 
   /// The semantic label for the avatar.
   final String? semanticLabel;
@@ -67,8 +68,8 @@ class MoonAvatar extends StatelessWidget {
   /// The widget to display within the avatar.
   final Widget? content;
 
-  /// Creates a Moon Design avatar.
-  const MoonAvatar({
+  /// Creates a Selenic Design avatar.
+  const SelenicAvatar({
     super.key,
     this.showBadge = false,
     this.borderRadius,
@@ -80,7 +81,7 @@ class MoonAvatar extends StatelessWidget {
     this.width,
     this.backgroundImage,
     this.avatarSize,
-    this.badgeAlignment = MoonBadgeAlignment.bottomRight,
+    this.badgeAlignment = SelenicBadgeAlignment.bottomRight,
     this.semanticLabel,
     this.content,
   });
@@ -90,100 +91,96 @@ class MoonAvatar extends StatelessWidget {
 
     if (isRTL) {
       switch (badgeAlignment) {
-        case MoonBadgeAlignment.topLeft:
+        case SelenicBadgeAlignment.topLeft:
           return Alignment.topRight;
-        case MoonBadgeAlignment.topRight:
+        case SelenicBadgeAlignment.topRight:
           return Alignment.topLeft;
-        case MoonBadgeAlignment.bottomLeft:
+        case SelenicBadgeAlignment.bottomLeft:
           return Alignment.bottomRight;
-        case MoonBadgeAlignment.bottomRight:
+        case SelenicBadgeAlignment.bottomRight:
           return Alignment.bottomLeft;
-        default:
-          return Alignment.bottomRight;
       }
     } else {
       switch (badgeAlignment) {
-        case MoonBadgeAlignment.topLeft:
+        case SelenicBadgeAlignment.topLeft:
           return Alignment.topLeft;
-        case MoonBadgeAlignment.topRight:
+        case SelenicBadgeAlignment.topRight:
           return Alignment.topRight;
-        case MoonBadgeAlignment.bottomLeft:
+        case SelenicBadgeAlignment.bottomLeft:
           return Alignment.bottomLeft;
-        case MoonBadgeAlignment.bottomRight:
-          return Alignment.bottomRight;
-        default:
+        case SelenicBadgeAlignment.bottomRight:
           return Alignment.bottomRight;
       }
     }
   }
 
-  MoonAvatarSizeProperties _getMoonAvatarSize(
+  SelenicAvatarSizeProperties _getSelenicAvatarSize(
     BuildContext context,
-    MoonAvatarSize? moonAvatarSize,
+    SelenicAvatarSize? avatarSize,
   ) {
-    switch (moonAvatarSize) {
-      case MoonAvatarSize.xs:
-        return context.moonTheme?.avatarTheme.sizes.xs ??
-            MoonAvatarSizes(tokens: MoonTokens.light).xs;
-      case MoonAvatarSize.sm:
-        return context.moonTheme?.avatarTheme.sizes.sm ??
-            MoonAvatarSizes(tokens: MoonTokens.light).sm;
-      case MoonAvatarSize.md:
-        return context.moonTheme?.avatarTheme.sizes.md ??
-            MoonAvatarSizes(tokens: MoonTokens.light).md;
-      case MoonAvatarSize.lg:
-        return context.moonTheme?.avatarTheme.sizes.lg ??
-            MoonAvatarSizes(tokens: MoonTokens.light).lg;
-      case MoonAvatarSize.xl:
-        return context.moonTheme?.avatarTheme.sizes.xl ??
-            MoonAvatarSizes(tokens: MoonTokens.light).xl;
-      case MoonAvatarSize.x2l:
-        return context.moonTheme?.avatarTheme.sizes.x2l ??
-            MoonAvatarSizes(tokens: MoonTokens.light).x2l;
+    switch (avatarSize) {
+      case SelenicAvatarSize.xs:
+        return context.selenicTheme?.avatarTheme.sizes.xs ??
+            SelenicAvatarSizes(tokens: SelenicTokens.light).xs;
+      case SelenicAvatarSize.sm:
+        return context.selenicTheme?.avatarTheme.sizes.sm ??
+            SelenicAvatarSizes(tokens: SelenicTokens.light).sm;
+      case SelenicAvatarSize.md:
+        return context.selenicTheme?.avatarTheme.sizes.md ??
+            SelenicAvatarSizes(tokens: SelenicTokens.light).md;
+      case SelenicAvatarSize.lg:
+        return context.selenicTheme?.avatarTheme.sizes.lg ??
+            SelenicAvatarSizes(tokens: SelenicTokens.light).lg;
+      case SelenicAvatarSize.xl:
+        return context.selenicTheme?.avatarTheme.sizes.xl ??
+            SelenicAvatarSizes(tokens: SelenicTokens.light).xl;
+      case SelenicAvatarSize.x2l:
+        return context.selenicTheme?.avatarTheme.sizes.x2l ??
+            SelenicAvatarSizes(tokens: SelenicTokens.light).x2l;
       default:
-        return context.moonTheme?.avatarTheme.sizes.md ??
-            MoonAvatarSizes(tokens: MoonTokens.light).md;
+        return context.selenicTheme?.avatarTheme.sizes.md ??
+            SelenicAvatarSizes(tokens: SelenicTokens.light).md;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final MoonAvatarSizeProperties effectiveMoonAvatarSize =
-        _getMoonAvatarSize(context, avatarSize);
+    final SelenicAvatarSizeProperties effectiveSelenicAvatarSize =
+        _getSelenicAvatarSize(context, avatarSize);
 
     final BorderRadiusGeometry effectiveBorderRadius =
-        borderRadius ?? effectiveMoonAvatarSize.borderRadius;
+        borderRadius ?? effectiveSelenicAvatarSize.borderRadius;
 
     final resolvedBorderRadius =
         effectiveBorderRadius.resolve(Directionality.of(context));
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.avatarTheme.colors.backgroundColor ??
+        context.selenicTheme?.avatarTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveBadgeColor = badgeColor ??
-        context.moonTheme?.avatarTheme.colors.badgeColor ??
+        context.selenicTheme?.avatarTheme.colors.badgeColor ??
         MoonColors.light.roshi;
 
     final Color effectiveTextColor =
-        context.moonTheme?.avatarTheme.colors.textColor ??
+        context.selenicTheme?.avatarTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.avatarTheme.colors.iconColor ??
+        context.selenicTheme?.avatarTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final double effectiveAvatarHeight =
-        height ?? effectiveMoonAvatarSize.avatarSizeValue;
+        height ?? effectiveSelenicAvatarSize.avatarSizeValue;
 
     final double effectiveAvatarWidth =
-        width ?? effectiveMoonAvatarSize.avatarSizeValue;
+        width ?? effectiveSelenicAvatarSize.avatarSizeValue;
 
     final double effectiveBadgeMarginValue =
-        badgeMarginValue ?? effectiveMoonAvatarSize.badgeMarginValue;
+        badgeMarginValue ?? effectiveSelenicAvatarSize.badgeMarginValue;
 
     final double effectiveBadgeSize =
-        badgeSize ?? effectiveMoonAvatarSize.badgeSizeValue;
+        badgeSize ?? effectiveSelenicAvatarSize.badgeSizeValue;
 
     return Semantics(
       label: semanticLabel,
@@ -215,7 +212,7 @@ class MoonAvatar extends StatelessWidget {
                         textDirection: Directionality.of(context),
                       ),
                 child: DefaultTextStyle(
-                  style: effectiveMoonAvatarSize.textStyle
+                  style: effectiveSelenicAvatarSize.textStyle
                       .copyWith(color: effectiveTextColor),
                   child: IconTheme(
                     data: IconThemeData(
@@ -230,7 +227,7 @@ class MoonAvatar extends StatelessWidget {
                                 fit: BoxFit.cover,
                               )
                             : null,
-                        shape: MoonSquircleBorder(
+                        shape: SelenicSquircleBorder(
                           borderRadius: resolvedBorderRadius
                               .squircleBorderRadius(context),
                         ),

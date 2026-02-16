@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
-class MoonCheckboxPainter extends ToggleablePainter {
+class SelenicCheckboxPainter extends ToggleablePainter {
   static const double _kEdgeSize = 16;
   static const double _kStrokeWidth = 1.0;
 

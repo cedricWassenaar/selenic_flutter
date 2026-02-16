@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonButtonColors extends ThemeExtension<MoonButtonColors>
+class SelenicButtonColors extends ThemeExtension<SelenicButtonColors>
     with DiagnosticableTreeMixin {
-  /// The border color of the MoonButton.
+  /// The border color of the SelenicButton.
   final Color borderColor;
 
-  /// The text color of the MoonButton.
+  /// The text color of the SelenicButton.
   final Color textColor;
 
-  /// The background color of the MoonButton filled variant.
+  /// The background color of the SelenicButton filled variant.
   final Color filledVariantBackgroundColor;
 
-  /// The text color of the MoonButton filled variant.
+  /// The text color of the SelenicButton filled variant.
   final Color filledVariantTextColor;
 
-  /// The focus effect color of the MoonButton text variant.
+  /// The focus effect color of the SelenicButton text variant.
   final Color textVariantFocusColor;
 
-  /// The hover effect color of the MoonButton text variant.
+  /// The hover effect color of the SelenicButton text variant.
   final Color textVariantHoverColor;
 
-  /// The text color of the MoonButton text variant.
+  /// The text color of the SelenicButton text variant.
   final Color textVariantTextColor;
 
-  const MoonButtonColors({
+  const SelenicButtonColors({
     required this.borderColor,
     required this.textColor,
     required this.filledVariantBackgroundColor,
@@ -38,7 +38,7 @@ class MoonButtonColors extends ThemeExtension<MoonButtonColors>
   });
 
   @override
-  MoonButtonColors copyWith({
+  SelenicButtonColors copyWith({
     Color? borderColor,
     Color? textColor,
     Color? filledVariantBackgroundColor,
@@ -47,7 +47,7 @@ class MoonButtonColors extends ThemeExtension<MoonButtonColors>
     Color? textVariantHoverColor,
     Color? textVariantTextColor,
   }) {
-    return MoonButtonColors(
+    return SelenicButtonColors(
       borderColor: borderColor ?? this.borderColor,
       textColor: textColor ?? this.textColor,
       filledVariantBackgroundColor:
@@ -63,10 +63,11 @@ class MoonButtonColors extends ThemeExtension<MoonButtonColors>
   }
 
   @override
-  MoonButtonColors lerp(ThemeExtension<MoonButtonColors>? other, double t) {
-    if (other is! MoonButtonColors) return this;
+  SelenicButtonColors lerp(
+      ThemeExtension<SelenicButtonColors>? other, double t) {
+    if (other is! SelenicButtonColors) return this;
 
-    return MoonButtonColors(
+    return SelenicButtonColors(
       borderColor: colorPremulLerp(borderColor, other.borderColor, t)!,
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
       filledVariantBackgroundColor: colorPremulLerp(
@@ -101,7 +102,7 @@ class MoonButtonColors extends ThemeExtension<MoonButtonColors>
       ..add(
         DiagnosticsProperty(
           "type",
-          "MoonButtonColors",
+          "SelenicButtonColors",
         ),
       )
       ..add(

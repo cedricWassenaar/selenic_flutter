@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class TagStory extends StatelessWidget {
@@ -12,24 +12,24 @@ class TagStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final customLabelTextKnob = context.knobs.text(
       label: "Tag label text",
-      initial: "MoonTag",
+      initial: "SelenicTag",
     );
 
     final tagSizeKnob = context.knobs.nullable.options(
       label: "tagSize",
-      description: "Size variants for MoonTag.",
+      description: "Size variants for SelenicTag.",
       enabled: false,
-      initial: MoonTagSize.xs,
+      initial: SelenicTagSize.xs,
       options: const [
-        Option(label: "x2s", value: MoonTagSize.x2s),
-        Option(label: "xs", value: MoonTagSize.xs),
-        Option(label: "sm", value: MoonTagSize.sm),
+        Option(label: "x2s", value: SelenicTagSize.x2s),
+        Option(label: "xs", value: SelenicTagSize.xs),
+        Option(label: "sm", value: SelenicTagSize.sm),
       ],
     );
 
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for MoonTag text.",
+      description: "MoonColors variants for SelenicTag text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -40,7 +40,7 @@ class TagStory extends StatelessWidget {
 
     final iconColorKnob = context.knobs.nullable.options(
       label: "Icon color",
-      description: "MoonColors variants for MoonTag icon.",
+      description: "MoonColors variants for SelenicTag icon.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -51,7 +51,7 @@ class TagStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonTag background.",
+      description: "MoonColors variants for SelenicTag background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -62,7 +62,7 @@ class TagStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonTag.",
+      description: "Border radius for SelenicTag.",
       enabled: false,
       initial: 4,
       max: 32,
@@ -70,25 +70,25 @@ class TagStory extends StatelessWidget {
 
     final showLeadingKnob = context.knobs.boolean(
       label: "leading",
-      description: "Show widget in MoonTag leading slot.",
+      description: "Show widget in SelenicTag leading slot.",
     );
 
     final showLabelKnob = context.knobs.boolean(
       label: "label",
-      description: "Show widget in MoonTag label slot.",
+      description: "Show widget in SelenicTag label slot.",
       initial: true,
     );
 
     final showTrailingKnob = context.knobs.boolean(
       label: "trailing",
-      description: "Show widget in MoonTag trailing slot.",
+      description: "Show widget in SelenicTag trailing slot.",
       initial: true,
     );
 
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 64.0, horizontal: 16.0),
-        child: MoonTag(
+        child: SelenicTag(
           borderRadius: borderRadiusKnob != null
               ? BorderRadius.circular(borderRadiusKnob.toDouble())
               : null,

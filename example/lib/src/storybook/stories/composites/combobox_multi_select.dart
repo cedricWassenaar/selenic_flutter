@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/component_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class ComboboxMultiSelectStory extends StatefulWidget {
@@ -78,20 +78,20 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
   Widget build(BuildContext context) {
     final textInputSizeKnob = context.knobs.nullable.options(
       label: "textInputSize",
-      description: "Size variants for MoonTextInput.",
+      description: "Size variants for SelenicTextInput.",
       enabled: false,
-      initial: MoonTextInputSize.md,
+      initial: SelenicTextInputSize.md,
       options: const [
-        Option(label: "sm", value: MoonTextInputSize.sm),
-        Option(label: "md", value: MoonTextInputSize.md),
-        Option(label: "lg", value: MoonTextInputSize.lg),
-        Option(label: "xl", value: MoonTextInputSize.xl),
+        Option(label: "sm", value: SelenicTextInputSize.sm),
+        Option(label: "md", value: SelenicTextInputSize.md),
+        Option(label: "lg", value: SelenicTextInputSize.lg),
+        Option(label: "xl", value: SelenicTextInputSize.xl),
       ],
     );
 
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for MoonTextInput active border.",
+      description: "MoonColors variants for SelenicTextInput active border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -102,7 +102,7 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for MoonTextInput inactive border.",
+      description: "MoonColors variants for SelenicTextInput inactive border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -114,7 +114,7 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
 
     final hoverBorderColorKnob = context.knobs.nullable.options(
       label: "hoverBorderColor",
-      description: "MoonColors variants for MoonTextInput border on hover.",
+      description: "MoonColors variants for SelenicTextInput border on hover.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -126,7 +126,7 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
       description:
-          "MoonColors variants for MoonTextInput and MoonDropdown background.",
+          "MoonColors variants for SelenicTextInput and SelenicDropdown background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -137,7 +137,7 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonTextInput and MoonDropdown",
+      description: "Border radius for SelenicTextInput and SelenicDropdown",
       enabled: false,
       initial: 8,
       max: 32,
@@ -153,19 +153,20 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
 
     final showShadowKnob = context.knobs.boolean(
       label: "Show shadow",
-      description: "Show shadows for MoonDropdown.",
+      description: "Show shadows for SelenicDropdown.",
       initial: true,
     );
 
     final enabledKnob = context.knobs.boolean(
       label: "enabled",
-      description: "Switch between MoonTextInput enabled and disabled states.",
+      description:
+          "Switch between SelenicTextInput enabled and disabled states.",
       initial: true,
     );
 
     final hasFloatingLabelKnob = context.knobs.boolean(
       label: "hasFloatingLabel",
-      description: "Whether MoonTextInput has floating label.",
+      description: "Whether SelenicTextInput has floating label.",
     );
 
     final BorderRadiusGeometry? borderRadius = borderRadiusKnob != null
@@ -175,7 +176,7 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 64.0, horizontal: 16.0),
-        child: MoonDropdown(
+        child: SelenicDropdown(
           show: _showDropdown && enabledKnob,
           constrainWidthToChild: true,
           backgroundColor: backgroundColor,
@@ -188,7 +189,7 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
             child: ScrollConfiguration(
               behavior: const ScrollBehavior().copyWith(scrollbars: false),
               child: _filteredOptionsList.isEmpty
-                  ? const MoonMenuItem(
+                  ? const SelenicMenuItem(
                       label: Text('Nothing found.'),
                     )
                   : ClipRRect(
@@ -207,14 +208,14 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
                           final bool isSelected =
                               _selectedOptions.containsKey(currentOption);
 
-                          return MoonMenuItem(
+                          return SelenicMenuItem(
                             absorbGestures: true,
                             onTap: () => _handleSelect(
                               currentOption,
                               !isSelected,
                             ),
                             label: Text(currentOption.name),
-                            trailing: MoonCheckbox(
+                            trailing: SelenicCheckbox(
                               value: isSelected,
                               tapAreaSizeValue: 0,
                               onChanged: (bool? _) {},
@@ -225,7 +226,7 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
                     ),
             ),
           ),
-          child: MoonTextInput(
+          child: SelenicTextInput(
             enabled: enabledKnob,
             hasFloatingLabel: hasFloatingLabelKnob,
             width: 270,
@@ -243,23 +244,23 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
             onChanged: (String _) => _performSearch(),
             leading: _selectedOptions.isNotEmpty
                 ? Center(
-                    child: MoonTag(
-                      tagSize: MoonTagSize.xs,
-                      backgroundColor: context.moonColors!.bulma,
+                    child: SelenicTag(
+                      tagSize: SelenicTagSize.xs,
+                      backgroundColor: context.selenicColors!.bulma,
                       onTap: () => setState(() => _selectedOptions.clear()),
                       label: Text(
                         "${_selectedOptions.keys.length}",
-                        style: TextStyle(color: context.moonColors!.gohan),
+                        style: TextStyle(color: context.selenicColors!.gohan),
                       ),
                       trailing: Icon(
                         MoonIcons.controls_close_small_16_light,
-                        color: context.moonColors!.gohan,
+                        color: context.selenicColors!.gohan,
                       ),
                     ),
                   )
                 : null,
-            trailing: MoonButton.icon(
-              buttonSize: MoonButtonSize.xs,
+            trailing: SelenicButton.icon(
+              buttonSize: SelenicButtonSize.xs,
               hoverEffectColor: Colors.transparent,
               onTap: () => _showAllOptionsList(),
               icon: AnimatedRotation(

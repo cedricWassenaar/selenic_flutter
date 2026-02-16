@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonTextInputColors extends ThemeExtension<MoonTextInputColors>
+class SelenicTextInputColors extends ThemeExtension<SelenicTextInputColors>
     with DiagnosticableTreeMixin {
-  /// The background color of the MoonTextInput.
+  /// The background color of the SelenicTextInput.
   final Color backgroundColor;
 
-  /// The border color of the active or focused MoonTextInput.
+  /// The border color of the active or focused SelenicTextInput.
   final Color activeBorderColor;
 
-  /// The border color of the inactive MoonTextInput.
+  /// The border color of the inactive SelenicTextInput.
   final Color inactiveBorderColor;
 
-  /// The color of the MoonTextInput in error state.
+  /// The color of the SelenicTextInput in error state.
   final Color errorColor;
 
-  /// The border color of the MoonTextInput on hover.
+  /// The border color of the SelenicTextInput on hover.
   final Color hoverBorderColor;
 
-  /// The text color of the MoonTextInput.
+  /// The text color of the SelenicTextInput.
   final Color textColor;
 
-  /// The text color of the MoonTextInput helper and errorBuilder widgets.
+  /// The text color of the SelenicTextInput helper and errorBuilder widgets.
   final Color helperTextColor;
 
-  const MoonTextInputColors({
+  const SelenicTextInputColors({
     required this.backgroundColor,
     required this.activeBorderColor,
     required this.inactiveBorderColor,
@@ -38,7 +38,7 @@ class MoonTextInputColors extends ThemeExtension<MoonTextInputColors>
   });
 
   @override
-  MoonTextInputColors copyWith({
+  SelenicTextInputColors copyWith({
     Color? backgroundColor,
     Color? activeBorderColor,
     Color? inactiveBorderColor,
@@ -47,7 +47,7 @@ class MoonTextInputColors extends ThemeExtension<MoonTextInputColors>
     Color? textColor,
     Color? helperTextColor,
   }) {
-    return MoonTextInputColors(
+    return SelenicTextInputColors(
       backgroundColor: backgroundColor ?? this.backgroundColor,
       activeBorderColor: activeBorderColor ?? this.activeBorderColor,
       inactiveBorderColor: inactiveBorderColor ?? this.inactiveBorderColor,
@@ -59,13 +59,13 @@ class MoonTextInputColors extends ThemeExtension<MoonTextInputColors>
   }
 
   @override
-  MoonTextInputColors lerp(
-    ThemeExtension<MoonTextInputColors>? other,
+  SelenicTextInputColors lerp(
+    ThemeExtension<SelenicTextInputColors>? other,
     double t,
   ) {
-    if (other is! MoonTextInputColors) return this;
+    if (other is! SelenicTextInputColors) return this;
 
-    return MoonTextInputColors(
+    return SelenicTextInputColors(
       backgroundColor:
           colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
       activeBorderColor:
@@ -85,7 +85,7 @@ class MoonTextInputColors extends ThemeExtension<MoonTextInputColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonTextInputColors"))
+      ..add(DiagnosticsProperty("type", "SelenicTextInputColors"))
       ..add(ColorProperty("backgroundColor", backgroundColor))
       ..add(ColorProperty("activeBorderColor", activeBorderColor))
       ..add(ColorProperty("inactiveBorderColor", inactiveBorderColor))

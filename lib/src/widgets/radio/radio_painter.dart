@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
-class MoonRadioPainter extends ToggleablePainter {
+class SelenicRadioPainter extends ToggleablePainter {
   static const double _kOuterRadius = 8.0;
   static const double _kInnerRadius = 4.0;
 

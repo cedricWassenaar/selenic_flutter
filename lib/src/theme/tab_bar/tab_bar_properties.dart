@@ -4,30 +4,30 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTabBarProperties extends ThemeExtension<MoonTabBarProperties>
+class SelenicTabBarProperties extends ThemeExtension<SelenicTabBarProperties>
     with DiagnosticableTreeMixin {
-  /// The gap between the MoonTabBar tabs.
+  /// The gap between the SelenicTabBar tabs.
   final double gap;
 
-  /// The duration of the MoonTabBar transition animation.
+  /// The duration of the SelenicTabBar transition animation.
   final Duration transitionDuration;
 
-  /// The curve of the MoonTabBar transition animation.
+  /// The curve of the SelenicTabBar transition animation.
   final Curve transitionCurve;
 
-  const MoonTabBarProperties({
+  const SelenicTabBarProperties({
     required this.gap,
     required this.transitionDuration,
     required this.transitionCurve,
   });
 
   @override
-  MoonTabBarProperties copyWith({
+  SelenicTabBarProperties copyWith({
     double? gap,
     Duration? transitionDuration,
     Curve? transitionCurve,
   }) {
-    return MoonTabBarProperties(
+    return SelenicTabBarProperties(
       gap: gap ?? this.gap,
       transitionDuration: transitionDuration ?? this.transitionDuration,
       transitionCurve: transitionCurve ?? this.transitionCurve,
@@ -35,13 +35,13 @@ class MoonTabBarProperties extends ThemeExtension<MoonTabBarProperties>
   }
 
   @override
-  MoonTabBarProperties lerp(
-    ThemeExtension<MoonTabBarProperties>? other,
+  SelenicTabBarProperties lerp(
+    ThemeExtension<SelenicTabBarProperties>? other,
     double t,
   ) {
-    if (other is! MoonTabBarProperties) return this;
+    if (other is! SelenicTabBarProperties) return this;
 
-    return MoonTabBarProperties(
+    return SelenicTabBarProperties(
       gap: lerpDouble(gap, other.gap, t)!,
       transitionDuration:
           lerpDuration(transitionDuration, other.transitionDuration, t),
@@ -54,7 +54,7 @@ class MoonTabBarProperties extends ThemeExtension<MoonTabBarProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonTabBarProperties"),
+        DiagnosticsProperty("type", "SelenicTabBarProperties"),
       )
       ..add(
         DoubleProperty("gap", gap),

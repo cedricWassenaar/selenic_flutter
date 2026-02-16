@@ -1,31 +1,31 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/tag/tag_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tag/tag_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonTagSizes extends ThemeExtension<MoonTagSizes>
+class SelenicTagSizes extends ThemeExtension<SelenicTagSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the (2x) extra small MoonTag.
-  final MoonTagSizeProperties x2s;
+  /// The properties of the (2x) extra small SelenicTag.
+  final SelenicTagSizeProperties x2s;
 
-  /// The properties of the extra small MoonTag.
-  final MoonTagSizeProperties xs;
+  /// The properties of the extra small SelenicTag.
+  final SelenicTagSizeProperties xs;
 
-  /// The properties of the small MoonTag.
-  final MoonTagSizeProperties sm;
+  /// The properties of the small SelenicTag.
+  final SelenicTagSizeProperties sm;
 
-  MoonTagSizes({
+  SelenicTagSizes({
     required this.tokens,
-    MoonTagSizeProperties? x2s,
-    MoonTagSizeProperties? xs,
-    MoonTagSizeProperties? sm,
+    SelenicTagSizeProperties? x2s,
+    SelenicTagSizeProperties? xs,
+    SelenicTagSizeProperties? sm,
   })  : x2s = x2s ??
-            MoonTagSizeProperties(
+            SelenicTagSizeProperties(
               borderRadius: tokens.borders.interactiveXs,
               gap: tokens.sizes.x6s,
               height: tokens.sizes.x2s,
@@ -34,7 +34,7 @@ class MoonTagSizes extends ThemeExtension<MoonTagSizes>
               textStyle: tokens.typography.body.text9,
             ),
         xs = xs ??
-            MoonTagSizeProperties(
+            SelenicTagSizeProperties(
               borderRadius: tokens.borders.interactiveXs,
               gap: tokens.sizes.x6s,
               height: tokens.sizes.xs,
@@ -43,7 +43,7 @@ class MoonTagSizes extends ThemeExtension<MoonTagSizes>
               textStyle: tokens.typography.body.text12,
             ),
         sm = sm ??
-            MoonTagSizeProperties(
+            SelenicTagSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               gap: tokens.sizes.x4s,
               height: tokens.sizes.sm,
@@ -53,13 +53,13 @@ class MoonTagSizes extends ThemeExtension<MoonTagSizes>
             );
 
   @override
-  MoonTagSizes copyWith({
-    MoonTokens? tokens,
-    MoonTagSizeProperties? x2s,
-    MoonTagSizeProperties? xs,
-    MoonTagSizeProperties? sm,
+  SelenicTagSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicTagSizeProperties? x2s,
+    SelenicTagSizeProperties? xs,
+    SelenicTagSizeProperties? sm,
   }) {
-    return MoonTagSizes(
+    return SelenicTagSizes(
       tokens: tokens ?? this.tokens,
       x2s: x2s ?? this.x2s,
       xs: xs ?? this.xs,
@@ -68,10 +68,10 @@ class MoonTagSizes extends ThemeExtension<MoonTagSizes>
   }
 
   @override
-  MoonTagSizes lerp(ThemeExtension<MoonTagSizes>? other, double t) {
-    if (other is! MoonTagSizes) return this;
+  SelenicTagSizes lerp(ThemeExtension<SelenicTagSizes>? other, double t) {
+    if (other is! SelenicTagSizes) return this;
 
-    return MoonTagSizes(
+    return SelenicTagSizes(
       tokens: tokens.lerp(other.tokens, t),
       x2s: x2s.lerp(other.x2s, t),
       xs: xs.lerp(other.xs, t),
@@ -83,10 +83,10 @@ class MoonTagSizes extends ThemeExtension<MoonTagSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonTagSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonTagSizeProperties>("x2s", x2s))
-      ..add(DiagnosticsProperty<MoonTagSizeProperties>("xs", xs))
-      ..add(DiagnosticsProperty<MoonTagSizeProperties>("sm", sm));
+      ..add(DiagnosticsProperty("type", "SelenicTagSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicTagSizeProperties>("x2s", x2s))
+      ..add(DiagnosticsProperty<SelenicTagSizeProperties>("xs", xs))
+      ..add(DiagnosticsProperty<SelenicTagSizeProperties>("sm", sm));
   }
 }

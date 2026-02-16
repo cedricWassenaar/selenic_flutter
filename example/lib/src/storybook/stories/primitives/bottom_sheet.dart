@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class BottomSheetStory extends StatelessWidget {
@@ -12,7 +12,7 @@ class BottomSheetStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonBottomSheet background.",
+      description: "MoonColors variants for SelenicBottomSheet background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -23,7 +23,7 @@ class BottomSheetStory extends StatelessWidget {
 
     final barrierColorKnob = context.knobs.nullable.options(
       label: "barrierColor",
-      description: "MoonColors variants for MoonBottomSheet barrier.",
+      description: "MoonColors variants for SelenicBottomSheet barrier.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -34,7 +34,7 @@ class BottomSheetStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonBottomSheet.",
+      description: "Border radius for SelenicBottomSheet.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -42,7 +42,7 @@ class BottomSheetStory extends StatelessWidget {
 
     final heightKnob = context.knobs.nullable.slider(
       label: "height",
-      description: "Height of MoonBottomSheet.",
+      description: "Height of SelenicBottomSheet.",
       enabled: false,
       initial: 0.64,
       min: 0.1,
@@ -50,13 +50,13 @@ class BottomSheetStory extends StatelessWidget {
 
     final closeProgressThresholdKnob = context.knobs.nullable.slider(
       label: "closeProgressThreshold",
-      description: "Close progress threshold for MoonBottomSheet.",
+      description: "Close progress threshold for SelenicBottomSheet.",
       enabled: false,
       initial: 0.6,
     );
 
     Future<dynamic> bottomSheetBuilder(BuildContext context) {
-      return showMoonModalBottomSheet(
+      return showSelenicModalBottomSheet(
         context: context,
         backgroundColor: backgroundColor,
         barrierColor: barrierColor,
@@ -74,7 +74,7 @@ class BottomSheetStory extends StatelessWidget {
               width: 40,
               margin: const EdgeInsets.symmetric(vertical: 8),
               decoration: ShapeDecoration(
-                color: context.moonColors!.beerus,
+                color: context.selenicColors!.beerus,
                 shape: const StadiumBorder(),
               ),
             ),
@@ -85,7 +85,7 @@ class BottomSheetStory extends StatelessWidget {
                   child: Center(
                     child: Text(
                       'Pick your choice!',
-                      style: MoonTypography.typography.body.text16,
+                      style: SelenicTypography.typography.body.text16,
                     ),
                   ),
                 ),
@@ -94,10 +94,10 @@ class BottomSheetStory extends StatelessWidget {
                   height: 48,
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: MoonButton.icon(
+                    child: SelenicButton.icon(
                       icon: const Icon(MoonIcons.controls_close_small_16_light),
-                      buttonSize: MoonButtonSize.sm,
-                      backgroundColor: context.moonColors!.beerus,
+                      buttonSize: SelenicButtonSize.sm,
+                      backgroundColor: context.selenicColors!.beerus,
                       borderRadius: BorderRadius.circular(24),
                       onTap: () => Navigator.of(context).pop(),
                     ),
@@ -108,7 +108,7 @@ class BottomSheetStory extends StatelessWidget {
             Divider(
               height: 0,
               thickness: 1,
-              color: context.moonColors!.beerus,
+              color: context.selenicColors!.beerus,
             ),
             Expanded(
               child: ListView.builder(
@@ -135,7 +135,7 @@ class BottomSheetStory extends StatelessWidget {
     return Center(
       child: Builder(
         builder: (BuildContext context) {
-          return MoonFilledButton(
+          return SelenicFilledButton(
             label: const Text("Tap me"),
             onTap: () => bottomSheetBuilder(context),
           );

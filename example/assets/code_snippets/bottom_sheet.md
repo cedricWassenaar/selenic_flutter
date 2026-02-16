@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class BottomSheet extends StatelessWidget {
   const BottomSheet({super.key});
@@ -7,7 +7,7 @@ class BottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future<dynamic> bottomSheetBuilder(BuildContext context) {
-      return showMoonModalBottomSheet(
+      return showSelenicModalBottomSheet(
         context: context,
         enableDrag: true,
         height: MediaQuery.of(context).size.height * 0.7,
@@ -19,15 +19,15 @@ class BottomSheet extends StatelessWidget {
               width: 40,
               margin: const EdgeInsets.symmetric(vertical: 8),
               decoration: ShapeDecoration(
-                color: context.moonColors!.beerus,
-                shape: MoonSquircleBorder(
+                color: context.selenicColors!.beerus,
+                shape: SelenicSquircleBorder(
                   borderRadius: BorderRadius.circular(16).squircleBorderRadius(context),
                 ),
               ),
             ),
             const Expanded(
               child: Align(
-                child: Text('MoonBottomSheet example'),
+                child: Text('SelenicBottomSheet example'),
               ),
             ),
           ],
@@ -36,7 +36,7 @@ class BottomSheet extends StatelessWidget {
     }
 
     return Center(
-      child: MoonFilledButton(
+      child: SelenicFilledButton(
         onTap: () => bottomSheetBuilder(context),
         label: const Text("Tap me"),
       ),

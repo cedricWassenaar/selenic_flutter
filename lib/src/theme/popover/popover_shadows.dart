@@ -2,25 +2,26 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonPopoverShadows extends ThemeExtension<MoonPopoverShadows>
+class SelenicPopoverShadows extends ThemeExtension<SelenicPopoverShadows>
     with DiagnosticableTreeMixin {
-  /// The list of shadows applied to the MoonPopover.
+  /// The list of shadows applied to the SelenicPopover.
   final List<BoxShadow> popoverShadows;
 
-  const MoonPopoverShadows({required this.popoverShadows});
+  const SelenicPopoverShadows({required this.popoverShadows});
 
   @override
-  MoonPopoverShadows copyWith({List<BoxShadow>? popoverShadows}) {
-    return MoonPopoverShadows(
+  SelenicPopoverShadows copyWith({List<BoxShadow>? popoverShadows}) {
+    return SelenicPopoverShadows(
       popoverShadows: popoverShadows ?? this.popoverShadows,
     );
   }
 
   @override
-  MoonPopoverShadows lerp(ThemeExtension<MoonPopoverShadows>? other, double t) {
-    if (other is! MoonPopoverShadows) return this;
+  SelenicPopoverShadows lerp(
+      ThemeExtension<SelenicPopoverShadows>? other, double t) {
+    if (other is! SelenicPopoverShadows) return this;
 
-    return MoonPopoverShadows(
+    return SelenicPopoverShadows(
       popoverShadows: BoxShadow.lerpList(
         popoverShadows,
         other.popoverShadows,
@@ -34,7 +35,7 @@ class MoonPopoverShadows extends ThemeExtension<MoonPopoverShadows>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonPopoverShadows"),
+        DiagnosticsProperty("type", "SelenicPopoverShadows"),
       )
       ..add(
         DiagnosticsProperty<List<BoxShadow>>("popoverShadows", popoverShadows),

@@ -41,7 +41,7 @@ class PinStyle {
   /// The text style of the progress pin.
   final TextStyle? textStyle;
 
-  /// Defines a Moon Design linear progress pin style.
+  /// Defines a Selenic Design linear progress pin style.
   const PinStyle({
     this.showShadow = true,
     this.pinColor,

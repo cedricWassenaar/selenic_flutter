@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/progress/circular_progress/circular_progress_size_properties.dart';
-import 'package:moon_design/src/theme/progress/circular_progress/circular_progress_sizes.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/widgets/common/progress_indicators/circular_progress_indicator.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonCircularProgressSize {
+import 'package:selenic_design/src/theme/progress/circular_progress/circular_progress_size_properties.dart';
+import 'package:selenic_design/src/theme/progress/circular_progress/circular_progress_sizes.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/widgets/common/progress_indicators/circular_progress_indicator.dart';
+
+enum SelenicCircularProgressSize {
   x2s,
   xs,
   sm,
@@ -15,7 +16,7 @@ enum MoonCircularProgressSize {
   lg,
 }
 
-class MoonCircularProgress extends StatelessWidget {
+class SelenicCircularProgress extends StatelessWidget {
   /// The color of the circular progress.
   final Color? color;
 
@@ -33,7 +34,7 @@ class MoonCircularProgress extends StatelessWidget {
   final double value;
 
   /// The size of the circular progress.
-  final MoonCircularProgressSize? circularProgressSize;
+  final SelenicCircularProgressSize? circularProgressSize;
 
   /// The semantic label for the circular progress.
   final String? semanticLabel;
@@ -41,8 +42,8 @@ class MoonCircularProgress extends StatelessWidget {
   /// The shape of the end of the stroke (stroke-cap) for the circular progress.
   final StrokeCap? strokeCap;
 
-  /// Creates a Moon Design circular progress.
-  const MoonCircularProgress({
+  /// Creates a Selenic Design circular progress.
+  const SelenicCircularProgress({
     super.key,
     this.color,
     this.backgroundColor,
@@ -54,50 +55,51 @@ class MoonCircularProgress extends StatelessWidget {
     this.strokeCap,
   });
 
-  MoonCircularProgressSizeProperties _getMoonCircularProgressSize(
+  SelenicCircularProgressSizeProperties _getSelenicCircularProgressSize(
     BuildContext context,
-    MoonCircularProgressSize? moonCircularProgressSize,
+    SelenicCircularProgressSize? circularProgressSize,
   ) {
-    switch (moonCircularProgressSize) {
-      case MoonCircularProgressSize.x2s:
-        return context.moonTheme?.circularProgressTheme.sizes.x2s ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).x2s;
-      case MoonCircularProgressSize.xs:
-        return context.moonTheme?.circularProgressTheme.sizes.xs ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).xs;
-      case MoonCircularProgressSize.sm:
-        return context.moonTheme?.circularProgressTheme.sizes.sm ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).sm;
-      case MoonCircularProgressSize.md:
-        return context.moonTheme?.circularProgressTheme.sizes.md ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).md;
-      case MoonCircularProgressSize.lg:
-        return context.moonTheme?.circularProgressTheme.sizes.lg ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).lg;
+    switch (circularProgressSize) {
+      case SelenicCircularProgressSize.x2s:
+        return context.selenicTheme?.circularProgressTheme.sizes.x2s ??
+            SelenicCircularProgressSizes(tokens: SelenicTokens.light).x2s;
+      case SelenicCircularProgressSize.xs:
+        return context.selenicTheme?.circularProgressTheme.sizes.xs ??
+            SelenicCircularProgressSizes(tokens: SelenicTokens.light).xs;
+      case SelenicCircularProgressSize.sm:
+        return context.selenicTheme?.circularProgressTheme.sizes.sm ??
+            SelenicCircularProgressSizes(tokens: SelenicTokens.light).sm;
+      case SelenicCircularProgressSize.md:
+        return context.selenicTheme?.circularProgressTheme.sizes.md ??
+            SelenicCircularProgressSizes(tokens: SelenicTokens.light).md;
+      case SelenicCircularProgressSize.lg:
+        return context.selenicTheme?.circularProgressTheme.sizes.lg ??
+            SelenicCircularProgressSizes(tokens: SelenicTokens.light).lg;
       default:
-        return context.moonTheme?.circularProgressTheme.sizes.md ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).md;
+        return context.selenicTheme?.circularProgressTheme.sizes.md ??
+            SelenicCircularProgressSizes(tokens: SelenicTokens.light).md;
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final Color effectiveColor = color ??
-        context.moonTheme?.circularProgressTheme.colors.color ??
+        context.selenicTheme?.circularProgressTheme.colors.color ??
         MoonColors.light.piccolo;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.circularProgressTheme.colors.backgroundColor ??
+        context.selenicTheme?.circularProgressTheme.colors.backgroundColor ??
         MoonColors.light.beerus;
 
-    final MoonCircularProgressSizeProperties effectiveMoonCircularProgressSize =
-        _getMoonCircularProgressSize(context, circularProgressSize);
+    final SelenicCircularProgressSizeProperties
+        effectiveSelenicCircularProgressSize =
+        _getSelenicCircularProgressSize(context, circularProgressSize);
 
     final double effectiveSize =
-        sizeValue ?? effectiveMoonCircularProgressSize.progressSizeValue;
+        sizeValue ?? effectiveSelenicCircularProgressSize.progressSizeValue;
 
     final double effectiveStrokeWidth =
-        strokeWidth ?? effectiveMoonCircularProgressSize.progressStrokeWidth;
+        strokeWidth ?? effectiveSelenicCircularProgressSize.progressStrokeWidth;
 
     final StrokeCap effectiveStrokeCap = strokeCap ?? StrokeCap.round;
 
@@ -107,7 +109,7 @@ class MoonCircularProgress extends StatelessWidget {
       child: SizedBox(
         height: effectiveSize,
         width: effectiveSize,
-        child: MoonCircularProgressIndicator(
+        child: SelenicCircularProgressIndicator(
           color: effectiveColor,
           backgroundColor: effectiveBackgroundColor,
           strokeWidth: effectiveStrokeWidth,

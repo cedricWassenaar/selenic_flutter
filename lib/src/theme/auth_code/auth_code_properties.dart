@@ -4,42 +4,43 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonAuthCodeProperties extends ThemeExtension<MoonAuthCodeProperties>
+class SelenicAuthCodeProperties
+    extends ThemeExtension<SelenicAuthCodeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonAuthCode input field.
+  /// The border radius of the SelenicAuthCode input field.
   final BorderRadiusGeometry borderRadius;
 
-  /// The horizontal gap between the MoonAuthCode input fields.
+  /// The horizontal gap between the SelenicAuthCode input fields.
   final double gap;
 
-  /// The height of the MoonAuthCode input field.
+  /// The height of the SelenicAuthCode input field.
   final double height;
 
-  /// The width of the MoonAuthCode input field.
+  /// The width of the SelenicAuthCode input field.
   final double width;
 
-  /// The duration of the MoonAuthCode input field transition animation.
+  /// The duration of the SelenicAuthCode input field transition animation.
   final Duration animationDuration;
 
-  /// The duration of the MoonAuthCode error state animation.
+  /// The duration of the SelenicAuthCode error state animation.
   final Duration errorAnimationDuration;
 
   /// The duration to display the typed character before it is obscured.
   final Duration peekDuration;
 
-  /// The curve of the MoonAuthCode input field transition animation.
+  /// The curve of the SelenicAuthCode input field transition animation.
   final Curve animationCurve;
 
-  /// The curve of the MoonAuthCode error state animation.
+  /// The curve of the SelenicAuthCode error state animation.
   final Curve errorAnimationCurve;
 
-  /// The text style of the MoonAuthCode.
+  /// The text style of the SelenicAuthCode.
   final TextStyle textStyle;
 
-  /// The text style of the MoonAuthCode in error state.
+  /// The text style of the SelenicAuthCode in error state.
   final TextStyle errorTextStyle;
 
-  const MoonAuthCodeProperties({
+  const SelenicAuthCodeProperties({
     required this.borderRadius,
     required this.gap,
     required this.height,
@@ -54,7 +55,7 @@ class MoonAuthCodeProperties extends ThemeExtension<MoonAuthCodeProperties>
   });
 
   @override
-  MoonAuthCodeProperties copyWith({
+  SelenicAuthCodeProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? gap,
     double? height,
@@ -67,7 +68,7 @@ class MoonAuthCodeProperties extends ThemeExtension<MoonAuthCodeProperties>
     TextStyle? textStyle,
     TextStyle? errorTextStyle,
   }) {
-    return MoonAuthCodeProperties(
+    return SelenicAuthCodeProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       gap: gap ?? this.gap,
       height: height ?? this.height,
@@ -84,13 +85,13 @@ class MoonAuthCodeProperties extends ThemeExtension<MoonAuthCodeProperties>
   }
 
   @override
-  MoonAuthCodeProperties lerp(
-    ThemeExtension<MoonAuthCodeProperties>? other,
+  SelenicAuthCodeProperties lerp(
+    ThemeExtension<SelenicAuthCodeProperties>? other,
     double t,
   ) {
-    if (other is! MoonAuthCodeProperties) return this;
+    if (other is! SelenicAuthCodeProperties) return this;
 
-    return MoonAuthCodeProperties(
+    return SelenicAuthCodeProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       gap: lerpDouble(gap, other.gap, t)!,
@@ -113,7 +114,7 @@ class MoonAuthCodeProperties extends ThemeExtension<MoonAuthCodeProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonAuthCodeProperties"),
+        DiagnosticsProperty("type", "SelenicAuthCodeProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

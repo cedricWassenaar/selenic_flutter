@@ -1,36 +1,36 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonSwitchColors extends ThemeExtension<MoonSwitchColors>
+class SelenicSwitchColors extends ThemeExtension<SelenicSwitchColors>
     with DiagnosticableTreeMixin {
-  /// The background color of the active (on) MoonSwitch track.
+  /// The background color of the active (on) SelenicSwitch track.
   final Color activeTrackColor;
 
-  /// The background color of the inactive (off) MoonSwitch track.
+  /// The background color of the inactive (off) SelenicSwitch track.
   final Color inactiveTrackColor;
 
-  /// The text color of the active (on) MoonSwitch.
+  /// The text color of the active (on) SelenicSwitch.
   final Color activeTextColor;
 
-  /// The text color of the inactive (off) MoonSwitch.
+  /// The text color of the inactive (off) SelenicSwitch.
   final Color inactiveTextColor;
 
-  /// The icon color of the active (on) MoonSwitch.
+  /// The icon color of the active (on) SelenicSwitch.
   final Color activeIconColor;
 
-  /// The icon color of the inactive (off) MoonSwitch.
+  /// The icon color of the inactive (off) SelenicSwitch.
   final Color inactiveIconColor;
 
-  /// The icon color of the MoonSwitch thumb.
+  /// The icon color of the SelenicSwitch thumb.
   final Color thumbIconColor;
 
-  /// The color of the MoonSwitch thumb.
+  /// The color of the SelenicSwitch thumb.
   final Color thumbColor;
 
-  const MoonSwitchColors({
+  const SelenicSwitchColors({
     required this.activeTrackColor,
     required this.inactiveTrackColor,
     required this.activeTextColor,
@@ -42,7 +42,7 @@ class MoonSwitchColors extends ThemeExtension<MoonSwitchColors>
   });
 
   @override
-  MoonSwitchColors copyWith({
+  SelenicSwitchColors copyWith({
     Color? activeTrackColor,
     Color? inactiveTrackColor,
     Color? activeTextColor,
@@ -52,7 +52,7 @@ class MoonSwitchColors extends ThemeExtension<MoonSwitchColors>
     Color? thumbIconColor,
     Color? thumbColor,
   }) {
-    return MoonSwitchColors(
+    return SelenicSwitchColors(
       activeTrackColor: activeTrackColor ?? this.activeTrackColor,
       inactiveTrackColor: inactiveTrackColor ?? this.inactiveTrackColor,
       activeTextColor: activeTextColor ?? this.activeTextColor,
@@ -65,10 +65,11 @@ class MoonSwitchColors extends ThemeExtension<MoonSwitchColors>
   }
 
   @override
-  MoonSwitchColors lerp(ThemeExtension<MoonSwitchColors>? other, double t) {
-    if (other is! MoonSwitchColors) return this;
+  SelenicSwitchColors lerp(
+      ThemeExtension<SelenicSwitchColors>? other, double t) {
+    if (other is! SelenicSwitchColors) return this;
 
-    return MoonSwitchColors(
+    return SelenicSwitchColors(
       activeTrackColor:
           colorPremulLerp(activeTrackColor, other.activeTrackColor, t)!,
       inactiveTrackColor:
@@ -90,7 +91,7 @@ class MoonSwitchColors extends ThemeExtension<MoonSwitchColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonSwitchColors"))
+      ..add(DiagnosticsProperty("type", "SelenicSwitchColors"))
       ..add(ColorProperty("activeTrackColor", activeTrackColor))
       ..add(ColorProperty("inactiveTrackColor", inactiveTrackColor))
       ..add(ColorProperty("activeTextColor", activeTextColor))

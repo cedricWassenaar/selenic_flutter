@@ -1,57 +1,57 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/segmented_control/segmented_control_colors.dart';
-import 'package:moon_design/src/theme/segmented_control/segmented_control_properties.dart';
-import 'package:moon_design/src/theme/segmented_control/segmented_control_sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/segmented_control/segmented_control_colors.dart';
+import 'package:selenic_design/src/theme/segmented_control/segmented_control_properties.dart';
+import 'package:selenic_design/src/theme/segmented_control/segmented_control_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonSegmentedControlTheme
-    extends ThemeExtension<MoonSegmentedControlTheme>
+class SelenicSegmentedControlTheme
+    extends ThemeExtension<SelenicSegmentedControlTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonSegmentedControl.
-  final MoonSegmentedControlColors colors;
+  /// The colors of the SelenicSegmentedControl.
+  final SelenicSegmentedControlColors colors;
 
-  /// The properties of the MoonSegmentedControl.
-  final MoonSegmentedControlProperties properties;
+  /// The properties of the SelenicSegmentedControl.
+  final SelenicSegmentedControlProperties properties;
 
-  /// The sizes of the MoonSegmentedControl.
-  final MoonSegmentedControlSizes sizes;
+  /// The sizes of the SelenicSegmentedControl.
+  final SelenicSegmentedControlSizes sizes;
 
-  MoonSegmentedControlTheme({
+  SelenicSegmentedControlTheme({
     required this.tokens,
-    MoonSegmentedControlColors? colors,
-    MoonSegmentedControlProperties? properties,
-    MoonSegmentedControlSizes? sizes,
+    SelenicSegmentedControlColors? colors,
+    SelenicSegmentedControlProperties? properties,
+    SelenicSegmentedControlSizes? sizes,
   })  : colors = colors ??
-            MoonSegmentedControlColors(
+            SelenicSegmentedControlColors(
               backgroundColor: tokens.colors.gohan,
               selectedSegmentColor: tokens.colors.goku,
               textColor: tokens.colors.textPrimary,
               selectedTextColor: tokens.colors.textPrimary,
             ),
         properties = properties ??
-            MoonSegmentedControlProperties(
+            SelenicSegmentedControlProperties(
               borderRadius: tokens.borders.interactiveMd,
               gap: tokens.sizes.x5s,
               transitionDuration: tokens.transitions.defaultTransitionDuration,
               transitionCurve: tokens.transitions.defaultTransitionCurve,
               padding: EdgeInsets.all(tokens.sizes.x5s),
             ),
-        sizes = sizes ?? MoonSegmentedControlSizes(tokens: tokens);
+        sizes = sizes ?? SelenicSegmentedControlSizes(tokens: tokens);
 
   @override
-  MoonSegmentedControlTheme copyWith({
-    MoonTokens? tokens,
-    MoonSegmentedControlColors? colors,
-    MoonSegmentedControlProperties? properties,
-    MoonSegmentedControlSizes? sizes,
+  SelenicSegmentedControlTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicSegmentedControlColors? colors,
+    SelenicSegmentedControlProperties? properties,
+    SelenicSegmentedControlSizes? sizes,
   }) {
-    return MoonSegmentedControlTheme(
+    return SelenicSegmentedControlTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -60,13 +60,13 @@ class MoonSegmentedControlTheme
   }
 
   @override
-  MoonSegmentedControlTheme lerp(
-    ThemeExtension<MoonSegmentedControlTheme>? other,
+  SelenicSegmentedControlTheme lerp(
+    ThemeExtension<SelenicSegmentedControlTheme>? other,
     double t,
   ) {
-    if (other is! MoonSegmentedControlTheme) return this;
+    if (other is! SelenicSegmentedControlTheme) return this;
 
-    return MoonSegmentedControlTheme(
+    return SelenicSegmentedControlTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -78,17 +78,18 @@ class MoonSegmentedControlTheme
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonSegmentedControlTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonSegmentedControlColors>("colors", colors))
+      ..add(DiagnosticsProperty("type", "SelenicSegmentedControlTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
       ..add(
-        DiagnosticsProperty<MoonSegmentedControlProperties>(
+          DiagnosticsProperty<SelenicSegmentedControlColors>("colors", colors))
+      ..add(
+        DiagnosticsProperty<SelenicSegmentedControlProperties>(
           "properties",
           properties,
         ),
       )
       ..add(
-        DiagnosticsProperty<MoonSegmentedControlSizes>(
+        DiagnosticsProperty<SelenicSegmentedControlSizes>(
           "sizes",
           sizes,
         ),

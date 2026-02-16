@@ -1,43 +1,43 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/avatar/avatar_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/avatar/avatar_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonAvatarSizes extends ThemeExtension<MoonAvatarSizes>
+class SelenicAvatarSizes extends ThemeExtension<SelenicAvatarSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the extra small MoonAvatar.
-  final MoonAvatarSizeProperties xs;
+  /// The properties of the extra small SelenicAvatar.
+  final SelenicAvatarSizeProperties xs;
 
-  /// The properties of the small MoonAvatar.
-  final MoonAvatarSizeProperties sm;
+  /// The properties of the small SelenicAvatar.
+  final SelenicAvatarSizeProperties sm;
 
-  /// The properties of the medium MoonAvatar.
-  final MoonAvatarSizeProperties md;
+  /// The properties of the medium SelenicAvatar.
+  final SelenicAvatarSizeProperties md;
 
-  /// The properties of the large MoonAvatar.
-  final MoonAvatarSizeProperties lg;
+  /// The properties of the large SelenicAvatar.
+  final SelenicAvatarSizeProperties lg;
 
-  /// The properties of the extra large MoonAvatar.
-  final MoonAvatarSizeProperties xl;
+  /// The properties of the extra large SelenicAvatar.
+  final SelenicAvatarSizeProperties xl;
 
-  /// The properties of the (2x) extra large MoonAvatar.
-  final MoonAvatarSizeProperties x2l;
+  /// The properties of the (2x) extra large SelenicAvatar.
+  final SelenicAvatarSizeProperties x2l;
 
-  MoonAvatarSizes({
+  SelenicAvatarSizes({
     required this.tokens,
-    MoonAvatarSizeProperties? xs,
-    MoonAvatarSizeProperties? sm,
-    MoonAvatarSizeProperties? md,
-    MoonAvatarSizeProperties? lg,
-    MoonAvatarSizeProperties? xl,
-    MoonAvatarSizeProperties? x2l,
+    SelenicAvatarSizeProperties? xs,
+    SelenicAvatarSizeProperties? sm,
+    SelenicAvatarSizeProperties? md,
+    SelenicAvatarSizeProperties? lg,
+    SelenicAvatarSizeProperties? xl,
+    SelenicAvatarSizeProperties? x2l,
   })  : xs = xs ??
-            MoonAvatarSizeProperties(
+            SelenicAvatarSizeProperties(
               borderRadius: tokens.borders.interactiveXs,
               avatarSizeValue: tokens.sizes.xs,
               badgeMarginValue:
@@ -47,7 +47,7 @@ class MoonAvatarSizes extends ThemeExtension<MoonAvatarSizes>
               textStyle: tokens.typography.heading.text10,
             ),
         sm = sm ??
-            MoonAvatarSizeProperties(
+            SelenicAvatarSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               avatarSizeValue: tokens.sizes.sm,
               badgeMarginValue:
@@ -57,7 +57,7 @@ class MoonAvatarSizes extends ThemeExtension<MoonAvatarSizes>
               textStyle: tokens.typography.heading.text12,
             ),
         md = md ??
-            MoonAvatarSizeProperties(
+            SelenicAvatarSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               avatarSizeValue: tokens.sizes.md,
               badgeMarginValue:
@@ -67,7 +67,7 @@ class MoonAvatarSizes extends ThemeExtension<MoonAvatarSizes>
               textStyle: tokens.typography.heading.textDefault,
             ),
         lg = lg ??
-            MoonAvatarSizeProperties(
+            SelenicAvatarSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               avatarSizeValue: tokens.sizes.lg,
               badgeMarginValue:
@@ -77,7 +77,7 @@ class MoonAvatarSizes extends ThemeExtension<MoonAvatarSizes>
               textStyle: tokens.typography.heading.text16,
             ),
         xl = xl ??
-            MoonAvatarSizeProperties(
+            SelenicAvatarSizeProperties(
               borderRadius: tokens.borders.interactiveMd,
               avatarSizeValue: tokens.sizes.xl,
               badgeMarginValue:
@@ -87,7 +87,7 @@ class MoonAvatarSizes extends ThemeExtension<MoonAvatarSizes>
               textStyle: tokens.typography.heading.text16,
             ),
         x2l = x2l ??
-            MoonAvatarSizeProperties(
+            SelenicAvatarSizeProperties(
               borderRadius: tokens.borders.interactiveMd,
               avatarSizeValue: tokens.sizes.x2l,
               badgeMarginValue:
@@ -98,16 +98,16 @@ class MoonAvatarSizes extends ThemeExtension<MoonAvatarSizes>
             );
 
   @override
-  MoonAvatarSizes copyWith({
-    MoonTokens? tokens,
-    MoonAvatarSizeProperties? xs,
-    MoonAvatarSizeProperties? sm,
-    MoonAvatarSizeProperties? md,
-    MoonAvatarSizeProperties? lg,
-    MoonAvatarSizeProperties? xl,
-    MoonAvatarSizeProperties? x2l,
+  SelenicAvatarSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicAvatarSizeProperties? xs,
+    SelenicAvatarSizeProperties? sm,
+    SelenicAvatarSizeProperties? md,
+    SelenicAvatarSizeProperties? lg,
+    SelenicAvatarSizeProperties? xl,
+    SelenicAvatarSizeProperties? x2l,
   }) {
-    return MoonAvatarSizes(
+    return SelenicAvatarSizes(
       tokens: tokens ?? this.tokens,
       xs: xs ?? this.xs,
       sm: sm ?? this.sm,
@@ -119,10 +119,10 @@ class MoonAvatarSizes extends ThemeExtension<MoonAvatarSizes>
   }
 
   @override
-  MoonAvatarSizes lerp(ThemeExtension<MoonAvatarSizes>? other, double t) {
-    if (other is! MoonAvatarSizes) return this;
+  SelenicAvatarSizes lerp(ThemeExtension<SelenicAvatarSizes>? other, double t) {
+    if (other is! SelenicAvatarSizes) return this;
 
-    return MoonAvatarSizes(
+    return SelenicAvatarSizes(
       tokens: tokens,
       xs: xs.lerp(other.xs, t),
       sm: sm.lerp(other.sm, t),
@@ -137,13 +137,13 @@ class MoonAvatarSizes extends ThemeExtension<MoonAvatarSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonAvatarSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonAvatarSizeProperties>("xs", xs))
-      ..add(DiagnosticsProperty<MoonAvatarSizeProperties>("sm", sm))
-      ..add(DiagnosticsProperty<MoonAvatarSizeProperties>("md", md))
-      ..add(DiagnosticsProperty<MoonAvatarSizeProperties>("lg", lg))
-      ..add(DiagnosticsProperty<MoonAvatarSizeProperties>("xl", xl))
-      ..add(DiagnosticsProperty<MoonAvatarSizeProperties>("x2l", x2l));
+      ..add(DiagnosticsProperty("type", "SelenicAvatarSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicAvatarSizeProperties>("xs", xs))
+      ..add(DiagnosticsProperty<SelenicAvatarSizeProperties>("sm", sm))
+      ..add(DiagnosticsProperty<SelenicAvatarSizeProperties>("md", md))
+      ..add(DiagnosticsProperty<SelenicAvatarSizeProperties>("lg", lg))
+      ..add(DiagnosticsProperty<SelenicAvatarSizeProperties>("xl", xl))
+      ..add(DiagnosticsProperty<SelenicAvatarSizeProperties>("x2l", x2l));
   }
 }

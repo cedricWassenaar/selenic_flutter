@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/widgets/tab_bar/pill_tab.dart';
+import 'package:selenic_design/src/widgets/tab_bar/pill_tab.dart';
 
-class MoonPillTabStyle {
+class SelenicPillTabStyle {
   /// The border radius of the tab.
   final BorderRadiusGeometry? borderRadius;
 
@@ -21,8 +21,8 @@ class MoonPillTabStyle {
   /// The custom decoration of the tab.
   final Decoration? decoration;
 
-  /// The gap between the [MoonPillTab.leading], [MoonPillTab.label] and
-  /// [MoonPillTab.trailing] widgets of the tab.
+  /// The gap between the [SelenicPillTab.leading], [SelenicPillTab.label] and
+  /// [SelenicPillTab.trailing] widgets of the tab.
   final double? tabGap;
 
   /// The padding of the tab.
@@ -34,8 +34,8 @@ class MoonPillTabStyle {
   /// [selectedTextColor].
   final TextStyle? textStyle;
 
-  /// Defines a Moon Design pill tab style.
-  const MoonPillTabStyle({
+  /// Defines a Selenic Design pill tab style.
+  const SelenicPillTabStyle({
     this.borderRadius,
     this.focusEffectColor,
     this.selectedTabColor,

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/widgets/buttons/button.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-class MoonFilledButton extends StatelessWidget {
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/widgets/buttons/button.dart';
+
+class SelenicFilledButton extends StatelessWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
   final bool autofocus;
 
@@ -42,7 +43,7 @@ class MoonFilledButton extends StatelessWidget {
   final FocusNode? focusNode;
 
   /// The size of the button.
-  final MoonButtonSize? buttonSize;
+  final SelenicButtonSize? buttonSize;
 
   /// The semantic label for the button.
   final String? semanticLabel;
@@ -62,14 +63,14 @@ class MoonFilledButton extends StatelessWidget {
   /// The widget to display after the [label] widget of the button.
   final Widget? trailing;
 
-  /// Creates a Moon Design filled button.
+  /// Creates a Selenic Design filled button.
   ///
   /// See also:
   ///
-  ///   * [MoonOutlinedButton], Moon Design outlined button.
-  ///   * [MoonTextButton], Moon Design text button.
-  ///   * [MoonButton.icon], Moon Design icon button.
-  const MoonFilledButton({
+  ///   * [SelenicOutlinedButton], Selenic Design outlined button.
+  ///   * [SelenicTextButton], Selenic Design text button.
+  ///   * [SelenicButton.icon], Selenic Design icon button.
+  const SelenicFilledButton({
     super.key,
     this.autofocus = false,
     this.isFocusable = true,
@@ -95,14 +96,14 @@ class MoonFilledButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.buttonTheme.colors.filledVariantBackgroundColor ??
+        context.selenicTheme?.buttonTheme.colors.filledVariantBackgroundColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveTextColor =
-        context.moonTheme?.buttonTheme.colors.filledVariantTextColor ??
+        context.selenicTheme?.buttonTheme.colors.filledVariantTextColor ??
             MoonColors.light.goten;
 
-    return MoonButton(
+    return SelenicButton(
       autofocus: autofocus,
       isFocusable: isFocusable,
       ensureMinimalTouchTargetSize: ensureMinimalTouchTargetSize,

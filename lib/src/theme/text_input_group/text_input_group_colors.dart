@@ -1,27 +1,28 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonTextInputGroupColors extends ThemeExtension<MoonTextInputGroupColors>
+class SelenicTextInputGroupColors
+    extends ThemeExtension<SelenicTextInputGroupColors>
     with DiagnosticableTreeMixin {
-  /// The background color of the MoonTextInputGroup.
+  /// The background color of the SelenicTextInputGroup.
   final Color backgroundColor;
 
-  /// The color of the MoonTextInputGroup in error state.
+  /// The color of the SelenicTextInputGroup in error state.
   final Color errorColor;
 
-  /// The text color of the MoonTextInputGroup helper and errorBuilder widgets.
+  /// The text color of the SelenicTextInputGroup helper and errorBuilder widgets.
   final Color helperTextColor;
 
-  /// The border color of the MoonTextInputGroup.
+  /// The border color of the SelenicTextInputGroup.
   final Color borderColor;
 
-  /// The border color of the MoonTextInputGroup on hover.
+  /// The border color of the SelenicTextInputGroup on hover.
   final Color hoverBorderColor;
 
-  const MoonTextInputGroupColors({
+  const SelenicTextInputGroupColors({
     required this.backgroundColor,
     required this.errorColor,
     required this.helperTextColor,
@@ -30,14 +31,14 @@ class MoonTextInputGroupColors extends ThemeExtension<MoonTextInputGroupColors>
   });
 
   @override
-  MoonTextInputGroupColors copyWith({
+  SelenicTextInputGroupColors copyWith({
     Color? backgroundColor,
     Color? errorColor,
     Color? helperTextColor,
     Color? borderColor,
     Color? hoverBorderColor,
   }) {
-    return MoonTextInputGroupColors(
+    return SelenicTextInputGroupColors(
       backgroundColor: backgroundColor ?? this.backgroundColor,
       errorColor: errorColor ?? this.errorColor,
       helperTextColor: helperTextColor ?? this.helperTextColor,
@@ -47,13 +48,13 @@ class MoonTextInputGroupColors extends ThemeExtension<MoonTextInputGroupColors>
   }
 
   @override
-  MoonTextInputGroupColors lerp(
-    ThemeExtension<MoonTextInputGroupColors>? other,
+  SelenicTextInputGroupColors lerp(
+    ThemeExtension<SelenicTextInputGroupColors>? other,
     double t,
   ) {
-    if (other is! MoonTextInputGroupColors) return this;
+    if (other is! SelenicTextInputGroupColors) return this;
 
-    return MoonTextInputGroupColors(
+    return SelenicTextInputGroupColors(
       backgroundColor:
           colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
       errorColor: colorPremulLerp(errorColor, other.errorColor, t)!,
@@ -69,7 +70,7 @@ class MoonTextInputGroupColors extends ThemeExtension<MoonTextInputGroupColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonTextInputGroupColors"))
+      ..add(DiagnosticsProperty("type", "SelenicTextInputGroupColors"))
       ..add(ColorProperty("backgroundColor", backgroundColor))
       ..add(ColorProperty("errorColor", errorColor))
       ..add(ColorProperty("helperTextColor", helperTextColor))

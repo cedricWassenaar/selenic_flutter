@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/component_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class SearchWithListStory extends StatefulWidget {
@@ -62,20 +62,20 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
   Widget build(BuildContext context) {
     final textInputSizeKnob = context.knobs.nullable.options(
       label: "textInputSize",
-      description: "Size variants for MoonTextInput.",
+      description: "Size variants for SelenicTextInput.",
       enabled: false,
-      initial: MoonTextInputSize.md,
+      initial: SelenicTextInputSize.md,
       options: const [
-        Option(label: "sm", value: MoonTextInputSize.sm),
-        Option(label: "md", value: MoonTextInputSize.md),
-        Option(label: "lg", value: MoonTextInputSize.lg),
-        Option(label: "xl", value: MoonTextInputSize.xl),
+        Option(label: "sm", value: SelenicTextInputSize.sm),
+        Option(label: "md", value: SelenicTextInputSize.md),
+        Option(label: "lg", value: SelenicTextInputSize.lg),
+        Option(label: "xl", value: SelenicTextInputSize.xl),
       ],
     );
 
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for MoonTextInput active border.",
+      description: "MoonColors variants for SelenicTextInput active border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -86,7 +86,7 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for MoonTextInput inactive border.",
+      description: "MoonColors variants for SelenicTextInput inactive border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -98,7 +98,7 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
 
     final hoverBorderColorKnob = context.knobs.nullable.options(
       label: "hoverBorderColor",
-      description: "MoonColors variants for MoonTextInput border on hover.",
+      description: "MoonColors variants for SelenicTextInput border on hover.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -109,7 +109,7 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonTextInput background.",
+      description: "MoonColors variants for SelenicTextInput background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -120,7 +120,7 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonTextInput",
+      description: "Border radius for SelenicTextInput",
       enabled: false,
       initial: 8,
       max: 32,
@@ -128,13 +128,14 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
 
     final enabledKnob = context.knobs.boolean(
       label: "enabled",
-      description: "Switch between MoonTextInput enabled and disabled states.",
+      description:
+          "Switch between SelenicTextInput enabled and disabled states.",
       initial: true,
     );
 
     final hasFloatingLabelKnob = context.knobs.boolean(
       label: "hasFloatingLabel",
-      description: "Whether MoonTextInput has floating label.",
+      description: "Whether SelenicTextInput has floating label.",
     );
 
     return Padding(
@@ -143,11 +144,11 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
         children: [
           Column(
             children: [
-              MoonTextInput(
+              SelenicTextInput(
                 enabled: enabledKnob,
                 hasFloatingLabel: hasFloatingLabelKnob,
                 activeBorderColor:
-                    activeBorderColor ?? context.moonColors!.beerus,
+                    activeBorderColor ?? context.selenicColors!.beerus,
                 inactiveBorderColor: inactiveBorderColor,
                 backgroundColor: backgroundColor,
                 hoverBorderColor: hoverBorderColor,
@@ -162,24 +163,24 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
                 leading: const Icon(MoonIcons.generic_search_24_light),
                 trailing: Row(
                   children: [
-                    MoonButton(
+                    SelenicButton(
                       padding: const EdgeInsetsDirectional.only(end: 8),
                       hoverEffectColor: Colors.transparent,
                       onTap: () => _handleClearButton(),
                       label: Text(
                         'Clear',
-                        style: TextStyle(color: context.moonColors!.trunks),
+                        style: TextStyle(color: context.selenicColors!.trunks),
                       ),
                     ),
                     SizedBox(
                       height: 16,
                       child: VerticalDivider(
                         width: 8,
-                        color: context.moonColors!.beerus,
+                        color: context.selenicColors!.beerus,
                       ),
                     ),
-                    MoonButton.icon(
-                      buttonSize: MoonButtonSize.xs,
+                    SelenicButton.icon(
+                      buttonSize: SelenicButtonSize.xs,
                       hoverEffectColor: Colors.transparent,
                       onTap: () => _handleCloseButton(),
                       icon: const Icon(MoonIcons.controls_close_16_light),
@@ -204,7 +205,7 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
                         }
                         final Component option = _filteredOptionsList[index];
 
-                        return MoonMenuItem(
+                        return SelenicMenuItem(
                           hoverEffectColor: Colors.transparent,
                           onTap: () => {},
                           label: Text(option.name),

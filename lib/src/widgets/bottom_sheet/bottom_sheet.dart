@@ -2,19 +2,18 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border_radius.dart';
-import 'package:moon_design/src/widgets/bottom_sheet/modal_bottom_sheet.dart';
-import 'package:moon_design/src/widgets/bottom_sheet/utils/bottom_sheet_custom_scroll_physics.dart';
-import 'package:moon_design/src/widgets/bottom_sheet/utils/bottom_sheet_suspended_curve.dart';
-import 'package:moon_design/src/widgets/bottom_sheet/utils/scroll_to_top_status_bar.dart';
 import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border_radius.dart';
+import 'package:selenic_design/src/widgets/bottom_sheet/modal_bottom_sheet.dart';
+import 'package:selenic_design/src/widgets/bottom_sheet/utils/bottom_sheet_custom_scroll_physics.dart';
+import 'package:selenic_design/src/widgets/bottom_sheet/utils/bottom_sheet_suspended_curve.dart';
+import 'package:selenic_design/src/widgets/bottom_sheet/utils/scroll_to_top_status_bar.dart';
 
 const double _minFlingVelocity = 500.0;
 const double _closeProgressThreshold = 0.6;
@@ -25,12 +24,12 @@ typedef WidgetWithChildBuilder = Widget Function(
   Widget child,
 );
 
-/// The Moon Design bottom sheet.
+/// The Selenic Design bottom sheet.
 ///
-/// The MoonBottomSheet widget itself is rarely used directly.
+/// The SelenicBottomSheet widget itself is rarely used directly.
 /// Instead, prefer to create a modal bottom sheet with
-/// [showMoonModalBottomSheet].
-class MoonBottomSheet extends StatefulWidget {
+/// [showSelenicModalBottomSheet].
+class SelenicBottomSheet extends StatefulWidget {
   /// Whether the bottom sheet can be dragged vertically and dismissed by
   /// swiping downwards.
   final bool enableDrag;
@@ -98,8 +97,8 @@ class MoonBottomSheet extends StatefulWidget {
   /// The widget to display inside the bottom sheet as its content.
   final Widget child;
 
-  /// Creates a Moon Design modal bottom sheet.
-  const MoonBottomSheet({
+  /// Creates a Selenic Design modal bottom sheet.
+  const SelenicBottomSheet({
     super.key,
     this.enableDrag = true,
     this.isExpanded = false,
@@ -121,10 +120,10 @@ class MoonBottomSheet extends StatefulWidget {
             closeProgressThreshold ?? _closeProgressThreshold;
 
   @override
-  MoonBottomSheetState createState() => MoonBottomSheetState();
+  SelenicBottomSheetState createState() => SelenicBottomSheetState();
 
   /// Creates an [AnimationController] specifically designed for a
-  /// [MoonBottomSheet.animationController].
+  /// [SelenicBottomSheet.animationController].
   ///
   /// This API serves as a convenient mechanism to create a Material compliant
   /// bottom sheet animation. If custom animation durations are required, a
@@ -135,13 +134,13 @@ class MoonBottomSheet extends StatefulWidget {
   ) {
     return AnimationController(
       duration: duration,
-      debugLabel: 'MoonBottomSheet',
+      debugLabel: 'SelenicBottomSheet',
       vsync: vsync,
     );
   }
 }
 
-class MoonBottomSheetState extends State<MoonBottomSheet>
+class SelenicBottomSheetState extends State<SelenicBottomSheet>
     with TickerProviderStateMixin {
   final GlobalKey _childKey = GlobalKey(debugLabel: 'BottomSheet child');
 
@@ -352,27 +351,27 @@ class MoonBottomSheetState extends State<MoonBottomSheet>
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.bottomSheetTheme.properties.borderRadius ??
-        MoonBorders.borders.surfaceSm;
+        context.selenicTheme?.bottomSheetTheme.properties.borderRadius ??
+        SelenicBorders.borders.surfaceSm;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.bottomSheetTheme.colors.backgroundColor ??
+        context.selenicTheme?.bottomSheetTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveIconColor =
-        context.moonTheme?.bottomSheetTheme.colors.iconColor ??
+        context.selenicTheme?.bottomSheetTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final Color effectiveTextColor =
-        context.moonTheme?.bottomSheetTheme.colors.textColor ??
+        context.selenicTheme?.bottomSheetTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.bottomSheetTheme.properties.textStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.selenicTheme?.bottomSheetTheme.properties.textStyle ??
+            SelenicTypography.typography.body.textDefault;
 
     _defaultCurve ??= widget.transitionCurve ??
-        context.moonTheme?.bottomSheetTheme.properties.transitionCurve ??
+        context.selenicTheme?.bottomSheetTheme.properties.transitionCurve ??
         const Cubic(0.0, 0.0, 0.2, 1.0);
 
     transitionCurve ??= _defaultCurve;
@@ -442,8 +441,8 @@ class MoonBottomSheetState extends State<MoonBottomSheet>
                     decoration: widget.decoration ??
                         ShapeDecorationWithPremultipliedAlpha(
                           color: effectiveBackgroundColor,
-                          shape: MoonSquircleBorder(
-                            borderRadius: MoonSquircleBorderRadius.only(
+                          shape: SelenicSquircleBorder(
+                            borderRadius: SelenicSquircleBorderRadius.only(
                               topLeft: effectiveBorderRadius
                                   .squircleBorderRadius(context)
                                   .topLeft,

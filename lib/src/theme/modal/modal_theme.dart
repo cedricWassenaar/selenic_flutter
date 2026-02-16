@@ -1,35 +1,35 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/modal/modal_colors.dart';
-import 'package:moon_design/src/theme/modal/modal_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/modal/modal_colors.dart';
+import 'package:selenic_design/src/theme/modal/modal_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonModalTheme extends ThemeExtension<MoonModalTheme>
+class SelenicModalTheme extends ThemeExtension<SelenicModalTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonModal.
-  final MoonModalColors colors;
+  /// The colors of the SelenicModal.
+  final SelenicModalColors colors;
 
-  /// The properties of the MoonModal.
-  final MoonModalProperties properties;
+  /// The properties of the SelenicModal.
+  final SelenicModalProperties properties;
 
-  MoonModalTheme({
+  SelenicModalTheme({
     required this.tokens,
-    MoonModalColors? colors,
-    MoonModalProperties? properties,
+    SelenicModalColors? colors,
+    SelenicModalProperties? properties,
   })  : colors = colors ??
-            MoonModalColors(
+            SelenicModalColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
               backgroundColor: tokens.colors.goku,
               barrierColor: tokens.colors.zeno,
             ),
         properties = properties ??
-            MoonModalProperties(
+            SelenicModalProperties(
               borderRadius: tokens.borders.surfaceSm,
               transitionDuration: tokens.transitions.defaultTransitionDuration,
               transitionCurve: tokens.transitions.defaultTransitionCurve,
@@ -37,12 +37,12 @@ class MoonModalTheme extends ThemeExtension<MoonModalTheme>
             );
 
   @override
-  MoonModalTheme copyWith({
-    MoonTokens? tokens,
-    MoonModalColors? colors,
-    MoonModalProperties? properties,
+  SelenicModalTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicModalColors? colors,
+    SelenicModalProperties? properties,
   }) {
-    return MoonModalTheme(
+    return SelenicModalTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -50,10 +50,10 @@ class MoonModalTheme extends ThemeExtension<MoonModalTheme>
   }
 
   @override
-  MoonModalTheme lerp(ThemeExtension<MoonModalTheme>? other, double t) {
-    if (other is! MoonModalTheme) return this;
+  SelenicModalTheme lerp(ThemeExtension<SelenicModalTheme>? other, double t) {
+    if (other is! SelenicModalTheme) return this;
 
-    return MoonModalTheme(
+    return SelenicModalTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -64,9 +64,10 @@ class MoonModalTheme extends ThemeExtension<MoonModalTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonModalTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonModalColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonModalProperties>("properties", properties));
+      ..add(DiagnosticsProperty("type", "SelenicModalTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicModalColors>("colors", colors))
+      ..add(DiagnosticsProperty<SelenicModalProperties>(
+          "properties", properties));
   }
 }

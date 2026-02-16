@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _drawerKey = Key("drawerKey");
 const Key _openButtonKey = Key("openButtonKey");
@@ -84,7 +84,7 @@ class _DrawerTestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        drawer: MoonDrawer(
+        drawer: SelenicDrawer(
           key: drawerKey,
           width: 200,
           child: Column(
@@ -92,7 +92,7 @@ class _DrawerTestWidget extends StatelessWidget {
               _drawerContent,
               Builder(
                 builder: (BuildContext context) {
-                  return MoonFilledButton(
+                  return SelenicFilledButton(
                     key: _closeButtonKey,
                     onTap: () => Navigator.of(context).pop(),
                   );
@@ -103,7 +103,7 @@ class _DrawerTestWidget extends StatelessWidget {
         ),
         body: Builder(
           builder: (BuildContext context) {
-            return MoonFilledButton(
+            return SelenicFilledButton(
               key: _openButtonKey,
               onTap: () => Scaffold.of(context).openDrawer(),
             );

@@ -14,13 +14,12 @@ enum SocialMedia {
   }
 
   String get url => switch (this) {
-        medium => 'https://moonds.medium.com/',
-        linkedIn => 'https://www.linkedin.com/company/moon-io/',
-        gitHub => 'https://github.com/coingaming/moon_flutter',
-        figma =>
-          'https://www.figma.com/community/file/1002945721703152933/moon-design-system',
+        medium => 'https://medium.com/',
+        linkedIn => 'https://www.linkedin.com/',
+        gitHub => 'https://github.com/cedricWassenaar/selenic_flutter',
+        figma => 'https://www.figma.com/',
         license =>
-          'https://github.com/coingaming/moon_flutter/blob/main/LICENSE',
+          'https://github.com/cedricWassenaar/selenic_flutter/blob/main/LICENSE',
       };
 
   String get buttonIconPath => switch (this) {

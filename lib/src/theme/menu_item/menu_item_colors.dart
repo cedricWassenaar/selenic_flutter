@@ -1,27 +1,27 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonMenuItemColors extends ThemeExtension<MoonMenuItemColors>
+class SelenicMenuItemColors extends ThemeExtension<SelenicMenuItemColors>
     with DiagnosticableTreeMixin {
-  /// The background color of the MoonMenuItem.
+  /// The background color of the SelenicMenuItem.
   final Color backgroundColor;
 
-  /// The color of the MoonMenuItem divider.
+  /// The color of the SelenicMenuItem divider.
   final Color dividerColor;
 
-  /// The icon color of the MoonMenuItem.
+  /// The icon color of the SelenicMenuItem.
   final Color iconColor;
 
-  /// The text color of the MoonMenuItem label.
+  /// The text color of the SelenicMenuItem label.
   final Color labelTextColor;
 
-  /// The text color of the MoonMenuItem content.
+  /// The text color of the SelenicMenuItem content.
   final Color contentTextColor;
 
-  const MoonMenuItemColors({
+  const SelenicMenuItemColors({
     required this.backgroundColor,
     required this.dividerColor,
     required this.iconColor,
@@ -30,14 +30,14 @@ class MoonMenuItemColors extends ThemeExtension<MoonMenuItemColors>
   });
 
   @override
-  MoonMenuItemColors copyWith({
+  SelenicMenuItemColors copyWith({
     Color? backgroundColor,
     Color? dividerColor,
     Color? iconColor,
     Color? labelTextColor,
     Color? contentTextColor,
   }) {
-    return MoonMenuItemColors(
+    return SelenicMenuItemColors(
       backgroundColor: backgroundColor ?? this.backgroundColor,
       dividerColor: dividerColor ?? this.dividerColor,
       iconColor: iconColor ?? this.iconColor,
@@ -47,10 +47,11 @@ class MoonMenuItemColors extends ThemeExtension<MoonMenuItemColors>
   }
 
   @override
-  MoonMenuItemColors lerp(ThemeExtension<MoonMenuItemColors>? other, double t) {
-    if (other is! MoonMenuItemColors) return this;
+  SelenicMenuItemColors lerp(
+      ThemeExtension<SelenicMenuItemColors>? other, double t) {
+    if (other is! SelenicMenuItemColors) return this;
 
-    return MoonMenuItemColors(
+    return SelenicMenuItemColors(
       backgroundColor:
           colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
       dividerColor: colorPremulLerp(dividerColor, other.dividerColor, t)!,
@@ -65,7 +66,7 @@ class MoonMenuItemColors extends ThemeExtension<MoonMenuItemColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonMenuItemColors"))
+      ..add(DiagnosticsProperty("type", "SelenicMenuItemColors"))
       ..add(ColorProperty("backgroundColor", backgroundColor))
       ..add(ColorProperty("dividerColor", dividerColor))
       ..add(ColorProperty("iconColor", iconColor))

@@ -2,24 +2,25 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/toast/toast_theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonToastVariant {
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/toast/toast_theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/shadows.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+
+enum SelenicToastVariant {
   original,
   inverted,
 }
 
-class MoonToast {
+class SelenicToast {
   static const double _toastTravelDistance = 64.0;
   static const Duration _timeBetweenToasts = Duration(milliseconds: 200);
 
@@ -28,10 +29,10 @@ class MoonToast {
   static Timer? _timer;
   static OverlayEntry? _entry;
 
-  /// Creates a Moon Design toast.
-  const MoonToast();
+  /// Creates a Selenic Design toast.
+  const SelenicToast();
 
-  /// Displays a Moon Design toast.
+  /// Displays a Selenic Design toast.
   static void show(
     BuildContext context, {
     /// The alignment (position) of the toast.
@@ -82,7 +83,7 @@ class MoonToast {
     /// The theming color scheme variant for the toast.
     /// Inverted variant flips the theming color scheme (uses dark colors
     /// instead of light colors).
-    MoonToastVariant variant = MoonToastVariant.original,
+    SelenicToastVariant variant = SelenicToastVariant.original,
 
     /// The custom decoration of the toast.
     Decoration? decoration,
@@ -108,41 +109,41 @@ class MoonToast {
       '(200 ms).',
     );
 
-    final MoonToastTheme? toastTheme = context.moonTheme?.toastTheme;
+    final SelenicToastTheme? toastTheme = context.selenicTheme?.toastTheme;
 
     final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
         toastTheme?.properties.borderRadius ??
-        MoonBorders.borders.surfaceSm;
+        SelenicBorders.borders.surfaceSm;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        (variant == MoonToastVariant.original
+        (variant == SelenicToastVariant.original
             ? (toastTheme?.colors.lightVariantBackgroundColor ??
                 MoonColors.light.goku)
             : (toastTheme?.colors.darkVariantBackgroundColor ??
                 MoonColors.dark.goku));
 
-    final Color effectiveTextColor = variant == MoonToastVariant.original
+    final Color effectiveTextColor = variant == SelenicToastVariant.original
         ? (toastTheme?.colors.lightVariantTextColor ??
             MoonColors.light.textPrimary)
         : (toastTheme?.colors.darkVariantTextColor ??
             MoonColors.dark.textPrimary);
 
-    final Color effectiveIconColor = variant == MoonToastVariant.original
+    final Color effectiveIconColor = variant == SelenicToastVariant.original
         ? (toastTheme?.colors.lightVariantIconColor ??
             MoonColors.light.iconPrimary)
         : (toastTheme?.colors.darkVariantIconColor ??
             MoonColors.dark.iconPrimary);
 
     final TextStyle effectiveTextStyle = toastTheme?.properties.textStyle ??
-        MoonTypography.typography.body.textDefault;
+        SelenicTypography.typography.body.textDefault;
 
     final double effectiveHorizontalGap = horizontalGap ??
         toastTheme?.properties.horizontalGap ??
-        MoonSizes.sizes.x2s;
+        SelenicSizes.sizes.x2s;
 
     final double effectiveVerticalGap = verticalGap ??
         toastTheme?.properties.verticalGap ??
-        MoonSizes.sizes.x3s;
+        SelenicSizes.sizes.x3s;
 
     final Duration effectiveDisplayDuration = displayDuration ??
         toastTheme?.properties.displayDuration ??
@@ -150,22 +151,22 @@ class MoonToast {
 
     final Duration effectiveTransitionDuration = transitionDuration ??
         toastTheme?.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = transitionCurve ??
         toastTheme?.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     final EdgeInsetsGeometry effectiveContentPadding = padding ??
         toastTheme?.properties.contentPadding ??
-        EdgeInsets.all(MoonSizes.sizes.x2s);
+        EdgeInsets.all(SelenicSizes.sizes.x2s);
 
     final EdgeInsets resolvedContentPadding =
         effectiveContentPadding.resolve(Directionality.of(context));
 
     final List<BoxShadow> effectiveToastShadows = toastShadows ??
         toastTheme?.shadows.toastShadows ??
-        MoonShadows.light.lg;
+        SelenicShadows.light.lg;
 
     final effectiveContext = isPersistent
         ? (Navigator.maybeOf(context, rootNavigator: true)?.context ?? context)
@@ -240,7 +241,7 @@ class MoonToast {
                           ShapeDecorationWithPremultipliedAlpha(
                             color: effectiveBackgroundColor,
                             shadows: effectiveToastShadows,
-                            shape: MoonSquircleBorder(
+                            shape: SelenicSquircleBorder(
                               borderRadius: effectiveBorderRadius
                                   .squircleBorderRadius(context),
                             ),

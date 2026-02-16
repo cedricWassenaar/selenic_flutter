@@ -4,26 +4,26 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonLinearProgressSizeProperties
-    extends ThemeExtension<MoonLinearProgressSizeProperties>
+class SelenicLinearProgressSizeProperties
+    extends ThemeExtension<SelenicLinearProgressSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonLinearProgress.
+  /// The border radius of the SelenicLinearProgress.
   final BorderRadiusGeometry borderRadius;
 
-  /// The height of the MoonLinearProgress.
+  /// The height of the SelenicLinearProgress.
   final double progressHeight;
 
-  /// The size value of the MoonLinearProgress thumb.
+  /// The size value of the SelenicLinearProgress thumb.
   final double thumbSizeValue;
 
-  /// The vertical gap between the MoonLinearProgress and the minLabel and
+  /// The vertical gap between the SelenicLinearProgress and the minLabel and
   /// maxLabel widgets.
   final double verticalGap;
 
-  /// The text style of the MoonLinearProgress minLabel and maxLabel widgets.
+  /// The text style of the SelenicLinearProgress minLabel and maxLabel widgets.
   final TextStyle textStyle;
 
-  const MoonLinearProgressSizeProperties({
+  const SelenicLinearProgressSizeProperties({
     required this.borderRadius,
     required this.progressHeight,
     required this.thumbSizeValue,
@@ -32,14 +32,14 @@ class MoonLinearProgressSizeProperties
   });
 
   @override
-  MoonLinearProgressSizeProperties copyWith({
+  SelenicLinearProgressSizeProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? progressHeight,
     double? thumbSizeValue,
     double? verticalGap,
     TextStyle? textStyle,
   }) {
-    return MoonLinearProgressSizeProperties(
+    return SelenicLinearProgressSizeProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       progressHeight: progressHeight ?? this.progressHeight,
       thumbSizeValue: thumbSizeValue ?? this.thumbSizeValue,
@@ -49,13 +49,13 @@ class MoonLinearProgressSizeProperties
   }
 
   @override
-  MoonLinearProgressSizeProperties lerp(
-    ThemeExtension<MoonLinearProgressSizeProperties>? other,
+  SelenicLinearProgressSizeProperties lerp(
+    ThemeExtension<SelenicLinearProgressSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonLinearProgressSizeProperties) return this;
+    if (other is! SelenicLinearProgressSizeProperties) return this;
 
-    return MoonLinearProgressSizeProperties(
+    return SelenicLinearProgressSizeProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       progressHeight: lerpDouble(progressHeight, other.progressHeight, t)!,
@@ -70,7 +70,7 @@ class MoonLinearProgressSizeProperties
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonLinearProgressSizeProperties"),
+        DiagnosticsProperty("type", "SelenicLinearProgressSizeProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

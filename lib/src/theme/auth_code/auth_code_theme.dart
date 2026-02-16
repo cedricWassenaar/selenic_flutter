@@ -1,28 +1,28 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/auth_code/auth_code_colors.dart';
-import 'package:moon_design/src/theme/auth_code/auth_code_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/auth_code/auth_code_colors.dart';
+import 'package:selenic_design/src/theme/auth_code/auth_code_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonAuthCodeTheme extends ThemeExtension<MoonAuthCodeTheme>
+class SelenicAuthCodeTheme extends ThemeExtension<SelenicAuthCodeTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonAuthCode.
-  final MoonAuthCodeColors colors;
+  /// The colors of the SelenicAuthCode.
+  final SelenicAuthCodeColors colors;
 
-  /// The properties of the MoonAuthCode.
-  final MoonAuthCodeProperties properties;
+  /// The properties of the SelenicAuthCode.
+  final SelenicAuthCodeProperties properties;
 
-  MoonAuthCodeTheme({
+  SelenicAuthCodeTheme({
     required this.tokens,
-    MoonAuthCodeColors? colors,
-    MoonAuthCodeProperties? properties,
+    SelenicAuthCodeColors? colors,
+    SelenicAuthCodeProperties? properties,
   })  : colors = colors ??
-            MoonAuthCodeColors(
+            SelenicAuthCodeColors(
               selectedBorderColor: tokens.colors.piccolo,
               activeBorderColor: tokens.colors.beerus,
               inactiveBorderColor: tokens.colors.beerus,
@@ -33,7 +33,7 @@ class MoonAuthCodeTheme extends ThemeExtension<MoonAuthCodeTheme>
               textColor: tokens.colors.textPrimary,
             ),
         properties = properties ??
-            MoonAuthCodeProperties(
+            SelenicAuthCodeProperties(
               borderRadius: tokens.borders.interactiveSm,
               gap: tokens.sizes.x4s,
               height: tokens.sizes.xl,
@@ -49,12 +49,12 @@ class MoonAuthCodeTheme extends ThemeExtension<MoonAuthCodeTheme>
             );
 
   @override
-  MoonAuthCodeTheme copyWith({
-    MoonTokens? tokens,
-    MoonAuthCodeColors? colors,
-    MoonAuthCodeProperties? properties,
+  SelenicAuthCodeTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicAuthCodeColors? colors,
+    SelenicAuthCodeProperties? properties,
   }) {
-    return MoonAuthCodeTheme(
+    return SelenicAuthCodeTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -62,10 +62,11 @@ class MoonAuthCodeTheme extends ThemeExtension<MoonAuthCodeTheme>
   }
 
   @override
-  MoonAuthCodeTheme lerp(ThemeExtension<MoonAuthCodeTheme>? other, double t) {
-    if (other is! MoonAuthCodeTheme) return this;
+  SelenicAuthCodeTheme lerp(
+      ThemeExtension<SelenicAuthCodeTheme>? other, double t) {
+    if (other is! SelenicAuthCodeTheme) return this;
 
-    return MoonAuthCodeTheme(
+    return SelenicAuthCodeTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -76,11 +77,12 @@ class MoonAuthCodeTheme extends ThemeExtension<MoonAuthCodeTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonAuthCodeTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonAuthCodeColors>("colors", colors))
+      ..add(DiagnosticsProperty("type", "SelenicAuthCodeTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicAuthCodeColors>("colors", colors))
       ..add(
-        DiagnosticsProperty<MoonAuthCodeProperties>("properties", properties),
+        DiagnosticsProperty<SelenicAuthCodeProperties>(
+            "properties", properties),
       );
   }
 }

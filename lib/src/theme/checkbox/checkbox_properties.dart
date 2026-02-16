@@ -2,28 +2,29 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonCheckboxProperties extends ThemeExtension<MoonCheckboxProperties>
+class SelenicCheckboxProperties
+    extends ThemeExtension<SelenicCheckboxProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonCheckbox.
+  /// The border radius of the SelenicCheckbox.
   final BorderRadiusGeometry borderRadius;
 
-  const MoonCheckboxProperties({required this.borderRadius});
+  const SelenicCheckboxProperties({required this.borderRadius});
 
   @override
-  MoonCheckboxProperties copyWith({BorderRadiusGeometry? borderRadius}) {
-    return MoonCheckboxProperties(
+  SelenicCheckboxProperties copyWith({BorderRadiusGeometry? borderRadius}) {
+    return SelenicCheckboxProperties(
       borderRadius: borderRadius ?? this.borderRadius,
     );
   }
 
   @override
-  MoonCheckboxProperties lerp(
-    ThemeExtension<MoonCheckboxProperties>? other,
+  SelenicCheckboxProperties lerp(
+    ThemeExtension<SelenicCheckboxProperties>? other,
     double t,
   ) {
-    if (other is! MoonCheckboxProperties) return this;
+    if (other is! SelenicCheckboxProperties) return this;
 
-    return MoonCheckboxProperties(
+    return SelenicCheckboxProperties(
       borderRadius: BorderRadiusGeometry.lerp(
         borderRadius,
         other.borderRadius,
@@ -37,7 +38,7 @@ class MoonCheckboxProperties extends ThemeExtension<MoonCheckboxProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonCheckboxProperties"),
+        DiagnosticsProperty("type", "SelenicCheckboxProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

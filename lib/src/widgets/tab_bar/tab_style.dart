@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/widgets/tab_bar/tab.dart';
+import 'package:selenic_design/src/widgets/tab_bar/tab.dart';
 
-class MoonTabStyle {
+class SelenicTabStyle {
   /// The color of the tab focus effect.
   final Color? focusEffectColor;
 
@@ -21,8 +21,8 @@ class MoonTabStyle {
   /// The height of the tab indicator.
   final double? indicatorHeight;
 
-  /// The gap between the [MoonTab.leading], [MoonTab.label] and
-  /// [MoonTab.trailing] widgets of the tab.
+  /// The gap between the [SelenicTab.leading], [SelenicTab.label] and
+  /// [SelenicTab.trailing] widgets of the tab.
   final double? tabGap;
 
   /// The padding of the tab.
@@ -34,8 +34,8 @@ class MoonTabStyle {
   /// [selectedTextColor].
   final TextStyle? textStyle;
 
-  /// Defines a Moon Design tab style.
-  const MoonTabStyle({
+  /// Defines a Selenic Design tab style.
+  const SelenicTabStyle({
     this.focusEffectColor,
     this.indicatorColor,
     this.textColor,

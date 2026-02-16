@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/effects/effects_theme.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/utils/touch_target_padding.dart';
-import 'package:moon_design/src/widgets/checkbox/checkbox_painter.dart';
-import 'package:moon_design/src/widgets/common/effects/focus_effect.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-class MoonCheckbox extends StatefulWidget {
+import 'package:selenic_design/src/theme/effects/effects_theme.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/opacities.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/utils/touch_target_padding.dart';
+import 'package:selenic_design/src/widgets/checkbox/checkbox_painter.dart';
+import 'package:selenic_design/src/widgets/common/effects/focus_effect.dart';
+
+class SelenicCheckbox extends StatefulWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
   final bool autofocus;
 
@@ -68,8 +69,8 @@ class MoonCheckbox extends StatefulWidget {
   /// The callback that is called when the checkbox value changes.
   final ValueChanged<bool?>? onChanged;
 
-  /// Creates a Moon Design checkbox.
-  const MoonCheckbox({
+  /// Creates a Selenic Design checkbox.
+  const SelenicCheckbox({
     super.key,
     this.autofocus = false,
     this.tristate = false,
@@ -85,12 +86,12 @@ class MoonCheckbox extends StatefulWidget {
   });
 
   @override
-  State<MoonCheckbox> createState() => _MoonCheckboxState();
+  State<SelenicCheckbox> createState() => _SelenicCheckboxState();
 }
 
-class _MoonCheckboxState extends State<MoonCheckbox>
+class _SelenicCheckboxState extends State<SelenicCheckbox>
     with TickerProviderStateMixin, ToggleableStateMixin {
-  final MoonCheckboxPainter _painter = MoonCheckboxPainter();
+  final SelenicCheckboxPainter _painter = SelenicCheckboxPainter();
 
   bool? _previousValue;
 
@@ -104,11 +105,11 @@ class _MoonCheckboxState extends State<MoonCheckbox>
   bool? get value => widget.value;
 
   BorderSide? _resolveSide(BorderSide? side) {
-    if (side is MaterialStateBorderSide) {
-      return MaterialStateProperty.resolveAs<BorderSide?>(side, states);
+    if (side is WidgetStateBorderSide) {
+      return WidgetStateProperty.resolveAs<BorderSide?>(side, states);
     }
 
-    if (!states.contains(MaterialState.selected)) return side;
+    if (!states.contains(WidgetState.selected)) return side;
 
     return null;
   }
@@ -121,7 +122,7 @@ class _MoonCheckboxState extends State<MoonCheckbox>
   }
 
   @override
-  void didUpdateWidget(MoonCheckbox oldWidget) {
+  void didUpdateWidget(SelenicCheckbox oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.value != widget.value) {
@@ -142,56 +143,56 @@ class _MoonCheckboxState extends State<MoonCheckbox>
     const Size size = Size(16, 16);
 
     final BorderRadiusGeometry effectiveBorderRadius =
-        context.moonTheme?.checkboxTheme.properties.borderRadius ??
-            MoonBorders.borders.interactiveXs;
+        context.selenicTheme?.checkboxTheme.properties.borderRadius ??
+            SelenicBorders.borders.interactiveXs;
 
     final Color effectiveActiveColor = widget.activeColor ??
-        context.moonTheme?.checkboxTheme.colors.activeColor ??
+        context.selenicTheme?.checkboxTheme.colors.activeColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveInactiveColor = widget.inactiveColor ??
-        context.moonTheme?.checkboxTheme.colors.inactiveColor ??
+        context.selenicTheme?.checkboxTheme.colors.inactiveColor ??
         Colors.transparent;
 
     final Color effectiveCheckColor = widget.checkColor ??
-        context.moonTheme?.checkboxTheme.colors.checkColor ??
+        context.selenicTheme?.checkboxTheme.colors.checkColor ??
         MoonColors.light.goten;
 
     final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme?.checkboxTheme.colors.borderColor ??
+        context.selenicTheme?.checkboxTheme.colors.borderColor ??
         MoonColors.light.trunks;
 
     final Color effectiveFocusEffectColor =
-        context.moonEffects?.controlFocusEffect.effectColor ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectColor ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectColor;
 
     final Duration effectiveFocusEffectDuration =
-        context.moonEffects?.controlFocusEffect.effectDuration ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectDuration ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectDuration;
 
     final Curve effectiveFocusEffectCurve =
-        context.moonEffects?.controlFocusEffect.effectCurve ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectCurve ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectCurve;
 
     final double effectiveFocusEffectExtent =
-        context.moonEffects?.controlFocusEffect.effectExtent ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectExtent ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectExtent;
 
     final double effectiveDisabledOpacityValue =
-        context.moonOpacities?.disabled ?? MoonOpacities.opacities.disabled;
+        context.selenicOpacities?.disabled ??
+            SelenicOpacities.opacities.disabled;
 
-    final MaterialStateProperty<MouseCursor> effectiveMouseCursor =
-        MaterialStateProperty.resolveWith<MouseCursor>(
-            (Set<MaterialState> states) {
-      return MaterialStateMouseCursor.clickable.resolve(states);
+    final WidgetStateProperty<MouseCursor> effectiveMouseCursor =
+        WidgetStateProperty.resolveWith<MouseCursor>((Set<WidgetState> states) {
+      return WidgetStateMouseCursor.clickable.resolve(states);
     });
 
     return Semantics(
@@ -201,15 +202,15 @@ class _MoonCheckboxState extends State<MoonCheckbox>
       child: TouchTargetPadding(
         minSize: Size(widget.tapAreaSizeValue, widget.tapAreaSizeValue),
         child: RepaintBoundary(
-          child: MoonFocusEffect(
-            show: states.contains(MaterialState.focused),
+          child: SelenicFocusEffect(
+            show: states.contains(WidgetState.focused),
             childBorderRadius: effectiveBorderRadius,
             effectColor: effectiveFocusEffectColor,
             effectCurve: effectiveFocusEffectCurve,
             effectDuration: effectiveFocusEffectDuration,
             effectExtent: effectiveFocusEffectExtent,
             child: AnimatedOpacity(
-              opacity: states.contains(MaterialState.disabled)
+              opacity: states.contains(WidgetState.disabled)
                   ? effectiveDisabledOpacityValue
                   : 1,
               duration: effectiveFocusEffectDuration,
@@ -225,7 +226,7 @@ class _MoonCheckboxState extends State<MoonCheckbox>
                   ..checkColor = effectiveCheckColor
                   ..value = value
                   ..previousValue = _previousValue
-                  ..shape = MoonSquircleBorder(
+                  ..shape = SelenicSquircleBorder(
                     borderRadius:
                         effectiveBorderRadius.squircleBorderRadius(context),
                   )

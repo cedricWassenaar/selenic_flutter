@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/widgets/common/base_control.dart';
-import 'package:moon_design/src/widgets/common/border_container.dart';
-import 'package:moon_design/src/widgets/common/error_message_widgets.dart';
-import 'package:moon_design/src/widgets/text_input/form_text_input.dart';
 import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/theme.dart';
 
-enum MoonTextInputGroupOrientation {
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/widgets/common/base_control.dart';
+import 'package:selenic_design/src/widgets/common/border_container.dart';
+import 'package:selenic_design/src/widgets/common/error_message_widgets.dart';
+import 'package:selenic_design/src/widgets/text_input/form_text_input.dart';
+
+enum SelenicTextInputGroupOrientation {
   vertical,
   horizontal,
 }
 
-typedef MoonTextInputGroupErrorBuilder = Widget Function(
+typedef SelenicTextInputGroupErrorBuilder = Widget Function(
   BuildContext context,
   List<String> errorText,
 );
 
-class MoonTextInputGroup extends StatefulWidget {
+class SelenicTextInputGroup extends StatefulWidget {
   /// Whether the text input group is enabled. When false, taps are ignored and
   /// the opacity reduced.
   final bool enabled;
@@ -74,20 +75,20 @@ class MoonTextInputGroup extends StatefulWidget {
   final TextStyle? helperTextStyle;
 
   /// The orientation of the text input group.
-  final MoonTextInputGroupOrientation orientation;
+  final SelenicTextInputGroupOrientation orientation;
 
   /// The list of text inputs to display as the children of the text input group.
-  final List<MoonFormTextInput> children;
+  final List<SelenicFormTextInput> children;
 
   /// A builder to build the text input group error widget.
-  final MoonTextInputGroupErrorBuilder? errorBuilder;
+  final SelenicTextInputGroupErrorBuilder? errorBuilder;
 
   /// The widget to display below the text input group. Not displayed in error
   /// state.
   final Widget? helper;
 
-  /// Creates a Moon Design text input group.
-  const MoonTextInputGroup({
+  /// Creates a Selenic Design text input group.
+  const SelenicTextInputGroup({
     super.key,
     this.enabled = true,
     this.borderRadius,
@@ -104,17 +105,17 @@ class MoonTextInputGroup extends StatefulWidget {
     this.decoration,
     this.semanticLabel,
     this.helperTextStyle,
-    this.orientation = MoonTextInputGroupOrientation.vertical,
+    this.orientation = SelenicTextInputGroupOrientation.vertical,
     required this.children,
     this.errorBuilder,
     this.helper,
   });
 
   @override
-  State<MoonTextInputGroup> createState() => _MoonTextInputGroupState();
+  State<SelenicTextInputGroup> createState() => _SelenicTextInputGroupState();
 }
 
-class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
+class _SelenicTextInputGroupState extends State<SelenicTextInputGroup> {
   late final List<String?> _validatorErrors =
       List.filled(widget.children.length, null);
 
@@ -123,8 +124,8 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
   bool get _groupHasValidationError =>
       _validatorErrors.nonNulls.toList().isNotEmpty;
 
-  bool get _groupHasErrorText => widget.children
-      .any((MoonFormTextInput child) => child.configuration.errorText != null);
+  bool get _groupHasErrorText => widget.children.any(
+      (SelenicFormTextInput child) => child.configuration.errorText != null);
 
   bool get _groupHasError => _groupHasValidationError || _groupHasErrorText;
 
@@ -132,7 +133,7 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
       _validatorErrors.nonNulls.length == widget.children.length;
 
   bool get _groupHasAllErrorTexts => widget.children.every(
-        (MoonFormTextInput child) => child.configuration.errorText != null,
+        (SelenicFormTextInput child) => child.configuration.errorText != null,
       );
 
   bool get _groupIsInErrorState =>
@@ -156,52 +157,54 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.textInputGroupTheme.properties.borderRadius ??
+        context.selenicTheme?.textInputGroupTheme.properties.borderRadius ??
         BorderRadius.circular(8);
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.textInputGroupTheme.colors.backgroundColor ??
+        context.selenicTheme?.textInputGroupTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme?.textInputGroupTheme.colors.borderColor ??
+        context.selenicTheme?.textInputGroupTheme.colors.borderColor ??
         MoonColors.light.beerus;
 
     final Color effectiveErrorColor = widget.errorColor ??
-        context.moonTheme?.textInputGroupTheme.colors.errorColor ??
+        context.selenicTheme?.textInputGroupTheme.colors.errorColor ??
         MoonColors.light.chichi;
 
     final Color effectiveHelperTextColor = widget.hintTextColor ??
-        context.moonTheme?.textInputGroupTheme.colors.helperTextColor ??
+        context.selenicTheme?.textInputGroupTheme.colors.helperTextColor ??
         MoonColors.light.trunks;
 
     final EdgeInsetsGeometry effectiveHelperPadding = widget.helperPadding ??
-        context.moonTheme?.textInputGroupTheme.properties.helperPadding ??
+        context.selenicTheme?.textInputGroupTheme.properties.helperPadding ??
         EdgeInsets.only(
-          left: MoonSizes.sizes.x3s,
-          top: MoonSizes.sizes.x4s,
-          right: MoonSizes.sizes.x3s,
+          left: SelenicSizes.sizes.x3s,
+          top: SelenicSizes.sizes.x4s,
+          right: SelenicSizes.sizes.x3s,
         );
 
     final TextStyle effectiveHelperTextStyle = widget.helperTextStyle ??
-        context.moonTheme?.textInputGroupTheme.properties.helperTextStyle ??
-        MoonTypography.typography.body.text12;
+        context.selenicTheme?.textInputGroupTheme.properties.helperTextStyle ??
+        SelenicTypography.typography.body.text12;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.textInputGroupTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context
+            .selenicTheme?.textInputGroupTheme.properties.transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.textInputGroupTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.textInputGroupTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
-    final List<String> effectiveErrorMessages =
-        _validatorErrors.nonNulls.toList().isNotEmpty
-            ? _validatorErrors.nonNulls.toList()
-            : widget.children
-                .map((MoonFormTextInput child) => child.configuration.errorText)
-                .nonNulls
-                .toList();
+    final List<String> effectiveErrorMessages = _validatorErrors.nonNulls
+            .toList()
+            .isNotEmpty
+        ? _validatorErrors.nonNulls.toList()
+        : widget.children
+            .map((SelenicFormTextInput child) => child.configuration.errorText)
+            .nonNulls
+            .toList();
 
     List<Widget> childrenWithDivider({required bool shouldHideDivider}) =>
         List.generate(
@@ -209,7 +212,7 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
           (int index) {
             final int derivedIndex = index ~/ 2;
 
-            final MoonFormTextInputConfiguration configuration =
+            final SelenicFormTextInputConfiguration configuration =
                 widget.children[derivedIndex].configuration;
 
             final bool selfShowError = ((configuration.errorText != null &&
@@ -219,7 +222,7 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
                 (_validatorErrors[derivedIndex] != null &&
                     !_groupHasAllValidationErrors);
 
-            Widget child = MoonFormTextInput(
+            Widget child = SelenicFormTextInput(
               activeBorderColor: configuration.activeBorderColor,
               autocorrect: configuration.autocorrect,
               autofillHints: configuration.autofillHints,
@@ -329,16 +332,16 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
                 // Animated divider
                 : BorderContainer(
                     height: widget.orientation ==
-                            MoonTextInputGroupOrientation.horizontal
+                            SelenicTextInputGroupOrientation.horizontal
                         ? double.infinity
                         : 1,
                     width: widget.orientation ==
-                            MoonTextInputGroupOrientation.vertical
+                            SelenicTextInputGroupOrientation.vertical
                         ? double.infinity
                         : 1,
                     duration: effectiveTransitionDuration,
                     curve: effectiveTransitionCurve,
-                    border: MoonSquircleBorder(
+                    border: SelenicSquircleBorder(
                       borderRadius:
                           effectiveBorderRadius.squircleBorderRadius(context),
                       side: BorderSide(
@@ -362,7 +365,7 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        MoonBaseControl(
+        SelenicBaseControl(
           semanticLabel: widget.semanticLabel,
           isFocusable: false,
           showFocusEffect: false,
@@ -381,7 +384,7 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
               decoration: widget.decoration,
               duration: effectiveTransitionDuration,
               curve: effectiveTransitionCurve,
-              border: MoonSquircleBorder(
+              border: SelenicSquircleBorder(
                 borderRadius:
                     effectiveBorderRadius.squircleBorderRadius(context),
                 side: BorderSide(
@@ -419,7 +422,7 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
                 child: _shouldShowError
                     ? (widget.errorBuilder
                             ?.call(context, effectiveErrorMessages) ??
-                        MoonErrorMessages(errors: effectiveErrorMessages))
+                        SelenicErrorMessages(errors: effectiveErrorMessages))
                     : widget.helper,
               ),
             ),
@@ -430,7 +433,7 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
 }
 
 class _InputGroupOrientation extends StatelessWidget {
-  final MoonTextInputGroupOrientation orientation;
+  final SelenicTextInputGroupOrientation orientation;
   final List<Widget> children;
 
   const _InputGroupOrientation({
@@ -441,12 +444,12 @@ class _InputGroupOrientation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return switch (orientation) {
-      MoonTextInputGroupOrientation.vertical => Column(
+      SelenicTextInputGroupOrientation.vertical => Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: children,
         ),
-      MoonTextInputGroupOrientation.horizontal => SizedBox(
+      SelenicTextInputGroupOrientation.horizontal => SizedBox(
           height: 56,
           width: 300,
           child: Row(

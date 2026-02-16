@@ -2,57 +2,57 @@
 
 import 'package:flutter/rendering.dart';
 
-import 'package:moon_design/src/utils/squircle/path_squircle_corners.dart';
-import 'package:moon_design/src/utils/squircle/processed_squircle_radius.dart';
-import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
+import 'package:selenic_design/src/utils/squircle/path_squircle_corners.dart';
+import 'package:selenic_design/src/utils/squircle/processed_squircle_radius.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_radius.dart';
 
-class MoonSquircleBorderRadius extends BorderRadius {
+class SelenicSquircleBorderRadius extends BorderRadius {
   /// The border radius with zero radii.
-  static const MoonSquircleBorderRadius zero =
-      MoonSquircleBorderRadius.all(MoonSquircleRadius.zero);
+  static const SelenicSquircleBorderRadius zero =
+      SelenicSquircleBorderRadius.all(SelenicSquircleRadius.zero);
 
-  /// The top-left [MoonSquircleRadius].
+  /// The top-left [SelenicSquircleRadius].
   @override
-  final MoonSquircleRadius topLeft;
+  final SelenicSquircleRadius topLeft;
 
-  /// The top-right [MoonSquircleRadius].
+  /// The top-right [SelenicSquircleRadius].
   @override
-  final MoonSquircleRadius topRight;
+  final SelenicSquircleRadius topRight;
 
-  /// The bottom-left [MoonSquircleRadius].
+  /// The bottom-left [SelenicSquircleRadius].
   @override
-  final MoonSquircleRadius bottomLeft;
+  final SelenicSquircleRadius bottomLeft;
 
-  /// The bottom-right [MoonSquircleRadius].
+  /// The bottom-right [SelenicSquircleRadius].
   @override
-  final MoonSquircleRadius bottomRight;
+  final SelenicSquircleRadius bottomRight;
 
-  MoonSquircleBorderRadius({
+  SelenicSquircleBorderRadius({
     required double cornerRadius,
     // The value of 1 or 1.0 leads to NaN error in mobile web/PWA. Hence, we use
     // 0.9 instead to avoid this issue.
     double cornerSmoothing = 0.9,
   }) : this.only(
-          topLeft: MoonSquircleRadius(
+          topLeft: SelenicSquircleRadius(
             cornerRadius: cornerRadius,
             cornerSmoothing: cornerSmoothing,
           ),
-          topRight: MoonSquircleRadius(
+          topRight: SelenicSquircleRadius(
             cornerRadius: cornerRadius,
             cornerSmoothing: cornerSmoothing,
           ),
-          bottomLeft: MoonSquircleRadius(
+          bottomLeft: SelenicSquircleRadius(
             cornerRadius: cornerRadius,
             cornerSmoothing: cornerSmoothing,
           ),
-          bottomRight: MoonSquircleRadius(
+          bottomRight: SelenicSquircleRadius(
             cornerRadius: cornerRadius,
             cornerSmoothing: cornerSmoothing,
           ),
         );
 
   /// Creates a border radius with all radii set to [radius].
-  const MoonSquircleBorderRadius.all(MoonSquircleRadius radius)
+  const SelenicSquircleBorderRadius.all(SelenicSquircleRadius radius)
       : this.only(
           topLeft: radius,
           topRight: radius,
@@ -62,9 +62,9 @@ class MoonSquircleBorderRadius extends BorderRadius {
 
   /// Creates a border radius with vertical symmetry, ensuring that the top and
   /// bottom sides of the rectangle have the same radii.
-  const MoonSquircleBorderRadius.vertical({
-    MoonSquircleRadius top = MoonSquircleRadius.zero,
-    MoonSquircleRadius bottom = MoonSquircleRadius.zero,
+  const SelenicSquircleBorderRadius.vertical({
+    SelenicSquircleRadius top = SelenicSquircleRadius.zero,
+    SelenicSquircleRadius bottom = SelenicSquircleRadius.zero,
   }) : this.only(
           topLeft: top,
           topRight: top,
@@ -74,9 +74,9 @@ class MoonSquircleBorderRadius extends BorderRadius {
 
   /// Creates a border radius with horizontal symmetry, ensuring that the left
   /// and right sides of the rectangle have the same radii.
-  const MoonSquircleBorderRadius.horizontal({
-    MoonSquircleRadius left = MoonSquircleRadius.zero,
-    MoonSquircleRadius right = MoonSquircleRadius.zero,
+  const SelenicSquircleBorderRadius.horizontal({
+    SelenicSquircleRadius left = SelenicSquircleRadius.zero,
+    SelenicSquircleRadius right = SelenicSquircleRadius.zero,
   }) : this.only(
           topLeft: left,
           topRight: right,
@@ -86,11 +86,11 @@ class MoonSquircleBorderRadius extends BorderRadius {
 
   /// Creates a border radius with only the provided non-zero values, resulting
   /// in right angles for the other corners.
-  const MoonSquircleBorderRadius.only({
-    this.topLeft = MoonSquircleRadius.zero,
-    this.topRight = MoonSquircleRadius.zero,
-    this.bottomLeft = MoonSquircleRadius.zero,
-    this.bottomRight = MoonSquircleRadius.zero,
+  const SelenicSquircleBorderRadius.only({
+    this.topLeft = SelenicSquircleRadius.zero,
+    this.topRight = SelenicSquircleRadius.zero,
+    this.bottomLeft = SelenicSquircleRadius.zero,
+    this.bottomRight = SelenicSquircleRadius.zero,
   }) : super.only(
           topLeft: topLeft,
           bottomRight: topRight,
@@ -118,19 +118,19 @@ class MoonSquircleBorderRadius extends BorderRadius {
   /// Returns a copy of this BorderRadius with the given fields replaced with
   /// the new values.
   @override
-  MoonSquircleBorderRadius copyWith({
+  SelenicSquircleBorderRadius copyWith({
     Radius? topLeft,
     Radius? topRight,
     Radius? bottomLeft,
     Radius? bottomRight,
   }) {
-    return MoonSquircleBorderRadius.only(
-      topLeft: topLeft is MoonSquircleRadius ? topLeft : this.topLeft,
-      topRight: topRight is MoonSquircleRadius ? topRight : this.topRight,
+    return SelenicSquircleBorderRadius.only(
+      topLeft: topLeft is SelenicSquircleRadius ? topLeft : this.topLeft,
+      topRight: topRight is SelenicSquircleRadius ? topRight : this.topRight,
       bottomLeft:
-          bottomLeft is MoonSquircleRadius ? bottomLeft : this.bottomLeft,
+          bottomLeft is SelenicSquircleRadius ? bottomLeft : this.bottomLeft,
       bottomRight:
-          bottomRight is MoonSquircleRadius ? bottomRight : this.bottomRight,
+          bottomRight is SelenicSquircleRadius ? bottomRight : this.bottomRight,
     );
   }
 
@@ -185,25 +185,25 @@ class MoonSquircleBorderRadius extends BorderRadius {
 
   @override
   BorderRadiusGeometry subtract(BorderRadiusGeometry other) {
-    if (other is MoonSquircleBorderRadius) return this - other;
+    if (other is SelenicSquircleBorderRadius) return this - other;
     return super.subtract(other);
   }
 
   @override
   BorderRadiusGeometry add(BorderRadiusGeometry other) {
-    if (other is MoonSquircleBorderRadius) return this + other;
+    if (other is SelenicSquircleBorderRadius) return this + other;
     return super.add(other);
   }
 
   /// Returns the difference between two [BorderRadius] objects.
   @override
-  MoonSquircleBorderRadius operator -(BorderRadius other) {
-    if (other is MoonSquircleBorderRadius) {
-      return MoonSquircleBorderRadius.only(
-        topLeft: (topLeft - other.topLeft) as MoonSquircleRadius,
-        topRight: (topRight - other.topRight) as MoonSquircleRadius,
-        bottomLeft: (bottomLeft - other.bottomLeft) as MoonSquircleRadius,
-        bottomRight: (bottomRight - other.bottomRight) as MoonSquircleRadius,
+  SelenicSquircleBorderRadius operator -(BorderRadius other) {
+    if (other is SelenicSquircleBorderRadius) {
+      return SelenicSquircleBorderRadius.only(
+        topLeft: (topLeft - other.topLeft) as SelenicSquircleRadius,
+        topRight: (topRight - other.topRight) as SelenicSquircleRadius,
+        bottomLeft: (bottomLeft - other.bottomLeft) as SelenicSquircleRadius,
+        bottomRight: (bottomRight - other.bottomRight) as SelenicSquircleRadius,
       );
     }
 
@@ -212,13 +212,13 @@ class MoonSquircleBorderRadius extends BorderRadius {
 
   /// Returns the sum of two [BorderRadius] objects.
   @override
-  MoonSquircleBorderRadius operator +(BorderRadius other) {
-    if (other is MoonSquircleBorderRadius) {
-      return MoonSquircleBorderRadius.only(
-        topLeft: (topLeft + other.topLeft) as MoonSquircleRadius,
-        topRight: (topRight + other.topRight) as MoonSquircleRadius,
-        bottomLeft: (bottomLeft + other.bottomLeft) as MoonSquircleRadius,
-        bottomRight: (bottomRight + other.bottomRight) as MoonSquircleRadius,
+  SelenicSquircleBorderRadius operator +(BorderRadius other) {
+    if (other is SelenicSquircleBorderRadius) {
+      return SelenicSquircleBorderRadius.only(
+        topLeft: (topLeft + other.topLeft) as SelenicSquircleRadius,
+        topRight: (topRight + other.topRight) as SelenicSquircleRadius,
+        bottomLeft: (bottomLeft + other.bottomLeft) as SelenicSquircleRadius,
+        bottomRight: (bottomRight + other.bottomRight) as SelenicSquircleRadius,
       );
     }
 
@@ -229,19 +229,19 @@ class MoonSquircleBorderRadius extends BorderRadius {
   ///
   /// This is the same as multiplying the object by -1.0.
   @override
-  MoonSquircleBorderRadius operator -() {
-    return MoonSquircleBorderRadius.only(
-      topLeft: (-topLeft) as MoonSquircleRadius,
-      topRight: (-topRight) as MoonSquircleRadius,
-      bottomLeft: (-bottomLeft) as MoonSquircleRadius,
-      bottomRight: (-bottomRight) as MoonSquircleRadius,
+  SelenicSquircleBorderRadius operator -() {
+    return SelenicSquircleBorderRadius.only(
+      topLeft: (-topLeft) as SelenicSquircleRadius,
+      topRight: (-topRight) as SelenicSquircleRadius,
+      bottomLeft: (-bottomLeft) as SelenicSquircleRadius,
+      bottomRight: (-bottomRight) as SelenicSquircleRadius,
     );
   }
 
   /// Scales each corner of the [BorderRadius] by the given factor.
   @override
-  MoonSquircleBorderRadius operator *(double other) {
-    return MoonSquircleBorderRadius.only(
+  SelenicSquircleBorderRadius operator *(double other) {
+    return SelenicSquircleBorderRadius.only(
       topLeft: topLeft * other,
       topRight: topRight * other,
       bottomLeft: bottomLeft * other,
@@ -251,8 +251,8 @@ class MoonSquircleBorderRadius extends BorderRadius {
 
   /// Divides each corner of the [BorderRadius] by the given factor.
   @override
-  MoonSquircleBorderRadius operator /(double other) {
-    return MoonSquircleBorderRadius.only(
+  SelenicSquircleBorderRadius operator /(double other) {
+    return SelenicSquircleBorderRadius.only(
       topLeft: topLeft / other,
       topRight: topRight / other,
       bottomLeft: bottomLeft / other,
@@ -262,8 +262,8 @@ class MoonSquircleBorderRadius extends BorderRadius {
 
   /// Integer divides each corner of the [BorderRadius] by the given factor.
   @override
-  MoonSquircleBorderRadius operator ~/(double other) {
-    return MoonSquircleBorderRadius.only(
+  SelenicSquircleBorderRadius operator ~/(double other) {
+    return SelenicSquircleBorderRadius.only(
       topLeft: topLeft ~/ other,
       topRight: topRight ~/ other,
       bottomLeft: bottomLeft ~/ other,
@@ -273,8 +273,8 @@ class MoonSquircleBorderRadius extends BorderRadius {
 
   /// Computes the remainder of each corner by the given factor.
   @override
-  MoonSquircleBorderRadius operator %(double other) {
-    return MoonSquircleBorderRadius.only(
+  SelenicSquircleBorderRadius operator %(double other) {
+    return SelenicSquircleBorderRadius.only(
       topLeft: topLeft % other,
       topRight: topRight % other,
       bottomLeft: bottomLeft % other,
@@ -287,19 +287,19 @@ class MoonSquircleBorderRadius extends BorderRadius {
   /// If either is null, this function interpolates from [BorderRadius.zero].
   ///
   /// {@macro dart.ui.shadow.lerp}
-  static MoonSquircleBorderRadius? lerp(
-    MoonSquircleBorderRadius? a,
-    MoonSquircleBorderRadius? b,
+  static SelenicSquircleBorderRadius? lerp(
+    SelenicSquircleBorderRadius? a,
+    SelenicSquircleBorderRadius? b,
     double t,
   ) {
     if (a == null && b == null) return null;
     if (a == null) return b! * t;
     if (b == null) return a * (1.0 - t);
-    return MoonSquircleBorderRadius.only(
-      topLeft: MoonSquircleRadius.lerp(a.topLeft, b.topLeft, t)!,
-      topRight: MoonSquircleRadius.lerp(a.topRight, b.topRight, t)!,
-      bottomLeft: MoonSquircleRadius.lerp(a.bottomLeft, b.bottomLeft, t)!,
-      bottomRight: MoonSquircleRadius.lerp(a.bottomRight, b.bottomRight, t)!,
+    return SelenicSquircleBorderRadius.only(
+      topLeft: SelenicSquircleRadius.lerp(a.topLeft, b.topLeft, t)!,
+      topRight: SelenicSquircleRadius.lerp(a.topRight, b.topRight, t)!,
+      bottomLeft: SelenicSquircleRadius.lerp(a.bottomLeft, b.bottomLeft, t)!,
+      bottomRight: SelenicSquircleRadius.lerp(a.bottomRight, b.bottomRight, t)!,
     );
   }
 
@@ -317,10 +317,10 @@ class MoonSquircleBorderRadius extends BorderRadius {
         topLeft == bottomRight &&
         topLeft == bottomLeft) {
       final radius = topLeft.toString();
-      return 'MoonSquircleBorderRadius${radius.substring(12)}';
+      return 'SelenicSquircleBorderRadius${radius.substring(12)}';
     }
 
-    return 'MoonSquircleBorderRadius('
+    return 'SelenicSquircleBorderRadius('
         'topLeft: $topLeft, '
         'topRight: $topRight, '
         'bottomLeft: $bottomLeft, '

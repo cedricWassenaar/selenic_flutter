@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class BorderContainer extends StatefulWidget {
   final bool expands;
@@ -15,7 +15,7 @@ class BorderContainer extends StatefulWidget {
   final Widget child;
 
   /// Creates a utility widget for animating the border of a container.
-  /// Primarily utilized in [MoonTextInput] and [MoonTextInputGroup].
+  /// Primarily utilized in [SelenicTextInput] and [SelenicTextInputGroup].
   const BorderContainer({
     super.key,
     this.expands = false,

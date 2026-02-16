@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-class MoonDrawer extends StatelessWidget {
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/shadows.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+
+class SelenicDrawer extends StatelessWidget {
   /// The border radius of the drawer.
   final BorderRadiusGeometry? borderRadius;
 
@@ -30,8 +31,8 @@ class MoonDrawer extends StatelessWidget {
   /// The widget to display inside the drawer as its content.
   final Widget child;
 
-  /// Creates a Moon Design drawer.
-  const MoonDrawer({
+  /// Creates a Selenic Design drawer.
+  const SelenicDrawer({
     super.key,
     this.borderRadius,
     this.backgroundColor,
@@ -45,23 +46,23 @@ class MoonDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
-        context.moonTheme?.drawerTheme.properties.borderRadius ??
+        context.selenicTheme?.drawerTheme.properties.borderRadius ??
         BorderRadius.zero;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.drawerTheme.colors.backgroundColor ??
+        context.selenicTheme?.drawerTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.drawerTheme.colors.textColor ??
+        context.selenicTheme?.drawerTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.drawerTheme.colors.iconColor ??
+        context.selenicTheme?.drawerTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final double effectiveWidthFromTheme =
-        context.moonTheme?.drawerTheme.properties.width ?? 448;
+        context.selenicTheme?.drawerTheme.properties.width ?? 448;
 
     final double effectiveWidth = width ??
         (MediaQuery.of(context).size.width < effectiveWidthFromTheme
@@ -69,12 +70,12 @@ class MoonDrawer extends StatelessWidget {
             : effectiveWidthFromTheme);
 
     final List<BoxShadow> effectiveDrawerShadows = drawerShadows ??
-        context.moonTheme?.drawerTheme.shadows.drawerShadows ??
-        MoonShadows.light.lg;
+        context.selenicTheme?.drawerTheme.shadows.drawerShadows ??
+        SelenicShadows.light.lg;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.drawerTheme.properties.textStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.selenicTheme?.drawerTheme.properties.textStyle ??
+            SelenicTypography.typography.body.textDefault;
 
     return Semantics(
       explicitChildNodes: true,
@@ -91,7 +92,7 @@ class MoonDrawer extends StatelessWidget {
                 ShapeDecorationWithPremultipliedAlpha(
                   color: effectiveBackgroundColor,
                   shadows: effectiveDrawerShadows,
-                  shape: MoonSquircleBorder(
+                  shape: SelenicSquircleBorder(
                     borderRadius:
                         effectiveBorderRadius.squircleBorderRadius(context),
                   ),

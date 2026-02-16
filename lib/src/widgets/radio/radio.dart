@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/effects/effects_theme.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/utils/touch_target_padding.dart';
-import 'package:moon_design/src/widgets/common/effects/focus_effect.dart';
-import 'package:moon_design/src/widgets/radio/radio_painter.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-class MoonRadio<T> extends StatefulWidget {
+import 'package:selenic_design/src/theme/effects/effects_theme.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/opacities.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/utils/touch_target_padding.dart';
+import 'package:selenic_design/src/widgets/common/effects/focus_effect.dart';
+import 'package:selenic_design/src/widgets/radio/radio_painter.dart';
+
+class SelenicRadio<T> extends StatefulWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
   final bool autofocus;
 
@@ -71,8 +72,8 @@ class MoonRadio<T> extends StatefulWidget {
   /// gets rebuilt.
   final ValueChanged<T?>? onChanged;
 
-  /// Creates a Moon Design radio button.
-  const MoonRadio({
+  /// Creates a Selenic Design radio button.
+  const SelenicRadio({
     super.key,
     this.autofocus = false,
     this.toggleable = false,
@@ -89,12 +90,12 @@ class MoonRadio<T> extends StatefulWidget {
   bool get _selected => value == groupValue;
 
   @override
-  State<MoonRadio<T>> createState() => _RadioState<T>();
+  State<SelenicRadio<T>> createState() => _RadioState<T>();
 }
 
-class _RadioState<T> extends State<MoonRadio<T>>
+class _RadioState<T> extends State<SelenicRadio<T>>
     with TickerProviderStateMixin, ToggleableStateMixin {
-  final MoonRadioPainter _painter = MoonRadioPainter();
+  final SelenicRadioPainter _painter = SelenicRadioPainter();
 
   void _handleChanged(bool? selected) {
     if (selected == null) {
@@ -108,7 +109,7 @@ class _RadioState<T> extends State<MoonRadio<T>>
   }
 
   @override
-  void didUpdateWidget(MoonRadio<T> oldWidget) {
+  void didUpdateWidget(SelenicRadio<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget._selected != oldWidget._selected) animateToValue();
@@ -136,44 +137,44 @@ class _RadioState<T> extends State<MoonRadio<T>>
     const Size size = Size(16, 16);
 
     final Color effectiveActiveColor = widget.activeColor ??
-        context.moonTheme?.radioTheme.colors.activeColor ??
+        context.selenicTheme?.radioTheme.colors.activeColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveInactiveColor = widget.inactiveColor ??
-        context.moonTheme?.radioTheme.colors.inactiveColor ??
+        context.selenicTheme?.radioTheme.colors.inactiveColor ??
         MoonColors.light.trunks;
 
     final Color effectiveFocusEffectColor =
-        context.moonEffects?.controlFocusEffect.effectColor ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectColor ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectColor;
 
     final double effectiveFocusEffectExtent =
-        context.moonEffects?.controlFocusEffect.effectExtent ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectExtent ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectExtent;
 
     final Duration effectiveFocusEffectDuration =
-        context.moonEffects?.controlFocusEffect.effectDuration ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectDuration ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectDuration;
 
     final Curve effectiveFocusEffectCurve =
-        context.moonEffects?.controlFocusEffect.effectCurve ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectCurve ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlFocusEffect
                 .effectCurve;
 
     final double effectiveDisabledOpacityValue =
-        context.moonOpacities?.disabled ?? MoonOpacities.opacities.disabled;
+        context.selenicOpacities?.disabled ??
+            SelenicOpacities.opacities.disabled;
 
-    final MaterialStateProperty<MouseCursor> effectiveMouseCursor =
-        MaterialStateProperty.resolveWith<MouseCursor>(
-            (Set<MaterialState> states) {
-      return MaterialStateMouseCursor.clickable.resolve(states);
+    final WidgetStateProperty<MouseCursor> effectiveMouseCursor =
+        WidgetStateProperty.resolveWith<MouseCursor>((Set<WidgetState> states) {
+      return WidgetStateMouseCursor.clickable.resolve(states);
     });
 
     return Semantics(
@@ -182,8 +183,8 @@ class _RadioState<T> extends State<MoonRadio<T>>
       checked: widget._selected,
       child: TouchTargetPadding(
         minSize: Size(widget.tapAreaSizeValue, widget.tapAreaSizeValue),
-        child: MoonFocusEffect(
-          show: states.contains(MaterialState.focused),
+        child: SelenicFocusEffect(
+          show: states.contains(WidgetState.focused),
           effectExtent: effectiveFocusEffectExtent,
           childBorderRadius: BorderRadius.circular(8),
           effectColor: effectiveFocusEffectColor,
@@ -191,7 +192,7 @@ class _RadioState<T> extends State<MoonRadio<T>>
           effectDuration: effectiveFocusEffectDuration,
           child: RepaintBoundary(
             child: AnimatedOpacity(
-              opacity: states.contains(MaterialState.disabled)
+              opacity: states.contains(WidgetState.disabled)
                   ? effectiveDisabledOpacityValue
                   : 1,
               duration: effectiveFocusEffectDuration,

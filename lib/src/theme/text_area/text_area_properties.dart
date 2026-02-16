@@ -2,30 +2,31 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTextAreaProperties extends ThemeExtension<MoonTextAreaProperties>
+class SelenicTextAreaProperties
+    extends ThemeExtension<SelenicTextAreaProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonTextArea.
+  /// The border radius of the SelenicTextArea.
   final BorderRadiusGeometry borderRadius;
 
-  /// The duration of the MoonTextArea transition animation (enable and disable).
+  /// The duration of the SelenicTextArea transition animation (enable and disable).
   final Duration transitionDuration;
 
-  /// The curve of the MoonTextArea transition animation (enable and disable).
+  /// The curve of the SelenicTextArea transition animation (enable and disable).
   final Curve transitionCurve;
 
-  /// The padding of the MoonTextArea helper and errorBuilder widgets.
+  /// The padding of the SelenicTextArea helper and errorBuilder widgets.
   final EdgeInsetsGeometry helperPadding;
 
-  /// The padding of the MoonTextArea text.
+  /// The padding of the SelenicTextArea text.
   final EdgeInsetsGeometry textPadding;
 
-  /// The text style of the MoonTextArea.
+  /// The text style of the SelenicTextArea.
   final TextStyle textStyle;
 
-  /// The text style of the MoonTextArea helper and errorBuilder widgets.
+  /// The text style of the SelenicTextArea helper and errorBuilder widgets.
   final TextStyle helperTextStyle;
 
-  const MoonTextAreaProperties({
+  const SelenicTextAreaProperties({
     required this.borderRadius,
     required this.transitionDuration,
     required this.transitionCurve,
@@ -36,7 +37,7 @@ class MoonTextAreaProperties extends ThemeExtension<MoonTextAreaProperties>
   });
 
   @override
-  MoonTextAreaProperties copyWith({
+  SelenicTextAreaProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     Duration? transitionDuration,
     Curve? transitionCurve,
@@ -45,7 +46,7 @@ class MoonTextAreaProperties extends ThemeExtension<MoonTextAreaProperties>
     TextStyle? textStyle,
     TextStyle? helperTextStyle,
   }) {
-    return MoonTextAreaProperties(
+    return SelenicTextAreaProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       transitionDuration: transitionDuration ?? this.transitionDuration,
       transitionCurve: transitionCurve ?? this.transitionCurve,
@@ -57,13 +58,13 @@ class MoonTextAreaProperties extends ThemeExtension<MoonTextAreaProperties>
   }
 
   @override
-  MoonTextAreaProperties lerp(
-    ThemeExtension<MoonTextAreaProperties>? other,
+  SelenicTextAreaProperties lerp(
+    ThemeExtension<SelenicTextAreaProperties>? other,
     double t,
   ) {
-    if (other is! MoonTextAreaProperties) return this;
+    if (other is! SelenicTextAreaProperties) return this;
 
-    return MoonTextAreaProperties(
+    return SelenicTextAreaProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       transitionDuration:
@@ -83,7 +84,7 @@ class MoonTextAreaProperties extends ThemeExtension<MoonTextAreaProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonTextAreaProperties"),
+        DiagnosticsProperty("type", "SelenicTextAreaProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class TextAreaStory extends StatelessWidget {
@@ -12,7 +12,7 @@ class TextAreaStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for MoonTextArea text.",
+      description: "MoonColors variants for SelenicTextArea text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -23,7 +23,7 @@ class TextAreaStory extends StatelessWidget {
 
     final hintTextColorKnob = context.knobs.nullable.options(
       label: "hintTextColor",
-      description: "MoonColors variants for MoonTextArea hint text.",
+      description: "MoonColors variants for SelenicTextArea hint text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -34,7 +34,7 @@ class TextAreaStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonTextArea background.",
+      description: "MoonColors variants for SelenicTextArea background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -45,7 +45,7 @@ class TextAreaStory extends StatelessWidget {
 
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for MoonTextArea active border.",
+      description: "MoonColors variants for SelenicTextArea active border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -56,7 +56,7 @@ class TextAreaStory extends StatelessWidget {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for MoonTextArea inactive border.",
+      description: "MoonColors variants for SelenicTextArea inactive border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -68,7 +68,7 @@ class TextAreaStory extends StatelessWidget {
 
     final errorColorKnob = context.knobs.nullable.options(
       label: "errorColor",
-      description: "MoonColors variants for MoonTextArea in error state.",
+      description: "MoonColors variants for SelenicTextArea in error state.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -79,7 +79,7 @@ class TextAreaStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonTextArea.",
+      description: "Border radius for SelenicTextArea.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -93,12 +93,12 @@ class TextAreaStory extends StatelessWidget {
 
     final expandsKnob = context.knobs.boolean(
       label: "expands",
-      description: "Whether MoonTextArea can expand to fit its contents.",
+      description: "Whether SelenicTextArea can expand to fit its contents.",
     );
 
     final showHelperKnob = context.knobs.boolean(
       label: "helper",
-      description: "Show widget in MoonTextArea helper slot.",
+      description: "Show widget in SelenicTextArea helper slot.",
     );
 
     return Center(
@@ -110,7 +110,7 @@ class TextAreaStory extends StatelessWidget {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  MoonTextArea(
+                  SelenicTextArea(
                     enabled: enabledKnob,
                     expands: expandsKnob,
                     height: expandsKnob ? null : 200,
@@ -134,7 +134,7 @@ class TextAreaStory extends StatelessWidget {
                         showHelperKnob ? const Text("Supporting text") : null,
                   ),
                   const SizedBox(height: 32),
-                  MoonFilledButton(
+                  SelenicFilledButton(
                     label: const Text("Submit"),
                     onTap: () => Form.of(context).validate(),
                   ),

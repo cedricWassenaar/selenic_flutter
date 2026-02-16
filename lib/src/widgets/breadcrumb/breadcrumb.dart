@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/src/theme/breadcrumb/breadcrumb_theme.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/text_styles.dart';
-import 'package:moon_design/src/utils/color_tween_premul.dart';
-import 'package:moon_design/src/widgets/breadcrumb/breadcrumb_item.dart';
-import 'package:moon_design/src/widgets/common/base_control.dart';
 import 'package:moon_icons/moon_icons.dart';
 import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/breadcrumb/breadcrumb_theme.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/text_styles.dart';
+import 'package:selenic_design/src/utils/color_tween_premul.dart';
+import 'package:selenic_design/src/widgets/breadcrumb/breadcrumb_item.dart';
+import 'package:selenic_design/src/widgets/common/base_control.dart';
 
-class MoonBreadcrumb extends StatefulWidget {
+class SelenicBreadcrumb extends StatefulWidget {
   /// The color of the breadcrumb divider.
   final Color? dividerColor;
 
@@ -39,17 +39,17 @@ class MoonBreadcrumb extends StatefulWidget {
   final TextStyle? currentItemTextStyle;
 
   /// The list of breadcrumb items to display as a sequence of steps.
-  final List<MoonBreadcrumbItem> items;
+  final List<SelenicBreadcrumbItem> items;
 
   /// The separating widget to display between the breadcrumb items.
   final Widget? divider;
 
   /// The single custom widget to replace all the breadcrumb collapsed items
   /// with.
-  final MoonBreadcrumbItem? showMoreWidget;
+  final SelenicBreadcrumbItem? showMoreWidget;
 
-  /// Creates a Moon Design breadcrumb.
-  const MoonBreadcrumb({
+  /// Creates a Selenic Design breadcrumb.
+  const SelenicBreadcrumb({
     super.key,
     this.dividerColor,
     this.hoverEffectColor,
@@ -66,17 +66,17 @@ class MoonBreadcrumb extends StatefulWidget {
   });
 
   @override
-  State<MoonBreadcrumb> createState() => _MoonBreadcrumbState();
+  State<SelenicBreadcrumb> createState() => _SelenicBreadcrumbState();
 }
 
-class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
+class _SelenicBreadcrumbState extends State<SelenicBreadcrumb> {
   bool _showFullPath = false;
 
   List<Widget> _buildItems() {
-    final MoonBreadcrumbTheme? theme = context.moonTheme?.breadcrumbTheme;
+    final SelenicBreadcrumbTheme? theme = context.selenicTheme?.breadcrumbTheme;
 
     final double effectiveGap =
-        widget.gap ?? theme?.properties.gap ?? MoonSizes.sizes.x4s;
+        widget.gap ?? theme?.properties.gap ?? SelenicSizes.sizes.x4s;
 
     final Color effectiveItemTextColor = widget.itemTextStyle?.color ??
         theme?.colors.itemColor ??
@@ -93,31 +93,31 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
 
     final TextStyle effectiveItemTextStyle = widget.itemTextStyle ??
         theme?.properties.itemTextStyle ??
-        MoonTextStyles.body.textDefault;
+        SelenicTextStyles.body.textDefault;
 
     final TextStyle effectiveCurrentItemTextStyle =
         widget.currentItemTextStyle ??
             theme?.properties.currentItemTextStyle ??
-            MoonTextStyles.body.textDefault;
+            SelenicTextStyles.body.textDefault;
 
     final TextStyle effectiveShowMoreItemTextStyle =
         theme?.properties.showMoreItemTextStyle ??
-            MoonTextStyles.body.textDefault;
+            SelenicTextStyles.body.textDefault;
 
     final Duration effectiveTransitionDuration =
         theme?.properties.transitionDuration ??
-            MoonTransitions.transitions.defaultTransitionDuration;
+            SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = theme?.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     final int resolvedItemCountToShow =
         _showFullPath ? widget.items.length : widget.visibleItemCount;
 
-    final List<MoonBreadcrumbItem> visibleItemsList = _getVisibleItems();
+    final List<SelenicBreadcrumbItem> visibleItemsList = _getVisibleItems();
 
     final List<Widget> customizedVisibleItemsList = visibleItemsList.map(
-      (MoonBreadcrumbItem item) {
+      (SelenicBreadcrumbItem item) {
         return Row(
           children: [
             if (item != visibleItemsList.first) SizedBox(width: effectiveGap),
@@ -164,7 +164,7 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
                 onTap: widget.showMoreWidget?.onTap ??
                     () => setState(() => _showFullPath = true),
                 item: widget.showMoreWidget ??
-                    MoonBreadcrumbItem(
+                    SelenicBreadcrumbItem(
                       semanticLabel: widget.semanticLabel,
                       label: SizedBox(
                         width: 24,
@@ -189,21 +189,22 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
     return customizedVisibleItemsList;
   }
 
-  List<MoonBreadcrumbItem> _getVisibleItems() {
+  List<SelenicBreadcrumbItem> _getVisibleItems() {
     final int resolvedItemCountToShow =
         _showFullPath ? widget.items.length : widget.visibleItemCount;
 
-    final List<MoonBreadcrumbItem> visibleItems = resolvedItemCountToShow == 0
-        ? []
-        : widget.items.length > resolvedItemCountToShow
-            ? [
-                widget.items[0],
-                ...List.generate(
-                  resolvedItemCountToShow - 1,
-                  (index) => widget.items.length - index,
-                ).reversed.map((int index) => widget.items[index - 1]),
-              ]
-            : widget.items;
+    final List<SelenicBreadcrumbItem> visibleItems =
+        resolvedItemCountToShow == 0
+            ? []
+            : widget.items.length > resolvedItemCountToShow
+                ? [
+                    widget.items[0],
+                    ...List.generate(
+                      resolvedItemCountToShow - 1,
+                      (index) => widget.items.length - index,
+                    ).reversed.map((int index) => widget.items[index - 1]),
+                  ]
+                : widget.items;
 
     return visibleItems;
   }
@@ -211,7 +212,7 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
   Widget _buildDivider() {
     final Color effectiveDividerColor = widget.dividerColor ??
         widget.itemTextStyle?.color ??
-        context.moonTheme?.breadcrumbTheme.colors.itemColor ??
+        context.selenicTheme?.breadcrumbTheme.colors.itemColor ??
         MoonColors.light.iconSecondary;
 
     return IconTheme(
@@ -250,7 +251,7 @@ class _BreadcrumbItemBuilder extends StatefulWidget {
   final TextStyle itemTextStyle;
   final TextStyle currentItemTextStyle;
   final VoidCallback? onTap;
-  final MoonBreadcrumbItem item;
+  final SelenicBreadcrumbItem item;
 
   const _BreadcrumbItemBuilder({
     required this.isCurrent,
@@ -304,8 +305,8 @@ class _BreadCrumbItemBuilderState extends State<_BreadcrumbItemBuilder>
   @override
   Widget build(BuildContext context) {
     final double effectiveGap = widget.item.gap ??
-        context.moonTheme?.breadcrumbTheme.properties.itemGap ??
-        MoonSizes.sizes.x6s;
+        context.selenicTheme?.breadcrumbTheme.properties.itemGap ??
+        SelenicSizes.sizes.x6s;
 
     final Color resolvedItemColor =
         widget.isCurrent ? widget.currentItemColor : widget.itemColor;
@@ -324,7 +325,7 @@ class _BreadCrumbItemBuilderState extends State<_BreadcrumbItemBuilder>
       ..begin = resolvedItemColor
       ..end = resolvedHoverEffectColor;
 
-    return MoonBaseControl(
+    return SelenicBaseControl(
       semanticLabel: widget.item.semanticLabel,
       backgroundColor: widget.decoration?.color,
       borderRadius: widget.decoration?.borderRadius,

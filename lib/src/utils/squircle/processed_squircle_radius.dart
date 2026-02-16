@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_radius.dart';
 
 // The article from figma's blog
 // https://www.figma.com/blog/desperately-seeking-squircles/
@@ -8,7 +8,7 @@ import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
 // The original code
 // https://github.com/MartinRGB/Figma_Squircles_Approximation/blob/bf29714aab58c54329f3ca130ffa16d39a2ff08c/js/rounded-corners.js#L64
 class ProcessedSquircleRadius {
-  final MoonSquircleRadius radius;
+  final SelenicSquircleRadius radius;
   final double a;
   final double b;
   final double c;
@@ -19,7 +19,7 @@ class ProcessedSquircleRadius {
   final double height;
 
   factory ProcessedSquircleRadius(
-    MoonSquircleRadius radius, {
+    SelenicSquircleRadius radius, {
     required double width,
     required double height,
   }) {
@@ -83,7 +83,7 @@ class ProcessedSquircleRadius {
       p: p,
       width: width,
       height: height,
-      radius: MoonSquircleRadius(
+      radius: SelenicSquircleRadius(
         cornerRadius: cornerRadius,
         cornerSmoothing: radius.cornerSmoothing,
       ),
@@ -109,7 +109,7 @@ class ProcessedSquircleRadius {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (runtimeType != other.runtimeType) return false;
-    if (other is MoonSquircleRadius) {
+    if (other is SelenicSquircleRadius) {
       return other == radius;
     }
     if (other is ProcessedSquircleRadius) {

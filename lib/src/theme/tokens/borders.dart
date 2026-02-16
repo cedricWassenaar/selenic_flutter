@@ -4,9 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonBorders extends ThemeExtension<MoonBorders>
+class SelenicBorders extends ThemeExtension<SelenicBorders>
     with DiagnosticableTreeMixin {
-  static const borders = MoonBorders(
+  static const borders = SelenicBorders(
     interactiveXs: BorderRadius.all(Radius.circular(4)),
     interactiveSm: BorderRadius.all(Radius.circular(8)),
     interactiveMd: BorderRadius.all(Radius.circular(12)),
@@ -45,7 +45,7 @@ class MoonBorders extends ThemeExtension<MoonBorders>
   /// The active border width.
   final double activeBorderWidth;
 
-  const MoonBorders({
+  const SelenicBorders({
     required this.interactiveXs,
     required this.interactiveSm,
     required this.interactiveMd,
@@ -58,7 +58,7 @@ class MoonBorders extends ThemeExtension<MoonBorders>
   });
 
   @override
-  MoonBorders copyWith({
+  SelenicBorders copyWith({
     BorderRadiusGeometry? interactiveXs,
     BorderRadiusGeometry? interactiveSm,
     BorderRadiusGeometry? interactiveMd,
@@ -69,7 +69,7 @@ class MoonBorders extends ThemeExtension<MoonBorders>
     double? defaultBorderWidth,
     double? activeBorderWidth,
   }) {
-    return MoonBorders(
+    return SelenicBorders(
       interactiveXs: interactiveXs ?? this.interactiveXs,
       interactiveSm: interactiveSm ?? this.interactiveSm,
       interactiveMd: interactiveMd ?? this.interactiveMd,
@@ -83,10 +83,10 @@ class MoonBorders extends ThemeExtension<MoonBorders>
   }
 
   @override
-  MoonBorders lerp(ThemeExtension<MoonBorders>? other, double t) {
-    if (other is! MoonBorders) return this;
+  SelenicBorders lerp(ThemeExtension<SelenicBorders>? other, double t) {
+    if (other is! SelenicBorders) return this;
 
-    return MoonBorders(
+    return SelenicBorders(
       interactiveXs:
           BorderRadiusGeometry.lerp(interactiveXs, other.interactiveXs, t)!,
       interactiveSm:
@@ -111,7 +111,7 @@ class MoonBorders extends ThemeExtension<MoonBorders>
       ..add(
         DiagnosticsProperty(
           "type",
-          "MoonBorders",
+          "SelenicBorders",
         ),
       )
       ..add(

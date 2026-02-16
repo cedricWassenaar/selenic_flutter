@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MoonAnimatedDefaultTextStyle extends StatefulWidget {
+class SelenicAnimatedDefaultTextStyle extends StatefulWidget {
   final TextStyle textStyle;
   final Duration duration;
   final Curve curve;
   final Widget child;
 
   /// Creates a utility widget for animating text style.
-  const MoonAnimatedDefaultTextStyle({
+  const SelenicAnimatedDefaultTextStyle({
     super.key,
     required this.textStyle,
     required this.duration,
@@ -16,12 +16,12 @@ class MoonAnimatedDefaultTextStyle extends StatefulWidget {
   });
 
   @override
-  _MoonAnimatedDefaultTextStyleState createState() =>
-      _MoonAnimatedDefaultTextStyleState();
+  _SelenicAnimatedDefaultTextStyleState createState() =>
+      _SelenicAnimatedDefaultTextStyleState();
 }
 
-class _MoonAnimatedDefaultTextStyleState
-    extends State<MoonAnimatedDefaultTextStyle>
+class _SelenicAnimatedDefaultTextStyleState
+    extends State<SelenicAnimatedDefaultTextStyle>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _textStyleAnimation;
@@ -53,7 +53,7 @@ class _MoonAnimatedDefaultTextStyleState
   }
 
   @override
-  void didUpdateWidget(MoonAnimatedDefaultTextStyle oldWidget) {
+  void didUpdateWidget(SelenicAnimatedDefaultTextStyle oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.textStyle != oldWidget.textStyle) {
       _textStyle = TextStyleTween(

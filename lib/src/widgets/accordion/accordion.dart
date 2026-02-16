@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/accordion/accordion_size_properties.dart';
-import 'package:moon_design/src/theme/accordion/accordion_sizes.dart';
-import 'package:moon_design/src/theme/effects/effects_theme.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/utils/color_tween_premul.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/widgets/common/base_control.dart';
 import 'package:moon_icons/moon_icons.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonAccordionSize {
+import 'package:selenic_design/src/theme/accordion/accordion_size_properties.dart';
+import 'package:selenic_design/src/theme/accordion/accordion_sizes.dart';
+import 'package:selenic_design/src/theme/effects/effects_theme.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/shadows.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/utils/color_tween_premul.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/widgets/common/base_control.dart';
+
+enum SelenicAccordionSize {
   sm,
   md,
   lg,
   xl,
 }
 
-class MoonAccordion<T> extends StatefulWidget {
+class SelenicAccordion<T> extends StatefulWidget {
   /// The alignment of [children], which are arranged in a column when the
   /// accordion is expanded.
   ///
@@ -147,7 +148,7 @@ class MoonAccordion<T> extends StatefulWidget {
   final List<BoxShadow>? shadows;
 
   /// The size of the accordion.
-  final MoonAccordionSize? accordionSize;
+  final SelenicAccordionSize? accordionSize;
 
   /// The semantic label for the accordion.
   final String? semanticLabel;
@@ -187,8 +188,8 @@ class MoonAccordion<T> extends StatefulWidget {
   /// accordion expands.
   final List<Widget> children;
 
-  /// Creates a Moon Design accordion.
-  const MoonAccordion({
+  /// Creates a Selenic Design accordion.
+  const SelenicAccordion({
     super.key,
     this.expandedAlignment,
     this.expandedCrossAxisAlignment,
@@ -239,15 +240,15 @@ class MoonAccordion<T> extends StatefulWidget {
       identityValue != null && identityValue == groupIdentityValue;
 
   @override
-  State<MoonAccordion<T>> createState() => _MoonAccordionState<T>();
+  State<SelenicAccordion<T>> createState() => _SelenicAccordionState<T>();
 }
 
-class _MoonAccordionState<T> extends State<MoonAccordion<T>>
+class _SelenicAccordionState<T> extends State<SelenicAccordion<T>>
     with TickerProviderStateMixin {
   static final Animatable<double> _halfTween =
       Tween<double>(begin: 0.0, end: 0.5);
 
-  late MoonAccordionSizeProperties _effectiveMoonAccordionSize;
+  late SelenicAccordionSizeProperties _effectiveSelenicAccordionSize;
   late BorderRadiusGeometry _effectiveBorderRadius;
   late EdgeInsetsGeometry _effectiveHeaderPadding;
   late EdgeInsets _resolvedDirectionalHeaderPadding;
@@ -307,26 +308,26 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
     widget.onExpansionChanged?.call(_isExpanded ? widget.identityValue : null);
   }
 
-  MoonAccordionSizeProperties _getMoonAccordionSize(
+  SelenicAccordionSizeProperties _getSelenicAccordionSize(
     BuildContext context,
-    MoonAccordionSize? moonAccordionSize,
+    SelenicAccordionSize? accordionSize,
   ) {
-    switch (moonAccordionSize) {
-      case MoonAccordionSize.sm:
-        return context.moonTheme?.accordionTheme.sizes.sm ??
-            MoonAccordionSizes(tokens: MoonTokens.light).sm;
-      case MoonAccordionSize.md:
-        return context.moonTheme?.accordionTheme.sizes.md ??
-            MoonAccordionSizes(tokens: MoonTokens.light).md;
-      case MoonAccordionSize.lg:
-        return context.moonTheme?.accordionTheme.sizes.lg ??
-            MoonAccordionSizes(tokens: MoonTokens.light).lg;
-      case MoonAccordionSize.xl:
-        return context.moonTheme?.accordionTheme.sizes.xl ??
-            MoonAccordionSizes(tokens: MoonTokens.light).xl;
+    switch (accordionSize) {
+      case SelenicAccordionSize.sm:
+        return context.selenicTheme?.accordionTheme.sizes.sm ??
+            SelenicAccordionSizes(tokens: SelenicTokens.light).sm;
+      case SelenicAccordionSize.md:
+        return context.selenicTheme?.accordionTheme.sizes.md ??
+            SelenicAccordionSizes(tokens: SelenicTokens.light).md;
+      case SelenicAccordionSize.lg:
+        return context.selenicTheme?.accordionTheme.sizes.lg ??
+            SelenicAccordionSizes(tokens: SelenicTokens.light).lg;
+      case SelenicAccordionSize.xl:
+        return context.selenicTheme?.accordionTheme.sizes.xl ??
+            SelenicAccordionSizes(tokens: SelenicTokens.light).xl;
       default:
-        return context.moonTheme?.accordionTheme.sizes.md ??
-            MoonAccordionSizes(tokens: MoonTokens.light).md;
+        return context.selenicTheme?.accordionTheme.sizes.md ??
+            SelenicAccordionSizes(tokens: SelenicTokens.light).md;
     }
   }
 
@@ -347,7 +348,7 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
   }
 
   @override
-  void didUpdateWidget(MoonAccordion<T> oldWidget) {
+  void didUpdateWidget(SelenicAccordion<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.identityValue == null && widget.groupIdentityValue == null) {
@@ -382,14 +383,14 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
 
   Widget? _buildIcon(BuildContext context) {
     final double iconSize =
-        _getMoonAccordionSize(context, widget.accordionSize).iconSizeValue;
+        _getSelenicAccordionSize(context, widget.accordionSize).iconSizeValue;
 
     final Color effectiveTrailingIconColor = widget.iconColor ??
-        context.moonTheme?.accordionTheme.colors.trailingIconColor ??
+        context.selenicTheme?.accordionTheme.colors.trailingIconColor ??
         MoonColors.light.textSecondary;
 
     final Color effectiveExpandedTrailingIconColor = widget.expandedIconColor ??
-        context.moonTheme?.accordionTheme.colors.expandedTrailingIconColor ??
+        context.selenicTheme?.accordionTheme.colors.expandedTrailingIconColor ??
         MoonColors.light.textPrimary;
 
     _iconColor ??= _iconColorTween.animate(_expansionCurvedAnimation!);
@@ -416,14 +417,14 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
 
   Widget _buildDecorationContainer({required Widget child}) {
     final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme?.accordionTheme.colors.borderColor ??
+        context.selenicTheme?.accordionTheme.colors.borderColor ??
         MoonColors.light.beerus;
 
     final List<BoxShadow> effectiveShadows = widget.shadows ??
-        context.moonTheme?.accordionTheme.shadows.shadows ??
-        MoonShadows.light.sm;
+        context.selenicTheme?.accordionTheme.shadows.shadows ??
+        SelenicShadows.light.sm;
 
-    return MoonBaseControl(
+    return SelenicBaseControl(
       onTap: widget.isDisabled ? null : _handleTap,
       propagateGesturesToChild: widget.propagateGesturesToChild,
       autofocus: widget.autofocus,
@@ -449,7 +450,7 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
                   ShapeDecoration(
                     color: _hoverColor!.value,
                     shadows: effectiveShadows,
-                    shape: MoonSquircleBorder(
+                    shape: SelenicSquircleBorder(
                       side: widget.showBorder
                           ? BorderSide(color: effectiveBorderColor)
                           : BorderSide.none,
@@ -468,86 +469,86 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
 
   Widget _buildContent(BuildContext context, Widget? rootChild) {
     _effectiveHoverEffectColor ??=
-        context.moonEffects?.controlHoverEffect.primaryHoverColor ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.primaryHoverColor ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlHoverEffect
                 .primaryHoverColor;
 
-    _effectiveMoonAccordionSize =
-        _getMoonAccordionSize(context, widget.accordionSize);
+    _effectiveSelenicAccordionSize =
+        _getSelenicAccordionSize(context, widget.accordionSize);
 
     _effectiveBorderRadius =
-        widget.borderRadius ?? _effectiveMoonAccordionSize.borderRadius;
+        widget.borderRadius ?? _effectiveSelenicAccordionSize.borderRadius;
 
     _effectiveHeaderHeight =
-        widget.headerHeight ?? _effectiveMoonAccordionSize.headerHeight;
+        widget.headerHeight ?? _effectiveSelenicAccordionSize.headerHeight;
 
     _effectiveHeaderPadding =
-        widget.headerPadding ?? _effectiveMoonAccordionSize.headerPadding;
+        widget.headerPadding ?? _effectiveSelenicAccordionSize.headerPadding;
 
     _resolvedDirectionalHeaderPadding =
         _effectiveHeaderPadding.resolve(Directionality.of(context));
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.accordionTheme.colors.backgroundColor ??
+        context.selenicTheme?.accordionTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
-    final Color effectiveExpandedBackgroundColor =
-        widget.expandedBackgroundColor ??
-            context.moonTheme?.accordionTheme.colors.expandedBackgroundColor ??
-            MoonColors.light.goku;
+    final Color effectiveExpandedBackgroundColor = widget
+            .expandedBackgroundColor ??
+        context.selenicTheme?.accordionTheme.colors.expandedBackgroundColor ??
+        MoonColors.light.goku;
 
     final Color effectiveIconColor = widget.iconColor ??
-        context.moonTheme?.accordionTheme.colors.iconColor ??
+        context.selenicTheme?.accordionTheme.colors.iconColor ??
         MoonColors.light.iconPrimary;
 
     final Color effectiveExpandedIconColor = widget.expandedIconColor ??
-        context.moonTheme?.accordionTheme.colors.expandedIconColor ??
+        context.selenicTheme?.accordionTheme.colors.expandedIconColor ??
         MoonColors.light.iconPrimary;
 
     final Color effectiveTextColor = widget.textColor ??
-        context.moonTheme?.accordionTheme.colors.textColor ??
+        context.selenicTheme?.accordionTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveExpandedTextColor = widget.expandedTextColor ??
-        context.moonTheme?.accordionTheme.colors.expandedTextColor ??
+        context.selenicTheme?.accordionTheme.colors.expandedTextColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveContentTextColor =
-        context.moonTheme?.accordionTheme.colors.contentColor ??
+        context.selenicTheme?.accordionTheme.colors.contentColor ??
             MoonColors.light.textPrimary;
 
     final TextStyle effectiveHeaderTextStyle =
-        _effectiveMoonAccordionSize.headerTextStyle;
+        _effectiveSelenicAccordionSize.headerTextStyle;
 
     final TextStyle effectiveContentTextStyle =
-        _effectiveMoonAccordionSize.contentTextStyle;
+        _effectiveSelenicAccordionSize.contentTextStyle;
 
     final Color effectiveHoverEffectColor =
-        context.moonEffects?.controlHoverEffect.primaryHoverColor ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.primaryHoverColor ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlHoverEffect
                 .primaryHoverColor;
 
     final Duration effectiveHoverEffectDuration =
-        context.moonEffects?.controlHoverEffect.hoverDuration ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.hoverDuration ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlHoverEffect
                 .hoverDuration;
 
     final Curve effectiveHoverEffectCurve =
-        context.moonEffects?.controlHoverEffect.hoverCurve ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.hoverCurve ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlHoverEffect
                 .hoverCurve;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.accordionTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.accordionTheme.properties.transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.accordionTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.accordionTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     _expansionAnimationController ??=
         AnimationController(duration: effectiveTransitionDuration, vsync: this);
@@ -667,12 +668,12 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
   @override
   Widget build(BuildContext context) {
     final Color effectiveDividerColor = widget.dividerColor ??
-        context.moonTheme?.accordionTheme.colors.dividerColor ??
+        context.selenicTheme?.accordionTheme.colors.dividerColor ??
         MoonColors.light.beerus;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.accordionTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.accordionTheme.properties.transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     _expansionAnimationController ??= AnimationController(
       duration: effectiveTransitionDuration,

@@ -3,19 +3,19 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/moon_design.dart';
-import 'package:moon_design/src/theme/table/table_size_properties.dart';
-import 'package:moon_design/src/theme/table/table_sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/widgets/common/default_animated_text_style.dart';
-import 'package:moon_design/src/widgets/table/table_controllers.dart';
+import 'package:selenic_design/selenic_design.dart';
+import 'package:selenic_design/src/theme/table/table_size_properties.dart';
+import 'package:selenic_design/src/theme/table/table_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/widgets/common/default_animated_text_style.dart';
+import 'package:selenic_design/src/widgets/table/table_controllers.dart';
 
-class MoonTableRow {
+class SelenicTableRow {
   /// Whether the table row is selected.
   final bool selected;
 
   /// The height of the table row, primarily determined by this value. If not
-  /// explicitly specified, [MoonTable.rowSize] is used. If [MoonTable.rowSize]
+  /// explicitly specified, [SelenicTable.rowSize] is used. If [SelenicTable.rowSize]
   /// is also unspecified, the height will dynamically adjust based on the
   /// content of the table row.
   final double? height;
@@ -32,14 +32,14 @@ class MoonTableRow {
 
   /// A widget to display inside the table row, spanning the full width above
   /// the row cells.
-  final MoonTableRowLabel? label;
+  final SelenicTableRowLabel? label;
 
   /// The list of widgets to display as the cells of the table row. Must contain
-  /// the same number of cells as [MoonTableHeader.columns] and cannot be empty.
+  /// the same number of cells as [SelenicTableHeader.columns] and cannot be empty.
   final List<Widget> cells;
 
-  /// Creates a Moon Design table row.
-  const MoonTableRow({
+  /// Creates a Selenic Design table row.
+  const SelenicTableRow({
     this.selected = false,
     this.height,
     this.decoration,
@@ -50,7 +50,7 @@ class MoonTableRow {
   }) : assert(cells.length > 0, 'Cells length must not be empty.');
 }
 
-class MoonTableRowLabel {
+class SelenicTableRowLabel {
   /// Whether the table row label is pinned or scrolls horizontally with the
   /// table body during horizontal scrolling.
   final bool pinned;
@@ -78,8 +78,8 @@ class MoonTableRowLabel {
   /// the full width of the row.
   final Widget label;
 
-  /// Creates a Moon Design table row label.
-  const MoonTableRowLabel({
+  /// Creates a Selenic Design table row label.
+  const SelenicTableRowLabel({
     this.pinned = true,
     this.transitionDuration,
     this.transitionCurve,
@@ -92,7 +92,7 @@ class MoonTableRowLabel {
 
 typedef ColumnSortCallback = void Function(int columnIndex, bool ascending);
 
-class MoonTableColumn {
+class SelenicTableColumn {
   /// Whether to show the [sortingIcon] in the table column.
   final bool showSortingIcon;
 
@@ -100,8 +100,8 @@ class MoonTableColumn {
   final double? sortingIconGap;
 
   /// The width of the table column.
-  /// Either width for each column or [MoonTable.width] must be provided.
-  /// Cannot be used in conjunction with the [MoonTable.width] property, one of
+  /// Either width for each column or [SelenicTable.width] must be provided.
+  /// Cannot be used in conjunction with the [SelenicTable.width] property, one of
   /// them must be null.
   final double? width;
 
@@ -123,8 +123,8 @@ class MoonTableColumn {
   /// Displayed only if the [showSortingIcon] is true and [onSort] is not null.
   final Widget? sortingIcon;
 
-  /// Creates a Moon Design table column.
-  const MoonTableColumn({
+  /// Creates a Selenic Design table column.
+  const SelenicTableColumn({
     this.showSortingIcon = true,
     this.sortingIconGap,
     this.width,
@@ -136,21 +136,21 @@ class MoonTableColumn {
   });
 }
 
-class MoonTableHeader {
+class SelenicTableHeader {
   /// The custom decoration of the table header row.
   final Decoration? decoration;
 
   /// The height of the table header row, primarily determined by this value.
-  /// If not specified, [MoonTable.rowSize] is used. If [MoonTable.rowSize] is
+  /// If not specified, [SelenicTable.rowSize] is used. If [SelenicTable.rowSize] is
   /// also unspecified, the height will dynamically adjust based on the content
   /// of the table row.
   final double? height;
 
   /// The list of table columns to display as the content of the table header.
-  final List<MoonTableColumn> columns;
+  final List<SelenicTableColumn> columns;
 
-  /// Creates a Moon Design table header.
-  const MoonTableHeader({
+  /// Creates a Selenic Design table header.
+  const SelenicTableHeader({
     this.decoration,
     this.height,
     required this.columns,
@@ -160,23 +160,23 @@ class MoonTableHeader {
         );
 }
 
-class MoonTableFooter {
+class SelenicTableFooter {
   /// The custom decoration of the table footer row.
   final Decoration? decoration;
 
   /// The height of the table footer row, primarily determined by this value.
-  /// If not specified, [MoonTable.rowSize] is used. If [MoonTable.rowSize] is
+  /// If not specified, [SelenicTable.rowSize] is used. If [SelenicTable.rowSize] is
   /// also unspecified, the height will dynamically adjust based on the row
   /// content.
   final double? height;
 
   /// The list of widgets to display as the cells of the table footer. Cells
-  /// length must be equal to [MoonTableHeader.columns] length. If footer is
+  /// length must be equal to [SelenicTableHeader.columns] length. If footer is
   /// provided, [cells] must not be empty.
   final List<Widget> cells;
 
-  /// Creates a Moon Design table footer.
-  const MoonTableFooter({
+  /// Creates a Selenic Design table footer.
+  const SelenicTableFooter({
     this.decoration,
     this.height,
     required this.cells,
@@ -186,7 +186,7 @@ class MoonTableFooter {
         );
 }
 
-enum MoonTableRowSize {
+enum SelenicTableRowSize {
   xs,
   sm,
   md,
@@ -200,7 +200,7 @@ typedef OnScrollControllersReady = void Function(
   ScrollController horizontalController,
 );
 
-class MoonTable extends StatefulWidget {
+class SelenicTable extends StatefulWidget {
   /// Whether the header of the table is pinned or vertically scrollable with
   /// the table body.
   final bool isHeaderPinned;
@@ -227,9 +227,9 @@ class MoonTable extends StatefulWidget {
   final double? height;
 
   /// The width of the table.
-  /// Either the width for the table or the [MoonTableColumn.width] for each
+  /// Either the width for the table or the [SelenicTableColumn.width] for each
   /// column must be provided. Cannot be used in conjunction with the
-  /// [MoonTableColumn.width] property, one of them must be null.
+  /// [SelenicTableColumn.width] property, one of them must be null.
   final double? width;
 
   /// The padding of the table row cells.
@@ -246,9 +246,9 @@ class MoonTable extends StatefulWidget {
 
   /// The size of the table row.
   /// Applied to table header, footer and rows; unless these widgets have their
-  /// own height specified. If [MoonTable.rowSize] is unspecified, the height
+  /// own height specified. If [SelenicTable.rowSize] is unspecified, the height
   /// will dynamically adjust based on the content of the table row.
-  final MoonTableRowSize? rowSize;
+  final SelenicTableRowSize? rowSize;
 
   /// The scrolling behavior of the table.
   final ScrollBehavior? scrollBehaviour;
@@ -267,13 +267,13 @@ class MoonTable extends StatefulWidget {
   final OnScrollControllersReady? onScrollControllersReady;
 
   /// The header of the table.
-  final MoonTableHeader? header;
+  final SelenicTableHeader? header;
 
   /// The footer of the table.
-  final MoonTableFooter? footer;
+  final SelenicTableFooter? footer;
 
   /// The list of table rows to display as the table body.
-  final List<MoonTableRow> rows;
+  final List<SelenicTableRow> rows;
 
   /// The widget to display when the provided [rows] property is empty.
   /// By default it is not horizontally scrollable. To make it scrollable,
@@ -287,8 +287,8 @@ class MoonTable extends StatefulWidget {
   /// to signify ongoing content loading while scrolling down.
   final Widget? loadingIndicator;
 
-  /// Creates a Moon Design table.
-  const MoonTable({
+  /// Creates a Selenic Design table.
+  const SelenicTable({
     super.key,
     this.width,
     this.isHeaderPinned = true,
@@ -322,12 +322,12 @@ class MoonTable extends StatefulWidget {
         assert(columnsCount > 0, 'Columns count must be > 0');
 
   @override
-  State<StatefulWidget> createState() => _MoonTableState();
+  State<StatefulWidget> createState() => _SelenicTableState();
 }
 
-class _MoonTableState extends State<MoonTable> {
+class _SelenicTableState extends State<SelenicTable> {
   late TableControllers _tableControllers;
-  late MoonTableSizeProperties _effectiveMoonTableRowSize;
+  late SelenicTableSizeProperties _effectiveSelenicTableRowSize;
   late double _tableWidth;
   late EdgeInsetsGeometry _effectiveCellPadding;
 
@@ -376,32 +376,32 @@ class _MoonTableState extends State<MoonTable> {
     }
   }
 
-  MoonTableSizeProperties _getMoonTableRowSize(
+  SelenicTableSizeProperties _getSelenicTableRowSize(
     BuildContext context,
-    MoonTableRowSize? moonTableRowSize,
+    SelenicTableRowSize? tableRowSize,
   ) {
-    switch (moonTableRowSize) {
-      case MoonTableRowSize.xs:
-        return context.moonTheme?.tableTheme.sizes.xs ??
-            MoonTableSizes(tokens: MoonTokens.light).xs;
-      case MoonTableRowSize.sm:
-        return context.moonTheme?.tableTheme.sizes.sm ??
-            MoonTableSizes(tokens: MoonTokens.light).sm;
-      case MoonTableRowSize.md:
-        return context.moonTheme?.tableTheme.sizes.md ??
-            MoonTableSizes(tokens: MoonTokens.light).md;
-      case MoonTableRowSize.lg:
-        return context.moonTheme?.tableTheme.sizes.lg ??
-            MoonTableSizes(tokens: MoonTokens.light).lg;
-      case MoonTableRowSize.xl:
-        return context.moonTheme?.tableTheme.sizes.xl ??
-            MoonTableSizes(tokens: MoonTokens.light).xl;
-      case MoonTableRowSize.x2l:
-        return context.moonTheme?.tableTheme.sizes.x2l ??
-            MoonTableSizes(tokens: MoonTokens.light).x2l;
+    switch (tableRowSize) {
+      case SelenicTableRowSize.xs:
+        return context.selenicTheme?.tableTheme.sizes.xs ??
+            SelenicTableSizes(tokens: SelenicTokens.light).xs;
+      case SelenicTableRowSize.sm:
+        return context.selenicTheme?.tableTheme.sizes.sm ??
+            SelenicTableSizes(tokens: SelenicTokens.light).sm;
+      case SelenicTableRowSize.md:
+        return context.selenicTheme?.tableTheme.sizes.md ??
+            SelenicTableSizes(tokens: SelenicTokens.light).md;
+      case SelenicTableRowSize.lg:
+        return context.selenicTheme?.tableTheme.sizes.lg ??
+            SelenicTableSizes(tokens: SelenicTokens.light).lg;
+      case SelenicTableRowSize.xl:
+        return context.selenicTheme?.tableTheme.sizes.xl ??
+            SelenicTableSizes(tokens: SelenicTokens.light).xl;
+      case SelenicTableRowSize.x2l:
+        return context.selenicTheme?.tableTheme.sizes.x2l ??
+            SelenicTableSizes(tokens: SelenicTokens.light).x2l;
       default:
-        return context.moonTheme?.tableTheme.sizes.md ??
-            MoonTableSizes(tokens: MoonTokens.light).md;
+        return context.selenicTheme?.tableTheme.sizes.md ??
+            SelenicTableSizes(tokens: SelenicTokens.light).md;
     }
   }
 
@@ -417,7 +417,7 @@ class _MoonTableState extends State<MoonTable> {
       // its columns.
       _tableWidth = widget.header!.columns.fold<double>(
         0,
-        (double totalWidth, MoonTableColumn column) =>
+        (double totalWidth, SelenicTableColumn column) =>
             totalWidth + (column.width!),
       );
     }
@@ -453,19 +453,21 @@ class _MoonTableState extends State<MoonTable> {
   Widget _buildHeader() {
     assert(widget.header != null);
 
-    final MoonTableHeader header = widget.header!;
+    final SelenicTableHeader header = widget.header!;
 
     final Color effectiveTextColor =
-        context.moonTheme?.tableTheme.colors.columnTextColor ??
+        context.selenicTheme?.tableTheme.colors.columnTextColor ??
             MoonColors.light.textPrimary;
 
     final double? effectiveHeight = header.height ??
-        (widget.rowSize == null ? null : _effectiveMoonTableRowSize.rowHeight);
+        (widget.rowSize == null
+            ? null
+            : _effectiveSelenicTableRowSize.rowHeight);
 
     final double effectiveSortIconSize =
-        _effectiveMoonTableRowSize.sortIconSizeValue;
+        _effectiveSelenicTableRowSize.sortIconSizeValue;
 
-    final TextStyle effectiveTextStyle = _effectiveMoonTableRowSize
+    final TextStyle effectiveTextStyle = _effectiveSelenicTableRowSize
         .columnTextStyle
         .copyWith(color: effectiveTextColor);
 
@@ -477,7 +479,7 @@ class _MoonTableState extends State<MoonTable> {
         children: List.generate(
           header.columns.length,
           (int index) {
-            final MoonTableColumn currentColumn = header.columns[index];
+            final SelenicTableColumn currentColumn = header.columns[index];
             final bool showSortingIcon =
                 currentColumn.onSort != null && currentColumn.showSortingIcon;
 
@@ -486,7 +488,7 @@ class _MoonTableState extends State<MoonTable> {
 
             final double effectiveSortingIconGap =
                 currentColumn.sortingIconGap ??
-                    _effectiveMoonTableRowSize.sortIconGap;
+                    _effectiveSelenicTableRowSize.sortIconGap;
 
             final Widget effectiveSortingIcon = currentColumn.sortingIcon ??
                 Icon(
@@ -539,13 +541,15 @@ class _MoonTableState extends State<MoonTable> {
 
   Widget _buildFooter() {
     final Color effectiveTextColor =
-        context.moonTheme?.tableTheme.colors.columnTextColor ??
+        context.selenicTheme?.tableTheme.colors.columnTextColor ??
             MoonColors.light.textPrimary;
 
     final double? effectiveFooterHeight = widget.footer?.height ??
-        (widget.rowSize == null ? null : _effectiveMoonTableRowSize.rowHeight);
+        (widget.rowSize == null
+            ? null
+            : _effectiveSelenicTableRowSize.rowHeight);
 
-    final TextStyle effectiveTextStyle = _effectiveMoonTableRowSize
+    final TextStyle effectiveTextStyle = _effectiveSelenicTableRowSize
         .columnTextStyle
         .copyWith(color: effectiveTextColor);
 
@@ -585,20 +589,21 @@ class _MoonTableState extends State<MoonTable> {
         !widget.isFooterPinned && widget.footer != null;
 
     final BorderRadiusGeometry effectiveBorderRadius =
-        _effectiveMoonTableRowSize.rowBorderRadius;
+        _effectiveSelenicTableRowSize.rowBorderRadius;
 
     final Color effectiveTextColor =
-        context.moonTheme?.tableTheme.colors.rowTextColor ??
+        context.selenicTheme?.tableTheme.colors.rowTextColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveBackgroundColor =
-        context.moonTheme?.tableTheme.colors.rowBackgroundColor ??
+        context.selenicTheme?.tableTheme.colors.rowBackgroundColor ??
             MoonColors.light.gohan;
 
     final double effectiveGap =
-        widget.rowGap ?? _effectiveMoonTableRowSize.rowGap;
+        widget.rowGap ?? _effectiveSelenicTableRowSize.rowGap;
 
-    final TextStyle effectiveTextStyle = _effectiveMoonTableRowSize.rowTextStyle
+    final TextStyle effectiveTextStyle = _effectiveSelenicTableRowSize
+        .rowTextStyle
         .copyWith(color: effectiveTextColor);
 
     return CustomScrollView(
@@ -616,7 +621,7 @@ class _MoonTableState extends State<MoonTable> {
                 widget.rowDivider ?? const SizedBox(),
             itemBuilder: (BuildContext context, int index) {
               if (index < widget.rows.length) {
-                final MoonTableRow currentRow = widget.rows[index];
+                final SelenicTableRow currentRow = widget.rows[index];
                 final bool firstRow = index == 0;
                 final bool lastRow = index == widget.rows.length - 1;
 
@@ -628,18 +633,19 @@ class _MoonTableState extends State<MoonTable> {
                 final double? effectiveRowHeight = currentRow.height ??
                     (widget.rowSize == null
                         ? null
-                        : _effectiveMoonTableRowSize.rowHeight);
+                        : _effectiveSelenicTableRowSize.rowHeight);
 
                 final EdgeInsetsGeometry effectiveLabelPadding =
                     currentRow.label?.padding ??
-                        _effectiveMoonTableRowSize.rowLabelPadding;
+                        _effectiveSelenicTableRowSize.rowLabelPadding;
 
                 final TextStyle effectiveLabelTextStyle =
-                    _effectiveMoonTableRowSize.rowLabelTextStyle
+                    _effectiveSelenicTableRowSize.rowLabelTextStyle
                         .merge(currentRow.label?.textStyle);
 
                 final TextStyle effectiveAnimatedLabelTextStyle =
-                    _effectiveMoonTableRowSize.rowPinnedAnimatedLabelTextStyle
+                    _effectiveSelenicTableRowSize
+                        .rowPinnedAnimatedLabelTextStyle
                         .merge(currentRow.label?.pinnedAnimatedTextStyle);
 
                 return GestureDetector(
@@ -656,7 +662,7 @@ class _MoonTableState extends State<MoonTable> {
                     decoration: currentRow.decoration ??
                         ShapeDecorationWithPremultipliedAlpha(
                           color: effectiveBackgroundColor,
-                          shape: MoonSquircleBorder(
+                          shape: SelenicSquircleBorder(
                             borderRadius: effectiveBorderRadius
                                 .squircleBorderRadius(context),
                           ),
@@ -721,13 +727,14 @@ class _MoonTableState extends State<MoonTable> {
   Widget build(BuildContext context) {
     _calculateTableWidth();
 
-    _effectiveMoonTableRowSize = _getMoonTableRowSize(context, widget.rowSize);
+    _effectiveSelenicTableRowSize =
+        _getSelenicTableRowSize(context, widget.rowSize);
 
     _effectiveCellPadding =
-        widget.cellPadding ?? _effectiveMoonTableRowSize.cellPadding;
+        widget.cellPadding ?? _effectiveSelenicTableRowSize.cellPadding;
 
     final Color effectiveIconColor =
-        context.moonTheme?.tableTheme.colors.iconColor ??
+        context.selenicTheme?.tableTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final ScrollBehavior effectiveScrollBehavior = widget.scrollBehaviour ??
@@ -808,7 +815,7 @@ class _MoonTableState extends State<MoonTable> {
 }
 
 class _TableRowLabel extends StatelessWidget {
-  final MoonTableRowLabel label;
+  final SelenicTableRowLabel label;
   final TextStyle labelTextStyle;
   final TextStyle animatedLabelTextStyle;
   final ScrollController horizontalScrollController;
@@ -823,21 +830,22 @@ class _TableRowLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color effectiveLableTextColor = labelTextStyle.color ??
-        context.moonTheme?.tableTheme.colors.rowLabelTextColor ??
+        context.selenicTheme?.tableTheme.colors.rowLabelTextColor ??
         MoonColors.light.textPrimary;
 
-    final Color effectiveAnimatedLabelTextColor = animatedLabelTextStyle
-            .color ??
-        context.moonTheme?.tableTheme.colors.rowPinnedAnimatedLabelTextColor ??
-        MoonColors.light.trunks;
+    final Color effectiveAnimatedLabelTextColor =
+        animatedLabelTextStyle.color ??
+            context.selenicTheme?.tableTheme.colors
+                .rowPinnedAnimatedLabelTextColor ??
+            MoonColors.light.trunks;
 
     final Duration effectiveTransitionDuration = label.transitionDuration ??
-        context.moonTheme?.tableTheme.properties.transitionDuration ??
+        context.selenicTheme?.tableTheme.properties.transitionDuration ??
         const Duration(milliseconds: 400);
 
     final Curve effectiveTransitionCurve = label.transitionCurve ??
-        context.moonTheme?.tableTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.tableTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     final TextStyle resolvedLabelTextStyle =
         labelTextStyle.copyWith(color: effectiveLableTextColor);
@@ -859,7 +867,7 @@ class _TableRowLabel extends StatelessWidget {
 
               return Padding(
                 padding: EdgeInsetsDirectional.only(start: widgetOffset),
-                child: MoonAnimatedDefaultTextStyle(
+                child: SelenicAnimatedDefaultTextStyle(
                   textStyle: offsetIsIncreasing
                       ? resolvedAnimatedLabelTextStyle
                       : resolvedLabelTextStyle,

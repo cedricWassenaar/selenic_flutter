@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _chipKey = Key("chipKey");
 
@@ -64,7 +64,7 @@ class _ChipTestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MoonChip(
+        body: SelenicChip(
           key: chipKey,
           leading: showLeading ? const Icon(_chipLeadingIcon) : null,
           label: showLabel ? const Text(_chipLabel) : null,

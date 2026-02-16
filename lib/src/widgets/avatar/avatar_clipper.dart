@@ -1,7 +1,7 @@
 import 'package:flutter/rendering.dart';
 
-import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
-import 'package:moon_design/src/widgets/avatar/avatar.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_radius.dart';
+import 'package:selenic_design/src/widgets/avatar/avatar.dart';
 
 class AvatarClipper extends CustomClipper<Path> {
   final bool showBadge;
@@ -10,7 +10,7 @@ class AvatarClipper extends CustomClipper<Path> {
   final double width;
   final double badgeMarginValue;
   final double badgeSize;
-  final MoonBadgeAlignment badgeAlignment;
+  final SelenicBadgeAlignment badgeAlignment;
   final TextDirection textDirection;
 
   AvatarClipper({
@@ -29,7 +29,7 @@ class AvatarClipper extends CustomClipper<Path> {
 
     if (textDirection == TextDirection.rtl) {
       switch (badgeAlignment) {
-        case MoonBadgeAlignment.topLeft:
+        case SelenicBadgeAlignment.topLeft:
           return Path()
             ..addOval(
               Rect.fromCircle(
@@ -37,7 +37,7 @@ class AvatarClipper extends CustomClipper<Path> {
                 radius: badgeRadius + badgeMarginValue,
               ),
             );
-        case MoonBadgeAlignment.topRight:
+        case SelenicBadgeAlignment.topRight:
           return Path()
             ..addOval(
               Rect.fromCircle(
@@ -45,7 +45,7 @@ class AvatarClipper extends CustomClipper<Path> {
                 radius: badgeRadius + badgeMarginValue,
               ),
             );
-        case MoonBadgeAlignment.bottomLeft:
+        case SelenicBadgeAlignment.bottomLeft:
           return Path()
             ..addOval(
               Rect.fromCircle(
@@ -53,7 +53,7 @@ class AvatarClipper extends CustomClipper<Path> {
                 radius: badgeRadius + badgeMarginValue,
               ),
             );
-        case MoonBadgeAlignment.bottomRight:
+        case SelenicBadgeAlignment.bottomRight:
           return Path()
             ..addOval(
               Rect.fromCircle(
@@ -61,18 +61,10 @@ class AvatarClipper extends CustomClipper<Path> {
                 radius: badgeRadius + badgeMarginValue,
               ),
             );
-        default:
-          return Path()
-            ..addOval(
-              Rect.fromCircle(
-                center: Offset(width - badgeRadius, width - badgeRadius),
-                radius: badgeRadius + badgeMarginValue,
-              ),
-            );
       }
     } else {
       switch (badgeAlignment) {
-        case MoonBadgeAlignment.topLeft:
+        case SelenicBadgeAlignment.topLeft:
           return Path()
             ..addOval(
               Rect.fromCircle(
@@ -80,7 +72,7 @@ class AvatarClipper extends CustomClipper<Path> {
                 radius: badgeRadius + badgeMarginValue,
               ),
             );
-        case MoonBadgeAlignment.topRight:
+        case SelenicBadgeAlignment.topRight:
           return Path()
             ..addOval(
               Rect.fromCircle(
@@ -88,7 +80,7 @@ class AvatarClipper extends CustomClipper<Path> {
                 radius: badgeRadius + badgeMarginValue,
               ),
             );
-        case MoonBadgeAlignment.bottomLeft:
+        case SelenicBadgeAlignment.bottomLeft:
           return Path()
             ..addOval(
               Rect.fromCircle(
@@ -96,19 +88,11 @@ class AvatarClipper extends CustomClipper<Path> {
                 radius: badgeRadius + badgeMarginValue,
               ),
             );
-        case MoonBadgeAlignment.bottomRight:
+        case SelenicBadgeAlignment.bottomRight:
           return Path()
             ..addOval(
               Rect.fromCircle(
                 center: Offset(width - badgeRadius, height - badgeRadius),
-                radius: badgeRadius + badgeMarginValue,
-              ),
-            );
-        default:
-          return Path()
-            ..addOval(
-              Rect.fromCircle(
-                center: Offset(width - badgeRadius, width - badgeRadius),
                 radius: badgeRadius + badgeMarginValue,
               ),
             );
@@ -128,12 +112,14 @@ class AvatarClipper extends CustomClipper<Path> {
             0,
             width,
             height,
-            topLeft: MoonSquircleRadius(cornerRadius: borderRadius.topLeft.x),
-            topRight: MoonSquircleRadius(cornerRadius: borderRadius.topRight.x),
+            topLeft:
+                SelenicSquircleRadius(cornerRadius: borderRadius.topLeft.x),
+            topRight:
+                SelenicSquircleRadius(cornerRadius: borderRadius.topRight.x),
             bottomLeft:
-                MoonSquircleRadius(cornerRadius: borderRadius.bottomLeft.x),
+                SelenicSquircleRadius(cornerRadius: borderRadius.bottomLeft.x),
             bottomRight:
-                MoonSquircleRadius(cornerRadius: borderRadius.bottomRight.x),
+                SelenicSquircleRadius(cornerRadius: borderRadius.bottomRight.x),
           ),
         ),
 
@@ -147,12 +133,13 @@ class AvatarClipper extends CustomClipper<Path> {
           0,
           width,
           height,
-          topLeft: MoonSquircleRadius(cornerRadius: borderRadius.topLeft.x),
-          topRight: MoonSquircleRadius(cornerRadius: borderRadius.topRight.x),
+          topLeft: SelenicSquircleRadius(cornerRadius: borderRadius.topLeft.x),
+          topRight:
+              SelenicSquircleRadius(cornerRadius: borderRadius.topRight.x),
           bottomLeft:
-              MoonSquircleRadius(cornerRadius: borderRadius.bottomLeft.x),
+              SelenicSquircleRadius(cornerRadius: borderRadius.bottomLeft.x),
           bottomRight:
-              MoonSquircleRadius(cornerRadius: borderRadius.bottomRight.x),
+              SelenicSquircleRadius(cornerRadius: borderRadius.bottomRight.x),
         ),
       );
 

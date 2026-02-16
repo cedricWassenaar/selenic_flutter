@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/widgets/text_input/form_text_input.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-typedef MoonTextAreaErrorBuilder = Widget Function(
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/widgets/text_input/form_text_input.dart';
+
+typedef SelenicTextAreaErrorBuilder = Widget Function(
   BuildContext context,
   String? errorText,
 );
 
-class MoonTextArea extends StatelessWidget {
+class SelenicTextArea extends StatelessWidget {
   /// Sets the auto validation mode of the text area.
   final AutovalidateMode autovalidateMode;
 
@@ -85,7 +86,7 @@ class MoonTextArea extends StatelessWidget {
   final Color? hintTextColor;
 
   /// The height of the text area (does not include the space taken by
-  /// [MoonTextArea.errorBuilder]).
+  /// [SelenicTextArea.errorBuilder]).
   final double? height;
 
   /// The duration of the text area transition animation (enable and disable).
@@ -223,13 +224,13 @@ class MoonTextArea extends StatelessWidget {
   final ValueChanged<String>? onSubmitted;
 
   /// A builder to build the text area error widget.
-  final MoonTextAreaErrorBuilder? errorBuilder;
+  final SelenicTextAreaErrorBuilder? errorBuilder;
 
   /// The widget to display below the text area. Not displayed in error state.
   final Widget? helper;
 
-  /// Creates a Moon Design text area.
-  const MoonTextArea({
+  /// Creates a Selenic Design text area.
+  const SelenicTextArea({
     super.key,
     this.autovalidateMode = AutovalidateMode.disabled,
     this.autocorrect = true,
@@ -293,66 +294,66 @@ class MoonTextArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
-        context.moonTheme?.textAreaTheme.properties.borderRadius ??
+        context.selenicTheme?.textAreaTheme.properties.borderRadius ??
         BorderRadius.circular(8);
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.textAreaTheme.colors.backgroundColor ??
+        context.selenicTheme?.textAreaTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveActiveBorderColor = activeBorderColor ??
-        context.moonTheme?.textAreaTheme.colors.activeBorderColor ??
+        context.selenicTheme?.textAreaTheme.colors.activeBorderColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveInactiveBorderColor = inactiveBorderColor ??
-        context.moonTheme?.textAreaTheme.colors.inactiveBorderColor ??
+        context.selenicTheme?.textAreaTheme.colors.inactiveBorderColor ??
         MoonColors.light.beerus;
 
     final Color effectiveErrorColor = errorColor ??
-        context.moonTheme?.textAreaTheme.colors.errorColor ??
+        context.selenicTheme?.textAreaTheme.colors.errorColor ??
         MoonColors.light.chichi;
 
     final Color effectiveHoverBorderColor = hoverBorderColor ??
-        context.moonTheme?.textAreaTheme.colors.hoverBorderColor ??
+        context.selenicTheme?.textAreaTheme.colors.hoverBorderColor ??
         MoonColors.light.beerus;
 
     final Color effectiveTextColor = textColor ??
-        context.moonTheme?.textAreaTheme.colors.textColor ??
+        context.selenicTheme?.textAreaTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveHelperTextColor = hintTextColor ??
-        context.moonTheme?.textAreaTheme.colors.helperTextColor ??
+        context.selenicTheme?.textAreaTheme.colors.helperTextColor ??
         MoonColors.light.trunks;
 
     final EdgeInsetsGeometry effectiveHelperPadding = helperPadding ??
-        context.moonTheme?.textAreaTheme.properties.helperPadding ??
+        context.selenicTheme?.textAreaTheme.properties.helperPadding ??
         EdgeInsets.only(
-          left: MoonSizes.sizes.x3s,
-          top: MoonSizes.sizes.x4s,
-          right: MoonSizes.sizes.x3s,
+          left: SelenicSizes.sizes.x3s,
+          top: SelenicSizes.sizes.x4s,
+          right: SelenicSizes.sizes.x3s,
         );
 
     final EdgeInsetsGeometry effectiveTextPadding = textPadding ??
-        context.moonTheme?.textAreaTheme.properties.textPadding ??
+        context.selenicTheme?.textAreaTheme.properties.textPadding ??
         const EdgeInsets.all(16);
 
     final TextStyle effectiveTextStyle = textStyle ??
-        context.moonTheme?.textAreaTheme.properties.textStyle ??
-        MoonTypography.typography.body.text16;
+        context.selenicTheme?.textAreaTheme.properties.textStyle ??
+        SelenicTypography.typography.body.text16;
 
     final TextStyle effectiveHelperTextStyle = helperTextStyle ??
-        context.moonTheme?.textAreaTheme.properties.helperTextStyle ??
-        MoonTypography.typography.body.text12;
+        context.selenicTheme?.textAreaTheme.properties.helperTextStyle ??
+        SelenicTypography.typography.body.text12;
 
     final Duration effectiveTransitionDuration = transitionDuration ??
-        context.moonTheme?.textAreaTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.textAreaTheme.properties.transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = transitionCurve ??
-        context.moonTheme?.textAreaTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.textAreaTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
-    return MoonFormTextInput(
+    return SelenicFormTextInput(
       activeBorderColor: effectiveActiveBorderColor,
       autocorrect: autocorrect,
       autofillHints: autofillHints,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _modalKey = Key("modalKey");
 const Key _showButtonKey = Key("showButtonKey");
@@ -115,7 +115,7 @@ class _ModalTestWidget extends StatelessWidget {
         body: Center(
           child: Builder(
             builder: (context) {
-              return MoonFilledButton(
+              return SelenicFilledButton(
                 key: _showButtonKey,
                 onTap: () => modalBuilder(context),
               );
@@ -127,20 +127,20 @@ class _ModalTestWidget extends StatelessWidget {
   }
 
   Future<void> modalBuilder(BuildContext context) {
-    return showMoonModal<void>(
+    return showSelenicModal<void>(
       context: context,
       barrierDismissible: isDismissible,
       builder: (BuildContext context) {
         return Directionality(
           textDirection: Directionality.of(context),
-          child: MoonModal(
+          child: SelenicModal(
             key: modalKey,
             child: SizedBox(
               width: 300,
               child: Column(
                 children: [
                   _modalContent,
-                  MoonFilledButton(
+                  SelenicFilledButton(
                     key: _closeButtonKey,
                     onTap: () => Navigator.of(context).pop(),
                   ),

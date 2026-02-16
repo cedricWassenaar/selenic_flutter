@@ -1,30 +1,30 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonToastColors extends ThemeExtension<MoonToastColors>
+class SelenicToastColors extends ThemeExtension<SelenicToastColors>
     with DiagnosticableTreeMixin {
-  /// The background color of the MoonToast light variant.
+  /// The background color of the SelenicToast light variant.
   final Color lightVariantBackgroundColor;
 
-  /// The background color of the MoonToast dark variant.
+  /// The background color of the SelenicToast dark variant.
   final Color darkVariantBackgroundColor;
 
-  /// The text color of the MoonToast light variant.
+  /// The text color of the SelenicToast light variant.
   final Color lightVariantTextColor;
 
-  /// The text color of the MoonToast dark variant.
+  /// The text color of the SelenicToast dark variant.
   final Color darkVariantTextColor;
 
-  /// The icon color of the MoonToast light variant.
+  /// The icon color of the SelenicToast light variant.
   final Color lightVariantIconColor;
 
-  /// The icon color of the MoonToast dark variant.
+  /// The icon color of the SelenicToast dark variant.
   final Color darkVariantIconColor;
 
-  const MoonToastColors({
+  const SelenicToastColors({
     required this.lightVariantBackgroundColor,
     required this.darkVariantBackgroundColor,
     required this.lightVariantTextColor,
@@ -34,7 +34,7 @@ class MoonToastColors extends ThemeExtension<MoonToastColors>
   });
 
   @override
-  MoonToastColors copyWith({
+  SelenicToastColors copyWith({
     Color? lightVariantBackgroundColor,
     Color? darkVariantBackgroundColor,
     Color? lightVariantTextColor,
@@ -42,7 +42,7 @@ class MoonToastColors extends ThemeExtension<MoonToastColors>
     Color? lightVariantIconColor,
     Color? darkVariantIconColor,
   }) {
-    return MoonToastColors(
+    return SelenicToastColors(
       lightVariantBackgroundColor:
           lightVariantBackgroundColor ?? this.lightVariantBackgroundColor,
       darkVariantBackgroundColor:
@@ -57,10 +57,10 @@ class MoonToastColors extends ThemeExtension<MoonToastColors>
   }
 
   @override
-  MoonToastColors lerp(ThemeExtension<MoonToastColors>? other, double t) {
-    if (other is! MoonToastColors) return this;
+  SelenicToastColors lerp(ThemeExtension<SelenicToastColors>? other, double t) {
+    if (other is! SelenicToastColors) return this;
 
-    return MoonToastColors(
+    return SelenicToastColors(
       lightVariantBackgroundColor: colorPremulLerp(
         lightVariantBackgroundColor,
         other.lightVariantBackgroundColor,
@@ -101,7 +101,7 @@ class MoonToastColors extends ThemeExtension<MoonToastColors>
       ..add(
         DiagnosticsProperty(
           "type",
-          "MoonToastColors",
+          "SelenicToastColors",
         ),
       )
       ..add(

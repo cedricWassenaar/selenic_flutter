@@ -2,38 +2,38 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonSwitchProperties extends ThemeExtension<MoonSwitchProperties>
+class SelenicSwitchProperties extends ThemeExtension<SelenicSwitchProperties>
     with DiagnosticableTreeMixin {
-  /// The duration of the MoonSwitch toggle animation.
+  /// The duration of the SelenicSwitch toggle animation.
   final Duration transitionDuration;
 
-  /// The curve of the MoonSwitch toggle animation.
+  /// The curve of the SelenicSwitch toggle animation.
   final Curve transitionCurve;
 
-  const MoonSwitchProperties({
+  const SelenicSwitchProperties({
     required this.transitionDuration,
     required this.transitionCurve,
   });
 
   @override
-  MoonSwitchProperties copyWith({
+  SelenicSwitchProperties copyWith({
     Duration? transitionDuration,
     Curve? transitionCurve,
   }) {
-    return MoonSwitchProperties(
+    return SelenicSwitchProperties(
       transitionDuration: transitionDuration ?? this.transitionDuration,
       transitionCurve: transitionCurve ?? this.transitionCurve,
     );
   }
 
   @override
-  MoonSwitchProperties lerp(
-    ThemeExtension<MoonSwitchProperties>? other,
+  SelenicSwitchProperties lerp(
+    ThemeExtension<SelenicSwitchProperties>? other,
     double t,
   ) {
-    if (other is! MoonSwitchProperties) return this;
+    if (other is! SelenicSwitchProperties) return this;
 
-    return MoonSwitchProperties(
+    return SelenicSwitchProperties(
       transitionDuration:
           lerpDuration(transitionDuration, other.transitionDuration, t),
       transitionCurve: other.transitionCurve,
@@ -45,7 +45,7 @@ class MoonSwitchProperties extends ThemeExtension<MoonSwitchProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonSwitchProperties"),
+        DiagnosticsProperty("type", "SelenicSwitchProperties"),
       )
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),

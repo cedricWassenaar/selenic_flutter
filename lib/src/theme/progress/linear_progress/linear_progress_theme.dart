@@ -1,41 +1,42 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/progress/linear_progress/linear_progress_colors.dart';
-import 'package:moon_design/src/theme/progress/linear_progress/linear_progress_sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/progress/linear_progress/linear_progress_colors.dart';
+import 'package:selenic_design/src/theme/progress/linear_progress/linear_progress_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonLinearProgressTheme extends ThemeExtension<MoonLinearProgressTheme>
+class SelenicLinearProgressTheme
+    extends ThemeExtension<SelenicLinearProgressTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonLinearProgress.
-  final MoonLinearProgressColors colors;
+  /// The colors of the SelenicLinearProgress.
+  final SelenicLinearProgressColors colors;
 
-  /// The sizes of the MoonLinearProgress.
-  final MoonLinearProgressSizes sizes;
+  /// The sizes of the SelenicLinearProgress.
+  final SelenicLinearProgressSizes sizes;
 
-  MoonLinearProgressTheme({
+  SelenicLinearProgressTheme({
     required this.tokens,
-    MoonLinearProgressColors? colors,
-    MoonLinearProgressSizes? sizes,
+    SelenicLinearProgressColors? colors,
+    SelenicLinearProgressSizes? sizes,
   })  : colors = colors ??
-            MoonLinearProgressColors(
+            SelenicLinearProgressColors(
               color: tokens.colors.piccolo,
               backgroundColor: tokens.colors.beerus,
               textColor: tokens.colors.textPrimary,
             ),
-        sizes = sizes ?? MoonLinearProgressSizes(tokens: tokens);
+        sizes = sizes ?? SelenicLinearProgressSizes(tokens: tokens);
 
   @override
-  MoonLinearProgressTheme copyWith({
-    MoonTokens? tokens,
-    MoonLinearProgressColors? colors,
-    MoonLinearProgressSizes? sizes,
+  SelenicLinearProgressTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicLinearProgressColors? colors,
+    SelenicLinearProgressSizes? sizes,
   }) {
-    return MoonLinearProgressTheme(
+    return SelenicLinearProgressTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       sizes: sizes ?? this.sizes,
@@ -43,13 +44,13 @@ class MoonLinearProgressTheme extends ThemeExtension<MoonLinearProgressTheme>
   }
 
   @override
-  MoonLinearProgressTheme lerp(
-    ThemeExtension<MoonLinearProgressTheme>? other,
+  SelenicLinearProgressTheme lerp(
+    ThemeExtension<SelenicLinearProgressTheme>? other,
     double t,
   ) {
-    if (other is! MoonLinearProgressTheme) return this;
+    if (other is! SelenicLinearProgressTheme) return this;
 
-    return MoonLinearProgressTheme(
+    return SelenicLinearProgressTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       sizes: sizes.lerp(other.sizes, t),
@@ -60,9 +61,9 @@ class MoonLinearProgressTheme extends ThemeExtension<MoonLinearProgressTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonLinearProgressTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonLinearProgressColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonLinearProgressSizes>("sizes", sizes));
+      ..add(DiagnosticsProperty("type", "SelenicLinearProgressTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicLinearProgressColors>("colors", colors))
+      ..add(DiagnosticsProperty<SelenicLinearProgressSizes>("sizes", sizes));
   }
 }

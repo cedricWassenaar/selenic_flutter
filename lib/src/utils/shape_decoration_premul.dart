@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 // TODO: Remove this once Flutter transitions from straight alpha to premultiplied alpha for color lerping.
 class ShapeDecorationWithPremultipliedAlpha extends Decoration {

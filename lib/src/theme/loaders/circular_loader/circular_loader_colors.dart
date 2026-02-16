@@ -1,41 +1,42 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonCircularLoaderColors extends ThemeExtension<MoonCircularLoaderColors>
+class SelenicCircularLoaderColors
+    extends ThemeExtension<SelenicCircularLoaderColors>
     with DiagnosticableTreeMixin {
-  /// The color of the MoonCircularLoader.
+  /// The color of the SelenicCircularLoader.
   final Color color;
 
-  /// The background color of the MoonCircularLoader.
+  /// The background color of the SelenicCircularLoader.
   final Color backgroundColor;
 
-  const MoonCircularLoaderColors({
+  const SelenicCircularLoaderColors({
     required this.color,
     required this.backgroundColor,
   });
 
   @override
-  MoonCircularLoaderColors copyWith({
+  SelenicCircularLoaderColors copyWith({
     Color? color,
     Color? backgroundColor,
   }) {
-    return MoonCircularLoaderColors(
+    return SelenicCircularLoaderColors(
       color: color ?? this.color,
       backgroundColor: backgroundColor ?? this.backgroundColor,
     );
   }
 
   @override
-  MoonCircularLoaderColors lerp(
-    ThemeExtension<MoonCircularLoaderColors>? other,
+  SelenicCircularLoaderColors lerp(
+    ThemeExtension<SelenicCircularLoaderColors>? other,
     double t,
   ) {
-    if (other is! MoonCircularLoaderColors) return this;
+    if (other is! SelenicCircularLoaderColors) return this;
 
-    return MoonCircularLoaderColors(
+    return SelenicCircularLoaderColors(
       color: colorPremulLerp(color, other.color, t)!,
       backgroundColor:
           colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
@@ -46,7 +47,7 @@ class MoonCircularLoaderColors extends ThemeExtension<MoonCircularLoaderColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonCircularLoaderColors"))
+      ..add(DiagnosticsProperty("type", "SelenicCircularLoaderColors"))
       ..add(ColorProperty("color", color))
       ..add(ColorProperty("backgroundColor", backgroundColor));
   }

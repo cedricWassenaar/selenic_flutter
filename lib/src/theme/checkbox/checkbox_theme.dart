@@ -1,43 +1,44 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/checkbox/checkbox_colors.dart';
-import 'package:moon_design/src/theme/checkbox/checkbox_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/checkbox/checkbox_colors.dart';
+import 'package:selenic_design/src/theme/checkbox/checkbox_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonCheckboxTheme extends ThemeExtension<MoonCheckboxTheme>
+class SelenicCheckboxTheme extends ThemeExtension<SelenicCheckboxTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonCheckbox.
-  final MoonCheckboxColors colors;
+  /// The colors of the SelenicCheckbox.
+  final SelenicCheckboxColors colors;
 
-  /// The properties of the MoonCheckbox.
-  final MoonCheckboxProperties properties;
+  /// The properties of the SelenicCheckbox.
+  final SelenicCheckboxProperties properties;
 
-  MoonCheckboxTheme({
+  SelenicCheckboxTheme({
     required this.tokens,
-    MoonCheckboxColors? colors,
-    MoonCheckboxProperties? properties,
+    SelenicCheckboxColors? colors,
+    SelenicCheckboxProperties? properties,
   })  : colors = colors ??
-            MoonCheckboxColors(
+            SelenicCheckboxColors(
               activeColor: tokens.colors.piccolo,
               borderColor: tokens.colors.trunks,
               checkColor: tokens.colors.goten,
               inactiveColor: Colors.transparent,
             ),
         properties = properties ??
-            MoonCheckboxProperties(borderRadius: tokens.borders.interactiveXs);
+            SelenicCheckboxProperties(
+                borderRadius: tokens.borders.interactiveXs);
 
   @override
-  MoonCheckboxTheme copyWith({
-    MoonTokens? tokens,
-    MoonCheckboxColors? colors,
-    MoonCheckboxProperties? properties,
+  SelenicCheckboxTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicCheckboxColors? colors,
+    SelenicCheckboxProperties? properties,
   }) {
-    return MoonCheckboxTheme(
+    return SelenicCheckboxTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -45,10 +46,11 @@ class MoonCheckboxTheme extends ThemeExtension<MoonCheckboxTheme>
   }
 
   @override
-  MoonCheckboxTheme lerp(ThemeExtension<MoonCheckboxTheme>? other, double t) {
-    if (other is! MoonCheckboxTheme) return this;
+  SelenicCheckboxTheme lerp(
+      ThemeExtension<SelenicCheckboxTheme>? other, double t) {
+    if (other is! SelenicCheckboxTheme) return this;
 
-    return MoonCheckboxTheme(
+    return SelenicCheckboxTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -59,11 +61,12 @@ class MoonCheckboxTheme extends ThemeExtension<MoonCheckboxTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonCheckboxTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonCheckboxColors>("colors", colors))
+      ..add(DiagnosticsProperty("type", "SelenicCheckboxTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicCheckboxColors>("colors", colors))
       ..add(
-        DiagnosticsProperty<MoonCheckboxProperties>("properties", properties),
+        DiagnosticsProperty<SelenicCheckboxProperties>(
+            "properties", properties),
       );
   }
 }

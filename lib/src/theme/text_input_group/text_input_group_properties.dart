@@ -2,33 +2,33 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTextInputGroupProperties
-    extends ThemeExtension<MoonTextInputGroupProperties>
+class SelenicTextInputGroupProperties
+    extends ThemeExtension<SelenicTextInputGroupProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonTextInputGroup.
+  /// The border radius of the SelenicTextInputGroup.
   final BorderRadiusGeometry borderRadius;
 
-  /// The duration of the MoonTextInputGroup transition animation
+  /// The duration of the SelenicTextInputGroup transition animation
   /// (enable and disable).
   final Duration transitionDuration;
 
-  /// The curve of the MoonTextInputGroup transition animation
+  /// The curve of the SelenicTextInputGroup transition animation
   /// (enable and disable).
   final Curve transitionCurve;
 
-  /// The padding of the MoonTextInputGroup helper and errorBuilder widgets.
+  /// The padding of the SelenicTextInputGroup helper and errorBuilder widgets.
   final EdgeInsetsGeometry helperPadding;
 
-  /// The padding of the MoonTextInputGroup text.
+  /// The padding of the SelenicTextInputGroup text.
   final EdgeInsetsGeometry textPadding;
 
-  /// The text style of the MoonTextInputGroup.
+  /// The text style of the SelenicTextInputGroup.
   final TextStyle textStyle;
 
-  /// The text style of the MoonTextInputGroup helper and errorBuilder widgets.
+  /// The text style of the SelenicTextInputGroup helper and errorBuilder widgets.
   final TextStyle helperTextStyle;
 
-  const MoonTextInputGroupProperties({
+  const SelenicTextInputGroupProperties({
     required this.borderRadius,
     required this.transitionDuration,
     required this.transitionCurve,
@@ -39,7 +39,7 @@ class MoonTextInputGroupProperties
   });
 
   @override
-  MoonTextInputGroupProperties copyWith({
+  SelenicTextInputGroupProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     Duration? transitionDuration,
     Curve? transitionCurve,
@@ -48,7 +48,7 @@ class MoonTextInputGroupProperties
     TextStyle? textStyle,
     TextStyle? helperTextStyle,
   }) {
-    return MoonTextInputGroupProperties(
+    return SelenicTextInputGroupProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       transitionDuration: transitionDuration ?? this.transitionDuration,
       transitionCurve: transitionCurve ?? this.transitionCurve,
@@ -60,13 +60,13 @@ class MoonTextInputGroupProperties
   }
 
   @override
-  MoonTextInputGroupProperties lerp(
-    ThemeExtension<MoonTextInputGroupProperties>? other,
+  SelenicTextInputGroupProperties lerp(
+    ThemeExtension<SelenicTextInputGroupProperties>? other,
     double t,
   ) {
-    if (other is! MoonTextInputGroupProperties) return this;
+    if (other is! SelenicTextInputGroupProperties) return this;
 
-    return MoonTextInputGroupProperties(
+    return SelenicTextInputGroupProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       transitionDuration:
@@ -88,7 +88,7 @@ class MoonTextInputGroupProperties
       ..add(
         DiagnosticsProperty(
           "type",
-          "MoonTextInputGroupProperties",
+          "SelenicTextInputGroupProperties",
         ),
       )
       ..add(

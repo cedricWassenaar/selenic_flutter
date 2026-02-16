@@ -4,16 +4,17 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_tokens/moon_tokens.dart';
+
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/opacities.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
 
 enum AuthFieldShape {
   box,
@@ -26,12 +27,12 @@ enum ErrorAnimationType {
   shake,
 }
 
-typedef MoonAuthCodeErrorBuilder = Widget Function(
+typedef SelenicAuthCodeErrorBuilder = Widget Function(
   BuildContext context,
   String? errorText,
 );
 
-class MoonAuthCode extends StatefulWidget {
+class SelenicAuthCode extends StatefulWidget {
   /// The shape of the auth code input field.
   final AuthFieldShape? authFieldShape;
 
@@ -214,15 +215,15 @@ class MoonAuthCode extends StatefulWidget {
   final VoidCallback? onEditingComplete;
 
   /// A builder to build the auth code error widget.
-  final MoonAuthCodeErrorBuilder errorBuilder;
+  final SelenicAuthCodeErrorBuilder errorBuilder;
 
   /// The widget to obscure the auth code input field text.
   ///
   /// Overrides the [obscuringCharacter].
   final Widget? obscuringWidget;
 
-  /// Creates a Moon Design auth code.
-  const MoonAuthCode({
+  /// Creates a Selenic Design auth code.
+  const SelenicAuthCode({
     super.key,
     this.authFieldShape = AuthFieldShape.box,
     this.autoDismissKeyboard = true,
@@ -283,10 +284,10 @@ class MoonAuthCode extends StatefulWidget {
         assert(width == null || width > 0);
 
   @override
-  _MoonAuthCodeState createState() => _MoonAuthCodeState();
+  _SelenicAuthCodeState createState() => _SelenicAuthCodeState();
 }
 
-class _MoonAuthCodeState extends State<MoonAuthCode>
+class _SelenicAuthCodeState extends State<SelenicAuthCode>
     with TickerProviderStateMixin {
   late FocusNode _focusNode;
   late List<String> _inputList;
@@ -532,7 +533,7 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
       case AuthFieldShape.underline:
         return Border(bottom: borderSide);
       default:
-        return MoonSquircleBorder(
+        return SelenicSquircleBorder(
           borderRadius: _effectiveBorderRadius.squircleBorderRadius(context),
           side: borderSide,
         );
@@ -570,7 +571,7 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
   }
 
   @override
-  void didUpdateWidget(MoonAuthCode oldWidget) {
+  void didUpdateWidget(SelenicAuthCode oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.errorText != widget.errorText) {
@@ -675,7 +676,7 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
     return _renderAuthInputFieldText(index: index);
   }
 
-  Widget _renderAuthInputFieldText({@required int? index}) {
+  Widget _renderAuthInputFieldText({required int? index}) {
     assert(index != null);
 
     final bool showObscured = !widget.peekWhenObscuring ||
@@ -762,92 +763,93 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
   @override
   Widget build(BuildContext context) {
     _effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.authCodeTheme.properties.borderRadius ??
-        MoonBorders.borders.interactiveSm;
+        context.selenicTheme?.authCodeTheme.properties.borderRadius ??
+        SelenicBorders.borders.interactiveSm;
 
     _effectiveBorderWidth = widget.borderWidth ??
-        context.moonBorders?.defaultBorderWidth ??
-        MoonBorders.borders.defaultBorderWidth;
+        context.selenicBorders?.defaultBorderWidth ??
+        SelenicBorders.borders.defaultBorderWidth;
 
     _effectiveGap = widget.gap ??
-        context.moonTheme?.authCodeTheme.properties.gap ??
-        MoonSizes.sizes.x4s;
+        context.selenicTheme?.authCodeTheme.properties.gap ??
+        SelenicSizes.sizes.x4s;
 
     _effectiveHeight = widget.height ??
-        context.moonTheme?.authCodeTheme.properties.height ??
-        MoonSizes.sizes.xl;
+        context.selenicTheme?.authCodeTheme.properties.height ??
+        SelenicSizes.sizes.xl;
 
     _effectiveWidth = widget.width ??
-        context.moonTheme?.authCodeTheme.properties.width ??
-        MoonSizes.sizes.lg;
+        context.selenicTheme?.authCodeTheme.properties.width ??
+        SelenicSizes.sizes.lg;
 
     _effectiveSelectedBorderColor = widget.selectedBorderColor ??
-        context.moonTheme?.authCodeTheme.colors.selectedBorderColor ??
+        context.selenicTheme?.authCodeTheme.colors.selectedBorderColor ??
         MoonColors.light.piccolo;
 
     _effectiveActiveBorderColor = widget.activeBorderColor ??
-        context.moonTheme?.authCodeTheme.colors.activeBorderColor ??
+        context.selenicTheme?.authCodeTheme.colors.activeBorderColor ??
         MoonColors.light.beerus;
 
     _effectiveInactiveBorderColor = widget.inactiveBorderColor ??
-        context.moonTheme?.authCodeTheme.colors.inactiveBorderColor ??
+        context.selenicTheme?.authCodeTheme.colors.inactiveBorderColor ??
         MoonColors.light.beerus;
 
     _effectiveErrorBorderColor = widget.errorBorderColor ??
-        context.moonTheme?.authCodeTheme.colors.errorBorderColor ??
+        context.selenicTheme?.authCodeTheme.colors.errorBorderColor ??
         MoonColors.light.chichi;
 
     _effectiveSelectedFillColor = widget.selectedFillColor ??
-        context.moonTheme?.authCodeTheme.colors.selectedFillColor ??
+        context.selenicTheme?.authCodeTheme.colors.selectedFillColor ??
         MoonColors.light.goku;
 
     _effectiveActiveFillColor = widget.activeFillColor ??
-        context.moonTheme?.authCodeTheme.colors.activeFillColor ??
+        context.selenicTheme?.authCodeTheme.colors.activeFillColor ??
         MoonColors.light.goku;
 
     _effectiveInactiveFillColor = widget.inactiveFillColor ??
-        context.moonTheme?.authCodeTheme.colors.inactiveFillColor ??
+        context.selenicTheme?.authCodeTheme.colors.inactiveFillColor ??
         MoonColors.light.goku;
 
     _effectiveTextStyle =
-        context.moonTheme?.authCodeTheme.properties.textStyle ??
-            MoonTypography.typography.body.text24;
+        context.selenicTheme?.authCodeTheme.properties.textStyle ??
+            SelenicTypography.typography.body.text24;
 
     _effectiveErrorTextStyle =
-        context.moonTheme?.authCodeTheme.properties.errorTextStyle ??
-            MoonTypography.typography.body.text12;
+        context.selenicTheme?.authCodeTheme.properties.errorTextStyle ??
+            SelenicTypography.typography.body.text12;
 
-    _effectiveTextColor = context.moonTheme?.authCodeTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+    _effectiveTextColor =
+        context.selenicTheme?.authCodeTheme.colors.textColor ??
+            MoonColors.light.textPrimary;
 
     _effectiveCursorColor = widget.authFieldCursorColor ??
-        context.moonTheme?.authCodeTheme.colors.textColor ??
+        context.selenicTheme?.authCodeTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     _animationDuration ??= widget.animationDuration ??
-        context.moonTheme?.authCodeTheme.properties.animationDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.authCodeTheme.properties.animationDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     _animationCurve ??= widget.animationCurve ??
-        context.moonTheme?.authCodeTheme.properties.animationCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.authCodeTheme.properties.animationCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     _peekDuration ??= widget.peekDuration ??
-        context.moonTheme?.authCodeTheme.properties.peekDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.authCodeTheme.properties.peekDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final double effectiveDisabledOpacityValue = widget.disabledOpacityValue ??
-        context.moonOpacities?.disabled ??
-        MoonOpacities.opacities.disabled;
+        context.selenicOpacities?.disabled ??
+        SelenicOpacities.opacities.disabled;
 
     final Duration effectiveErrorAnimationDuration = widget
             .errorAnimationDuration ??
-        context.moonTheme?.authCodeTheme.properties.errorAnimationDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.authCodeTheme.properties.errorAnimationDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveErrorAnimationCurve = widget.errorAnimationCurve ??
-        context.moonTheme?.authCodeTheme.properties.errorAnimationCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.authCodeTheme.properties.errorAnimationCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     _errorAnimationController ??= AnimationController(
       duration: effectiveErrorAnimationDuration,

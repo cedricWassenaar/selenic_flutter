@@ -1,39 +1,39 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/button/button_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/button/button_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonButtonSizes extends ThemeExtension<MoonButtonSizes>
+class SelenicButtonSizes extends ThemeExtension<SelenicButtonSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the extra small MoonButton.
-  final MoonButtonSizeProperties xs;
+  /// The properties of the extra small SelenicButton.
+  final SelenicButtonSizeProperties xs;
 
-  /// The properties of the small MoonButton.
-  final MoonButtonSizeProperties sm;
+  /// The properties of the small SelenicButton.
+  final SelenicButtonSizeProperties sm;
 
-  /// The properties of the medium MoonButton.
-  final MoonButtonSizeProperties md;
+  /// The properties of the medium SelenicButton.
+  final SelenicButtonSizeProperties md;
 
-  /// The properties of the large MoonButton.
-  final MoonButtonSizeProperties lg;
+  /// The properties of the large SelenicButton.
+  final SelenicButtonSizeProperties lg;
 
-  /// The properties of the extra large MoonButton.
-  final MoonButtonSizeProperties xl;
+  /// The properties of the extra large SelenicButton.
+  final SelenicButtonSizeProperties xl;
 
-  MoonButtonSizes({
+  SelenicButtonSizes({
     required this.tokens,
-    MoonButtonSizeProperties? xs,
-    MoonButtonSizeProperties? sm,
-    MoonButtonSizeProperties? md,
-    MoonButtonSizeProperties? lg,
-    MoonButtonSizeProperties? xl,
+    SelenicButtonSizeProperties? xs,
+    SelenicButtonSizeProperties? sm,
+    SelenicButtonSizeProperties? md,
+    SelenicButtonSizeProperties? lg,
+    SelenicButtonSizeProperties? xl,
   })  : xs = xs ??
-            MoonButtonSizeProperties(
+            SelenicButtonSizeProperties(
               borderRadius: tokens.borders.interactiveXs,
               gap: tokens.sizes.x5s,
               height: tokens.sizes.xs,
@@ -42,7 +42,7 @@ class MoonButtonSizes extends ThemeExtension<MoonButtonSizes>
               textStyle: tokens.typography.heading.text12,
             ),
         sm = sm ??
-            MoonButtonSizeProperties(
+            SelenicButtonSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               gap: tokens.sizes.x5s,
               height: tokens.sizes.sm,
@@ -51,7 +51,7 @@ class MoonButtonSizes extends ThemeExtension<MoonButtonSizes>
               textStyle: tokens.typography.heading.textDefault,
             ),
         md = md ??
-            MoonButtonSizeProperties(
+            SelenicButtonSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               gap: tokens.sizes.x4s,
               height: tokens.sizes.md,
@@ -60,7 +60,7 @@ class MoonButtonSizes extends ThemeExtension<MoonButtonSizes>
               textStyle: tokens.typography.heading.textDefault,
             ),
         lg = lg ??
-            MoonButtonSizeProperties(
+            SelenicButtonSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               gap: tokens.sizes.x3s,
               height: tokens.sizes.lg,
@@ -69,7 +69,7 @@ class MoonButtonSizes extends ThemeExtension<MoonButtonSizes>
               textStyle: tokens.typography.heading.text16,
             ),
         xl = xl ??
-            MoonButtonSizeProperties(
+            SelenicButtonSizeProperties(
               borderRadius: tokens.borders.interactiveMd,
               gap: tokens.sizes.x2s,
               height: tokens.sizes.xl,
@@ -79,15 +79,15 @@ class MoonButtonSizes extends ThemeExtension<MoonButtonSizes>
             );
 
   @override
-  MoonButtonSizes copyWith({
-    MoonTokens? tokens,
-    MoonButtonSizeProperties? xs,
-    MoonButtonSizeProperties? sm,
-    MoonButtonSizeProperties? md,
-    MoonButtonSizeProperties? lg,
-    MoonButtonSizeProperties? xl,
+  SelenicButtonSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicButtonSizeProperties? xs,
+    SelenicButtonSizeProperties? sm,
+    SelenicButtonSizeProperties? md,
+    SelenicButtonSizeProperties? lg,
+    SelenicButtonSizeProperties? xl,
   }) {
-    return MoonButtonSizes(
+    return SelenicButtonSizes(
       tokens: tokens ?? this.tokens,
       xs: xs ?? this.xs,
       sm: sm ?? this.sm,
@@ -98,10 +98,10 @@ class MoonButtonSizes extends ThemeExtension<MoonButtonSizes>
   }
 
   @override
-  MoonButtonSizes lerp(ThemeExtension<MoonButtonSizes>? other, double t) {
-    if (other is! MoonButtonSizes) return this;
+  SelenicButtonSizes lerp(ThemeExtension<SelenicButtonSizes>? other, double t) {
+    if (other is! SelenicButtonSizes) return this;
 
-    return MoonButtonSizes(
+    return SelenicButtonSizes(
       tokens: tokens.lerp(other.tokens, t),
       xs: xs.lerp(other.xs, t),
       sm: sm.lerp(other.sm, t),
@@ -115,12 +115,12 @@ class MoonButtonSizes extends ThemeExtension<MoonButtonSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonButtonSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonButtonSizeProperties>("xs", xs))
-      ..add(DiagnosticsProperty<MoonButtonSizeProperties>("sm", sm))
-      ..add(DiagnosticsProperty<MoonButtonSizeProperties>("md", md))
-      ..add(DiagnosticsProperty<MoonButtonSizeProperties>("lg", lg))
-      ..add(DiagnosticsProperty<MoonButtonSizeProperties>("xl", xl));
+      ..add(DiagnosticsProperty("type", "SelenicButtonSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicButtonSizeProperties>("xs", xs))
+      ..add(DiagnosticsProperty<SelenicButtonSizeProperties>("sm", sm))
+      ..add(DiagnosticsProperty<SelenicButtonSizeProperties>("md", md))
+      ..add(DiagnosticsProperty<SelenicButtonSizeProperties>("lg", lg))
+      ..add(DiagnosticsProperty<SelenicButtonSizeProperties>("xl", xl));
   }
 }

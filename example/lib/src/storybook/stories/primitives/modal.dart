@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class ModalStory extends StatelessWidget {
@@ -12,7 +12,7 @@ class ModalStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for MoonModal text.",
+      description: "MoonColors variants for SelenicModal text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -23,7 +23,7 @@ class ModalStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonModal background.",
+      description: "MoonColors variants for SelenicModal background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -34,7 +34,7 @@ class ModalStory extends StatelessWidget {
 
     final barrierColorKnob = context.knobs.nullable.options(
       label: "barrierColor",
-      description: "MoonColors variants for MoonModal barrier.",
+      description: "MoonColors variants for SelenicModal barrier.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -45,21 +45,21 @@ class ModalStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonModal.",
+      description: "Border radius for SelenicModal.",
       enabled: false,
       initial: 8,
       max: 32,
     );
 
     Future<void> modalBuilder(BuildContext context) {
-      return showMoonModal<void>(
+      return showSelenicModal<void>(
         context: context,
         useRootNavigator: false,
         barrierColor: barrierColor,
         builder: (BuildContext context) {
           return Directionality(
             textDirection: Directionality.of(context),
-            child: MoonModal(
+            child: SelenicModal(
               backgroundColor: backgroundColor,
               borderRadius: borderRadiusKnob != null
                   ? BorderRadius.circular(borderRadiusKnob.toDouble())
@@ -73,26 +73,26 @@ class ModalStory extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(24, 20, 24, 16),
                       child: Text(
-                        "MoonModal title",
-                        style: context.moonTypography!.heading.text18
+                        "SelenicModal title",
+                        style: context.selenicTypography!.heading.text18
                             .copyWith(color: textColor),
                       ),
                     ),
                     Divider(
                       height: 1,
-                      color: context.moonColors!.trunks,
+                      color: context.selenicColors!.trunks,
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
                       child: Text(
-                        "Re-open the MoonModal to view the updated knob value.",
-                        style: context.moonTypography!.body.text14
+                        "Re-open the SelenicModal to view the updated knob value.",
+                        style: context.selenicTypography!.body.text14
                             .copyWith(color: textColor),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
-                      child: MoonFilledButton(
+                      child: SelenicFilledButton(
                         label: const Text("Okay"),
                         isFullWidth: true,
                         onTap: () => Navigator.of(context).pop(),
@@ -110,7 +110,7 @@ class ModalStory extends StatelessWidget {
     return Center(
       child: Builder(
         builder: (BuildContext context) {
-          return MoonFilledButton(
+          return SelenicFilledButton(
             label: const Text("Tap me"),
             onTap: () => modalBuilder(context),
           );

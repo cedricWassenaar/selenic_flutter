@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/toast/toast_colors.dart';
-import 'package:moon_design/src/theme/toast/toast_properties.dart';
-import 'package:moon_design/src/theme/toast/toast_shadows.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/toast/toast_colors.dart';
+import 'package:selenic_design/src/theme/toast/toast_properties.dart';
+import 'package:selenic_design/src/theme/toast/toast_shadows.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonToastTheme extends ThemeExtension<MoonToastTheme>
+class SelenicToastTheme extends ThemeExtension<SelenicToastTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonToast.
-  final MoonToastColors colors;
+  /// The colors of the SelenicToast.
+  final SelenicToastColors colors;
 
-  /// The properties of the MoonToast.
-  final MoonToastProperties properties;
+  /// The properties of the SelenicToast.
+  final SelenicToastProperties properties;
 
-  /// The shadows of the MoonToast.
-  final MoonToastShadows shadows;
+  /// The shadows of the SelenicToast.
+  final SelenicToastShadows shadows;
 
-  MoonToastTheme({
+  SelenicToastTheme({
     required this.tokens,
-    MoonToastColors? colors,
-    MoonToastProperties? properties,
-    MoonToastShadows? shadows,
+    SelenicToastColors? colors,
+    SelenicToastProperties? properties,
+    SelenicToastShadows? shadows,
   })  : colors = colors ??
-            MoonToastColors(
+            SelenicToastColors(
               lightVariantBackgroundColor: tokens.colors.goku,
               darkVariantBackgroundColor: tokens.complementaryColors.goku,
               lightVariantTextColor: tokens.colors.bulma,
@@ -36,7 +36,7 @@ class MoonToastTheme extends ThemeExtension<MoonToastTheme>
               darkVariantIconColor: tokens.complementaryColors.bulma,
             ),
         properties = properties ??
-            MoonToastProperties(
+            SelenicToastProperties(
               borderRadius: tokens.borders.surfaceSm,
               horizontalGap: tokens.sizes.x2s,
               verticalGap: tokens.sizes.x3s,
@@ -46,16 +46,17 @@ class MoonToastTheme extends ThemeExtension<MoonToastTheme>
               contentPadding: EdgeInsets.all(tokens.sizes.x2s),
               textStyle: tokens.typography.body.textDefault,
             ),
-        shadows = shadows ?? MoonToastShadows(toastShadows: tokens.shadows.lg);
+        shadows =
+            shadows ?? SelenicToastShadows(toastShadows: tokens.shadows.lg);
 
   @override
-  MoonToastTheme copyWith({
-    MoonTokens? tokens,
-    MoonToastColors? colors,
-    MoonToastProperties? properties,
-    MoonToastShadows? shadows,
+  SelenicToastTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicToastColors? colors,
+    SelenicToastProperties? properties,
+    SelenicToastShadows? shadows,
   }) {
-    return MoonToastTheme(
+    return SelenicToastTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -64,10 +65,10 @@ class MoonToastTheme extends ThemeExtension<MoonToastTheme>
   }
 
   @override
-  MoonToastTheme lerp(ThemeExtension<MoonToastTheme>? other, double t) {
-    if (other is! MoonToastTheme) return this;
+  SelenicToastTheme lerp(ThemeExtension<SelenicToastTheme>? other, double t) {
+    if (other is! SelenicToastTheme) return this;
 
-    return MoonToastTheme(
+    return SelenicToastTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -79,10 +80,11 @@ class MoonToastTheme extends ThemeExtension<MoonToastTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonToastTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonToastColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonToastProperties>("properties", properties))
-      ..add(DiagnosticsProperty<MoonToastShadows>("shadows", shadows));
+      ..add(DiagnosticsProperty("type", "SelenicToastTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicToastColors>("colors", colors))
+      ..add(
+          DiagnosticsProperty<SelenicToastProperties>("properties", properties))
+      ..add(DiagnosticsProperty<SelenicToastShadows>("shadows", shadows));
   }
 }

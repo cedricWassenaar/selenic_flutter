@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_design/src/theme/button/button_size_properties.dart';
-import 'package:moon_design/src/theme/button/button_sizes.dart';
-import 'package:moon_design/src/theme/effects/effects_theme.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/utils/color_tween_premul.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/widgets/common/base_control.dart';
 import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/button/button_size_properties.dart';
+import 'package:selenic_design/src/theme/button/button_sizes.dart';
+import 'package:selenic_design/src/theme/effects/effects_theme.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/utils/color_tween_premul.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/widgets/common/base_control.dart';
 
-enum MoonButtonSize {
+enum SelenicButtonSize {
   xs,
   sm,
   md,
@@ -20,7 +19,7 @@ enum MoonButtonSize {
   xl,
 }
 
-class MoonButton extends StatefulWidget {
+class SelenicButton extends StatefulWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
   final bool autofocus;
 
@@ -134,7 +133,7 @@ class MoonButton extends StatefulWidget {
   final FocusNode? focusNode;
 
   /// The size of the button.
-  final MoonButtonSize? buttonSize;
+  final SelenicButtonSize? buttonSize;
 
   /// The semantic label for the button.
   final String? semanticLabel;
@@ -154,15 +153,15 @@ class MoonButton extends StatefulWidget {
   /// The widget to display after the [label] widget of the button.
   final Widget? trailing;
 
-  /// Creates a Moon Design base button.
+  /// Creates a Selenic Design base button.
   ///
   /// See also:
   ///
-  ///   * [MoonFilledButton], Moon Design filled button.
-  ///   * [MoonOutlinedButton], Moon Design outlined button.
-  ///   * [MoonTextButton], Moon Design text button.
-  ///   * [MoonButton.icon], Moon Design icon button.
-  const MoonButton({
+  ///   * [SelenicFilledButton], Selenic Design filled button.
+  ///   * [SelenicOutlinedButton], Selenic Design outlined button.
+  ///   * [SelenicTextButton], Selenic Design text button.
+  ///   * [SelenicButton.icon], Selenic Design icon button.
+  const SelenicButton({
     super.key,
     this.autofocus = false,
     this.isFocusable = true,
@@ -210,14 +209,14 @@ class MoonButton extends StatefulWidget {
     this.trailing,
   });
 
-  /// Creates a Moon Design icon button.
+  /// Creates a Selenic Design icon button.
   ///
   /// See also:
   ///
-  ///   * [MoonFilledButton], Moon Design filled button.
-  ///   * [MoonOutlinedButton], Moon Design outlined button.
-  ///   * [MoonTextButton], Moon Design text button.
-  const MoonButton.icon({
+  ///   * [SelenicFilledButton], Selenic Design filled button.
+  ///   * [SelenicOutlinedButton], Selenic Design outlined button.
+  ///   * [SelenicTextButton], Selenic Design text button.
+  const SelenicButton.icon({
     super.key,
     this.autofocus = false,
     this.isFocusable = true,
@@ -267,10 +266,10 @@ class MoonButton extends StatefulWidget {
         trailing = null;
 
   @override
-  State<MoonButton> createState() => _MoonButtonState();
+  State<SelenicButton> createState() => _SelenicButtonState();
 }
 
-class _MoonButtonState extends State<MoonButton>
+class _SelenicButtonState extends State<SelenicButton>
     with SingleTickerProviderStateMixin {
   final ColorTweenWithPremultipliedAlpha _backgroundColorTween =
       ColorTweenWithPremultipliedAlpha();
@@ -290,29 +289,29 @@ class _MoonButtonState extends State<MoonButton>
         : _animationController?.reverse();
   }
 
-  MoonButtonSizeProperties _getMoonButtonSize(
+  SelenicButtonSizeProperties _getSelenicButtonSize(
     BuildContext context,
-    MoonButtonSize? moonButtonSize,
+    SelenicButtonSize? buttonSize,
   ) {
-    switch (moonButtonSize) {
-      case MoonButtonSize.xs:
-        return context.moonTheme?.buttonTheme.sizes.xs ??
-            MoonButtonSizes(tokens: MoonTokens.light).xs;
-      case MoonButtonSize.sm:
-        return context.moonTheme?.buttonTheme.sizes.sm ??
-            MoonButtonSizes(tokens: MoonTokens.light).sm;
-      case MoonButtonSize.md:
-        return context.moonTheme?.buttonTheme.sizes.md ??
-            MoonButtonSizes(tokens: MoonTokens.light).md;
-      case MoonButtonSize.lg:
-        return context.moonTheme?.buttonTheme.sizes.lg ??
-            MoonButtonSizes(tokens: MoonTokens.light).lg;
-      case MoonButtonSize.xl:
-        return context.moonTheme?.buttonTheme.sizes.xl ??
-            MoonButtonSizes(tokens: MoonTokens.light).xl;
+    switch (buttonSize) {
+      case SelenicButtonSize.xs:
+        return context.selenicTheme?.buttonTheme.sizes.xs ??
+            SelenicButtonSizes(tokens: SelenicTokens.light).xs;
+      case SelenicButtonSize.sm:
+        return context.selenicTheme?.buttonTheme.sizes.sm ??
+            SelenicButtonSizes(tokens: SelenicTokens.light).sm;
+      case SelenicButtonSize.md:
+        return context.selenicTheme?.buttonTheme.sizes.md ??
+            SelenicButtonSizes(tokens: SelenicTokens.light).md;
+      case SelenicButtonSize.lg:
+        return context.selenicTheme?.buttonTheme.sizes.lg ??
+            SelenicButtonSizes(tokens: SelenicTokens.light).lg;
+      case SelenicButtonSize.xl:
+        return context.selenicTheme?.buttonTheme.sizes.xl ??
+            SelenicButtonSizes(tokens: SelenicTokens.light).xl;
       default:
-        return context.moonTheme?.buttonTheme.sizes.md ??
-            MoonButtonSizes(tokens: MoonTokens.light).md;
+        return context.selenicTheme?.buttonTheme.sizes.md ??
+            SelenicButtonSizes(tokens: SelenicTokens.light).md;
     }
   }
 
@@ -325,27 +324,27 @@ class _MoonButtonState extends State<MoonButton>
 
   @override
   Widget build(BuildContext context) {
-    final MoonButtonSizeProperties effectiveMoonButtonSize =
-        _getMoonButtonSize(context, widget.buttonSize);
+    final SelenicButtonSizeProperties effectiveSelenicButtonSize =
+        _getSelenicButtonSize(context, widget.buttonSize);
 
     final BorderRadiusGeometry effectiveBorderRadius =
-        widget.borderRadius ?? effectiveMoonButtonSize.borderRadius;
+        widget.borderRadius ?? effectiveSelenicButtonSize.borderRadius;
 
     final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme?.buttonTheme.colors.borderColor ??
+        context.selenicTheme?.buttonTheme.colors.borderColor ??
         MoonColors.light.trunks;
 
     final double effectiveBorderWidth = widget.borderWidth ??
-        context.moonBorders?.defaultBorderWidth ??
-        MoonBorders.borders.defaultBorderWidth;
+        context.selenicBorders?.defaultBorderWidth ??
+        SelenicBorders.borders.defaultBorderWidth;
 
     final Color effectiveTextColor = widget.textColor ??
-        context.moonTheme?.buttonTheme.colors.textColor ??
+        context.selenicTheme?.buttonTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveHoverEffectColor = widget.hoverEffectColor ??
-        context.moonEffects?.controlHoverEffect.primaryHoverColor ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.primaryHoverColor ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlHoverEffect
             .primaryHoverColor;
 
@@ -355,12 +354,12 @@ class _MoonButtonState extends State<MoonButton>
     );
 
     final double effectiveHeight =
-        widget.height ?? effectiveMoonButtonSize.height;
+        widget.height ?? effectiveSelenicButtonSize.height;
 
-    final double effectiveGap = widget.gap ?? effectiveMoonButtonSize.gap;
+    final double effectiveGap = widget.gap ?? effectiveSelenicButtonSize.gap;
 
     final EdgeInsetsGeometry effectivePadding =
-        widget.padding ?? effectiveMoonButtonSize.padding;
+        widget.padding ?? effectiveSelenicButtonSize.padding;
 
     final EdgeInsets resolvedDirectionalPadding =
         effectivePadding.resolve(Directionality.of(context));
@@ -379,14 +378,14 @@ class _MoonButtonState extends State<MoonButton>
         : resolvedDirectionalPadding;
 
     final Duration effectiveHoverEffectDuration = widget.hoverEffectDuration ??
-        context.moonEffects?.controlHoverEffect.hoverDuration ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.hoverDuration ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlHoverEffect
             .hoverDuration;
 
     final Curve effectiveHoverEffectCurve = widget.hoverEffectCurve ??
-        context.moonEffects?.controlHoverEffect.hoverCurve ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.hoverCurve ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlHoverEffect
             .hoverCurve;
 
@@ -411,7 +410,7 @@ class _MoonButtonState extends State<MoonButton>
       ..begin = effectiveTextColor
       ..end = widget.hoverTextColor ?? effectiveTextColor;
 
-    return MoonBaseControl(
+    return SelenicBaseControl(
       autofocus: widget.autofocus,
       isFocusable: widget.isFocusable,
       ensureMinimalTouchTargetSize: widget.ensureMinimalTouchTargetSize,
@@ -457,10 +456,10 @@ class _MoonButtonState extends State<MoonButton>
             return IconTheme(
               data: IconThemeData(
                 color: _textColor!.value,
-                size: effectiveMoonButtonSize.iconSizeValue,
+                size: effectiveSelenicButtonSize.iconSizeValue,
               ),
               child: DefaultTextStyle(
-                style: effectiveMoonButtonSize.textStyle
+                style: effectiveSelenicButtonSize.textStyle
                     .copyWith(color: _textColor!.value),
                 child: Container(
                   width: widget.width,
@@ -469,7 +468,7 @@ class _MoonButtonState extends State<MoonButton>
                   decoration: widget.decoration ??
                       ShapeDecoration(
                         color: _backgroundColor!.value,
-                        shape: MoonSquircleBorder(
+                        shape: SelenicSquircleBorder(
                           borderRadius: effectiveBorderRadius
                               .squircleBorderRadius(context),
                           side: BorderSide(

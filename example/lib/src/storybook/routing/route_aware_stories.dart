@@ -286,5 +286,5 @@ final List<Story> routeAwareStories = [
   ),
 ];
 
-Future<String> fetchAsset(String assetName) async =>
+Future<String> fetchAsset(String assetName) =>
     rootBundle.loadString('$directory$assetName');

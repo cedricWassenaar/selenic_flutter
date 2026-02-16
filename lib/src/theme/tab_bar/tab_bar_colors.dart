@@ -1,27 +1,27 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonTabBarColors extends ThemeExtension<MoonTabBarColors>
+class SelenicTabBarColors extends ThemeExtension<SelenicTabBarColors>
     with DiagnosticableTreeMixin {
-  /// The color of the MoonTabBar tab indicator.
+  /// The color of the SelenicTabBar tab indicator.
   final Color indicatorColor;
 
-  /// The text color of the MoonTabBar.
+  /// The text color of the SelenicTabBar.
   final Color textColor;
 
-  /// The text color of the selected MoonTabBar tab.
+  /// The text color of the selected SelenicTabBar tab.
   final Color selectedTextColor;
 
-  /// The text color of the selected MoonTabBar pill tab.
+  /// The text color of the selected SelenicTabBar pill tab.
   final Color selectedPillTextColor;
 
-  /// The background color of the selected MoonTabBar pill tab.
+  /// The background color of the selected SelenicTabBar pill tab.
   final Color selectedPillTabColor;
 
-  const MoonTabBarColors({
+  const SelenicTabBarColors({
     required this.indicatorColor,
     required this.textColor,
     required this.selectedTextColor,
@@ -30,14 +30,14 @@ class MoonTabBarColors extends ThemeExtension<MoonTabBarColors>
   });
 
   @override
-  MoonTabBarColors copyWith({
+  SelenicTabBarColors copyWith({
     Color? indicatorColor,
     Color? textColor,
     Color? selectedTextColor,
     Color? selectedPillTextColor,
     Color? selectedPillTabColor,
   }) {
-    return MoonTabBarColors(
+    return SelenicTabBarColors(
       indicatorColor: indicatorColor ?? this.indicatorColor,
       textColor: textColor ?? this.textColor,
       selectedTextColor: selectedTextColor ?? this.selectedTextColor,
@@ -48,10 +48,11 @@ class MoonTabBarColors extends ThemeExtension<MoonTabBarColors>
   }
 
   @override
-  MoonTabBarColors lerp(ThemeExtension<MoonTabBarColors>? other, double t) {
-    if (other is! MoonTabBarColors) return this;
+  SelenicTabBarColors lerp(
+      ThemeExtension<SelenicTabBarColors>? other, double t) {
+    if (other is! SelenicTabBarColors) return this;
 
-    return MoonTabBarColors(
+    return SelenicTabBarColors(
       indicatorColor: colorPremulLerp(indicatorColor, other.indicatorColor, t)!,
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
       selectedTextColor:
@@ -70,7 +71,7 @@ class MoonTabBarColors extends ThemeExtension<MoonTabBarColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonTabBarColors"))
+      ..add(DiagnosticsProperty("type", "SelenicTabBarColors"))
       ..add(ColorProperty("indicatorColor", indicatorColor))
       ..add(ColorProperty("textColor", textColor))
       ..add(ColorProperty("selectedTextColor", selectedTextColor))

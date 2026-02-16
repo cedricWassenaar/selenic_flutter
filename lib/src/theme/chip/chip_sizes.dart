@@ -1,27 +1,27 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/chip/chip_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/chip/chip_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonChipSizes extends ThemeExtension<MoonChipSizes>
+class SelenicChipSizes extends ThemeExtension<SelenicChipSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the small MoonChip.
-  final MoonChipSizeProperties sm;
+  /// The properties of the small SelenicChip.
+  final SelenicChipSizeProperties sm;
 
-  /// The properties of the medium MoonChip.
-  final MoonChipSizeProperties md;
+  /// The properties of the medium SelenicChip.
+  final SelenicChipSizeProperties md;
 
-  MoonChipSizes({
+  SelenicChipSizes({
     required this.tokens,
-    MoonChipSizeProperties? sm,
-    MoonChipSizeProperties? md,
+    SelenicChipSizeProperties? sm,
+    SelenicChipSizeProperties? md,
   })  : sm = sm ??
-            MoonChipSizeProperties(
+            SelenicChipSizeProperties(
               borderRadius: tokens.borders.interactiveXs,
               gap: tokens.sizes.x4s,
               height: tokens.sizes.sm,
@@ -30,7 +30,7 @@ class MoonChipSizes extends ThemeExtension<MoonChipSizes>
               textStyle: tokens.typography.body.textDefault,
             ),
         md = md ??
-            MoonChipSizeProperties(
+            SelenicChipSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               gap: tokens.sizes.x4s,
               height: tokens.sizes.md,
@@ -40,12 +40,12 @@ class MoonChipSizes extends ThemeExtension<MoonChipSizes>
             );
 
   @override
-  MoonChipSizes copyWith({
-    MoonTokens? tokens,
-    MoonChipSizeProperties? sm,
-    MoonChipSizeProperties? md,
+  SelenicChipSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicChipSizeProperties? sm,
+    SelenicChipSizeProperties? md,
   }) {
-    return MoonChipSizes(
+    return SelenicChipSizes(
       tokens: tokens ?? this.tokens,
       sm: sm ?? this.sm,
       md: md ?? this.md,
@@ -53,10 +53,10 @@ class MoonChipSizes extends ThemeExtension<MoonChipSizes>
   }
 
   @override
-  MoonChipSizes lerp(ThemeExtension<MoonChipSizes>? other, double t) {
-    if (other is! MoonChipSizes) return this;
+  SelenicChipSizes lerp(ThemeExtension<SelenicChipSizes>? other, double t) {
+    if (other is! SelenicChipSizes) return this;
 
-    return MoonChipSizes(
+    return SelenicChipSizes(
       tokens: tokens.lerp(other.tokens, t),
       sm: sm.lerp(other.sm, t),
       md: md.lerp(other.md, t),
@@ -67,9 +67,9 @@ class MoonChipSizes extends ThemeExtension<MoonChipSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonChipSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonChipSizeProperties>("sm", sm))
-      ..add(DiagnosticsProperty<MoonChipSizeProperties>("md", md));
+      ..add(DiagnosticsProperty("type", "SelenicChipSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicChipSizeProperties>("sm", sm))
+      ..add(DiagnosticsProperty<SelenicChipSizeProperties>("md", md));
   }
 }

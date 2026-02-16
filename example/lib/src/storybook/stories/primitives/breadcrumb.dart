@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class BreadcrumbStory extends StatefulWidget {
@@ -22,7 +22,7 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
   Widget build(BuildContext context) {
     final itemColorKnob = context.knobs.nullable.options(
       label: "Item color",
-      description: "MoonColors variants for MoonBreadcrumb item.",
+      description: "MoonColors variants for SelenicBreadcrumb item.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -33,7 +33,7 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
 
     final currentItemColorKnob = context.knobs.nullable.options(
       label: "Current item color",
-      description: "MoonColors variants for MoonBreadcrumb current item.",
+      description: "MoonColors variants for SelenicBreadcrumb current item.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -44,7 +44,7 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
 
     final hoverEffectColorKnob = context.knobs.nullable.options(
       label: "hoverEffectColor",
-      description: "MoonColors variants for MoonBreadcrumb item on hover.",
+      description: "MoonColors variants for SelenicBreadcrumb item on hover.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -55,7 +55,7 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
 
     final dividerColorKnob = context.knobs.nullable.options(
       label: "dividerColor",
-      description: "MoonColors variants for MoonBreadcrumb divider.",
+      description: "MoonColors variants for SelenicBreadcrumb divider.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -66,7 +66,7 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
 
     final itemCountKnob = context.knobs.nullable.sliderInt(
       label: "Item count",
-      description: "Total count of items for MoonBreadcrumb.",
+      description: "Total count of items for SelenicBreadcrumb.",
       enabled: false,
       initial: 7,
       max: 12,
@@ -74,7 +74,7 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
 
     final visibleItemCountKnob = context.knobs.nullable.sliderInt(
       label: "visibleItemCount",
-      description: "Number of items to display for MoonBreadcrumb.",
+      description: "Number of items to display for SelenicBreadcrumb.",
       enabled: false,
       initial: 3,
       max: 12,
@@ -82,7 +82,7 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
 
     final gapKnob = context.knobs.nullable.sliderInt(
       label: "gap",
-      description: "Gap between MoonBreadcrumb items.",
+      description: "Gap between SelenicBreadcrumb items.",
       enabled: false,
       initial: 8,
       max: 16,
@@ -90,22 +90,22 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
 
     final showLeadingKnob = context.knobs.boolean(
       label: "leading",
-      description: "Show widget in MoonBreadcrumb item leading slot.",
+      description: "Show widget in SelenicBreadcrumb item leading slot.",
     );
 
     final showTrailingKnob = context.knobs.boolean(
       label: "trailing",
-      description: "Show widget in MoonBreadcrumb item trailing slot.",
+      description: "Show widget in SelenicBreadcrumb item trailing slot.",
     );
 
-    final List<MoonBreadcrumbItem> breadcrumbItems = List.generate(
+    final List<SelenicBreadcrumbItem> breadcrumbItems = List.generate(
       itemCountKnob ?? 7,
       (int index) {
         final bool isHomePage = index == 0;
 
-        return MoonBreadcrumbItem(
+        return SelenicBreadcrumbItem(
           semanticLabel: index.toString(),
-          onTap: () => MoonToast.show(
+          onTap: () => SelenicToast.show(
             context,
             displayDuration: const Duration(seconds: 1),
             label: Text(isHomePage ? 'Home Page' : 'Page $index'),
@@ -134,10 +134,10 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const TextDivider(
-              text: "MoonBreadcrumb",
+              text: "SelenicBreadcrumb",
               paddingTop: 0,
             ),
-            MoonBreadcrumb(
+            SelenicBreadcrumb(
               visibleItemCount: visibleItemCountKnob ?? 3,
               gap: gapKnob?.toDouble(),
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -148,18 +148,19 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
               items: breadcrumbItems,
             ),
             const SizedBox(height: 32),
-            MoonButton(
-              backgroundColor: context.moonColors!.piccolo,
+            SelenicButton(
+              backgroundColor: context.selenicColors!.piccolo,
               onTap: () => setState(() => {}),
               label: Text(
                 'Reset',
-                style: TextStyle(color: context.moonColors!.goten),
+                style: TextStyle(color: context.selenicColors!.goten),
               ),
             ),
-            const TextDivider(text: "Custom MoonBreadcrumb with MoonDropdown"),
+            const TextDivider(
+                text: "Custom SelenicBreadcrumb with SelenicDropdown"),
             StatefulBuilder(
               builder: (BuildContext context, StateSetter setState) {
-                return MoonBreadcrumb(
+                return SelenicBreadcrumb(
                   visibleItemCount: visibleItemCountKnob ?? 3,
                   gap: gapKnob?.toDouble(),
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -175,9 +176,9 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
                         ? MoonIcons.controls_chevron_right_small_16_light
                         : MoonIcons.controls_chevron_left_small_16_light,
                   ),
-                  showMoreWidget: MoonBreadcrumbItem(
+                  showMoreWidget: SelenicBreadcrumbItem(
                     onTap: () => setState(() => _showDropdown = !_showDropdown),
-                    label: MoonDropdown(
+                    label: SelenicDropdown(
                       maxHeight: 250,
                       maxWidth: 150,
                       show: _showDropdown,
@@ -190,8 +191,8 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
                             (itemCountKnob ?? 7) - (visibleItemCountKnob ?? 3),
                             0,
                           ),
-                          (int index) => MoonMenuItem(
-                            onTap: () => MoonToast.show(
+                          (int index) => SelenicMenuItem(
+                            onTap: () => SelenicToast.show(
                               context,
                               displayDuration: const Duration(seconds: 1),
                               label: Text('Page ${index + 1}'),

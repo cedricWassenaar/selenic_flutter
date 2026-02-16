@@ -1,24 +1,24 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonCheckboxColors extends ThemeExtension<MoonCheckboxColors>
+class SelenicCheckboxColors extends ThemeExtension<SelenicCheckboxColors>
     with DiagnosticableTreeMixin {
-  /// The background color of the checked MoonCheckbox.
+  /// The background color of the checked SelenicCheckbox.
   final Color activeColor;
 
-  /// The border color of the unchecked MoonCheckbox.
+  /// The border color of the unchecked SelenicCheckbox.
   final Color borderColor;
 
-  /// The color of the check icon when the MoonCheckbox is checked.
+  /// The color of the check icon when the SelenicCheckbox is checked.
   final Color checkColor;
 
-  /// The background color of the unchecked MoonCheckbox.
+  /// The background color of the unchecked SelenicCheckbox.
   final Color inactiveColor;
 
-  const MoonCheckboxColors({
+  const SelenicCheckboxColors({
     required this.activeColor,
     required this.borderColor,
     required this.checkColor,
@@ -26,13 +26,13 @@ class MoonCheckboxColors extends ThemeExtension<MoonCheckboxColors>
   });
 
   @override
-  MoonCheckboxColors copyWith({
+  SelenicCheckboxColors copyWith({
     Color? activeColor,
     Color? borderColor,
     Color? checkColor,
     Color? inactiveColor,
   }) {
-    return MoonCheckboxColors(
+    return SelenicCheckboxColors(
       activeColor: activeColor ?? this.activeColor,
       borderColor: borderColor ?? this.borderColor,
       checkColor: checkColor ?? this.checkColor,
@@ -41,10 +41,11 @@ class MoonCheckboxColors extends ThemeExtension<MoonCheckboxColors>
   }
 
   @override
-  MoonCheckboxColors lerp(ThemeExtension<MoonCheckboxColors>? other, double t) {
-    if (other is! MoonCheckboxColors) return this;
+  SelenicCheckboxColors lerp(
+      ThemeExtension<SelenicCheckboxColors>? other, double t) {
+    if (other is! SelenicCheckboxColors) return this;
 
-    return MoonCheckboxColors(
+    return SelenicCheckboxColors(
       activeColor: colorPremulLerp(activeColor, other.activeColor, t)!,
       borderColor: colorPremulLerp(borderColor, other.borderColor, t)!,
       checkColor: colorPremulLerp(checkColor, other.checkColor, t)!,
@@ -56,7 +57,7 @@ class MoonCheckboxColors extends ThemeExtension<MoonCheckboxColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonCheckboxColors"))
+      ..add(DiagnosticsProperty("type", "SelenicCheckboxColors"))
       ..add(ColorProperty("activeColor", activeColor))
       ..add(ColorProperty("borderColor", borderColor))
       ..add(ColorProperty("checkColor", checkColor))

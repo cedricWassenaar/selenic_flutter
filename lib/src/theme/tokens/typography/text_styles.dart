@@ -2,12 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTextStyles extends ThemeExtension<MoonTextStyles>
+class SelenicTextStyles extends ThemeExtension<SelenicTextStyles>
     with DiagnosticableTreeMixin {
   static const _semiBold = FontWeight.w600;
   static const _semiBoldVariation = [FontVariation('wght', 600)];
 
-  static const body = MoonTextStyles(
+  static const body = SelenicTextStyles(
     textDefault: TextStyle(
       fontSize: 14,
     ),
@@ -61,7 +61,7 @@ class MoonTextStyles extends ThemeExtension<MoonTextStyles>
     ),
   );
 
-  static const heading = MoonTextStyles(
+  static const heading = SelenicTextStyles(
     textDefault: TextStyle(
       fontSize: 14,
       fontVariations: _semiBoldVariation,
@@ -200,7 +200,7 @@ class MoonTextStyles extends ThemeExtension<MoonTextStyles>
   /// The text size 72.
   final TextStyle text72;
 
-  const MoonTextStyles({
+  const SelenicTextStyles({
     required this.textDefault,
     required this.text6,
     required this.text8,
@@ -221,7 +221,7 @@ class MoonTextStyles extends ThemeExtension<MoonTextStyles>
   });
 
   /// Creates a copy of the text theme but with the given field replaced in each of the individual text styles.
-  MoonTextStyles apply({
+  SelenicTextStyles apply({
     Color? backgroundColor,
     Color? color,
     Color? decorationColor,
@@ -276,7 +276,7 @@ class MoonTextStyles extends ThemeExtension<MoonTextStyles>
           overflow: overflow,
         );
 
-    return MoonTextStyles(
+    return SelenicTextStyles(
       textDefault: applyProps(textDefault),
       text6: applyProps(text6),
       text8: applyProps(text8),
@@ -298,7 +298,7 @@ class MoonTextStyles extends ThemeExtension<MoonTextStyles>
   }
 
   @override
-  MoonTextStyles copyWith({
+  SelenicTextStyles copyWith({
     TextStyle? textDefault,
     TextStyle? text6,
     TextStyle? text8,
@@ -317,7 +317,7 @@ class MoonTextStyles extends ThemeExtension<MoonTextStyles>
     TextStyle? text64,
     TextStyle? text72,
   }) {
-    return MoonTextStyles(
+    return SelenicTextStyles(
       textDefault: textDefault ?? this.textDefault,
       text6: text6 ?? this.text6,
       text8: text8 ?? this.text8,
@@ -339,10 +339,10 @@ class MoonTextStyles extends ThemeExtension<MoonTextStyles>
   }
 
   @override
-  MoonTextStyles lerp(ThemeExtension<MoonTextStyles>? other, double t) {
-    if (other is! MoonTextStyles) return this;
+  SelenicTextStyles lerp(ThemeExtension<SelenicTextStyles>? other, double t) {
+    if (other is! SelenicTextStyles) return this;
 
-    return MoonTextStyles(
+    return SelenicTextStyles(
       textDefault: TextStyle.lerp(textDefault, other.textDefault, t)!,
       text6: TextStyle.lerp(text6, other.text6, t)!,
       text8: TextStyle.lerp(text8, other.text8, t)!,
@@ -367,7 +367,7 @@ class MoonTextStyles extends ThemeExtension<MoonTextStyles>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonTextStyles"))
+      ..add(DiagnosticsProperty("type", "SelenicTextStyles"))
       ..add(DiagnosticsProperty<TextStyle>("textDefault", textDefault))
       ..add(DiagnosticsProperty<TextStyle>("text6", text6))
       ..add(DiagnosticsProperty<TextStyle>("text8", text8))

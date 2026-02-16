@@ -1,39 +1,39 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tooltip/tooltip_colors.dart';
-import 'package:moon_design/src/theme/tooltip/tooltip_properties.dart';
-import 'package:moon_design/src/theme/tooltip/tooltip_shadows.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tooltip/tooltip_colors.dart';
+import 'package:selenic_design/src/theme/tooltip/tooltip_properties.dart';
+import 'package:selenic_design/src/theme/tooltip/tooltip_shadows.dart';
 
 @immutable
-class MoonTooltipTheme extends ThemeExtension<MoonTooltipTheme>
+class SelenicTooltipTheme extends ThemeExtension<SelenicTooltipTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonTooltip.
-  final MoonTooltipColors colors;
+  /// The colors of the SelenicTooltip.
+  final SelenicTooltipColors colors;
 
-  /// The properties of the MoonTooltip.
-  final MoonTooltipProperties properties;
+  /// The properties of the SelenicTooltip.
+  final SelenicTooltipProperties properties;
 
-  /// The shadows of the MoonTooltip.
-  final MoonTooltipShadows shadows;
+  /// The shadows of the SelenicTooltip.
+  final SelenicTooltipShadows shadows;
 
-  MoonTooltipTheme({
+  SelenicTooltipTheme({
     required this.tokens,
-    MoonTooltipColors? colors,
-    MoonTooltipProperties? properties,
-    MoonTooltipShadows? shadows,
+    SelenicTooltipColors? colors,
+    SelenicTooltipProperties? properties,
+    SelenicTooltipShadows? shadows,
   })  : colors = colors ??
-            MoonTooltipColors(
+            SelenicTooltipColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
               backgroundColor: tokens.colors.goku,
             ),
         properties = properties ??
-            MoonTooltipProperties(
+            SelenicTooltipProperties(
               borderRadius: tokens.borders.interactiveXs,
               arrowBaseWidth: tokens.sizes.x2s,
               arrowLength: tokens.sizes.x4s,
@@ -44,16 +44,16 @@ class MoonTooltipTheme extends ThemeExtension<MoonTooltipTheme>
               textStyle: tokens.typography.body.text12,
             ),
         shadows =
-            shadows ?? MoonTooltipShadows(tooltipShadows: tokens.shadows.sm);
+            shadows ?? SelenicTooltipShadows(tooltipShadows: tokens.shadows.sm);
 
   @override
-  MoonTooltipTheme copyWith({
-    MoonTokens? tokens,
-    MoonTooltipColors? colors,
-    MoonTooltipProperties? properties,
-    MoonTooltipShadows? shadows,
+  SelenicTooltipTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicTooltipColors? colors,
+    SelenicTooltipProperties? properties,
+    SelenicTooltipShadows? shadows,
   }) {
-    return MoonTooltipTheme(
+    return SelenicTooltipTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -62,10 +62,11 @@ class MoonTooltipTheme extends ThemeExtension<MoonTooltipTheme>
   }
 
   @override
-  MoonTooltipTheme lerp(ThemeExtension<MoonTooltipTheme>? other, double t) {
-    if (other is! MoonTooltipTheme) return this;
+  SelenicTooltipTheme lerp(
+      ThemeExtension<SelenicTooltipTheme>? other, double t) {
+    if (other is! SelenicTooltipTheme) return this;
 
-    return MoonTooltipTheme(
+    return SelenicTooltipTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -78,19 +79,19 @@ class MoonTooltipTheme extends ThemeExtension<MoonTooltipTheme>
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
       ..add(
-        DiagnosticsProperty("type", "MoonTooltipTheme"),
+        DiagnosticsProperty("type", "SelenicTooltipTheme"),
       )
       ..add(
-        DiagnosticsProperty<MoonTokens>("tokens", tokens),
+        DiagnosticsProperty<SelenicTokens>("tokens", tokens),
       )
       ..add(
-        DiagnosticsProperty<MoonTooltipColors>("colors", colors),
+        DiagnosticsProperty<SelenicTooltipColors>("colors", colors),
       )
       ..add(
-        DiagnosticsProperty<MoonTooltipProperties>("properties", properties),
+        DiagnosticsProperty<SelenicTooltipProperties>("properties", properties),
       )
       ..add(
-        DiagnosticsProperty<MoonTooltipShadows>("shadows", shadows),
+        DiagnosticsProperty<SelenicTooltipShadows>("shadows", shadows),
       );
   }
 }

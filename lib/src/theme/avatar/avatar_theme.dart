@@ -1,42 +1,42 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/avatar/avatar_colors.dart';
-import 'package:moon_design/src/theme/avatar/avatar_sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/avatar/avatar_colors.dart';
+import 'package:selenic_design/src/theme/avatar/avatar_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonAvatarTheme extends ThemeExtension<MoonAvatarTheme>
+class SelenicAvatarTheme extends ThemeExtension<SelenicAvatarTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonAvatar.
-  final MoonAvatarColors colors;
+  /// The colors of the SelenicAvatar.
+  final SelenicAvatarColors colors;
 
-  /// The sizes of the MoonAvatar.
-  final MoonAvatarSizes sizes;
+  /// The sizes of the SelenicAvatar.
+  final SelenicAvatarSizes sizes;
 
-  MoonAvatarTheme({
+  SelenicAvatarTheme({
     required this.tokens,
-    MoonAvatarColors? colors,
-    MoonAvatarSizes? sizes,
+    SelenicAvatarColors? colors,
+    SelenicAvatarSizes? sizes,
   })  : colors = colors ??
-            MoonAvatarColors(
+            SelenicAvatarColors(
               backgroundColor: tokens.colors.goku,
               badgeColor: tokens.colors.roshi,
               iconColor: tokens.colors.iconPrimary,
               textColor: tokens.colors.textPrimary,
             ),
-        sizes = sizes ?? MoonAvatarSizes(tokens: tokens);
+        sizes = sizes ?? SelenicAvatarSizes(tokens: tokens);
 
   @override
-  MoonAvatarTheme copyWith({
-    MoonTokens? tokens,
-    MoonAvatarColors? colors,
-    MoonAvatarSizes? sizes,
+  SelenicAvatarTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicAvatarColors? colors,
+    SelenicAvatarSizes? sizes,
   }) {
-    return MoonAvatarTheme(
+    return SelenicAvatarTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       sizes: sizes ?? this.sizes,
@@ -44,10 +44,10 @@ class MoonAvatarTheme extends ThemeExtension<MoonAvatarTheme>
   }
 
   @override
-  MoonAvatarTheme lerp(ThemeExtension<MoonAvatarTheme>? other, double t) {
-    if (other is! MoonAvatarTheme) return this;
+  SelenicAvatarTheme lerp(ThemeExtension<SelenicAvatarTheme>? other, double t) {
+    if (other is! SelenicAvatarTheme) return this;
 
-    return MoonAvatarTheme(
+    return SelenicAvatarTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       sizes: sizes.lerp(other.sizes, t),
@@ -58,9 +58,9 @@ class MoonAvatarTheme extends ThemeExtension<MoonAvatarTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonAvatarTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonAvatarColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonAvatarSizes>("sizes", sizes));
+      ..add(DiagnosticsProperty("type", "SelenicAvatarTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicAvatarColors>("colors", colors))
+      ..add(DiagnosticsProperty<SelenicAvatarSizes>("sizes", sizes));
   }
 }

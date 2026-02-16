@@ -1,36 +1,36 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonAuthCodeColors extends ThemeExtension<MoonAuthCodeColors>
+class SelenicAuthCodeColors extends ThemeExtension<SelenicAuthCodeColors>
     with DiagnosticableTreeMixin {
-  /// The border color of the selected MoonAuthCode input field.
+  /// The border color of the selected SelenicAuthCode input field.
   final Color selectedBorderColor;
 
-  /// The border color of the MoonAuthCode input field with input.
+  /// The border color of the SelenicAuthCode input field with input.
   final Color activeBorderColor;
 
-  /// The border color of the MoonAuthCode input field without input.
+  /// The border color of the SelenicAuthCode input field without input.
   final Color inactiveBorderColor;
 
-  /// The border color of the MoonAuthCode input field in error state.
+  /// The border color of the SelenicAuthCode input field in error state.
   final Color errorBorderColor;
 
-  /// The fill color of the selected MoonAuthCode input field.
+  /// The fill color of the selected SelenicAuthCode input field.
   final Color selectedFillColor;
 
-  /// The fill color of the MoonAuthCode input field with input.
+  /// The fill color of the SelenicAuthCode input field with input.
   final Color activeFillColor;
 
-  /// The fill color of the MoonAuthCode input field without input.
+  /// The fill color of the SelenicAuthCode input field without input.
   final Color inactiveFillColor;
 
-  /// The text color of the MoonAuthCode.
+  /// The text color of the SelenicAuthCode.
   final Color textColor;
 
-  const MoonAuthCodeColors({
+  const SelenicAuthCodeColors({
     required this.selectedBorderColor,
     required this.activeBorderColor,
     required this.inactiveBorderColor,
@@ -42,7 +42,7 @@ class MoonAuthCodeColors extends ThemeExtension<MoonAuthCodeColors>
   });
 
   @override
-  MoonAuthCodeColors copyWith({
+  SelenicAuthCodeColors copyWith({
     Color? selectedBorderColor,
     Color? activeBorderColor,
     Color? inactiveBorderColor,
@@ -52,7 +52,7 @@ class MoonAuthCodeColors extends ThemeExtension<MoonAuthCodeColors>
     Color? inactiveFillColor,
     Color? textColor,
   }) {
-    return MoonAuthCodeColors(
+    return SelenicAuthCodeColors(
       selectedBorderColor: selectedBorderColor ?? this.selectedBorderColor,
       activeBorderColor: activeBorderColor ?? this.activeBorderColor,
       inactiveBorderColor: inactiveBorderColor ?? this.inactiveBorderColor,
@@ -65,10 +65,11 @@ class MoonAuthCodeColors extends ThemeExtension<MoonAuthCodeColors>
   }
 
   @override
-  MoonAuthCodeColors lerp(ThemeExtension<MoonAuthCodeColors>? other, double t) {
-    if (other is! MoonAuthCodeColors) return this;
+  SelenicAuthCodeColors lerp(
+      ThemeExtension<SelenicAuthCodeColors>? other, double t) {
+    if (other is! SelenicAuthCodeColors) return this;
 
-    return MoonAuthCodeColors(
+    return SelenicAuthCodeColors(
       selectedBorderColor:
           colorPremulLerp(selectedBorderColor, other.selectedBorderColor, t)!,
       activeBorderColor:
@@ -91,7 +92,7 @@ class MoonAuthCodeColors extends ThemeExtension<MoonAuthCodeColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonAuthCodeColors"))
+      ..add(DiagnosticsProperty("type", "SelenicAuthCodeColors"))
       ..add(ColorProperty("selectedBorderColor", selectedBorderColor))
       ..add(ColorProperty("activeBorderColor", activeBorderColor))
       ..add(ColorProperty("inactiveBorderColor", inactiveBorderColor))

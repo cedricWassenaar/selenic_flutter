@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class LinearLoaderStory extends StatelessWidget {
@@ -12,21 +12,21 @@ class LinearLoaderStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final linearLoaderSizeKnob = context.knobs.nullable.options(
       label: "linearLoaderSize",
-      description: "Size variants for MoonLinearLoader.",
+      description: "Size variants for SelenicLinearLoader.",
       enabled: false,
-      initial: MoonLinearLoaderSize.x4s,
+      initial: SelenicLinearLoaderSize.x4s,
       options: const [
-        Option(label: "x6s", value: MoonLinearLoaderSize.x6s),
-        Option(label: "x5s", value: MoonLinearLoaderSize.x5s),
-        Option(label: "x4s", value: MoonLinearLoaderSize.x4s),
-        Option(label: "x3s", value: MoonLinearLoaderSize.x3s),
-        Option(label: "x2s", value: MoonLinearLoaderSize.x2s),
+        Option(label: "x6s", value: SelenicLinearLoaderSize.x6s),
+        Option(label: "x5s", value: SelenicLinearLoaderSize.x5s),
+        Option(label: "x4s", value: SelenicLinearLoaderSize.x4s),
+        Option(label: "x3s", value: SelenicLinearLoaderSize.x3s),
+        Option(label: "x2s", value: SelenicLinearLoaderSize.x2s),
       ],
     );
 
     final loaderColorKnob = context.knobs.nullable.options(
       label: "color",
-      description: "MoonColors variants for MoonLinearLoader.",
+      description: "MoonColors variants for SelenicLinearLoader.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -37,7 +37,7 @@ class LinearLoaderStory extends StatelessWidget {
 
     final loaderBackgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonLinearLoader background.",
+      description: "MoonColors variants for SelenicLinearLoader background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -49,7 +49,7 @@ class LinearLoaderStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonLinearLoader.",
+      description: "Border radius for SelenicLinearLoader.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -58,7 +58,7 @@ class LinearLoaderStory extends StatelessWidget {
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 64.0, horizontal: 16.0),
-        child: MoonLinearLoader(
+        child: SelenicLinearLoader(
           linearLoaderSize: linearLoaderSizeKnob,
           color: color,
           backgroundColor: backgroundColor,

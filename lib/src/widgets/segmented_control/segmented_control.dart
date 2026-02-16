@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/segmented_control/segmented_control_size_properties.dart';
-import 'package:moon_design/src/theme/segmented_control/segmented_control_sizes.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/utils/color_tween_premul.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/widgets/common/base_control.dart';
-import 'package:moon_design/src/widgets/common/base_segmented_tab_bar.dart';
-import 'package:moon_design/src/widgets/segmented_control/segment.dart';
-import 'package:moon_design/src/widgets/segmented_control/segment_style.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonSegmentedControlSize {
+import 'package:selenic_design/src/theme/segmented_control/segmented_control_size_properties.dart';
+import 'package:selenic_design/src/theme/segmented_control/segmented_control_sizes.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/opacities.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/utils/color_tween_premul.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/widgets/common/base_control.dart';
+import 'package:selenic_design/src/widgets/common/base_segmented_tab_bar.dart';
+import 'package:selenic_design/src/widgets/segmented_control/segment.dart';
+import 'package:selenic_design/src/widgets/segmented_control/segment_style.dart';
+
+enum SelenicSegmentedControlSize {
   sm,
   md,
 }
 
-typedef MoonCustomSegmentBuilder = Widget Function(
+typedef SelenicCustomSegmentBuilder = Widget Function(
   BuildContext context,
   bool isSelected,
 );
 
-class MoonSegmentedControl extends StatefulWidget {
+class SelenicSegmentedControl extends StatefulWidget {
   /// Whether the segmented control is disabled.
   final bool isDisabled;
 
@@ -67,7 +68,7 @@ class MoonSegmentedControl extends StatefulWidget {
   final int initialIndex;
 
   /// The size of the segmented control.
-  final MoonSegmentedControlSize? segmentedControlSize;
+  final SelenicSegmentedControlSize? segmentedControlSize;
 
   /// The custom decoration of the segmented control.
   final Decoration? decoration;
@@ -90,14 +91,14 @@ class MoonSegmentedControl extends StatefulWidget {
   /// control. At least one child is required when this property is used. Cannot
   /// be used in conjunction with the [segments] property, one of them must be
   /// null.
-  final List<MoonCustomSegmentBuilder>? customSegments;
+  final List<SelenicCustomSegmentBuilder>? customSegments;
 
-  /// Creates a Moon Design segmented control.
+  /// Creates a Selenic Design segmented control.
   ///
   /// See also:
   ///
-  ///   * [MoonSegmentedControl.custom], Moon Design custom segmented control.
-  const MoonSegmentedControl({
+  ///   * [SelenicSegmentedControl.custom], Selenic Design custom segmented control.
+  const SelenicSegmentedControl({
     super.key,
     this.isDisabled = false,
     this.isExpanded = false,
@@ -119,8 +120,8 @@ class MoonSegmentedControl extends StatefulWidget {
         assert(segments != null && segments.length > 0),
         customSegments = null;
 
-  /// Creates a Moon Design custom segmented control.
-  const MoonSegmentedControl.custom({
+  /// Creates a Selenic Design custom segmented control.
+  const SelenicSegmentedControl.custom({
     super.key,
     this.isDisabled = false,
     this.isExpanded = false,
@@ -143,28 +144,29 @@ class MoonSegmentedControl extends StatefulWidget {
         segments = null;
 
   @override
-  State<MoonSegmentedControl> createState() => _MoonSegmentedControlState();
+  State<SelenicSegmentedControl> createState() =>
+      _SelenicSegmentedControlState();
 }
 
-class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
+class _SelenicSegmentedControlState extends State<SelenicSegmentedControl> {
   late final bool _hasDefaultSegments = widget.segments != null;
 
   late int _selectedIndex = widget.tabController?.index ?? widget.initialIndex;
 
-  MoonSegmentedControlSizeProperties _getMoonSegmentedControlSize(
+  SelenicSegmentedControlSizeProperties _getSelenicSegmentedControlSize(
     BuildContext context,
-    MoonSegmentedControlSize? segmentedControlSize,
+    SelenicSegmentedControlSize? segmentedControlSize,
   ) {
     switch (segmentedControlSize) {
-      case MoonSegmentedControlSize.sm:
-        return context.moonTheme?.segmentedControlTheme.sizes.sm ??
-            MoonSegmentedControlSizes(tokens: MoonTokens.light).sm;
-      case MoonSegmentedControlSize.md:
-        return context.moonTheme?.segmentedControlTheme.sizes.md ??
-            MoonSegmentedControlSizes(tokens: MoonTokens.light).md;
+      case SelenicSegmentedControlSize.sm:
+        return context.selenicTheme?.segmentedControlTheme.sizes.sm ??
+            SelenicSegmentedControlSizes(tokens: SelenicTokens.light).sm;
+      case SelenicSegmentedControlSize.md:
+        return context.selenicTheme?.segmentedControlTheme.sizes.md ??
+            SelenicSegmentedControlSizes(tokens: SelenicTokens.light).md;
       default:
-        return context.moonTheme?.segmentedControlTheme.sizes.md ??
-            MoonSegmentedControlSizes(tokens: MoonTokens.light).md;
+        return context.selenicTheme?.segmentedControlTheme.sizes.md ??
+            SelenicSegmentedControlSizes(tokens: SelenicTokens.light).md;
     }
   }
 
@@ -212,38 +214,41 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
 
   @override
   Widget build(BuildContext context) {
-    final MoonSegmentedControlSizeProperties effectiveMoonSegmentControlSize =
-        _getMoonSegmentedControlSize(context, widget.segmentedControlSize);
+    final SelenicSegmentedControlSizeProperties
+        effectiveSelenicSegmentControlSize =
+        _getSelenicSegmentedControlSize(context, widget.segmentedControlSize);
 
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.segmentedControlTheme.properties.borderRadius ??
-        MoonBorders.borders.interactiveMd;
+        context.selenicTheme?.segmentedControlTheme.properties.borderRadius ??
+        SelenicBorders.borders.interactiveMd;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.segmentedControlTheme.colors.backgroundColor ??
+        context.selenicTheme?.segmentedControlTheme.colors.backgroundColor ??
         MoonColors.light.gohan;
 
     final double effectiveDisabledOpacityValue =
-        context.moonOpacities?.disabled ?? MoonOpacities.opacities.disabled;
+        context.selenicOpacities?.disabled ??
+            SelenicOpacities.opacities.disabled;
 
     final double effectiveHeight =
-        widget.height ?? effectiveMoonSegmentControlSize.height;
+        widget.height ?? effectiveSelenicSegmentControlSize.height;
 
     final double effectiveGap = widget.gap ??
-        context.moonTheme?.segmentedControlTheme.properties.gap ??
-        MoonSizes.sizes.x5s;
+        context.selenicTheme?.segmentedControlTheme.properties.gap ??
+        SelenicSizes.sizes.x5s;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context
-            .moonTheme?.segmentedControlTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.segmentedControlTheme.properties
+            .transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.segmentedControlTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context
+            .selenicTheme?.segmentedControlTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     final EdgeInsetsGeometry effectivePadding = widget.padding ??
-        context.moonTheme?.segmentedControlTheme.properties.padding ??
+        context.selenicTheme?.segmentedControlTheme.properties.padding ??
         const EdgeInsets.all(4);
 
     return AnimatedOpacity(
@@ -257,7 +262,7 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
         decoration: widget.decoration ??
             ShapeDecorationWithPremultipliedAlpha(
               color: effectiveBackgroundColor,
-              shape: MoonSquircleBorder(
+              shape: SelenicSquircleBorder(
                 borderRadius:
                     effectiveBorderRadius.squircleBorderRadius(context),
               ),
@@ -289,8 +294,8 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
                       transitionCurve: effectiveTransitionCurve,
                       isSelected: index == _selectedIndex,
                       backgroundColor: effectiveBackgroundColor,
-                      moonSegmentedControlSizeProperties:
-                          effectiveMoonSegmentControlSize,
+                      selenicSegementedControlSizeProperties:
+                          effectiveSelenicSegmentControlSize,
                       segment: widget.segments![index],
                     );
                   },
@@ -316,7 +321,8 @@ class _SegmentBuilder extends StatefulWidget {
   final Color backgroundColor;
   final Duration transitionDuration;
   final Curve transitionCurve;
-  final MoonSegmentedControlSizeProperties moonSegmentedControlSizeProperties;
+  final SelenicSegmentedControlSizeProperties
+      selenicSegementedControlSizeProperties;
   final Segment segment;
 
   const _SegmentBuilder({
@@ -325,7 +331,7 @@ class _SegmentBuilder extends StatefulWidget {
     required this.backgroundColor,
     required this.transitionDuration,
     required this.transitionCurve,
-    required this.moonSegmentedControlSizeProperties,
+    required this.selenicSegementedControlSizeProperties,
     required this.segment,
   });
 
@@ -374,32 +380,33 @@ class _SegmentBuilderState extends State<_SegmentBuilder>
 
     final BorderRadiusGeometry effectiveSegmentBorderRadius =
         segmentStyle?.segmentBorderRadius ??
-            widget.moonSegmentedControlSizeProperties.segmentBorderRadius;
+            widget.selenicSegementedControlSizeProperties.segmentBorderRadius;
 
-    final Color effectiveSelectedSegmentColor = segmentStyle
-            ?.selectedSegmentColor ??
-        context.moonTheme?.segmentedControlTheme.colors.selectedSegmentColor ??
-        MoonColors.light.goku;
+    final Color effectiveSelectedSegmentColor =
+        segmentStyle?.selectedSegmentColor ??
+            context.selenicTheme?.segmentedControlTheme.colors
+                .selectedSegmentColor ??
+            MoonColors.light.goku;
 
     final Color effectiveTextColor = segmentStyle?.textStyle?.color ??
         segmentStyle?.textColor ??
-        context.moonTheme?.segmentedControlTheme.colors.textColor ??
+        context.selenicTheme?.segmentedControlTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveSelectedTextColor = segmentStyle?.selectedTextColor ??
-        context.moonTheme?.segmentedControlTheme.colors.selectedTextColor ??
+        context.selenicTheme?.segmentedControlTheme.colors.selectedTextColor ??
         MoonColors.light.piccolo;
 
     final TextStyle effectiveTextStyle = widget
-        .moonSegmentedControlSizeProperties.textStyle
+        .selenicSegementedControlSizeProperties.textStyle
         .merge(segmentStyle?.textStyle);
 
     final double effectiveSegmentGap = segmentStyle?.segmentGap ??
-        widget.moonSegmentedControlSizeProperties.segmentGap;
+        widget.selenicSegementedControlSizeProperties.segmentGap;
 
     final EdgeInsetsGeometry effectiveSegmentPadding =
         segmentStyle?.segmentPadding ??
-            widget.moonSegmentedControlSizeProperties.segmentPadding;
+            widget.selenicSegementedControlSizeProperties.segmentPadding;
 
     final EdgeInsets resolvedDirectionalPadding =
         effectiveSegmentPadding.resolve(Directionality.of(context));
@@ -432,7 +439,7 @@ class _SegmentBuilderState extends State<_SegmentBuilder>
       ..begin = effectiveTextColor
       ..end = effectiveSelectedTextColor;
 
-    return MoonBaseControl(
+    return SelenicBaseControl(
       onLongPress: widget.isDisabled ? null : () => {},
       autofocus: widget.segment.autoFocus,
       focusNode: widget.segment.focusNode,
@@ -463,14 +470,15 @@ class _SegmentBuilderState extends State<_SegmentBuilder>
               decoration: segmentStyle?.decoration ??
                   ShapeDecoration(
                     color: _segmentColor!.value,
-                    shape: MoonSquircleBorder(
+                    shape: SelenicSquircleBorder(
                       borderRadius: effectiveSegmentBorderRadius
                           .squircleBorderRadius(context),
                     ),
                   ),
               child: IconTheme(
                 data: IconThemeData(
-                  size: widget.moonSegmentedControlSizeProperties.iconSizeValue,
+                  size: widget
+                      .selenicSegementedControlSizeProperties.iconSizeValue,
                   color: _textColor!.value,
                 ),
                 child: DefaultTextStyle(

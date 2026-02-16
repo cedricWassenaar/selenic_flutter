@@ -1,27 +1,27 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/src/theme/menu_item/menu_item_colors.dart';
-import 'package:moon_design/src/theme/menu_item/menu_item_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/menu_item/menu_item_colors.dart';
+import 'package:selenic_design/src/theme/menu_item/menu_item_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonMenuItemTheme extends ThemeExtension<MoonMenuItemTheme>
+class SelenicMenuItemTheme extends ThemeExtension<SelenicMenuItemTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonMenuItem.
-  final MoonMenuItemColors colors;
+  /// The colors of the SelenicMenuItem.
+  final SelenicMenuItemColors colors;
 
-  /// The properties of the MoonMenuItem.
-  final MoonMenuItemProperties properties;
+  /// The properties of the SelenicMenuItem.
+  final SelenicMenuItemProperties properties;
 
-  MoonMenuItemTheme({
+  SelenicMenuItemTheme({
     required this.tokens,
-    MoonMenuItemColors? colors,
-    MoonMenuItemProperties? properties,
+    SelenicMenuItemColors? colors,
+    SelenicMenuItemProperties? properties,
   })  : colors = colors ??
-            MoonMenuItemColors(
+            SelenicMenuItemColors(
               backgroundColor: Colors.transparent,
               dividerColor: tokens.colors.beerus,
               iconColor: tokens.colors.iconPrimary,
@@ -29,7 +29,7 @@ class MoonMenuItemTheme extends ThemeExtension<MoonMenuItemTheme>
               contentTextColor: tokens.colors.textSecondary,
             ),
         properties = properties ??
-            MoonMenuItemProperties(
+            SelenicMenuItemProperties(
               borderRadius: tokens.borders.interactiveSm,
               verticalGap: tokens.sizes.x5s,
               minimumHeight: tokens.sizes.md,
@@ -39,12 +39,12 @@ class MoonMenuItemTheme extends ThemeExtension<MoonMenuItemTheme>
             );
 
   @override
-  MoonMenuItemTheme copyWith({
-    MoonTokens? tokens,
-    MoonMenuItemColors? colors,
-    MoonMenuItemProperties? properties,
+  SelenicMenuItemTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicMenuItemColors? colors,
+    SelenicMenuItemProperties? properties,
   }) {
-    return MoonMenuItemTheme(
+    return SelenicMenuItemTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -52,10 +52,11 @@ class MoonMenuItemTheme extends ThemeExtension<MoonMenuItemTheme>
   }
 
   @override
-  MoonMenuItemTheme lerp(ThemeExtension<MoonMenuItemTheme>? other, double t) {
-    if (other is! MoonMenuItemTheme) return this;
+  SelenicMenuItemTheme lerp(
+      ThemeExtension<SelenicMenuItemTheme>? other, double t) {
+    if (other is! SelenicMenuItemTheme) return this;
 
-    return MoonMenuItemTheme(
+    return SelenicMenuItemTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -66,11 +67,12 @@ class MoonMenuItemTheme extends ThemeExtension<MoonMenuItemTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonMenuItemTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonMenuItemColors>("colors", colors))
+      ..add(DiagnosticsProperty("type", "SelenicMenuItemTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicMenuItemColors>("colors", colors))
       ..add(
-        DiagnosticsProperty<MoonMenuItemProperties>("properties", properties),
+        DiagnosticsProperty<SelenicMenuItemProperties>(
+            "properties", properties),
       );
   }
 }

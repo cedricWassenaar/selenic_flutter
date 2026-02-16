@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class TabBar extends StatefulWidget {
   const TabBar({super.key});
@@ -29,22 +29,22 @@ class _TabBarState extends State<TabBar> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        MoonTabBar(
-          tabBarSize: MoonTabBarSize.sm,
+        SelenicTabBar(
+          tabBarSize: SelenicTabBarSize.sm,
           tabs: List.generate(
             3,
-            (int index) => MoonTab(
+            (int index) => SelenicTab(
               leading: const Icon(MoonIcons.other_frame_24_light),
               label: Text('Tab${index + 1}'),
               trailing: const Icon(MoonIcons.other_frame_24_light),
             ),
           ),
         ),
-        MoonTabBar.pill(
-          tabBarSize: MoonTabBarSize.sm,
+        SelenicTabBar.pill(
+          tabBarSize: SelenicTabBarSize.sm,
           pillTabs: List.generate(
             3,
-            (int index) => MoonPillTab(
+            (int index) => SelenicPillTab(
               leading: const Icon(MoonIcons.other_frame_24_light),
               label: Text('Tab${index + 1}'),
               trailing: const Icon(MoonIcons.other_frame_24_light),
@@ -52,13 +52,13 @@ class _TabBarState extends State<TabBar> with SingleTickerProviderStateMixin {
           ),
         ),
 
-        // MoonTabBar with TabBarView.
-        MoonTabBar(
+        // SelenicTabBar with TabBarView.
+        SelenicTabBar(
           isExpanded: true,
           tabController: _tabController,
           tabs: List.generate(
             3,
-            (int index) => MoonTab(
+            (int index) => SelenicTab(
               label: Text('Tab${index + 1}'),
             ),
           ),
@@ -69,7 +69,7 @@ class _TabBarState extends State<TabBar> with SingleTickerProviderStateMixin {
             controller: _tabController,
             children: [
               Container(
-                color: context.moonColors!.whis60,
+                color: context.selenicColors!.whis60,
                 padding: const EdgeInsets.all(16),
                 child: Stack(
                   children: [
@@ -78,7 +78,7 @@ class _TabBarState extends State<TabBar> with SingleTickerProviderStateMixin {
                     ),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: MoonButton.icon(
+                      child: SelenicButton.icon(
                         onTap: () => _tabController.animateTo(1),
                         icon: const Icon(MoonIcons.controls_chevron_right_24_light),
                       ),                    
@@ -87,17 +87,17 @@ class _TabBarState extends State<TabBar> with SingleTickerProviderStateMixin {
                 ),
               ),
               Container(
-                color: context.moonColors!.frieza60,
+                color: context.selenicColors!.frieza60,
                 padding: const EdgeInsets.all(16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MoonButton.icon(
+                    SelenicButton.icon(
                       onTap: () => _tabController.animateTo(0),
                       icon: const Icon(MoonIcons.controls_chevron_left_24_light),
                     ),                    
                     const Text('Tab2'),
-                    MoonButton.icon(
+                    SelenicButton.icon(
                       onTap: () => _tabController.animateTo(2),
                       icon: const Icon(MoonIcons.controls_chevron_right_24_light),
                     ),                  
@@ -105,7 +105,7 @@ class _TabBarState extends State<TabBar> with SingleTickerProviderStateMixin {
                 ),
               ),
               Container(
-                color: context.moonColors!.whis60,
+                color: context.selenicColors!.whis60,
                 padding: const EdgeInsets.all(16),
                 child: Stack(
                   children: [
@@ -114,7 +114,7 @@ class _TabBarState extends State<TabBar> with SingleTickerProviderStateMixin {
                     ),
                     Align(
                       alignment: Alignment.centerLeft,
-                      child: MoonButton.icon(
+                      child: SelenicButton.icon(
                         onTap: () => _tabController.animateTo(1),
                         icon: const Icon(
                           MoonIcons.controls_chevron_left_24_light,

@@ -3,7 +3,7 @@ import 'package:example/src/storybook/common/typography_page_options.dart';
 import 'package:example/src/storybook/common/widgets/page_footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class TypographyPage extends StatelessWidget {
   static const path = '/typography';
@@ -25,52 +25,53 @@ class TypographyPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 12.0, bottom: 24.0),
             child: SvgPicture.asset(
-              'assets/svg/moon-logo-long.svg',
+              'assets/svg/heart.svg',
               height: 16.0,
             ),
           ),
         Text(
           section.titleText,
           style: isHeader
-              ? context.moonTypography!.heading.text40
-              : context.moonTypography!.heading.text24,
+              ? context.selenicTypography!.heading.text40
+              : context.selenicTypography!.heading.text24,
         ),
         const SizedBox(height: 24),
         if (section.bodyText.isNotEmpty)
           Text(
             section.bodyText,
-            style: context.moonTypography!.body.text16,
+            style: context.selenicTypography!.body.text16,
           ),
       ],
     );
   }
 
-  Widget _buildTypographyContainer(BuildContext context, MoonTextStyle style) {
+  Widget _buildTypographyContainer(
+      BuildContext context, SelenicTextStyle style) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(24.0),
       decoration: BoxDecoration(
-        color: context.moonColors!.gohan,
+        color: context.selenicColors!.gohan,
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: List.generate(
-          MoonTextSize.values.length * 2 - 1,
+          SelenicTextSize.values.length * 2 - 1,
           (int index) {
             final int derivedIndex = index ~/ 2;
 
             return index.isEven
                 ? Text(
-                    MoonTextSize.values[derivedIndex].name,
-                    style: style == MoonTextStyle.body
+                    SelenicTextSize.values[derivedIndex].name,
+                    style: style == SelenicTextStyle.body
                         ? getBodyTextStyle(
                             context,
-                            MoonTextSize.values[derivedIndex],
+                            SelenicTextSize.values[derivedIndex],
                           )
                         : getHeadingTextStyle(
                             context,
-                            MoonTextSize.values[derivedIndex],
+                            SelenicTextSize.values[derivedIndex],
                           ),
                   )
                 : const SizedBox(height: 8.0);
@@ -116,7 +117,7 @@ class TypographyPage extends StatelessWidget {
                         context,
                         TypographyPageSection.body,
                       ),
-                      _buildTypographyContainer(context, MoonTextStyle.body),
+                      _buildTypographyContainer(context, SelenicTextStyle.body),
                       const SizedBox(height: 48.0),
                       _buildSectionHeader(
                         context,
@@ -124,7 +125,7 @@ class TypographyPage extends StatelessWidget {
                       ),
                       _buildTypographyContainer(
                         context,
-                        MoonTextStyle.heading,
+                        SelenicTextStyle.heading,
                       ),
                       const Center(
                         child: PageFooter(),

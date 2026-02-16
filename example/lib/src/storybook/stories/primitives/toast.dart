@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class ToastStory extends StatelessWidget {
@@ -11,13 +11,13 @@ class ToastStory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final customLabelTextKnob = context.knobs.text(
-      label: "MoonToast label text",
-      initial: "Custom MoonToast text",
+      label: "SelenicToast label text",
+      initial: "Custom SelenicToast text",
     );
 
     final toastAlignmentKnob = context.knobs.nullable.options(
       label: "toastAlignment",
-      description: "Alignment (position) for MoonToast.",
+      description: "Alignment (position) for SelenicToast.",
       enabled: false,
       initial: Alignment.bottomCenter,
       options: const [
@@ -35,18 +35,18 @@ class ToastStory extends StatelessWidget {
 
     final toastVariantKnob = context.knobs.nullable.options(
       label: "variant",
-      description: "The color variant for MoonToast.",
+      description: "The color variant for SelenicToast.",
       enabled: false,
-      initial: MoonToastVariant.original,
+      initial: SelenicToastVariant.original,
       options: const [
-        Option(label: "original", value: MoonToastVariant.original),
-        Option(label: "inverted", value: MoonToastVariant.inverted),
+        Option(label: "original", value: SelenicToastVariant.original),
+        Option(label: "inverted", value: SelenicToastVariant.inverted),
       ],
     );
 
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for MoonToast text.",
+      description: "MoonColors variants for SelenicToast text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -57,7 +57,7 @@ class ToastStory extends StatelessWidget {
 
     final iconColorKnob = context.knobs.nullable.options(
       label: "Icon color",
-      description: "MoonColors variants for MoonToast icon.",
+      description: "MoonColors variants for SelenicToast icon.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -68,7 +68,7 @@ class ToastStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonToast background.",
+      description: "MoonColors variants for SelenicToast background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -79,7 +79,7 @@ class ToastStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonToast.",
+      description: "Border radius for SelenicToast.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -87,7 +87,7 @@ class ToastStory extends StatelessWidget {
 
     final displayDurationKnob = context.knobs.nullable.sliderInt(
       label: "displayDuration",
-      description: "Display duration for MoonToast.",
+      description: "Display duration for SelenicToast.",
       enabled: false,
       initial: 3,
       min: 1,
@@ -97,7 +97,7 @@ class ToastStory extends StatelessWidget {
     final widthKnob = context.knobs.nullable.slider(
       label: "width",
       description:
-          "Width for MoonToast. If null, the toast will be as wide as its "
+          "Width for SelenicToast. If null, the toast will be as wide as its "
           "children.",
       enabled: false,
       initial: 230,
@@ -107,21 +107,21 @@ class ToastStory extends StatelessWidget {
     final isPersistentKnob = context.knobs.boolean(
       label: "isPersistent",
       description:
-          "Whether MoonToast is persistent across screens (will not behave as "
+          "Whether SelenicToast is persistent across screens (will not behave as "
           "expected only in Storybook).",
     );
 
     final useSafeAreaKnob = context.knobs.boolean(
       label: "useSafeArea",
       description:
-          "Whether MoonToast respects the SafeArea (takes into account notches "
+          "Whether SelenicToast respects the SafeArea (takes into account notches "
           "and native system bars).",
       initial: true,
     );
 
     final showContentKnob = context.knobs.boolean(
       label: "content",
-      description: "Show widget in MoonToast content slot.",
+      description: "Show widget in SelenicToast content slot.",
     );
 
     return Center(
@@ -129,17 +129,17 @@ class ToastStory extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 64),
         child: Builder(
           builder: (BuildContext context) {
-            return MoonFilledButton(
+            return SelenicFilledButton(
               label: const Text("Tap me"),
               onTap: () {
-                MoonToast.show(
+                SelenicToast.show(
                   context,
                   backgroundColor: backgroundColor,
                   isPersistent: isPersistentKnob,
                   useSafeArea: useSafeAreaKnob,
                   width: widthKnob,
                   toastAlignment: toastAlignmentKnob ?? Alignment.bottomCenter,
-                  variant: toastVariantKnob ?? MoonToastVariant.original,
+                  variant: toastVariantKnob ?? SelenicToastVariant.original,
                   displayDuration: displayDurationKnob != null
                       ? Duration(seconds: displayDurationKnob)
                       : null,
@@ -162,7 +162,7 @@ class ToastStory extends StatelessWidget {
                       ? Align(
                           alignment: AlignmentDirectional.centerStart,
                           child: Text(
-                            "Here goes MoonToast content",
+                            "Here goes SelenicToast content",
                             style: TextStyle(color: textColor),
                           ),
                         )

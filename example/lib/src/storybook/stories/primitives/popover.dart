@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class PopoverStory extends StatefulWidget {
@@ -19,31 +19,31 @@ class _PopoverStoryState extends State<PopoverStory> {
   Widget build(BuildContext context) {
     final customLabelTextKnob = context.knobs.text(
       label: "Label text",
-      initial: "Custom MoonPopover text",
+      initial: "Custom SelenicPopover text",
     );
 
     final popoverPositionKnob = context.knobs.nullable.options(
       label: "popoverPosition",
-      description: "Position variants for MoonPopover.",
+      description: "Position variants for SelenicPopover.",
       enabled: false,
-      initial: MoonPopoverPosition.top,
+      initial: SelenicPopoverPosition.top,
       options: const [
-        Option(label: "top", value: MoonPopoverPosition.top),
-        Option(label: "bottom", value: MoonPopoverPosition.bottom),
-        Option(label: "left", value: MoonPopoverPosition.left),
-        Option(label: "right", value: MoonPopoverPosition.right),
-        Option(label: "topLeft", value: MoonPopoverPosition.topLeft),
-        Option(label: "topRight", value: MoonPopoverPosition.topRight),
-        Option(label: "bottomLeft", value: MoonPopoverPosition.bottomLeft),
-        Option(label: "bottomRight", value: MoonPopoverPosition.bottomRight),
-        Option(label: "vertical", value: MoonPopoverPosition.vertical),
-        Option(label: "horizontal", value: MoonPopoverPosition.horizontal),
+        Option(label: "top", value: SelenicPopoverPosition.top),
+        Option(label: "bottom", value: SelenicPopoverPosition.bottom),
+        Option(label: "left", value: SelenicPopoverPosition.left),
+        Option(label: "right", value: SelenicPopoverPosition.right),
+        Option(label: "topLeft", value: SelenicPopoverPosition.topLeft),
+        Option(label: "topRight", value: SelenicPopoverPosition.topRight),
+        Option(label: "bottomLeft", value: SelenicPopoverPosition.bottomLeft),
+        Option(label: "bottomRight", value: SelenicPopoverPosition.bottomRight),
+        Option(label: "vertical", value: SelenicPopoverPosition.vertical),
+        Option(label: "horizontal", value: SelenicPopoverPosition.horizontal),
       ],
     );
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonPopover background.",
+      description: "MoonColors variants for SelenicPopover background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -54,7 +54,7 @@ class _PopoverStoryState extends State<PopoverStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for MoonPopover border.",
+      description: "MoonColors variants for SelenicPopover border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -65,7 +65,7 @@ class _PopoverStoryState extends State<PopoverStory> {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonPopover.",
+      description: "Border radius for SelenicPopover.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -81,7 +81,7 @@ class _PopoverStoryState extends State<PopoverStory> {
 
     final showShadowKnob = context.knobs.boolean(
       label: "Show shadow",
-      description: "Show shadows for MoonPopover.",
+      description: "Show shadows for SelenicPopover.",
       initial: true,
     );
 
@@ -91,7 +91,7 @@ class _PopoverStoryState extends State<PopoverStory> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MoonPopover(
+            SelenicPopover(
               show: show,
               borderColor: borderColor ?? Colors.transparent,
               backgroundColor: backgroundColor,
@@ -99,7 +99,8 @@ class _PopoverStoryState extends State<PopoverStory> {
                   ? BorderRadius.circular(borderRadiusKnob.toDouble())
                   : null,
               distanceToTarget: distanceToTargetKnob,
-              popoverPosition: popoverPositionKnob ?? MoonPopoverPosition.top,
+              popoverPosition:
+                  popoverPositionKnob ?? SelenicPopoverPosition.top,
               popoverShadows: showShadowKnob == true ? null : [],
               onTapOutside: () => setState(() => show = false),
               content: ConstrainedBox(
@@ -110,8 +111,8 @@ class _PopoverStoryState extends State<PopoverStory> {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        MoonAvatar(
-                          backgroundColor: context.moonColors?.heles,
+                        SelenicAvatar(
+                          backgroundColor: context.selenicColors?.heles,
                           content: const Icon(MoonIcons.other_rocket_24_light),
                         ),
                         const SizedBox(width: 12),
@@ -121,8 +122,8 @@ class _PopoverStoryState extends State<PopoverStory> {
                       ],
                     ),
                     const SizedBox(height: 16),
-                    MoonFilledButton(
-                      buttonSize: MoonButtonSize.sm,
+                    SelenicFilledButton(
+                      buttonSize: SelenicButtonSize.sm,
                       isFullWidth: true,
                       onTap: () => setState(() => show = false),
                       label: const Text("Close"),
@@ -130,7 +131,7 @@ class _PopoverStoryState extends State<PopoverStory> {
                   ],
                 ),
               ),
-              child: MoonFilledButton(
+              child: SelenicFilledButton(
                 onTap: () => setState(() => show = !show),
                 label: const Text("Tap me"),
               ),

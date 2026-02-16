@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class Button extends StatelessWidget {
   const Button({super.key});
@@ -8,37 +8,37 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        MoonButton(
-          buttonSize: MoonButtonSize.sm,
+        SelenicButton(
+          buttonSize: SelenicButtonSize.sm,
           onTap: () {},
           leading: const Icon(MoonIcons.other_frame_24_light),
-          label: const Text('MoonButton'),
+          label: const Text('SelenicButton'),
           trailing: const Icon(MoonIcons.other_frame_24_light),
         ),
-        MoonButton.icon(
-          buttonSize: MoonButtonSize.sm,
+        SelenicButton.icon(
+          buttonSize: SelenicButtonSize.sm,
           onTap: () {},
           icon: const Icon(MoonIcons.other_frame_24_light),
         ),
-        MoonFilledButton(
-          buttonSize: MoonButtonSize.sm,
+        SelenicFilledButton(
+          buttonSize: SelenicButtonSize.sm,
           onTap: () {},
           leading: const Icon(MoonIcons.other_frame_24_light),
-          label: const Text("MoonFilledButton"),
+          label: const Text("SelenicFilledButton"),
           trailing: const Icon(MoonIcons.other_frame_24_light),
         ),
-        MoonOutlinedButton(
-          buttonSize: MoonButtonSize.sm,
+        SelenicOutlinedButton(
+          buttonSize: SelenicButtonSize.sm,
           onTap: () {},
           leading: const Icon(MoonIcons.other_frame_24_light),
-          label: const Text("MoonOutlinedButton"),
+          label: const Text("SelenicOutlinedButton"),
           trailing: const Icon(MoonIcons.other_frame_24_light),
         ),
-        MoonTextButton(
-          buttonSize: MoonButtonSize.sm,
+        SelenicTextButton(
+          buttonSize: SelenicButtonSize.sm,
           onTap: () {},
           leading: const Icon(MoonIcons.other_frame_24_light),
-          label: const Text("MoonTextButton"),
+          label: const Text("SelenicTextButton"),
           trailing: const Icon(MoonIcons.other_frame_24_light),
         ),
       ],

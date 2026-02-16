@@ -2,25 +2,26 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonDrawerShadows extends ThemeExtension<MoonDrawerShadows>
+class SelenicDrawerShadows extends ThemeExtension<SelenicDrawerShadows>
     with DiagnosticableTreeMixin {
-  /// The list of shadows applied to the MoonDrawer.
+  /// The list of shadows applied to the SelenicDrawer.
   final List<BoxShadow> drawerShadows;
 
-  const MoonDrawerShadows({required this.drawerShadows});
+  const SelenicDrawerShadows({required this.drawerShadows});
 
   @override
-  MoonDrawerShadows copyWith({List<BoxShadow>? drawerShadows}) {
-    return MoonDrawerShadows(
+  SelenicDrawerShadows copyWith({List<BoxShadow>? drawerShadows}) {
+    return SelenicDrawerShadows(
       drawerShadows: drawerShadows ?? this.drawerShadows,
     );
   }
 
   @override
-  MoonDrawerShadows lerp(ThemeExtension<MoonDrawerShadows>? other, double t) {
-    if (other is! MoonDrawerShadows) return this;
+  SelenicDrawerShadows lerp(
+      ThemeExtension<SelenicDrawerShadows>? other, double t) {
+    if (other is! SelenicDrawerShadows) return this;
 
-    return MoonDrawerShadows(
+    return SelenicDrawerShadows(
       drawerShadows: BoxShadow.lerpList(
         drawerShadows,
         other.drawerShadows,
@@ -34,7 +35,7 @@ class MoonDrawerShadows extends ThemeExtension<MoonDrawerShadows>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonDrawerShadows"),
+        DiagnosticsProperty("type", "SelenicDrawerShadows"),
       )
       ..add(
         DiagnosticsProperty<List<BoxShadow>>("drawerShadows", drawerShadows),

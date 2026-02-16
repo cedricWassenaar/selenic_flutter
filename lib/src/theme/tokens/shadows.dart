@@ -2,9 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonShadows extends ThemeExtension<MoonShadows>
+class SelenicShadows extends ThemeExtension<SelenicShadows>
     with DiagnosticableTreeMixin {
-  static const light = MoonShadows(
+  static const light = SelenicShadows(
     sm: [
       BoxShadow(
         color: Color(0x66000000),
@@ -56,7 +56,7 @@ class MoonShadows extends ThemeExtension<MoonShadows>
     ],
   );
 
-  static const dark = MoonShadows(
+  static const dark = SelenicShadows(
     sm: [
       BoxShadow(
         color: Color(0x8E000000),
@@ -116,7 +116,7 @@ class MoonShadows extends ThemeExtension<MoonShadows>
   /// The extra large shadow.
   final List<BoxShadow> xl;
 
-  const MoonShadows({
+  const SelenicShadows({
     required this.sm,
     required this.md,
     required this.lg,
@@ -124,13 +124,13 @@ class MoonShadows extends ThemeExtension<MoonShadows>
   });
 
   @override
-  MoonShadows copyWith({
+  SelenicShadows copyWith({
     List<BoxShadow>? sm,
     List<BoxShadow>? md,
     List<BoxShadow>? lg,
     List<BoxShadow>? xl,
   }) {
-    return MoonShadows(
+    return SelenicShadows(
       sm: sm ?? this.sm,
       md: md ?? this.md,
       lg: lg ?? this.lg,
@@ -139,10 +139,10 @@ class MoonShadows extends ThemeExtension<MoonShadows>
   }
 
   @override
-  MoonShadows lerp(ThemeExtension<MoonShadows>? other, double t) {
-    if (other is! MoonShadows) return this;
+  SelenicShadows lerp(ThemeExtension<SelenicShadows>? other, double t) {
+    if (other is! SelenicShadows) return this;
 
-    return MoonShadows(
+    return SelenicShadows(
       sm: BoxShadow.lerpList(sm, other.sm, t)!,
       md: BoxShadow.lerpList(md, other.md, t)!,
       lg: BoxShadow.lerpList(lg, other.lg, t)!,
@@ -154,7 +154,7 @@ class MoonShadows extends ThemeExtension<MoonShadows>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonShadows"))
+      ..add(DiagnosticsProperty("type", "SelenicShadows"))
       ..add(DiagnosticsProperty<List<BoxShadow>>("sm", sm))
       ..add(DiagnosticsProperty<List<BoxShadow>>("md", md))
       ..add(DiagnosticsProperty<List<BoxShadow>>("lg", lg))

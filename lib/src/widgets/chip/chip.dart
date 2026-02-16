@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/chip/chip_size_properties.dart';
-import 'package:moon_design/src/theme/chip/chip_sizes.dart';
-import 'package:moon_design/src/theme/effects/effects_theme.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/utils/color_tween_premul.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/widgets/common/base_control.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonChipSize {
+import 'package:selenic_design/src/theme/chip/chip_size_properties.dart';
+import 'package:selenic_design/src/theme/chip/chip_sizes.dart';
+import 'package:selenic_design/src/theme/effects/effects_theme.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/utils/color_tween_premul.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/widgets/common/base_control.dart';
+
+enum SelenicChipSize {
   sm,
   md,
 }
 
-class MoonChip extends StatefulWidget {
+class SelenicChip extends StatefulWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
   final bool autofocus;
 
@@ -100,7 +101,7 @@ class MoonChip extends StatefulWidget {
   final FocusNode? focusNode;
 
   /// The size of the chip.
-  final MoonChipSize? chipSize;
+  final SelenicChipSize? chipSize;
 
   /// The semantic label for the chip.
   final String? semanticLabel;
@@ -120,12 +121,12 @@ class MoonChip extends StatefulWidget {
   /// The widget to display after the [label] widget of the chip.
   final Widget? trailing;
 
-  /// Creates a Moon Design chip.
+  /// Creates a Selenic Design chip.
   ///
   /// See also:
   ///
-  ///   * [MoonChip.text], Moon Design text chip.
-  const MoonChip({
+  ///   * [SelenicChip.text], Selenic Design text chip.
+  const SelenicChip({
     super.key,
     this.autofocus = false,
     this.isFocusable = true,
@@ -163,8 +164,8 @@ class MoonChip extends StatefulWidget {
     this.trailing,
   });
 
-  /// Creates a Moon Design text chip.
-  const MoonChip.text({
+  /// Creates a Selenic Design text chip.
+  const SelenicChip.text({
     super.key,
     this.autofocus = false,
     this.isFocusable = true,
@@ -202,10 +203,10 @@ class MoonChip extends StatefulWidget {
   }) : backgroundColor = Colors.transparent;
 
   @override
-  State<MoonChip> createState() => _MoonChipState();
+  State<SelenicChip> createState() => _SelenicChipState();
 }
 
-class _MoonChipState extends State<MoonChip>
+class _SelenicChipState extends State<SelenicChip>
     with SingleTickerProviderStateMixin {
   final ColorTweenWithPremultipliedAlpha _backgroundColorTween =
       ColorTweenWithPremultipliedAlpha();
@@ -226,20 +227,20 @@ class _MoonChipState extends State<MoonChip>
         : _animationController?.reverse();
   }
 
-  MoonChipSizeProperties _getMoonChipSize(
+  SelenicChipSizeProperties _getSelenicChipSize(
     BuildContext context,
-    MoonChipSize? moonChipSize,
+    SelenicChipSize? chipSize,
   ) {
-    switch (moonChipSize) {
-      case MoonChipSize.sm:
-        return context.moonTheme?.chipTheme.sizes.sm ??
-            MoonChipSizes(tokens: MoonTokens.light).sm;
-      case MoonChipSize.md:
-        return context.moonTheme?.chipTheme.sizes.md ??
-            MoonChipSizes(tokens: MoonTokens.light).md;
+    switch (chipSize) {
+      case SelenicChipSize.sm:
+        return context.selenicTheme?.chipTheme.sizes.sm ??
+            SelenicChipSizes(tokens: SelenicTokens.light).sm;
+      case SelenicChipSize.md:
+        return context.selenicTheme?.chipTheme.sizes.md ??
+            SelenicChipSizes(tokens: SelenicTokens.light).md;
       default:
-        return context.moonTheme?.chipTheme.sizes.md ??
-            MoonChipSizes(tokens: MoonTokens.light).md;
+        return context.selenicTheme?.chipTheme.sizes.md ??
+            SelenicChipSizes(tokens: SelenicTokens.light).md;
     }
   }
 
@@ -252,52 +253,52 @@ class _MoonChipState extends State<MoonChip>
 
   @override
   Widget build(BuildContext context) {
-    final MoonChipSizeProperties effectiveMoonChipSize =
-        _getMoonChipSize(context, widget.chipSize);
+    final SelenicChipSizeProperties effectiveSelenicChipSize =
+        _getSelenicChipSize(context, widget.chipSize);
 
     final BorderRadiusGeometry effectiveBorderRadius =
-        widget.borderRadius ?? effectiveMoonChipSize.borderRadius;
+        widget.borderRadius ?? effectiveSelenicChipSize.borderRadius;
 
     final double effectiveBorderWidth = widget.borderWidth ??
-        context.moonBorders?.defaultBorderWidth ??
-        MoonBorders.borders.defaultBorderWidth;
+        context.selenicBorders?.defaultBorderWidth ??
+        SelenicBorders.borders.defaultBorderWidth;
 
     final double effectiveHeight =
-        widget.height ?? effectiveMoonChipSize.height;
+        widget.height ?? effectiveSelenicChipSize.height;
 
-    final double effectiveGap = widget.gap ?? effectiveMoonChipSize.gap;
+    final double effectiveGap = widget.gap ?? effectiveSelenicChipSize.gap;
 
     final Color effectiveActiveColor = widget.activeColor ??
-        context.moonTheme?.chipTheme.colors.activeColor ??
+        context.selenicTheme?.chipTheme.colors.activeColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.chipTheme.colors.backgroundColor ??
+        context.selenicTheme?.chipTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveActiveBackgroundColor = widget.activeBackgroundColor ??
-        context.moonTheme?.chipTheme.colors.activeBackgroundColor ??
+        context.selenicTheme?.chipTheme.colors.activeBackgroundColor ??
         MoonColors.light.jiren;
 
     final Color effectiveTextColor = widget.textColor ??
-        context.moonTheme?.chipTheme.colors.textColor ??
+        context.selenicTheme?.chipTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Duration effectiveActiveEffectDuration =
         widget.activeEffectDuration ??
-            context.moonEffects?.controlHoverEffect.hoverDuration ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
+            context.selenicEffects?.controlHoverEffect.hoverDuration ??
+            SelenicEffectsTheme(tokens: SelenicTokens.light)
                 .controlHoverEffect
                 .hoverDuration;
 
     final Curve effectiveActiveEffectCurve = widget.activeEffectCurve ??
-        context.moonEffects?.controlHoverEffect.hoverCurve ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.hoverCurve ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlHoverEffect
             .hoverCurve;
 
     final EdgeInsetsGeometry effectivePadding =
-        widget.padding ?? effectiveMoonChipSize.padding;
+        widget.padding ?? effectiveSelenicChipSize.padding;
 
     final EdgeInsets resolvedDirectionalPadding =
         effectivePadding.resolve(Directionality.of(context));
@@ -345,7 +346,7 @@ class _MoonChipState extends State<MoonChip>
       ..begin = effectiveTextColor
       ..end = effectiveActiveColor;
 
-    return MoonBaseControl(
+    return SelenicBaseControl(
       autofocus: widget.autofocus,
       isFocusable: widget.isFocusable,
       ensureMinimalTouchTargetSize: widget.ensureMinimalTouchTargetSize,
@@ -379,10 +380,10 @@ class _MoonChipState extends State<MoonChip>
             return IconTheme(
               data: IconThemeData(
                 color: _textColor!.value,
-                size: effectiveMoonChipSize.iconSizeValue,
+                size: effectiveSelenicChipSize.iconSizeValue,
               ),
               child: DefaultTextStyle(
-                style: effectiveMoonChipSize.textStyle
+                style: effectiveSelenicChipSize.textStyle
                     .copyWith(color: _textColor!.value),
                 child: Container(
                   width: widget.width,
@@ -392,7 +393,7 @@ class _MoonChipState extends State<MoonChip>
                   decoration: widget.decoration ??
                       ShapeDecoration(
                         color: _backgroundColor!.value,
-                        shape: MoonSquircleBorder(
+                        shape: SelenicSquircleBorder(
                           borderRadius: effectiveBorderRadius
                               .squircleBorderRadius(context),
                           side: BorderSide(

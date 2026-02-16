@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonHoverEffect extends ThemeExtension<MoonHoverEffect>
+class SelenicHoverEffect extends ThemeExtension<SelenicHoverEffect>
     with DiagnosticableTreeMixin {
   /// The color of the primary hover effect.
   final Color primaryHoverColor;
@@ -18,7 +18,7 @@ class MoonHoverEffect extends ThemeExtension<MoonHoverEffect>
   /// The curve of the hover effect.
   final Curve hoverCurve;
 
-  const MoonHoverEffect({
+  const SelenicHoverEffect({
     required this.primaryHoverColor,
     required this.secondaryHoverColor,
     required this.hoverDuration,
@@ -26,13 +26,13 @@ class MoonHoverEffect extends ThemeExtension<MoonHoverEffect>
   });
 
   @override
-  MoonHoverEffect copyWith({
+  SelenicHoverEffect copyWith({
     Color? primaryHoverColor,
     Color? secondaryHoverColor,
     Duration? hoverDuration,
     Curve? hoverCurve,
   }) {
-    return MoonHoverEffect(
+    return SelenicHoverEffect(
       primaryHoverColor: primaryHoverColor ?? this.primaryHoverColor,
       secondaryHoverColor: secondaryHoverColor ?? this.secondaryHoverColor,
       hoverDuration: hoverDuration ?? this.hoverDuration,
@@ -41,10 +41,10 @@ class MoonHoverEffect extends ThemeExtension<MoonHoverEffect>
   }
 
   @override
-  MoonHoverEffect lerp(ThemeExtension<MoonHoverEffect>? other, double t) {
-    if (other is! MoonHoverEffect) return this;
+  SelenicHoverEffect lerp(ThemeExtension<SelenicHoverEffect>? other, double t) {
+    if (other is! SelenicHoverEffect) return this;
 
-    return MoonHoverEffect(
+    return SelenicHoverEffect(
       primaryHoverColor:
           colorPremulLerp(primaryHoverColor, other.primaryHoverColor, t)!,
       secondaryHoverColor:
@@ -58,7 +58,7 @@ class MoonHoverEffect extends ThemeExtension<MoonHoverEffect>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonHoverEffects"))
+      ..add(DiagnosticsProperty("type", "SelenicHoverEffects"))
       ..add(ColorProperty("primaryHoverColor", primaryHoverColor))
       ..add(ColorProperty("secondaryHoverColor", secondaryHoverColor))
       ..add(DiagnosticsProperty<Duration>("hoverDuration", hoverDuration))

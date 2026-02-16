@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _popoverKey = Key("popoverKey");
 const Key _showButtonKey = Key("showButtonKey");
@@ -112,7 +112,7 @@ class _PopoverTestWidgetState extends State<_PopoverTestWidget> {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: MoonPopover(
+          child: SelenicPopover(
             key: widget.popoverKey,
             show: _show,
             onTapOutside: () => setState(() => _show = !widget.isDismissible),
@@ -121,14 +121,14 @@ class _PopoverTestWidgetState extends State<_PopoverTestWidget> {
               child: Column(
                 children: [
                   _content,
-                  MoonFilledButton(
+                  SelenicFilledButton(
                     key: _closeButtonKey,
                     onTap: () => setState(() => _show = false),
                   ),
                 ],
               ),
             ),
-            child: MoonFilledButton(
+            child: SelenicFilledButton(
               key: _showButtonKey,
               onTap: () => setState(() => _show = !_show),
             ),

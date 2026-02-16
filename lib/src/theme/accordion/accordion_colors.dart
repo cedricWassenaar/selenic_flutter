@@ -1,45 +1,45 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonAccordionColors extends ThemeExtension<MoonAccordionColors>
+class SelenicAccordionColors extends ThemeExtension<SelenicAccordionColors>
     with DiagnosticableTreeMixin {
-  /// The text color of the collapsed MoonAccordion header.
+  /// The text color of the collapsed SelenicAccordion header.
   final Color textColor;
 
-  /// The text color of the expanded MoonAccordion header.
+  /// The text color of the expanded SelenicAccordion header.
   final Color expandedTextColor;
 
-  /// The text and icon color of the expanded MoonAccordion content.
+  /// The text and icon color of the expanded SelenicAccordion content.
   final Color contentColor;
 
-  /// The icon color of the collapsed MoonAccordion header.
+  /// The icon color of the collapsed SelenicAccordion header.
   final Color iconColor;
 
-  /// The icon color of the expanded MoonAccordion header.
+  /// The icon color of the expanded SelenicAccordion header.
   final Color expandedIconColor;
 
-  /// The default trailing icon color of the collapsed MoonAccordion header.
+  /// The default trailing icon color of the collapsed SelenicAccordion header.
   final Color trailingIconColor;
 
-  /// The default trailing icon color of the expanded MoonAccordion header.
+  /// The default trailing icon color of the expanded SelenicAccordion header.
   final Color expandedTrailingIconColor;
 
-  /// The background color of the collapsed MoonAccordion.
+  /// The background color of the collapsed SelenicAccordion.
   final Color backgroundColor;
 
-  /// The background color of the expanded MoonAccordion.
+  /// The background color of the expanded SelenicAccordion.
   final Color expandedBackgroundColor;
 
-  /// The border color of the MoonAccordion.
+  /// The border color of the SelenicAccordion.
   final Color borderColor;
 
-  /// The color of the line dividing the MoonAccordion header from the body.
+  /// The color of the line dividing the SelenicAccordion header from the body.
   final Color dividerColor;
 
-  const MoonAccordionColors({
+  const SelenicAccordionColors({
     required this.textColor,
     required this.expandedTextColor,
     required this.contentColor,
@@ -54,7 +54,7 @@ class MoonAccordionColors extends ThemeExtension<MoonAccordionColors>
   });
 
   @override
-  MoonAccordionColors copyWith({
+  SelenicAccordionColors copyWith({
     Color? textColor,
     Color? expandedTextColor,
     Color? contentColor,
@@ -67,7 +67,7 @@ class MoonAccordionColors extends ThemeExtension<MoonAccordionColors>
     Color? borderColor,
     Color? dividerColor,
   }) {
-    return MoonAccordionColors(
+    return SelenicAccordionColors(
       textColor: textColor ?? this.textColor,
       expandedTextColor: expandedTextColor ?? this.expandedTextColor,
       contentColor: contentColor ?? this.contentColor,
@@ -85,13 +85,13 @@ class MoonAccordionColors extends ThemeExtension<MoonAccordionColors>
   }
 
   @override
-  MoonAccordionColors lerp(
-    ThemeExtension<MoonAccordionColors>? other,
+  SelenicAccordionColors lerp(
+    ThemeExtension<SelenicAccordionColors>? other,
     double t,
   ) {
-    if (other is! MoonAccordionColors) return this;
+    if (other is! SelenicAccordionColors) return this;
 
-    return MoonAccordionColors(
+    return SelenicAccordionColors(
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
       expandedTextColor:
           colorPremulLerp(expandedTextColor, other.expandedTextColor, t)!,
@@ -122,7 +122,7 @@ class MoonAccordionColors extends ThemeExtension<MoonAccordionColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonAccordionColors"))
+      ..add(DiagnosticsProperty("type", "SelenicAccordionColors"))
       ..add(ColorProperty("textColor", textColor))
       ..add(ColorProperty("expandedTextColor", expandedTextColor))
       ..add(ColorProperty("contentColor", contentColor))

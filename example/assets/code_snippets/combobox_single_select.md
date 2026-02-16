@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 enum Options {
   accordion,
@@ -90,14 +90,14 @@ class _ComboboxSingleSelectState extends State<ComboboxSingleSelect> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: MoonDropdown(
+      child: SelenicDropdown(
         show: _showDropdown,
         constrainWidthToChild: true,
         onTapOutside: () => _handleDropdownTapOutside(),
         content: ConstrainedBox(
           constraints: const BoxConstraints(maxHeight: 200),
           child: _filteredOptionsList.isEmpty
-              ? const MoonMenuItem(
+              ? const SelenicMenuItem(
                   label: Text('No results found.'),
                 )
               : ListView.builder(
@@ -108,14 +108,14 @@ class _ComboboxSingleSelectState extends State<ComboboxSingleSelect> {
                     if (index >= _filteredOptionsList.length) return const SizedBox.shrink();
                     final Options option = _filteredOptionsList[index];
 
-                    return MoonMenuItem(
+                    return SelenicMenuItem(
                       onTap: () => _handleSelect(option),
                       label: Text(option.name),
                     );
                   },
                 ),
         ),
-        child: MoonTextInput(
+        child: SelenicTextInput(
           focusNode: _focusNode,
           hintText: "Select single component",
           controller: _searchController,
@@ -124,8 +124,8 @@ class _ComboboxSingleSelectState extends State<ComboboxSingleSelect> {
           onTap: () => _performSearch(),
           onTapOutside: (PointerDownEvent _) => _handleInputTapOutside(),
           onChanged: (String _) => _performSearch(),
-          trailing: MoonButton.icon(
-            buttonSize: MoonButtonSize.xs,
+          trailing: SelenicButton.icon(
+            buttonSize: SelenicButtonSize.xs,
             hoverEffectColor: Colors.transparent,
             onTap: () => _showAllOptionsList(),
             icon: AnimatedRotation(

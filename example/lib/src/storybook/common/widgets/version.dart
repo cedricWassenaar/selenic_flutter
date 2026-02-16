@@ -1,19 +1,21 @@
 import 'dart:ui';
 
 import 'package:example/src/storybook/common/constants.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:moon_design/moon_design.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-class MoonVersionWidget extends StatefulWidget {
-  const MoonVersionWidget({super.key});
+import 'package:selenic_design/selenic_design.dart';
+
+class SelenicVersionWidget extends StatefulWidget {
+  const SelenicVersionWidget({super.key});
 
   @override
-  State<MoonVersionWidget> createState() => _MoonVersionWidgetState();
+  State<SelenicVersionWidget> createState() => _SelenicVersionWidgetState();
 }
 
-class _MoonVersionWidgetState extends State<MoonVersionWidget> {
+class _SelenicVersionWidgetState extends State<SelenicVersionWidget> {
   bool isLargeScreen =
       MediaQueryData.fromView(PlatformDispatcher.instance.implicitView!)
               .size
@@ -44,21 +46,21 @@ class _MoonVersionWidgetState extends State<MoonVersionWidget> {
                 : MainAxisAlignment.end,
             children: [
               SvgPicture.asset(
-                "assets/svg/moon-logo-short.svg",
+                "assets/svg/github_logo.svg",
                 width: 24.0,
                 height: 24.0,
               ),
               if (isLargeScreen) ...[
                 const SizedBox(width: 8.0),
                 Text(
-                  "Moon Design",
-                  style: MoonTypography.typography.heading.text14,
+                  "Selenic Design",
+                  style: SelenicTypography.typography.heading.text14,
                 ),
               ],
               const SizedBox(width: 6.0),
               Text(
                 "v$_version",
-                style: MoonTypography.typography.heading.text14,
+                style: SelenicTypography.typography.heading.text14,
               ),
             ],
           ),

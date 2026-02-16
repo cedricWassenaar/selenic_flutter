@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/widgets/buttons/button.dart';
+import 'package:selenic_design/src/widgets/buttons/button.dart';
 
-class MoonOutlinedButton extends StatelessWidget {
+class SelenicOutlinedButton extends StatelessWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
   final bool autofocus;
 
@@ -40,7 +40,7 @@ class MoonOutlinedButton extends StatelessWidget {
   final FocusNode? focusNode;
 
   /// The size of the button.
-  final MoonButtonSize? buttonSize;
+  final SelenicButtonSize? buttonSize;
 
   /// The semantic label for the button.
   final String? semanticLabel;
@@ -60,14 +60,14 @@ class MoonOutlinedButton extends StatelessWidget {
   /// The widget to display after the [label] widget of the button.
   final Widget? trailing;
 
-  /// Creates a Moon Design outlined button.
+  /// Creates a Selenic Design outlined button.
   ///
   /// See also:
   ///
-  ///   * [MoonFilledButton], Moon Design filled button.
-  ///   * [MoonTextButton], Moon Design text button.
-  ///   * [MoonButton.icon], Moon Design icon button.
-  const MoonOutlinedButton({
+  ///   * [SelenicFilledButton], Selenic Design filled button.
+  ///   * [SelenicTextButton], Selenic Design text button.
+  ///   * [SelenicButton.icon], Selenic Design icon button.
+  const SelenicOutlinedButton({
     super.key,
     this.autofocus = false,
     this.isFocusable = true,
@@ -92,7 +92,7 @@ class MoonOutlinedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MoonButton(
+    return SelenicButton(
       autofocus: autofocus,
       isFocusable: isFocusable,
       ensureMinimalTouchTargetSize: ensureMinimalTouchTargetSize,

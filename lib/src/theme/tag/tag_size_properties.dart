@@ -4,28 +4,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTagSizeProperties extends ThemeExtension<MoonTagSizeProperties>
+class SelenicTagSizeProperties extends ThemeExtension<SelenicTagSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonTag.
+  /// The border radius of the SelenicTag.
   final BorderRadiusGeometry borderRadius;
 
   /// The horizontal gap between the leading, label and trailing widgets of the
-  /// MoonTag.
+  /// SelenicTag.
   final double gap;
 
-  /// The height of the MoonTag.
+  /// The height of the SelenicTag.
   final double height;
 
-  /// The size value of the MoonTag icon.
+  /// The size value of the SelenicTag icon.
   final double iconSizeValue;
 
-  /// The padding of the MoonTag.
+  /// The padding of the SelenicTag.
   final EdgeInsetsGeometry padding;
 
-  /// The text style of the MoonTag.
+  /// The text style of the SelenicTag.
   final TextStyle textStyle;
 
-  const MoonTagSizeProperties({
+  const SelenicTagSizeProperties({
     required this.borderRadius,
     required this.gap,
     required this.height,
@@ -35,7 +35,7 @@ class MoonTagSizeProperties extends ThemeExtension<MoonTagSizeProperties>
   });
 
   @override
-  MoonTagSizeProperties copyWith({
+  SelenicTagSizeProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? gap,
     double? height,
@@ -43,7 +43,7 @@ class MoonTagSizeProperties extends ThemeExtension<MoonTagSizeProperties>
     EdgeInsetsGeometry? padding,
     TextStyle? textStyle,
   }) {
-    return MoonTagSizeProperties(
+    return SelenicTagSizeProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       gap: gap ?? this.gap,
       height: height ?? this.height,
@@ -54,13 +54,13 @@ class MoonTagSizeProperties extends ThemeExtension<MoonTagSizeProperties>
   }
 
   @override
-  MoonTagSizeProperties lerp(
-    ThemeExtension<MoonTagSizeProperties>? other,
+  SelenicTagSizeProperties lerp(
+    ThemeExtension<SelenicTagSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonTagSizeProperties) return this;
+    if (other is! SelenicTagSizeProperties) return this;
 
-    return MoonTagSizeProperties(
+    return SelenicTagSizeProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       gap: lerpDouble(gap, other.gap, t)!,
@@ -78,7 +78,7 @@ class MoonTagSizeProperties extends ThemeExtension<MoonTagSizeProperties>
       ..add(
         DiagnosticsProperty(
           "type",
-          "MoonTagSizeProperties",
+          "SelenicTagSizeProperties",
         ),
       )
       ..add(

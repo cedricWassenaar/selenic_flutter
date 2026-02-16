@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/animation.dart';
 import 'package:flutter/rendering.dart';
 
-import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_radius.dart';
 
 class PulseEffectPainter extends CustomPainter {
   static const double _animationRangeStartValue = 0.286;
@@ -39,7 +39,7 @@ class PulseEffectPainter extends CustomPainter {
       final Rect rect = Rect.fromLTRB(0.0, 0.0, size.width, size.height);
       final double opacity =
           (rangeValue == 0.0 ? 0.0 : 1.0 - rangeValue).clamp(0.0, 1.0);
-      final Color transformedColor = color.withOpacity(opacity);
+      final Color transformedColor = color.withValues(alpha: opacity);
       final double newWidth = rect.width + rangeValue * effectExtent;
       final double newHeight = rect.height + rangeValue * effectExtent;
       final double widthIncrease = newWidth / rect.width;
@@ -83,10 +83,10 @@ class PulseEffectPainter extends CustomPainter {
             rect.width * widthIncrease,
             rect.height * heightIncrease,
           ),
-          topLeft: MoonSquircleRadius(cornerRadius: topLeftLerp),
-          topRight: MoonSquircleRadius(cornerRadius: topRightLerp),
-          bottomLeft: MoonSquircleRadius(cornerRadius: bottomLeftLerp),
-          bottomRight: MoonSquircleRadius(cornerRadius: bottomRightLerp),
+          topLeft: SelenicSquircleRadius(cornerRadius: topLeftLerp),
+          topRight: SelenicSquircleRadius(cornerRadius: topRightLerp),
+          bottomLeft: SelenicSquircleRadius(cornerRadius: bottomLeftLerp),
+          bottomRight: SelenicSquircleRadius(cornerRadius: bottomRightLerp),
         ),
         paint,
       );

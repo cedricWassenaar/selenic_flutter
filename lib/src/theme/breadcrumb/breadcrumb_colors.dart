@@ -1,32 +1,32 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonBreadcrumbColors extends ThemeExtension<MoonBreadcrumbColors>
+class SelenicBreadcrumbColors extends ThemeExtension<SelenicBreadcrumbColors>
     with DiagnosticableTreeMixin {
-  /// The icon and text color of the MoonBreadcrumb item.
+  /// The icon and text color of the SelenicBreadcrumb item.
   final Color itemColor;
 
-  /// The icon and text color of the current MoonBreadcrumb item.
+  /// The icon and text color of the current SelenicBreadcrumb item.
   final Color? currentItemColor;
 
-  /// The icon and text color of the MoonBreadcrumb item on hover.
+  /// The icon and text color of the SelenicBreadcrumb item on hover.
   final Color? hoverEffectColor;
 
-  const MoonBreadcrumbColors({
+  const SelenicBreadcrumbColors({
     required this.itemColor,
     required this.currentItemColor,
     required this.hoverEffectColor,
   });
 
   @override
-  MoonBreadcrumbColors copyWith({
+  SelenicBreadcrumbColors copyWith({
     Color? itemColor,
     Color? currentItemColor,
     Color? hoverEffectColor,
   }) {
-    return MoonBreadcrumbColors(
+    return SelenicBreadcrumbColors(
       itemColor: itemColor ?? this.itemColor,
       currentItemColor: currentItemColor ?? this.currentItemColor,
       hoverEffectColor: hoverEffectColor ?? this.hoverEffectColor,
@@ -34,13 +34,13 @@ class MoonBreadcrumbColors extends ThemeExtension<MoonBreadcrumbColors>
   }
 
   @override
-  MoonBreadcrumbColors lerp(
-    ThemeExtension<MoonBreadcrumbColors>? other,
+  SelenicBreadcrumbColors lerp(
+    ThemeExtension<SelenicBreadcrumbColors>? other,
     double t,
   ) {
-    if (other is! MoonBreadcrumbColors) return this;
+    if (other is! SelenicBreadcrumbColors) return this;
 
-    return MoonBreadcrumbColors(
+    return SelenicBreadcrumbColors(
       itemColor: colorPremulLerp(itemColor, other.itemColor, t)!,
       currentItemColor:
           colorPremulLerp(currentItemColor, other.currentItemColor, t),
@@ -53,7 +53,7 @@ class MoonBreadcrumbColors extends ThemeExtension<MoonBreadcrumbColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonBreadcrumbColors"))
+      ..add(DiagnosticsProperty("type", "SelenicBreadcrumbColors"))
       ..add(ColorProperty("itemColor", itemColor))
       ..add(ColorProperty("currentItemColor", currentItemColor))
       ..add(ColorProperty("hoverEffectColor", hoverEffectColor));

@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:example/src/storybook/common/widgets/segment.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class IconsStory extends StatefulWidget {
   static const path = '/primitives/icons';
@@ -146,10 +146,10 @@ class _IconsStoryState extends State<IconsStory> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: context.moonColors?.goku,
+        backgroundColor: context.selenicColors?.goku,
         title: Theme(
           data: Theme.of(context),
-          child: MoonTextInput(
+          child: SelenicTextInput(
             controller: _searchController,
             hintText: "Search icons",
             leading: const Icon(

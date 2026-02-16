@@ -4,34 +4,34 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonToastProperties extends ThemeExtension<MoonToastProperties>
+class SelenicToastProperties extends ThemeExtension<SelenicToastProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonToast.
+  /// The border radius of the SelenicToast.
   final BorderRadiusGeometry borderRadius;
 
   /// The horizontal gap between the leading, label and trailing widgets of the
-  /// MoonToast.
+  /// SelenicToast.
   final double horizontalGap;
 
-  /// The vertical gap between the MoonToast header and content.
+  /// The vertical gap between the SelenicToast header and content.
   final double verticalGap;
 
-  /// The duration to display the MoonToast.
+  /// The duration to display the SelenicToast.
   final Duration displayDuration;
 
-  /// The duration of the MoonToast transition animation (slide in or out).
+  /// The duration of the SelenicToast transition animation (slide in or out).
   final Duration transitionDuration;
 
-  /// The curve of the MoonToast transition animation (slide in or out).
+  /// The curve of the SelenicToast transition animation (slide in or out).
   final Curve transitionCurve;
 
-  /// The padding of the MoonToast content.
+  /// The padding of the SelenicToast content.
   final EdgeInsetsGeometry contentPadding;
 
-  /// The text style of the MoonToast.
+  /// The text style of the SelenicToast.
   final TextStyle textStyle;
 
-  const MoonToastProperties({
+  const SelenicToastProperties({
     required this.borderRadius,
     required this.horizontalGap,
     required this.verticalGap,
@@ -43,7 +43,7 @@ class MoonToastProperties extends ThemeExtension<MoonToastProperties>
   });
 
   @override
-  MoonToastProperties copyWith({
+  SelenicToastProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? horizontalGap,
     double? verticalGap,
@@ -53,7 +53,7 @@ class MoonToastProperties extends ThemeExtension<MoonToastProperties>
     EdgeInsetsGeometry? contentPadding,
     TextStyle? textStyle,
   }) {
-    return MoonToastProperties(
+    return SelenicToastProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       horizontalGap: horizontalGap ?? this.horizontalGap,
       verticalGap: verticalGap ?? this.verticalGap,
@@ -66,13 +66,13 @@ class MoonToastProperties extends ThemeExtension<MoonToastProperties>
   }
 
   @override
-  MoonToastProperties lerp(
-    ThemeExtension<MoonToastProperties>? other,
+  SelenicToastProperties lerp(
+    ThemeExtension<SelenicToastProperties>? other,
     double t,
   ) {
-    if (other is! MoonToastProperties) return this;
+    if (other is! SelenicToastProperties) return this;
 
-    return MoonToastProperties(
+    return SelenicToastProperties(
       borderRadius: BorderRadiusGeometry.lerp(
         borderRadius,
         other.borderRadius,
@@ -95,7 +95,7 @@ class MoonToastProperties extends ThemeExtension<MoonToastProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonToastProperties"),
+        DiagnosticsProperty("type", "SelenicToastProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

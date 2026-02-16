@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/loaders/linear_loader/linear_loader_size_properties.dart';
-import 'package:moon_design/src/theme/loaders/linear_loader/linear_loader_sizes.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/widgets/common/progress_indicators/linear_progress_indicator.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonLinearLoaderSize {
+import 'package:selenic_design/src/theme/loaders/linear_loader/linear_loader_size_properties.dart';
+import 'package:selenic_design/src/theme/loaders/linear_loader/linear_loader_sizes.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/widgets/common/progress_indicators/linear_progress_indicator.dart';
+
+enum SelenicLinearLoaderSize {
   x6s,
   x5s,
   x4s,
@@ -15,7 +16,7 @@ enum MoonLinearLoaderSize {
   x2s,
 }
 
-class MoonLinearLoader extends StatelessWidget {
+class SelenicLinearLoader extends StatelessWidget {
   /// The border radius of the linear loader.
   final BorderRadiusGeometry? borderRadius;
 
@@ -29,10 +30,10 @@ class MoonLinearLoader extends StatelessWidget {
   final double? height;
 
   /// The size of the linear loader.
-  final MoonLinearLoaderSize? linearLoaderSize;
+  final SelenicLinearLoaderSize? linearLoaderSize;
 
-  /// Creates a Moon Design linear loader.
-  const MoonLinearLoader({
+  /// Creates a Selenic Design linear loader.
+  const SelenicLinearLoader({
     super.key,
     this.borderRadius,
     this.color,
@@ -41,51 +42,51 @@ class MoonLinearLoader extends StatelessWidget {
     this.linearLoaderSize,
   });
 
-  MoonLinearLoaderSizeProperties _getMoonLoaderSize(
+  SelenicLinearLoaderSizeProperties _getSelenicLoaderSize(
     BuildContext context,
-    MoonLinearLoaderSize? moonLoaderSize,
+    SelenicLinearLoaderSize? loaderSize,
   ) {
-    switch (moonLoaderSize) {
-      case MoonLinearLoaderSize.x6s:
-        return context.moonTheme?.linearLoaderTheme.sizes.x6s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x6s;
-      case MoonLinearLoaderSize.x5s:
-        return context.moonTheme?.linearLoaderTheme.sizes.x5s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x5s;
-      case MoonLinearLoaderSize.x4s:
-        return context.moonTheme?.linearLoaderTheme.sizes.x4s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x4s;
-      case MoonLinearLoaderSize.x3s:
-        return context.moonTheme?.linearLoaderTheme.sizes.x3s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x3s;
-      case MoonLinearLoaderSize.x2s:
-        return context.moonTheme?.linearLoaderTheme.sizes.x2s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x2s;
+    switch (loaderSize) {
+      case SelenicLinearLoaderSize.x6s:
+        return context.selenicTheme?.linearLoaderTheme.sizes.x6s ??
+            SelenicLinearLoaderSizes(tokens: SelenicTokens.light).x6s;
+      case SelenicLinearLoaderSize.x5s:
+        return context.selenicTheme?.linearLoaderTheme.sizes.x5s ??
+            SelenicLinearLoaderSizes(tokens: SelenicTokens.light).x5s;
+      case SelenicLinearLoaderSize.x4s:
+        return context.selenicTheme?.linearLoaderTheme.sizes.x4s ??
+            SelenicLinearLoaderSizes(tokens: SelenicTokens.light).x4s;
+      case SelenicLinearLoaderSize.x3s:
+        return context.selenicTheme?.linearLoaderTheme.sizes.x3s ??
+            SelenicLinearLoaderSizes(tokens: SelenicTokens.light).x3s;
+      case SelenicLinearLoaderSize.x2s:
+        return context.selenicTheme?.linearLoaderTheme.sizes.x2s ??
+            SelenicLinearLoaderSizes(tokens: SelenicTokens.light).x2s;
       default:
-        return context.moonTheme?.linearLoaderTheme.sizes.x4s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x4s;
+        return context.selenicTheme?.linearLoaderTheme.sizes.x4s ??
+            SelenicLinearLoaderSizes(tokens: SelenicTokens.light).x4s;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final MoonLinearLoaderSizeProperties effectiveLoaderSize =
-        _getMoonLoaderSize(context, linearLoaderSize);
+    final SelenicLinearLoaderSizeProperties effectiveLoaderSize =
+        _getSelenicLoaderSize(context, linearLoaderSize);
 
     final BorderRadiusGeometry effectiveBorderRadius =
         borderRadius ?? effectiveLoaderSize.borderRadius;
 
     final Color effectiveColor = color ??
-        context.moonTheme?.linearLoaderTheme.colors.color ??
+        context.selenicTheme?.linearLoaderTheme.colors.color ??
         MoonColors.light.piccolo;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.linearLoaderTheme.colors.backgroundColor ??
+        context.selenicTheme?.linearLoaderTheme.colors.backgroundColor ??
         Colors.transparent;
 
     final double effectiveHeight = height ?? effectiveLoaderSize.loaderHeight;
 
-    return MoonLinearProgressIndicator(
+    return SelenicLinearProgressIndicator(
       color: effectiveColor,
       backgroundColor: effectiveBackgroundColor,
       containerRadius: effectiveBorderRadius,

@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class ChipStory extends StatelessWidget {
@@ -13,23 +13,23 @@ class ChipStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final customLabelTextKnob = context.knobs.text(
       label: "Label text",
-      initial: "MoonChip",
+      initial: "SelenicChip",
     );
 
     final chipSizeKnob = context.knobs.nullable.options(
       label: "chipSize",
-      description: "Size variants for MoonChip.",
+      description: "Size variants for SelenicChip.",
       enabled: false,
-      initial: MoonChipSize.md,
+      initial: SelenicChipSize.md,
       options: const [
-        Option(label: "sm", value: MoonChipSize.sm),
-        Option(label: "md", value: MoonChipSize.md),
+        Option(label: "sm", value: SelenicChipSize.sm),
+        Option(label: "md", value: SelenicChipSize.md),
       ],
     );
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for MoonChip text.",
+      description: "MoonColors variants for SelenicChip text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -40,7 +40,7 @@ class ChipStory extends StatelessWidget {
 
     final activeColorKnob = context.knobs.nullable.options(
       label: "activeColor",
-      description: "MoonColors variants for active MoonChip.",
+      description: "MoonColors variants for active SelenicChip.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -51,7 +51,7 @@ class ChipStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonChip background.",
+      description: "MoonColors variants for SelenicChip background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -62,7 +62,7 @@ class ChipStory extends StatelessWidget {
 
     final activeBackgroundColorKnob = context.knobs.nullable.options(
       label: "activeBackgroundColor",
-      description: "MoonColors variants for active MoonChip background.",
+      description: "MoonColors variants for active SelenicChip background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -74,7 +74,7 @@ class ChipStory extends StatelessWidget {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for MoonChip border.",
+      description: "MoonColors variants for SelenicChip border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -85,7 +85,7 @@ class ChipStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonChip.",
+      description: "Border radius for SelenicChip.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -98,24 +98,24 @@ class ChipStory extends StatelessWidget {
 
     final isActiveKnob = context.knobs.boolean(
       label: "isActive",
-      description: "Whether MoonChip is active/selected.",
+      description: "Whether SelenicChip is active/selected.",
     );
 
     final showLeadingKnob = context.knobs.boolean(
       label: "leading",
-      description: "Show widget in MoonChip leading slot.",
+      description: "Show widget in SelenicChip leading slot.",
       initial: true,
     );
 
     final showLabelKnob = context.knobs.boolean(
       label: "label",
-      description: "Show widget in MoonChip label slot.",
+      description: "Show widget in SelenicChip label slot.",
       initial: true,
     );
 
     final showTrailingKnob = context.knobs.boolean(
       label: "trailing",
-      description: "Show widget in MoonChip trailing slot.",
+      description: "Show widget in SelenicChip trailing slot.",
     );
 
     final BorderRadiusGeometry? borderRadius = borderRadiusKnob != null
@@ -128,10 +128,10 @@ class ChipStory extends StatelessWidget {
         child: Column(
           children: [
             const TextDivider(
-              text: "MoonChip",
+              text: "SelenicChip",
               paddingTop: 0,
             ),
-            MoonChip(
+            SelenicChip(
               activeColor: activeColor,
               borderColor: borderColor,
               backgroundColor: backgroundColor,
@@ -149,8 +149,8 @@ class ChipStory extends StatelessWidget {
                   ? const Icon(MoonIcons.other_frame_24_light)
                   : null,
             ),
-            const TextDivider(text: "Text MoonChip"),
-            MoonChip.text(
+            const TextDivider(text: "Text SelenicChip"),
+            SelenicChip.text(
               activeBackgroundColor: activeBackgroundColor,
               borderColor: borderColor,
               textColor: textColor,
@@ -166,13 +166,13 @@ class ChipStory extends StatelessWidget {
                   ? const Icon(MoonIcons.other_frame_24_light)
                   : null,
             ),
-            const TextDivider(text: "Custom MoonChip"),
-            MoonChip(
+            const TextDivider(text: "Custom SelenicChip"),
+            SelenicChip(
               isActive: isActiveKnob,
-              activeColor: context.moonColors!.dodoria,
-              backgroundColor: context.moonColors!.krillin,
-              activeBackgroundColor: context.moonColors!.chichi10,
-              textColor: context.moonColors!.goten,
+              activeColor: context.selenicColors!.dodoria,
+              backgroundColor: context.selenicColors!.krillin,
+              activeBackgroundColor: context.selenicColors!.chichi10,
+              textColor: context.selenicColors!.goten,
               borderWidth: 2,
               showBorder: showBorderKnob,
               chipSize: chipSizeKnob,

@@ -2,38 +2,38 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTableProperties extends ThemeExtension<MoonTableProperties>
+class SelenicTableProperties extends ThemeExtension<SelenicTableProperties>
     with DiagnosticableTreeMixin {
-  /// The duration of the MoonTable row label transition animation during horizontal scrolling.
+  /// The duration of the SelenicTable row label transition animation during horizontal scrolling.
   final Duration transitionDuration;
 
-  /// The curve of the MoonTable row label transition animation during horizontal scrolling.
+  /// The curve of the SelenicTable row label transition animation during horizontal scrolling.
   final Curve transitionCurve;
 
-  const MoonTableProperties({
+  const SelenicTableProperties({
     required this.transitionDuration,
     required this.transitionCurve,
   });
 
   @override
-  MoonTableProperties copyWith({
+  SelenicTableProperties copyWith({
     Duration? transitionDuration,
     Curve? transitionCurve,
   }) {
-    return MoonTableProperties(
+    return SelenicTableProperties(
       transitionDuration: transitionDuration ?? this.transitionDuration,
       transitionCurve: transitionCurve ?? this.transitionCurve,
     );
   }
 
   @override
-  MoonTableProperties lerp(
-    ThemeExtension<MoonTableProperties>? other,
+  SelenicTableProperties lerp(
+    ThemeExtension<SelenicTableProperties>? other,
     double t,
   ) {
-    if (other is! MoonTableProperties) return this;
+    if (other is! SelenicTableProperties) return this;
 
-    return MoonTableProperties(
+    return SelenicTableProperties(
       transitionDuration:
           lerpDuration(transitionDuration, other.transitionDuration, t),
       transitionCurve: other.transitionCurve,
@@ -45,7 +45,7 @@ class MoonTableProperties extends ThemeExtension<MoonTableProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonTableProperties"),
+        DiagnosticsProperty("type", "SelenicTableProperties"),
       )
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),

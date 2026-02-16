@@ -1,28 +1,28 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/segmented_control/segmented_control_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/segmented_control/segmented_control_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonSegmentedControlSizes
-    extends ThemeExtension<MoonSegmentedControlSizes>
+class SelenicSegmentedControlSizes
+    extends ThemeExtension<SelenicSegmentedControlSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the small MoonSegmentedControl.
-  final MoonSegmentedControlSizeProperties sm;
+  /// The properties of the small SelenicSegmentedControl.
+  final SelenicSegmentedControlSizeProperties sm;
 
-  /// The properties of the medium MoonSegmentedControl.
-  final MoonSegmentedControlSizeProperties md;
+  /// The properties of the medium SelenicSegmentedControl.
+  final SelenicSegmentedControlSizeProperties md;
 
-  MoonSegmentedControlSizes({
+  SelenicSegmentedControlSizes({
     required this.tokens,
-    MoonSegmentedControlSizeProperties? sm,
-    MoonSegmentedControlSizeProperties? md,
+    SelenicSegmentedControlSizeProperties? sm,
+    SelenicSegmentedControlSizeProperties? md,
   })  : sm = sm ??
-            MoonSegmentedControlSizeProperties(
+            SelenicSegmentedControlSizeProperties(
               segmentBorderRadius: tokens.borders.interactiveSm,
               segmentGap: tokens.sizes.x5s,
               height: tokens.sizes.md,
@@ -32,7 +32,7 @@ class MoonSegmentedControlSizes
               textStyle: tokens.typography.heading.textDefault,
             ),
         md = md ??
-            MoonSegmentedControlSizeProperties(
+            SelenicSegmentedControlSizeProperties(
               segmentBorderRadius: tokens.borders.interactiveSm,
               segmentGap: tokens.sizes.x4s,
               height: tokens.sizes.lg,
@@ -43,12 +43,12 @@ class MoonSegmentedControlSizes
             );
 
   @override
-  MoonSegmentedControlSizes copyWith({
-    MoonTokens? tokens,
-    MoonSegmentedControlSizeProperties? sm,
-    MoonSegmentedControlSizeProperties? md,
+  SelenicSegmentedControlSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicSegmentedControlSizeProperties? sm,
+    SelenicSegmentedControlSizeProperties? md,
   }) {
-    return MoonSegmentedControlSizes(
+    return SelenicSegmentedControlSizes(
       tokens: tokens ?? this.tokens,
       sm: sm ?? this.sm,
       md: md ?? this.md,
@@ -56,13 +56,13 @@ class MoonSegmentedControlSizes
   }
 
   @override
-  MoonSegmentedControlSizes lerp(
-    ThemeExtension<MoonSegmentedControlSizes>? other,
+  SelenicSegmentedControlSizes lerp(
+    ThemeExtension<SelenicSegmentedControlSizes>? other,
     double t,
   ) {
-    if (other is! MoonSegmentedControlSizes) return this;
+    if (other is! SelenicSegmentedControlSizes) return this;
 
-    return MoonSegmentedControlSizes(
+    return SelenicSegmentedControlSizes(
       tokens: tokens.lerp(other.tokens, t),
       sm: sm.lerp(other.sm, t),
       md: md.lerp(other.md, t),
@@ -73,9 +73,11 @@ class MoonSegmentedControlSizes
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonSegmentedControlSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonSegmentedControlSizeProperties>("sm", sm))
-      ..add(DiagnosticsProperty<MoonSegmentedControlSizeProperties>("md", md));
+      ..add(DiagnosticsProperty("type", "SelenicSegmentedControlSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(
+          DiagnosticsProperty<SelenicSegmentedControlSizeProperties>("sm", sm))
+      ..add(
+          DiagnosticsProperty<SelenicSegmentedControlSizeProperties>("md", md));
   }
 }

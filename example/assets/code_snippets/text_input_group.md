@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class TextInputGroup extends StatefulWidget {
   const TextInputGroup({super.key});
@@ -21,10 +21,10 @@ class _TextInputGroupState extends State<TextInputGroup> {
         builder: (context) {
           return Column(
             children: [
-              MoonTextInputGroup(
+              SelenicTextInputGroup(
                 children: [
-                  MoonFormTextInput(
-                    textInputSize: MoonTextInputSize.xl,
+                  SelenicFormTextInput(
+                    textInputSize: SelenicTextInputSize.xl,
                     controller: _textController,
                     validator: (String? value) => value?.length != null && value!.length < 5
                       ? "The text should be longer than 5 characters."
@@ -35,8 +35,8 @@ class _TextInputGroupState extends State<TextInputGroup> {
                       child: const Icon(MoonIcons.controls_close_small_24_light),
                     ),
                   ),
-                  MoonFormTextInput(
-                    textInputSize: MoonTextInputSize.xl,
+                  SelenicFormTextInput(
+                    textInputSize: SelenicTextInputSize.xl,
                     obscureText: _hidePassword,
                     controller: _passwordController,
                     validator: (String? value) => value != "123" ? "Wrong password." : null,
@@ -50,7 +50,7 @@ class _TextInputGroupState extends State<TextInputGroup> {
                   ),
                 ],
               ),
-              MoonFilledButton(
+              SelenicFilledButton(
                 onTap: () => Form.of(context).validate(),
                 label: const Text("Submit"),
               ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class TextDivider extends StatelessWidget {
   final String text;
@@ -27,8 +27,8 @@ class TextDivider extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               text,
-              style: context.moonTypography?.body.text12
-                  .copyWith(color: context.moonColors?.trunks),
+              style: context.selenicTypography?.body.text12
+                  .copyWith(color: context.selenicColors?.trunks),
             ),
           ),
           const Expanded(

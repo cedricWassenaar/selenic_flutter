@@ -1,40 +1,41 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/radio/radio_colors.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/radio/radio_colors.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonRadioTheme extends ThemeExtension<MoonRadioTheme>
+class SelenicRadioTheme extends ThemeExtension<SelenicRadioTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonRadio.
-  final MoonRadioColors colors;
+  /// The colors of the SelenicRadio.
+  final SelenicRadioColors colors;
 
-  MoonRadioTheme({
+  SelenicRadioTheme({
     required this.tokens,
-    MoonRadioColors? colors,
+    SelenicRadioColors? colors,
   }) : colors = colors ??
-            MoonRadioColors(
+            SelenicRadioColors(
               activeColor: tokens.colors.piccolo,
               inactiveColor: tokens.colors.trunks,
             );
 
   @override
-  MoonRadioTheme copyWith({MoonTokens? tokens, MoonRadioColors? colors}) {
-    return MoonRadioTheme(
+  SelenicRadioTheme copyWith(
+      {SelenicTokens? tokens, SelenicRadioColors? colors}) {
+    return SelenicRadioTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
     );
   }
 
   @override
-  MoonRadioTheme lerp(ThemeExtension<MoonRadioTheme>? other, double t) {
-    if (other is! MoonRadioTheme) return this;
+  SelenicRadioTheme lerp(ThemeExtension<SelenicRadioTheme>? other, double t) {
+    if (other is! SelenicRadioTheme) return this;
 
-    return MoonRadioTheme(
+    return SelenicRadioTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
     );
@@ -44,8 +45,8 @@ class MoonRadioTheme extends ThemeExtension<MoonRadioTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonRadioTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonRadioColors>("colors", colors));
+      ..add(DiagnosticsProperty("type", "SelenicRadioTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicRadioColors>("colors", colors));
   }
 }

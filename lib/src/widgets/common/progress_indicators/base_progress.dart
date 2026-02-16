@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-/// The base class for the Moon Design progress indicators.
+/// The base class for the Selenic Design progress indicators.
 ///
-/// This class defines the common properties and behavior for Moon Design
+/// This class defines the common properties and behavior for Selenic Design
 /// progress indicators. It can not be instantiated directly.
-/// Use [MoonLinearProgressIndicator] for a linear progress indicator and
-/// [MoonCircularProgressIndicator] for a circular progress indicator.
-abstract class MoonBaseProgressIndicator extends StatefulWidget {
+/// Use [SelenicLinearProgressIndicator] for a linear progress indicator and
+/// [SelenicCircularProgressIndicator] for a circular progress indicator.
+abstract class SelenicBaseProgressIndicator extends StatefulWidget {
   /// The progress indicator's color as an animated value.
   final Animation<Color?>? valueColor;
 
@@ -47,7 +47,7 @@ abstract class MoonBaseProgressIndicator extends StatefulWidget {
   /// `0.1` will become '10%'.
   final String? semanticsValue;
 
-  /// Creates a Moon Design progress indicator.
+  /// Creates a Selenic Design progress indicator.
   ///
   /// The [value] argument determines whether the progress indicator is
   /// determinate or indeterminate:
@@ -65,7 +65,7 @@ abstract class MoonBaseProgressIndicator extends StatefulWidget {
   /// bar for screen reading software.
   /// The [semanticsValue] property may be used for determinate progress
   /// indicators to announce how much progress has been made.
-  const MoonBaseProgressIndicator({
+  const SelenicBaseProgressIndicator({
     super.key,
     this.valueColor,
     required this.backgroundColor,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 enum AccordionItems { first, second }
 
@@ -22,35 +22,35 @@ class _AccordionState extends State<Accordion> {
 
     return Column(
       children: [
-        MoonAccordion<AccordionItems>(
+        SelenicAccordion<AccordionItems>(
           // The identityValue and groupIdentityValue can be used to control the 
           // auto collapse behaviour of the accordion.
           identityValue: AccordionItems.first,
           groupIdentityValue: _currentlyOpenAccordionItem,
-          accordionSize: MoonAccordionSize.sm,
+          accordionSize: SelenicAccordionSize.sm,
           childrenPadding: const EdgeInsets.all(12),
           onExpansionChanged: (AccordionItems? value) => setState(
             () => _currentlyOpenAccordionItem = value,
           ),
           leading: const Icon(MoonIcons.other_frame_24_light),
-          label: const Text("Grouped MoonAccordion item #1"),
+          label: const Text("Grouped SelenicAccordion item #1"),
           children: const [
             Text(contentText),
           ],
         ),
-        MoonAccordion<AccordionItems>(
+        SelenicAccordion<AccordionItems>(
           // The identityValue and groupIdentityValue can be used to control the 
           // auto collapse behaviour of the accordion.
           identityValue: AccordionItems.second,
           groupIdentityValue: _currentlyOpenAccordionItem,
-          accordionSize: MoonAccordionSize.sm,
+          accordionSize: SelenicAccordionSize.sm,
           hasContentOutside: true,
           childrenPadding: const EdgeInsets.all(12),
           onExpansionChanged: (AccordionItems? value) => setState(
             () => _currentlyOpenAccordionItem = value,
           ),
           leading: const Icon(MoonIcons.other_frame_24_light),
-          label: const Text("Grouped MoonAccordion item #2"),
+          label: const Text("Grouped SelenicAccordion item #2"),
           children: const [
             Text(contentText),
           ],

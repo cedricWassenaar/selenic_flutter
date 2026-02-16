@@ -2,9 +2,9 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 
-import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_radius.dart';
 
-class MoonLinearProgressIndicatorPainter extends CustomPainter {
+class SelenicLinearProgressIndicatorPainter extends CustomPainter {
   static const int _kIndeterminateLinearDuration = 1800;
 
   // The indeterminate progress animation consists of two lines, each with a
@@ -42,7 +42,7 @@ class MoonLinearProgressIndicatorPainter extends CustomPainter {
   final BorderRadius progressRadius;
   final TextDirection textDirection;
 
-  const MoonLinearProgressIndicatorPainter({
+  const SelenicLinearProgressIndicatorPainter({
     required this.backgroundColor,
     required this.valueColor,
     this.value,
@@ -60,12 +60,12 @@ class MoonLinearProgressIndicatorPainter extends CustomPainter {
 
     final containerRect = RRect.fromRectAndCorners(
       Offset.zero & size,
-      topLeft: MoonSquircleRadius(cornerRadius: containerRadius.topLeft.x),
-      topRight: MoonSquircleRadius(cornerRadius: containerRadius.topRight.x),
+      topLeft: SelenicSquircleRadius(cornerRadius: containerRadius.topLeft.x),
+      topRight: SelenicSquircleRadius(cornerRadius: containerRadius.topRight.x),
       bottomLeft:
-          MoonSquircleRadius(cornerRadius: containerRadius.bottomLeft.x),
+          SelenicSquircleRadius(cornerRadius: containerRadius.bottomLeft.x),
       bottomRight:
-          MoonSquircleRadius(cornerRadius: containerRadius.bottomRight.x),
+          SelenicSquircleRadius(cornerRadius: containerRadius.bottomRight.x),
     );
     canvas.drawRRect(containerRect, paint);
 
@@ -84,12 +84,13 @@ class MoonLinearProgressIndicatorPainter extends CustomPainter {
 
       final progressRect = RRect.fromRectAndCorners(
         Offset(left, 0.0) & Size(width, size.height),
-        topLeft: MoonSquircleRadius(cornerRadius: progressRadius.topLeft.x),
-        topRight: MoonSquircleRadius(cornerRadius: progressRadius.topRight.x),
+        topLeft: SelenicSquircleRadius(cornerRadius: progressRadius.topLeft.x),
+        topRight:
+            SelenicSquircleRadius(cornerRadius: progressRadius.topRight.x),
         bottomLeft:
-            MoonSquircleRadius(cornerRadius: progressRadius.bottomLeft.x),
+            SelenicSquircleRadius(cornerRadius: progressRadius.bottomLeft.x),
         bottomRight:
-            MoonSquircleRadius(cornerRadius: progressRadius.bottomRight.x),
+            SelenicSquircleRadius(cornerRadius: progressRadius.bottomRight.x),
       );
 
       // Clipping progressRect with containerRect.
@@ -115,7 +116,7 @@ class MoonLinearProgressIndicatorPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(MoonLinearProgressIndicatorPainter oldPainter) {
+  bool shouldRepaint(SelenicLinearProgressIndicatorPainter oldPainter) {
     return oldPainter.backgroundColor != backgroundColor ||
         oldPainter.valueColor != valueColor ||
         oldPainter.value != value ||

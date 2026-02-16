@@ -4,39 +4,39 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonCircularLoaderSizeProperties
-    extends ThemeExtension<MoonCircularLoaderSizeProperties>
+class SelenicCircularLoaderSizeProperties
+    extends ThemeExtension<SelenicCircularLoaderSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The size value of the MoonCircularLoader.
+  /// The size value of the SelenicCircularLoader.
   final double loaderSizeValue;
 
-  /// The stroke width of the MoonCircularLoader.
+  /// The stroke width of the SelenicCircularLoader.
   final double loaderStrokeWidth;
 
-  const MoonCircularLoaderSizeProperties({
+  const SelenicCircularLoaderSizeProperties({
     required this.loaderSizeValue,
     required this.loaderStrokeWidth,
   });
 
   @override
-  MoonCircularLoaderSizeProperties copyWith({
+  SelenicCircularLoaderSizeProperties copyWith({
     double? loaderSizeValue,
     double? loaderStrokeWidth,
   }) {
-    return MoonCircularLoaderSizeProperties(
+    return SelenicCircularLoaderSizeProperties(
       loaderSizeValue: loaderSizeValue ?? this.loaderSizeValue,
       loaderStrokeWidth: loaderStrokeWidth ?? this.loaderStrokeWidth,
     );
   }
 
   @override
-  MoonCircularLoaderSizeProperties lerp(
-    ThemeExtension<MoonCircularLoaderSizeProperties>? other,
+  SelenicCircularLoaderSizeProperties lerp(
+    ThemeExtension<SelenicCircularLoaderSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonCircularLoaderSizeProperties) return this;
+    if (other is! SelenicCircularLoaderSizeProperties) return this;
 
-    return MoonCircularLoaderSizeProperties(
+    return SelenicCircularLoaderSizeProperties(
       loaderSizeValue: lerpDouble(loaderSizeValue, other.loaderSizeValue, t)!,
       loaderStrokeWidth:
           lerpDouble(loaderStrokeWidth, other.loaderStrokeWidth, t)!,
@@ -47,7 +47,7 @@ class MoonCircularLoaderSizeProperties
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonCircularLoaderSizeProperties"))
+      ..add(DiagnosticsProperty("type", "SelenicCircularLoaderSizeProperties"))
       ..add(DoubleProperty("loaderSizeValue", loaderSizeValue))
       ..add(DoubleProperty("loaderStrokeWidth", loaderStrokeWidth));
   }

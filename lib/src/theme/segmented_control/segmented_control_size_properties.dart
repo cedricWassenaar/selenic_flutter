@@ -4,29 +4,29 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonSegmentedControlSizeProperties
-    extends ThemeExtension<MoonSegmentedControlSizeProperties>
+class SelenicSegmentedControlSizeProperties
+    extends ThemeExtension<SelenicSegmentedControlSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonSegmentedControl segment.
+  /// The border radius of the SelenicSegmentedControl segment.
   final BorderRadiusGeometry segmentBorderRadius;
 
   /// The horizontal gap between the leading, label and trailing widgets of the
-  /// MoonSegmentedControl segment.
+  /// SelenicSegmentedControl segment.
   final double segmentGap;
 
-  /// The height of the MoonSegmentedControl.
+  /// The height of the SelenicSegmentedControl.
   final double height;
 
-  /// The size value of the MoonSegmentedControl icon.
+  /// The size value of the SelenicSegmentedControl icon.
   final double iconSizeValue;
 
-  /// The padding of the MoonSegmentedControl segment.
+  /// The padding of the SelenicSegmentedControl segment.
   final EdgeInsetsGeometry segmentPadding;
 
-  /// The text style of the MoonSegmentedControl.
+  /// The text style of the SelenicSegmentedControl.
   final TextStyle textStyle;
 
-  const MoonSegmentedControlSizeProperties({
+  const SelenicSegmentedControlSizeProperties({
     required this.segmentBorderRadius,
     required this.segmentGap,
     required this.height,
@@ -36,7 +36,7 @@ class MoonSegmentedControlSizeProperties
   });
 
   @override
-  MoonSegmentedControlSizeProperties copyWith({
+  SelenicSegmentedControlSizeProperties copyWith({
     BorderRadiusGeometry? segmentBorderRadius,
     double? segmentGap,
     double? height,
@@ -44,7 +44,7 @@ class MoonSegmentedControlSizeProperties
     EdgeInsetsGeometry? segmentPadding,
     TextStyle? textStyle,
   }) {
-    return MoonSegmentedControlSizeProperties(
+    return SelenicSegmentedControlSizeProperties(
       segmentBorderRadius: segmentBorderRadius ?? this.segmentBorderRadius,
       segmentGap: segmentGap ?? this.segmentGap,
       height: height ?? this.height,
@@ -55,13 +55,13 @@ class MoonSegmentedControlSizeProperties
   }
 
   @override
-  MoonSegmentedControlSizeProperties lerp(
-    ThemeExtension<MoonSegmentedControlSizeProperties>? other,
+  SelenicSegmentedControlSizeProperties lerp(
+    ThemeExtension<SelenicSegmentedControlSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonSegmentedControlSizeProperties) return this;
+    if (other is! SelenicSegmentedControlSizeProperties) return this;
 
-    return MoonSegmentedControlSizeProperties(
+    return SelenicSegmentedControlSizeProperties(
       segmentBorderRadius: BorderRadiusGeometry.lerp(
         segmentBorderRadius,
         other.segmentBorderRadius,
@@ -83,7 +83,7 @@ class MoonSegmentedControlSizeProperties
       ..add(
         DiagnosticsProperty(
           "type",
-          "MoonSegmentedControlSizeProperties",
+          "SelenicSegmentedControlSizeProperties",
         ),
       )
       ..add(

@@ -1,38 +1,38 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/accordion/accordion_colors.dart';
-import 'package:moon_design/src/theme/accordion/accordion_properties.dart';
-import 'package:moon_design/src/theme/accordion/accordion_shadows.dart';
-import 'package:moon_design/src/theme/accordion/accordion_sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/accordion/accordion_colors.dart';
+import 'package:selenic_design/src/theme/accordion/accordion_properties.dart';
+import 'package:selenic_design/src/theme/accordion/accordion_shadows.dart';
+import 'package:selenic_design/src/theme/accordion/accordion_sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonAccordionTheme extends ThemeExtension<MoonAccordionTheme>
+class SelenicAccordionTheme extends ThemeExtension<SelenicAccordionTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonAccordion.
-  final MoonAccordionColors colors;
+  /// The colors of the SelenicAccordion.
+  final SelenicAccordionColors colors;
 
-  /// The properties of the MoonAccordion.
-  final MoonAccordionProperties properties;
+  /// The properties of the SelenicAccordion.
+  final SelenicAccordionProperties properties;
 
-  /// The shadows of the MoonAccordion.
-  final MoonAccordionShadows shadows;
+  /// The shadows of the SelenicAccordion.
+  final SelenicAccordionShadows shadows;
 
-  /// The sizes of the MoonAccordion.
-  final MoonAccordionSizes sizes;
+  /// The sizes of the SelenicAccordion.
+  final SelenicAccordionSizes sizes;
 
-  MoonAccordionTheme({
+  SelenicAccordionTheme({
     required this.tokens,
-    MoonAccordionColors? colors,
-    MoonAccordionProperties? properties,
-    MoonAccordionShadows? shadows,
-    MoonAccordionSizes? sizes,
+    SelenicAccordionColors? colors,
+    SelenicAccordionProperties? properties,
+    SelenicAccordionShadows? shadows,
+    SelenicAccordionSizes? sizes,
   })  : colors = colors ??
-            MoonAccordionColors(
+            SelenicAccordionColors(
               textColor: tokens.colors.textPrimary,
               expandedTextColor: tokens.colors.textPrimary,
               contentColor: tokens.colors.textPrimary,
@@ -46,22 +46,23 @@ class MoonAccordionTheme extends ThemeExtension<MoonAccordionTheme>
               dividerColor: tokens.colors.beerus,
             ),
         properties = properties ??
-            MoonAccordionProperties(
+            SelenicAccordionProperties(
               transitionDuration: tokens.transitions.defaultTransitionDuration,
               transitionCurve: tokens.transitions.defaultTransitionCurve,
             ),
-        shadows = shadows ?? MoonAccordionShadows(shadows: tokens.shadows.sm),
-        sizes = sizes ?? MoonAccordionSizes(tokens: tokens);
+        shadows =
+            shadows ?? SelenicAccordionShadows(shadows: tokens.shadows.sm),
+        sizes = sizes ?? SelenicAccordionSizes(tokens: tokens);
 
   @override
-  MoonAccordionTheme copyWith({
-    MoonTokens? tokens,
-    MoonAccordionColors? colors,
-    MoonAccordionProperties? properties,
-    MoonAccordionShadows? shadows,
-    MoonAccordionSizes? sizes,
+  SelenicAccordionTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicAccordionColors? colors,
+    SelenicAccordionProperties? properties,
+    SelenicAccordionShadows? shadows,
+    SelenicAccordionSizes? sizes,
   }) {
-    return MoonAccordionTheme(
+    return SelenicAccordionTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -71,10 +72,11 @@ class MoonAccordionTheme extends ThemeExtension<MoonAccordionTheme>
   }
 
   @override
-  MoonAccordionTheme lerp(ThemeExtension<MoonAccordionTheme>? other, double t) {
-    if (other is! MoonAccordionTheme) return this;
+  SelenicAccordionTheme lerp(
+      ThemeExtension<SelenicAccordionTheme>? other, double t) {
+    if (other is! SelenicAccordionTheme) return this;
 
-    return MoonAccordionTheme(
+    return SelenicAccordionTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -87,17 +89,18 @@ class MoonAccordionTheme extends ThemeExtension<MoonAccordionTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonAccordionTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonAccordionColors>("colors", colors))
+      ..add(DiagnosticsProperty("type", "SelenicAccordionTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicAccordionColors>("colors", colors))
       ..add(
-        DiagnosticsProperty<MoonAccordionProperties>("properties", properties),
+        DiagnosticsProperty<SelenicAccordionProperties>(
+            "properties", properties),
       )
       ..add(
-        DiagnosticsProperty<MoonAccordionShadows>("shadows", shadows),
+        DiagnosticsProperty<SelenicAccordionShadows>("shadows", shadows),
       )
       ..add(
-        DiagnosticsProperty<MoonAccordionSizes>("sizes", sizes),
+        DiagnosticsProperty<SelenicAccordionSizes>("sizes", sizes),
       );
   }
 }

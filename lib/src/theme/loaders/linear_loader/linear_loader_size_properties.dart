@@ -4,39 +4,39 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonLinearLoaderSizeProperties
-    extends ThemeExtension<MoonLinearLoaderSizeProperties>
+class SelenicLinearLoaderSizeProperties
+    extends ThemeExtension<SelenicLinearLoaderSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonLinearLoader.
+  /// The border radius of the SelenicLinearLoader.
   final BorderRadiusGeometry borderRadius;
 
-  /// The height of the MoonLinearLoader.
+  /// The height of the SelenicLinearLoader.
   final double loaderHeight;
 
-  const MoonLinearLoaderSizeProperties({
+  const SelenicLinearLoaderSizeProperties({
     required this.borderRadius,
     required this.loaderHeight,
   });
 
   @override
-  MoonLinearLoaderSizeProperties copyWith({
+  SelenicLinearLoaderSizeProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? loaderHeight,
   }) {
-    return MoonLinearLoaderSizeProperties(
+    return SelenicLinearLoaderSizeProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       loaderHeight: loaderHeight ?? this.loaderHeight,
     );
   }
 
   @override
-  MoonLinearLoaderSizeProperties lerp(
-    ThemeExtension<MoonLinearLoaderSizeProperties>? other,
+  SelenicLinearLoaderSizeProperties lerp(
+    ThemeExtension<SelenicLinearLoaderSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonLinearLoaderSizeProperties) return this;
+    if (other is! SelenicLinearLoaderSizeProperties) return this;
 
-    return MoonLinearLoaderSizeProperties(
+    return SelenicLinearLoaderSizeProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       loaderHeight: lerpDouble(loaderHeight, other.loaderHeight, t)!,
@@ -48,7 +48,7 @@ class MoonLinearLoaderSizeProperties
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonLinearLoaderSizeProperties"),
+        DiagnosticsProperty("type", "SelenicLinearLoaderSizeProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

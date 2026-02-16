@@ -9,7 +9,7 @@ import 'package:example/src/storybook/common/widgets/page_footer.dart';
 import 'package:example/src/storybook/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class HomePage extends StatelessWidget {
   static const path = '/';
@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildHeaderSection(BuildContext context, bool showLogo) {
-    final MoonTypography typography = context.moonTypography!;
+    final SelenicTypography typography = context.selenicTypography!;
 
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: mediumScreenWidth),
@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 12.0, bottom: 24.0),
               child: SvgPicture.asset(
-                'assets/svg/moon-logo-long.svg',
+                'assets/svg/heart.svg',
                 height: 16.0,
               ),
             ),
@@ -94,10 +94,11 @@ class HomePage extends StatelessWidget {
   Widget _buildButton(BuildContext context, SocialMedia socialMedia) {
     final bool isGitHub = socialMedia == SocialMedia.gitHub;
 
-    return MoonButton(
+    return SelenicButton(
       width: double.infinity,
-      backgroundColor:
-          isGitHub ? context.moonColors!.piccolo : context.moonColors!.krillin,
+      backgroundColor: isGitHub
+          ? context.selenicColors!.piccolo
+          : context.selenicColors!.krillin,
       onTap: () => launchURL(socialMedia.url),
       leading: SvgPicture.asset(
         socialMedia.buttonIconPath,
@@ -108,8 +109,9 @@ class HomePage extends StatelessWidget {
           width: 56,
           child: Text(
             socialMedia.name,
-            style:
-                isGitHub ? TextStyle(color: context.moonColors!.goten) : null,
+            style: isGitHub
+                ? TextStyle(color: context.selenicColors!.goten)
+                : null,
           ),
         ),
       ),
@@ -139,7 +141,7 @@ class HomePage extends StatelessWidget {
         (int index) {
           final Component component = Component.values[index];
 
-          return MoonBaseControl(
+          return SelenicBaseControl(
             borderRadius: borderRadius,
             onTap: () => router.go(component.urlPath),
             builder: (BuildContext context, _, bool isHovered, __, ___) {
@@ -147,13 +149,14 @@ class HomePage extends StatelessWidget {
                 height: cardHeight,
                 width: cardWidth,
                 decoration: BoxDecoration(
-                  color: context.moonColors!.goten,
+                  color: context.selenicColors!.goten,
                   borderRadius: borderRadius,
-                  border: Border.all(color: context.moonColors!.beerus),
+                  border: Border.all(color: context.selenicColors!.beerus),
                   boxShadow: isHovered
                       ? [
                           BoxShadow(
-                            color: context.moonColors!.trunks.withOpacity(.4),
+                            color: context.selenicColors!.trunks
+                                .withValues(alpha: .4),
                             blurRadius: 6.0,
                             spreadRadius: -3.0,
                             offset: const Offset(0, 4),
@@ -190,14 +193,14 @@ class HomePage extends StatelessWidget {
                           Text(
                             component.name,
                             overflow: TextOverflow.ellipsis,
-                            style: context.moonTypography!.heading.text20,
+                            style: context.selenicTypography!.heading.text20,
                           ),
                           SizedBox(height: isExtraSmallScreen ? 4.0 : 8.0),
                           Text(
                             component.description,
                             maxLines: isExtraSmallScreen ? 3 : 2,
                             overflow: TextOverflow.ellipsis,
-                            style: context.moonTypography!.heading.text14,
+                            style: context.selenicTypography!.heading.text14,
                           ),
                         ],
                       ),

@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
-import 'package:moon_design/src/widgets/tooltip/tooltip.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_radius.dart';
+import 'package:selenic_design/src/widgets/tooltip/tooltip.dart';
 
 class TooltipShape extends ShapeBorder {
   final BorderRadius borderRadius;
@@ -14,7 +14,7 @@ class TooltipShape extends ShapeBorder {
   final double arrowLength;
   final double arrowTipDistance;
   final double childWidth;
-  final MoonTooltipPosition tooltipPosition;
+  final SelenicTooltipPosition tooltipPosition;
 
   const TooltipShape({
     required this.borderRadius,
@@ -53,12 +53,12 @@ class TooltipShape extends ShapeBorder {
         ..lineTo(rect.left, rect.top + topLeftRadius)
         ..arcToPoint(
           Offset(rect.left + topLeftRadius, rect.top),
-          radius: MoonSquircleRadius(cornerRadius: topLeftRadius),
+          radius: SelenicSquircleRadius(cornerRadius: topLeftRadius),
         )
         ..lineTo(rect.right - topRightRadius, rect.top)
         ..arcToPoint(
           Offset(rect.right, rect.top + topRightRadius),
-          radius: MoonSquircleRadius(cornerRadius: topRightRadius),
+          radius: SelenicSquircleRadius(cornerRadius: topRightRadius),
         );
     }
 
@@ -68,32 +68,32 @@ class TooltipShape extends ShapeBorder {
         ..lineTo(rect.right - bottomRightRadius, rect.bottom)
         ..arcToPoint(
           Offset(rect.right, rect.bottom - bottomRightRadius),
-          radius: MoonSquircleRadius(cornerRadius: bottomRightRadius),
+          radius: SelenicSquircleRadius(cornerRadius: bottomRightRadius),
           clockwise: false,
         )
         ..lineTo(rect.right, rect.top + topRightRadius)
         ..arcToPoint(
           Offset(rect.right - topRightRadius, rect.top),
-          radius: MoonSquircleRadius(cornerRadius: topRightRadius),
+          radius: SelenicSquircleRadius(cornerRadius: topRightRadius),
           clockwise: false,
         );
     }
 
-    if (tooltipPosition == MoonTooltipPosition.right) {
+    if (tooltipPosition == SelenicTooltipPosition.right) {
       tooltipCenter =
           rect.centerLeft.translate(-arrowLength - arrowTipDistance, 0);
-    } else if (tooltipPosition == MoonTooltipPosition.left) {
+    } else if (tooltipPosition == SelenicTooltipPosition.left) {
       tooltipCenter =
           rect.centerRight.translate(arrowLength + arrowTipDistance, 0);
     }
 
     switch (tooltipPosition) {
-      case MoonTooltipPosition.top:
+      case SelenicTooltipPosition.top:
         return getLeftTopPath(rect)
           ..lineTo(rect.right, rect.bottom - bottomRightRadius)
           ..arcToPoint(
             Offset(rect.right - bottomRightRadius, rect.bottom),
-            radius: MoonSquircleRadius(cornerRadius: bottomRightRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomRightRadius),
           )
           // To corner of arrow base.
           ..lineTo(
@@ -122,15 +122,15 @@ class TooltipShape extends ShapeBorder {
           ..lineTo(rect.left + bottomLeftRadius, rect.bottom)
           ..arcToPoint(
             Offset(rect.left, rect.bottom - bottomLeftRadius),
-            radius: MoonSquircleRadius(cornerRadius: bottomLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomLeftRadius),
           )
           ..lineTo(rect.left, rect.top + topLeftRadius)
           ..arcToPoint(
             Offset(rect.left + topLeftRadius, rect.top),
-            radius: MoonSquircleRadius(cornerRadius: topLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: topLeftRadius),
           );
 
-      case MoonTooltipPosition.bottom:
+      case SelenicTooltipPosition.bottom:
         return getBottomRightPath(rect)
           // To corner of arrow base.
           ..lineTo(
@@ -159,17 +159,17 @@ class TooltipShape extends ShapeBorder {
           ..lineTo(rect.left + topLeftRadius, rect.top)
           ..arcToPoint(
             Offset(rect.left, rect.top + topLeftRadius),
-            radius: MoonSquircleRadius(cornerRadius: topLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: topLeftRadius),
             clockwise: false,
           )
           ..lineTo(rect.left, rect.bottom - bottomLeftRadius)
           ..arcToPoint(
             Offset(rect.left + bottomLeftRadius, rect.bottom),
-            radius: MoonSquircleRadius(cornerRadius: bottomLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomLeftRadius),
             clockwise: false,
           );
 
-      case MoonTooltipPosition.left:
+      case SelenicTooltipPosition.left:
         return getLeftTopPath(rect)
           // To corner of arrow base.
           ..lineTo(
@@ -201,20 +201,20 @@ class TooltipShape extends ShapeBorder {
           ..lineTo(rect.right, rect.bottom - bottomRightRadius)
           ..arcToPoint(
             Offset(rect.right - bottomRightRadius, rect.bottom),
-            radius: MoonSquircleRadius(cornerRadius: bottomRightRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomRightRadius),
           )
           ..lineTo(rect.left + bottomLeftRadius, rect.bottom)
           ..arcToPoint(
             Offset(rect.left, rect.bottom - bottomLeftRadius),
-            radius: MoonSquircleRadius(cornerRadius: bottomLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomLeftRadius),
           );
 
-      case MoonTooltipPosition.right:
+      case SelenicTooltipPosition.right:
         return getBottomRightPath(rect)
           ..lineTo(rect.left + topLeftRadius, rect.top)
           ..arcToPoint(
             Offset(rect.left, rect.top + topLeftRadius),
-            radius: MoonSquircleRadius(cornerRadius: topLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: topLeftRadius),
             clockwise: false,
           )
           // To corner of arrow base.
@@ -247,16 +247,16 @@ class TooltipShape extends ShapeBorder {
           ..lineTo(rect.left, rect.bottom - bottomLeftRadius)
           ..arcToPoint(
             Offset(rect.left + bottomLeftRadius, rect.bottom),
-            radius: MoonSquircleRadius(cornerRadius: bottomLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomLeftRadius),
             clockwise: false,
           );
 
-      case MoonTooltipPosition.topLeft:
+      case SelenicTooltipPosition.topLeft:
         return getLeftTopPath(rect)
           ..lineTo(rect.right, rect.bottom - bottomRightRadius)
           ..arcToPoint(
             Offset(rect.right - bottomRightRadius, rect.bottom),
-            radius: MoonSquircleRadius(cornerRadius: bottomRightRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomRightRadius),
           )
           // To corner of arrow base.
           ..lineTo(
@@ -294,20 +294,20 @@ class TooltipShape extends ShapeBorder {
           ..lineTo(rect.left + bottomLeftRadius, rect.bottom)
           ..arcToPoint(
             Offset(rect.left, rect.bottom - bottomLeftRadius),
-            radius: MoonSquircleRadius(cornerRadius: bottomLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomLeftRadius),
           )
           ..lineTo(rect.left, rect.top + topLeftRadius)
           ..arcToPoint(
             Offset(rect.left + topLeftRadius, rect.top),
-            radius: MoonSquircleRadius(cornerRadius: topLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: topLeftRadius),
           );
 
-      case MoonTooltipPosition.topRight:
+      case SelenicTooltipPosition.topRight:
         return getLeftTopPath(rect)
           ..lineTo(rect.right, rect.bottom - bottomRightRadius)
           ..arcToPoint(
             Offset(rect.right - bottomRightRadius, rect.bottom),
-            radius: MoonSquircleRadius(cornerRadius: bottomRightRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomRightRadius),
           )
           // To corner of arrow base.
           ..lineTo(
@@ -345,15 +345,15 @@ class TooltipShape extends ShapeBorder {
           ..lineTo(rect.left + bottomLeftRadius, rect.bottom)
           ..arcToPoint(
             Offset(rect.left, rect.bottom - bottomLeftRadius),
-            radius: MoonSquircleRadius(cornerRadius: bottomLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomLeftRadius),
           )
           ..lineTo(rect.left, rect.top + topLeftRadius)
           ..arcToPoint(
             Offset(rect.left + topLeftRadius, rect.top),
-            radius: MoonSquircleRadius(cornerRadius: topLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: topLeftRadius),
           );
 
-      case MoonTooltipPosition.bottomLeft:
+      case SelenicTooltipPosition.bottomLeft:
         return getBottomRightPath(rect)
           // To corner of arrow base.
           ..lineTo(
@@ -391,17 +391,17 @@ class TooltipShape extends ShapeBorder {
           ..lineTo(rect.left + topLeftRadius, rect.top)
           ..arcToPoint(
             Offset(rect.left, rect.top + topLeftRadius),
-            radius: MoonSquircleRadius(cornerRadius: topLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: topLeftRadius),
             clockwise: false,
           )
           ..lineTo(rect.left, rect.bottom - bottomLeftRadius)
           ..arcToPoint(
             Offset(rect.left + bottomLeftRadius, rect.bottom),
-            radius: MoonSquircleRadius(cornerRadius: bottomLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomLeftRadius),
             clockwise: false,
           );
 
-      case MoonTooltipPosition.bottomRight:
+      case SelenicTooltipPosition.bottomRight:
         return getBottomRightPath(rect)
           // To corner of arrow base.
           ..lineTo(
@@ -439,13 +439,13 @@ class TooltipShape extends ShapeBorder {
           ..lineTo(rect.left + topLeftRadius, rect.top)
           ..arcToPoint(
             Offset(rect.left, rect.top + topLeftRadius),
-            radius: MoonSquircleRadius(cornerRadius: topLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: topLeftRadius),
             clockwise: false,
           )
           ..lineTo(rect.left, rect.bottom - bottomLeftRadius)
           ..arcToPoint(
             Offset(rect.left + bottomLeftRadius, rect.bottom),
-            radius: MoonSquircleRadius(cornerRadius: bottomLeftRadius),
+            radius: SelenicSquircleRadius(cornerRadius: bottomLeftRadius),
             clockwise: false,
           );
 

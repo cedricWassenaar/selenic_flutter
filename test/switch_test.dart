@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _switchKey = Key("switchKey");
 
@@ -24,7 +24,7 @@ void main() {
 
     expect(
       find.byWidgetPredicate(
-        (Widget widget) => widget is MoonSwitch && widget.value == true,
+        (Widget widget) => widget is SelenicSwitch && widget.value == true,
       ),
       findsOneWidget,
     );
@@ -34,7 +34,7 @@ void main() {
 
     expect(
       find.byWidgetPredicate(
-        (Widget widget) => widget is MoonSwitch && widget.value == false,
+        (Widget widget) => widget is SelenicSwitch && widget.value == false,
       ),
       findsOneWidget,
     );
@@ -44,7 +44,7 @@ void main() {
 
     expect(
       find.byWidgetPredicate(
-        (Widget widget) => widget is MoonSwitch && widget.value == true,
+        (Widget widget) => widget is SelenicSwitch && widget.value == true,
       ),
       findsOneWidget,
     );
@@ -67,7 +67,7 @@ class _SwitchTestWidgetState extends State<_SwitchTestWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MoonSwitch(
+        body: SelenicSwitch(
           key: widget.switchKey,
           value: _switchValue,
           onChanged: (bool newValue) => setState(() => _switchValue = newValue),

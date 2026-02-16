@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import 'package:moon_design/src/utils/linked_scroll_controller.dart';
+import 'package:selenic_design/src/utils/linked_scroll_controller.dart';
 
 class TableControllers {
   late ScrollController verticalScrollController;
@@ -17,7 +17,7 @@ class TableControllers {
   ScrollController? footerHorizontalScrollController;
   ScrollController? rowsPlaceholderHorizontalScrollController;
 
-  /// Creates Moon Design table controllers.
+  /// Creates Selenic Design table controllers.
   TableControllers({
     required this.isHeaderPinned,
     required this.isFooterPinned,

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/effects/effects_theme.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/color_tween_premul.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/widgets/common/base_control.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-class MoonMenuItem extends StatefulWidget {
+import 'package:selenic_design/src/theme/effects/effects_theme.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/color_tween_premul.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/widgets/common/base_control.dart';
+
+class SelenicMenuItem extends StatefulWidget {
   /// Defines how the widgets of the menu item are aligned along the cross axis.
   ///
   /// Defaults to the [CrossAxisAlignment.center].
@@ -93,8 +94,8 @@ class MoonMenuItem extends StatefulWidget {
   /// The widget to display after the [label] widget of the menu item.
   final Widget? trailing;
 
-  /// Creates a Moon Design menu item.
-  const MoonMenuItem({
+  /// Creates a Selenic Design menu item.
+  const SelenicMenuItem({
     super.key,
     this.menuItemCrossAxisAlignment,
     this.labelAndContentCrossAxisAlignment,
@@ -132,15 +133,15 @@ class MoonMenuItem extends StatefulWidget {
     Color? color,
     double? width,
   }) {
-    menuItems = menuItems.toList();
+    final menuList = menuItems.toList();
 
-    if (menuItems.isEmpty || menuItems.length == 1) return menuItems;
+    if (menuList.isEmpty || menuList.length == 1) return menuList;
 
     final Color effectiveColor = color ??
-        context.moonTheme?.menuItemTheme.colors.dividerColor ??
+        context.selenicTheme?.menuItemTheme.colors.dividerColor ??
         MoonColors.light.beerus;
 
-    Widget wrapMenuItem(Widget menuItems) {
+    Widget wrapMenuItem(Widget menuList) {
       return DecoratedBox(
         position: DecorationPosition.foreground,
         decoration: BoxDecoration(
@@ -152,21 +153,21 @@ class MoonMenuItem extends StatefulWidget {
             ),
           ),
         ),
-        child: menuItems,
+        child: menuList,
       );
     }
 
     return <Widget>[
-      ...menuItems.take(menuItems.length - 1).map(wrapMenuItem),
-      menuItems.last,
+      ...menuList.take(menuList.length - 1).map(wrapMenuItem),
+      menuList.last,
     ];
   }
 
   @override
-  State<MoonMenuItem> createState() => _MoonMenuItemState();
+  State<SelenicMenuItem> createState() => _SelenicMenuItemState();
 }
 
-class _MoonMenuItemState extends State<MoonMenuItem>
+class _SelenicMenuItemState extends State<SelenicMenuItem>
     with TickerProviderStateMixin {
   final ColorTweenWithPremultipliedAlpha _backgroundColorTween =
       ColorTweenWithPremultipliedAlpha();
@@ -190,51 +191,51 @@ class _MoonMenuItemState extends State<MoonMenuItem>
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.menuItemTheme.properties.borderRadius ??
-        MoonBorders.borders.interactiveSm;
+        context.selenicTheme?.menuItemTheme.properties.borderRadius ??
+        SelenicBorders.borders.interactiveSm;
 
     final double effectiveMinimumHeaderHeight = widget.height ??
-        context.moonTheme?.menuItemTheme.properties.minimumHeight ??
-        MoonSizes.sizes.md;
+        context.selenicTheme?.menuItemTheme.properties.minimumHeight ??
+        SelenicSizes.sizes.md;
 
     final double effectiveVerticalGap = widget.verticalGap ??
-        context.moonTheme?.menuItemTheme.properties.verticalGap ??
-        MoonSizes.sizes.x5s;
+        context.selenicTheme?.menuItemTheme.properties.verticalGap ??
+        SelenicSizes.sizes.x5s;
 
     final EdgeInsetsGeometry effectiveHeaderPadding = widget.menuItemPadding ??
-        context.moonTheme?.menuItemTheme.properties.padding ??
-        EdgeInsets.all(MoonSizes.sizes.x3s);
+        context.selenicTheme?.menuItemTheme.properties.padding ??
+        EdgeInsets.all(SelenicSizes.sizes.x3s);
 
     final EdgeInsets resolvedDirectionalHeaderPadding =
         effectiveHeaderPadding.resolve(Directionality.of(context));
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.menuItemTheme.colors.backgroundColor ??
+        context.selenicTheme?.menuItemTheme.colors.backgroundColor ??
         Colors.transparent;
 
     final Color effectiveIconColor =
-        context.moonTheme?.menuItemTheme.colors.iconColor ??
+        context.selenicTheme?.menuItemTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final Color effectiveLabelTextColor =
-        context.moonTheme?.menuItemTheme.colors.labelTextColor ??
+        context.selenicTheme?.menuItemTheme.colors.labelTextColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveContentTextColor =
-        context.moonTheme?.menuItemTheme.colors.contentTextColor ??
+        context.selenicTheme?.menuItemTheme.colors.contentTextColor ??
             MoonColors.light.textSecondary;
 
     final TextStyle effectiveLabelTextStyle =
-        context.moonTheme?.menuItemTheme.properties.labelTextStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.selenicTheme?.menuItemTheme.properties.labelTextStyle ??
+            SelenicTypography.typography.body.textDefault;
 
     final TextStyle effectiveContentTextStyle =
-        context.moonTheme?.menuItemTheme.properties.contentTextStyle ??
-            MoonTypography.typography.body.text12;
+        context.selenicTheme?.menuItemTheme.properties.contentTextStyle ??
+            SelenicTypography.typography.body.text12;
 
     final Color effectiveHoverEffectColor = widget.hoverEffectColor ??
-        context.moonEffects?.controlHoverEffect.primaryHoverColor ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.primaryHoverColor ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlHoverEffect
             .primaryHoverColor;
 
@@ -244,14 +245,14 @@ class _MoonMenuItemState extends State<MoonMenuItem>
     );
 
     final Duration effectiveHoverEffectDuration = widget.hoverEffectDuration ??
-        context.moonEffects?.controlHoverEffect.hoverDuration ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.hoverDuration ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlHoverEffect
             .hoverDuration;
 
     final Curve effectiveHoverEffectCurve = widget.hoverEffectCurve ??
-        context.moonEffects?.controlHoverEffect.hoverCurve ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlHoverEffect.hoverCurve ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlHoverEffect
             .hoverCurve;
 
@@ -271,7 +272,7 @@ class _MoonMenuItemState extends State<MoonMenuItem>
     return Semantics(
       label: widget.semanticLabel,
       enabled: widget.onTap != null,
-      child: MoonBaseControl(
+      child: SelenicBaseControl(
         onTap: widget.onTap,
         onLongPress: widget.onLongPress,
         propagateGesturesToChild: !widget.absorbGestures,
@@ -302,7 +303,7 @@ class _MoonMenuItemState extends State<MoonMenuItem>
                 decoration: widget.decoration ??
                     ShapeDecoration(
                       color: _backgroundColor!.value,
-                      shape: MoonSquircleBorder(
+                      shape: SelenicSquircleBorder(
                         borderRadius:
                             effectiveBorderRadius.squircleBorderRadius(context),
                       ),

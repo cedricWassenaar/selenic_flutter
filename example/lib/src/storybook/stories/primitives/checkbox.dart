@@ -2,7 +2,7 @@ import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class CheckboxStory extends StatefulWidget {
@@ -22,7 +22,7 @@ class _CheckboxStoryState extends State<CheckboxStory> {
   Widget build(BuildContext context) {
     final checkColorKnob = context.knobs.nullable.options(
       label: "checkColor",
-      description: "MoonColors variants for MoonCheckbox check icon.",
+      description: "MoonColors variants for SelenicCheckbox check icon.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -33,7 +33,7 @@ class _CheckboxStoryState extends State<CheckboxStory> {
 
     final activeColorKnob = context.knobs.nullable.options(
       label: "activeColor",
-      description: "MoonColors variants for checked MoonCheckbox.",
+      description: "MoonColors variants for checked SelenicCheckbox.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -44,7 +44,7 @@ class _CheckboxStoryState extends State<CheckboxStory> {
 
     final inactiveColorKnob = context.knobs.nullable.options(
       label: "inactiveColor",
-      description: "MoonColors variants for unchecked MoonCheckbox.",
+      description: "MoonColors variants for unchecked SelenicCheckbox.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -55,7 +55,7 @@ class _CheckboxStoryState extends State<CheckboxStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for unchecked MoonCheckbox border.",
+      description: "MoonColors variants for unchecked SelenicCheckbox border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -66,12 +66,12 @@ class _CheckboxStoryState extends State<CheckboxStory> {
 
     final isTristateKnob = context.knobs.boolean(
       label: "tristate",
-      description: "Whether MoonCheckbox uses tristate.",
+      description: "Whether SelenicCheckbox uses tristate.",
     );
 
     final isDisabledKnob = context.knobs.boolean(
       label: "Disabled",
-      description: "MoonCheckbox onChanged() is null.",
+      description: "SelenicCheckbox onChanged() is null.",
     );
 
     return Center(
@@ -81,10 +81,10 @@ class _CheckboxStoryState extends State<CheckboxStory> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const TextDivider(
-              text: "MoonCheckbox",
+              text: "SelenicCheckbox",
               paddingTop: 0,
             ),
-            MoonCheckbox(
+            SelenicCheckbox(
               activeColor: activeColor,
               inactiveColor: inactiveColor,
               checkColor: checkColor,
@@ -96,8 +96,8 @@ class _CheckboxStoryState extends State<CheckboxStory> {
                   : (bool? newValue) =>
                       setState(() => checkboxValue = newValue),
             ),
-            const TextDivider(text: "MoonCheckbox with label"),
-            MoonMenuItem(
+            const TextDivider(text: "SelenicCheckbox with label"),
+            SelenicMenuItem(
               absorbGestures: true,
               onTap: isDisabledKnob
                   ? null
@@ -113,7 +113,7 @@ class _CheckboxStoryState extends State<CheckboxStory> {
                         },
                       ),
               label: const Text("With label"),
-              trailing: MoonCheckbox(
+              trailing: SelenicCheckbox(
                 activeColor: activeColor,
                 inactiveColor: inactiveColor,
                 checkColor: checkColor,

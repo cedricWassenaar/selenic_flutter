@@ -4,7 +4,7 @@ import 'package:example/src/storybook/common/constants.dart';
 import 'package:example/src/storybook/common/widgets/page_footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 typedef ItemsPerRow = int Function(int);
 
@@ -61,10 +61,10 @@ class ColorsPage extends StatelessWidget {
   Widget _highlightedBodyText(BuildContext context, String text) {
     if (text.isEmpty) return const Text('');
 
-    final TextStyle textStyle = context.moonTypography!.body.text16;
+    final TextStyle textStyle = context.selenicTypography!.body.text16;
 
     final String pattern =
-        MoonColor.values.map((color) => color.name).toList().join('|');
+        SelenicColor.values.map((color) => color.name).toList().join('|');
     final regex = RegExp(pattern, caseSensitive: false);
 
     final List<InlineSpan> spans = <InlineSpan>[];
@@ -84,9 +84,9 @@ class ColorsPage extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 6.0),
             decoration: BoxDecoration(
-              color: context.moonColors!.gohan,
+              color: context.selenicColors!.gohan,
               border: Border.all(
-                color: context.moonColors!.goten,
+                color: context.selenicColors!.goten,
                 width: 0,
               ),
               borderRadius: BorderRadius.circular(4.0),
@@ -122,6 +122,7 @@ class ColorsPage extends StatelessWidget {
     final bool showLogo =
         MediaQuery.of(context).size.width < storybookAutoLayoutThreshold;
 
+    // TODO: Add new logo
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -129,15 +130,15 @@ class ColorsPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 12.0, bottom: 24.0),
             child: SvgPicture.asset(
-              'assets/svg/moon-logo-long.svg',
+              'assets/svg/heart.svg',
               height: 16.0,
             ),
           ),
         Text(
           section.titleText,
           style: isHeader
-              ? context.moonTypography!.heading.text40
-              : context.moonTypography!.heading.text24,
+              ? context.selenicTypography!.heading.text40
+              : context.selenicTypography!.heading.text24,
         ),
         const SizedBox(height: 24),
         _highlightedBodyText(context, section.bodyText),
@@ -151,7 +152,7 @@ class ColorsPage extends StatelessWidget {
     required int rows,
     required ItemsPerRow itemsPerRow,
     required ColorsPageSection section,
-    required List<MoonColor> colors,
+    required List<SelenicColor> colors,
   }) {
     return ListView.builder(
       shrinkWrap: true,
@@ -175,10 +176,10 @@ class ColorsPage extends StatelessWidget {
                           itemsPerRow,
                         );
 
-                        final MoonColor moonColor =
+                        final SelenicColor selenicColor =
                             colors[colorIndex % colors.length];
 
-                        return _buildColorContainer(context, moonColor);
+                        return _buildColorContainer(context, selenicColor);
                       } else {
                         return const Flexible(
                           child: SizedBox(
@@ -198,7 +199,7 @@ class ColorsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildColorContainer(BuildContext context, MoonColor moonColor) {
+  Widget _buildColorContainer(BuildContext context, SelenicColor selenicColor) {
     final double colorContainerWidth =
         MediaQuery.of(context).size.width < storybookAutoLayoutThreshold
             ? double.infinity
@@ -212,17 +213,17 @@ class ColorsPage extends StatelessWidget {
             width: colorContainerWidth,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16.0),
-              border: Border.all(color: context.moonColors!.beerus),
+              border: Border.all(color: context.selenicColors!.beerus),
             ),
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: getColor(context, moonColor),
+                color: getColor(context, selenicColor),
                 borderRadius: BorderRadius.circular(15.0),
               ),
             ),
           ),
           const SizedBox(height: 8.0),
-          Text(moonColor.name),
+          Text(selenicColor.name),
         ],
       ),
     );

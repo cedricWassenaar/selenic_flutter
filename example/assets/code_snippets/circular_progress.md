@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class CircularProgress extends StatelessWidget {
   const CircularProgress({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MoonCircularProgress(
+    return const SelenicCircularProgress(
       value: 0.75,
-      circularProgressSize: MoonCircularProgressSize.sm,
+      circularProgressSize: SelenicCircularProgressSize.sm,
     );
   }
 }

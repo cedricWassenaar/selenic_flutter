@@ -1,39 +1,40 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/progress/linear_progress/linear_progress_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/progress/linear_progress/linear_progress_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonLinearProgressSizes extends ThemeExtension<MoonLinearProgressSizes>
+class SelenicLinearProgressSizes
+    extends ThemeExtension<SelenicLinearProgressSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the (6x) extra small MoonLinearProgress.
-  final MoonLinearProgressSizeProperties x6s;
+  /// The properties of the (6x) extra small SelenicLinearProgress.
+  final SelenicLinearProgressSizeProperties x6s;
 
-  /// The properties of the (5x) extra small MoonLinearProgress.
-  final MoonLinearProgressSizeProperties x5s;
+  /// The properties of the (5x) extra small SelenicLinearProgress.
+  final SelenicLinearProgressSizeProperties x5s;
 
-  /// The properties of the (4x) extra small MoonLinearProgress.
-  final MoonLinearProgressSizeProperties x4s;
+  /// The properties of the (4x) extra small SelenicLinearProgress.
+  final SelenicLinearProgressSizeProperties x4s;
 
-  /// The properties of the (3x) extra small MoonLinearProgress.
-  final MoonLinearProgressSizeProperties x3s;
+  /// The properties of the (3x) extra small SelenicLinearProgress.
+  final SelenicLinearProgressSizeProperties x3s;
 
-  /// The properties of the (2x) extra small MoonLinearProgress.
-  final MoonLinearProgressSizeProperties x2s;
+  /// The properties of the (2x) extra small SelenicLinearProgress.
+  final SelenicLinearProgressSizeProperties x2s;
 
-  MoonLinearProgressSizes({
+  SelenicLinearProgressSizes({
     required this.tokens,
-    MoonLinearProgressSizeProperties? x6s,
-    MoonLinearProgressSizeProperties? x5s,
-    MoonLinearProgressSizeProperties? x4s,
-    MoonLinearProgressSizeProperties? x3s,
-    MoonLinearProgressSizeProperties? x2s,
+    SelenicLinearProgressSizeProperties? x6s,
+    SelenicLinearProgressSizeProperties? x5s,
+    SelenicLinearProgressSizeProperties? x4s,
+    SelenicLinearProgressSizeProperties? x3s,
+    SelenicLinearProgressSizeProperties? x2s,
   })  : x6s = x6s ??
-            MoonLinearProgressSizeProperties(
+            SelenicLinearProgressSizeProperties(
               borderRadius: tokens.borders.surfaceXs,
               progressHeight: tokens.sizes.x6s,
               thumbSizeValue: tokens.sizes.x3s,
@@ -41,7 +42,7 @@ class MoonLinearProgressSizes extends ThemeExtension<MoonLinearProgressSizes>
               textStyle: tokens.typography.body.text10,
             ),
         x5s = x5s ??
-            MoonLinearProgressSizeProperties(
+            SelenicLinearProgressSizeProperties(
               borderRadius: tokens.borders.surfaceXs,
               progressHeight: tokens.sizes.x5s,
               thumbSizeValue: tokens.sizes.x3s,
@@ -49,7 +50,7 @@ class MoonLinearProgressSizes extends ThemeExtension<MoonLinearProgressSizes>
               textStyle: tokens.typography.body.text10,
             ),
         x4s = x4s ??
-            MoonLinearProgressSizeProperties(
+            SelenicLinearProgressSizeProperties(
               borderRadius: tokens.borders.surfaceSm,
               progressHeight: tokens.sizes.x4s,
               thumbSizeValue: tokens.sizes.x3s,
@@ -57,7 +58,7 @@ class MoonLinearProgressSizes extends ThemeExtension<MoonLinearProgressSizes>
               textStyle: tokens.typography.body.text10,
             ),
         x3s = x3s ??
-            MoonLinearProgressSizeProperties(
+            SelenicLinearProgressSizeProperties(
               borderRadius: tokens.borders.surfaceMd,
               progressHeight: tokens.sizes.x3s,
               thumbSizeValue: tokens.sizes.x2s,
@@ -65,7 +66,7 @@ class MoonLinearProgressSizes extends ThemeExtension<MoonLinearProgressSizes>
               textStyle: tokens.typography.body.text10,
             ),
         x2s = x2s ??
-            MoonLinearProgressSizeProperties(
+            SelenicLinearProgressSizeProperties(
               borderRadius: tokens.borders.surfaceLg,
               progressHeight: tokens.sizes.x2s,
               thumbSizeValue: tokens.sizes.x2s,
@@ -74,15 +75,15 @@ class MoonLinearProgressSizes extends ThemeExtension<MoonLinearProgressSizes>
             );
 
   @override
-  MoonLinearProgressSizes copyWith({
-    MoonTokens? tokens,
-    MoonLinearProgressSizeProperties? x6s,
-    MoonLinearProgressSizeProperties? x5s,
-    MoonLinearProgressSizeProperties? x4s,
-    MoonLinearProgressSizeProperties? x3s,
-    MoonLinearProgressSizeProperties? x2s,
+  SelenicLinearProgressSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicLinearProgressSizeProperties? x6s,
+    SelenicLinearProgressSizeProperties? x5s,
+    SelenicLinearProgressSizeProperties? x4s,
+    SelenicLinearProgressSizeProperties? x3s,
+    SelenicLinearProgressSizeProperties? x2s,
   }) {
-    return MoonLinearProgressSizes(
+    return SelenicLinearProgressSizes(
       tokens: tokens ?? this.tokens,
       x6s: x6s ?? this.x6s,
       x5s: x5s ?? this.x5s,
@@ -93,13 +94,13 @@ class MoonLinearProgressSizes extends ThemeExtension<MoonLinearProgressSizes>
   }
 
   @override
-  MoonLinearProgressSizes lerp(
-    ThemeExtension<MoonLinearProgressSizes>? other,
+  SelenicLinearProgressSizes lerp(
+    ThemeExtension<SelenicLinearProgressSizes>? other,
     double t,
   ) {
-    if (other is! MoonLinearProgressSizes) return this;
+    if (other is! SelenicLinearProgressSizes) return this;
 
-    return MoonLinearProgressSizes(
+    return SelenicLinearProgressSizes(
       tokens: tokens.lerp(other.tokens, t),
       x6s: x6s.lerp(other.x6s, t),
       x5s: x5s.lerp(other.x5s, t),
@@ -113,12 +114,17 @@ class MoonLinearProgressSizes extends ThemeExtension<MoonLinearProgressSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonLinearProgressSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonLinearProgressSizeProperties>("x6s", x6s))
-      ..add(DiagnosticsProperty<MoonLinearProgressSizeProperties>("x5s", x5s))
-      ..add(DiagnosticsProperty<MoonLinearProgressSizeProperties>("x4s", x4s))
-      ..add(DiagnosticsProperty<MoonLinearProgressSizeProperties>("x3s", x3s))
-      ..add(DiagnosticsProperty<MoonLinearProgressSizeProperties>("x2s", x2s));
+      ..add(DiagnosticsProperty("type", "SelenicLinearProgressSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(
+          DiagnosticsProperty<SelenicLinearProgressSizeProperties>("x6s", x6s))
+      ..add(
+          DiagnosticsProperty<SelenicLinearProgressSizeProperties>("x5s", x5s))
+      ..add(
+          DiagnosticsProperty<SelenicLinearProgressSizeProperties>("x4s", x4s))
+      ..add(
+          DiagnosticsProperty<SelenicLinearProgressSizeProperties>("x3s", x3s))
+      ..add(
+          DiagnosticsProperty<SelenicLinearProgressSizeProperties>("x2s", x2s));
   }
 }

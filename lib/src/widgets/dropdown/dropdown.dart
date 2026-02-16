@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonDropdownAnchorPosition {
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/shadows.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+
+enum SelenicDropdownAnchorPosition {
   top,
   topLeft,
   topRight,
@@ -23,15 +24,15 @@ enum MoonDropdownAnchorPosition {
   horizontal,
 }
 
-class MoonDropdown extends StatefulWidget {
+class SelenicDropdown extends StatefulWidget {
   /// Sets the dropdown anchor position on dropdown [content] (follower).
   ///
-  /// Overrides the [MoonDropdownAnchorPosition] property.
+  /// Overrides the [SelenicDropdownAnchorPosition] property.
   final Alignment? followerAnchor;
 
   /// Sets the dropdown anchor position on the [child] (target).
   ///
-  /// Overrides the [MoonDropdownAnchorPosition] property.
+  /// Overrides the [SelenicDropdownAnchorPosition] property.
   final Alignment? targetAnchor;
 
   /// Whether to constrain the dropdown to the width of its [child] (target).
@@ -109,7 +110,7 @@ class MoonDropdown extends StatefulWidget {
   /// This is a convenience shorthand for setting the anchor position.
   /// This will be overridden by the [followerAnchor], [targetAnchor], [offset],
   /// or [maxWidth] properties if set.
-  final MoonDropdownAnchorPosition dropdownAnchorPosition;
+  final SelenicDropdownAnchorPosition dropdownAnchorPosition;
 
   /// The offset of the dropdown.
   ///
@@ -137,8 +138,8 @@ class MoonDropdown extends StatefulWidget {
   /// The widget to display inside the dropdown as its content.
   final Widget content;
 
-  /// Creates a Moon Design dropdown.
-  const MoonDropdown({
+  /// Creates a Selenic Design dropdown.
+  const SelenicDropdown({
     super.key,
     required this.show,
     this.followerAnchor,
@@ -159,7 +160,7 @@ class MoonDropdown extends StatefulWidget {
     this.contentPadding,
     this.dropdownMargin,
     this.dropdownShadows,
-    this.dropdownAnchorPosition = MoonDropdownAnchorPosition.bottom,
+    this.dropdownAnchorPosition = SelenicDropdownAnchorPosition.bottom,
     this.offset,
     this.routeObserver,
     this.groupId,
@@ -170,10 +171,10 @@ class MoonDropdown extends StatefulWidget {
   });
 
   @override
-  _MoonDropdownState createState() => _MoonDropdownState();
+  _SelenicDropdownState createState() => _SelenicDropdownState();
 }
 
-class _MoonDropdownState extends State<MoonDropdown>
+class _SelenicDropdownState extends State<SelenicDropdown>
     with RouteAware, SingleTickerProviderStateMixin {
   late final Key _regionKey =
       widget.groupId != null ? ValueKey(widget.groupId) : ObjectKey(widget);
@@ -223,7 +224,7 @@ class _MoonDropdownState extends State<MoonDropdown>
   }
 
   _DropdownPositionProperties _resolveDropdownPositionParameters({
-    required MoonDropdownAnchorPosition dropdownAnchorPosition,
+    required SelenicDropdownAnchorPosition dropdownAnchorPosition,
     required double distanceToTarget,
     required double overlayWidth,
     required double dropdownTargetGlobalLeft,
@@ -232,7 +233,7 @@ class _MoonDropdownState extends State<MoonDropdown>
     required EdgeInsets dropdownMargin,
   }) {
     switch (dropdownAnchorPosition) {
-      case MoonDropdownAnchorPosition.top:
+      case SelenicDropdownAnchorPosition.top:
         return _DropdownPositionProperties(
           offset: Offset(0, -distanceToTarget),
           targetAnchor: Alignment.topCenter,
@@ -242,7 +243,7 @@ class _MoonDropdownState extends State<MoonDropdown>
               dropdownMargin.horizontal,
         );
 
-      case MoonDropdownAnchorPosition.bottom:
+      case SelenicDropdownAnchorPosition.bottom:
         return _DropdownPositionProperties(
           offset: Offset(0, distanceToTarget),
           targetAnchor: Alignment.bottomCenter,
@@ -252,7 +253,7 @@ class _MoonDropdownState extends State<MoonDropdown>
               dropdownMargin.horizontal,
         );
 
-      case MoonDropdownAnchorPosition.left:
+      case SelenicDropdownAnchorPosition.left:
         return _DropdownPositionProperties(
           offset: Offset(-distanceToTarget, 0),
           targetAnchor: Alignment.centerLeft,
@@ -261,7 +262,7 @@ class _MoonDropdownState extends State<MoonDropdown>
               dropdownTargetGlobalLeft - distanceToTarget - dropdownMargin.left,
         );
 
-      case MoonDropdownAnchorPosition.right:
+      case SelenicDropdownAnchorPosition.right:
         return _DropdownPositionProperties(
           offset: Offset(distanceToTarget, 0),
           targetAnchor: Alignment.centerRight,
@@ -272,7 +273,7 @@ class _MoonDropdownState extends State<MoonDropdown>
               dropdownMargin.right,
         );
 
-      case MoonDropdownAnchorPosition.topLeft:
+      case SelenicDropdownAnchorPosition.topLeft:
         return _DropdownPositionProperties(
           offset: Offset(0, -distanceToTarget),
           targetAnchor: Alignment.topLeft,
@@ -281,7 +282,7 @@ class _MoonDropdownState extends State<MoonDropdown>
               overlayWidth - dropdownTargetGlobalLeft - dropdownMargin.left,
         );
 
-      case MoonDropdownAnchorPosition.topRight:
+      case SelenicDropdownAnchorPosition.topRight:
         return _DropdownPositionProperties(
           offset: Offset(0, -distanceToTarget),
           targetAnchor: Alignment.topRight,
@@ -289,7 +290,7 @@ class _MoonDropdownState extends State<MoonDropdown>
           dropdownMaxWidth: dropdownTargetGlobalRight - dropdownMargin.right,
         );
 
-      case MoonDropdownAnchorPosition.bottomLeft:
+      case SelenicDropdownAnchorPosition.bottomLeft:
         return _DropdownPositionProperties(
           offset: Offset(0, distanceToTarget),
           targetAnchor: Alignment.bottomLeft,
@@ -298,7 +299,7 @@ class _MoonDropdownState extends State<MoonDropdown>
               overlayWidth - dropdownTargetGlobalLeft - dropdownMargin.left,
         );
 
-      case MoonDropdownAnchorPosition.bottomRight:
+      case SelenicDropdownAnchorPosition.bottomRight:
         return _DropdownPositionProperties(
           offset: Offset(0, distanceToTarget),
           targetAnchor: Alignment.bottomRight,
@@ -358,7 +359,7 @@ class _MoonDropdownState extends State<MoonDropdown>
   }
 
   @override
-  void didUpdateWidget(MoonDropdown oldWidget) {
+  void didUpdateWidget(SelenicDropdown oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.routeObserver != widget.routeObserver) {
@@ -401,48 +402,48 @@ class _MoonDropdownState extends State<MoonDropdown>
 
   Widget _createOverlayContent() {
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.dropdownTheme.properties.borderRadius ??
+        context.selenicTheme?.dropdownTheme.properties.borderRadius ??
         BorderRadius.circular(12);
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.dropdownTheme.colors.backgroundColor ??
+        context.selenicTheme?.dropdownTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.dropdownTheme.colors.textColor ??
+        context.selenicTheme?.dropdownTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.dropdownTheme.colors.iconColor ??
+        context.selenicTheme?.dropdownTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.dropdownTheme.properties.textStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.selenicTheme?.dropdownTheme.properties.textStyle ??
+            SelenicTypography.typography.body.textDefault;
 
     final double effectiveDistanceToTarget = widget.distanceToTarget ??
-        context.moonTheme?.dropdownTheme.properties.distanceToTarget ??
-        MoonSizes.sizes.x4s;
+        context.selenicTheme?.dropdownTheme.properties.distanceToTarget ??
+        SelenicSizes.sizes.x4s;
 
     final EdgeInsetsGeometry effectiveContentPadding = widget.contentPadding ??
-        context.moonTheme?.dropdownTheme.properties.contentPadding ??
+        context.selenicTheme?.dropdownTheme.properties.contentPadding ??
         const EdgeInsets.all(4);
 
     final EdgeInsets resolvedContentPadding =
         effectiveContentPadding.resolve(Directionality.of(context));
 
     final EdgeInsetsGeometry effectiveDropdownMargin = widget.dropdownMargin ??
-        context.moonTheme?.dropdownTheme.properties.dropdownMargin ??
+        context.selenicTheme?.dropdownTheme.properties.dropdownMargin ??
         const EdgeInsets.all(8);
 
     final EdgeInsets resolvedDropdownMargin =
         effectiveDropdownMargin.resolve(Directionality.of(context));
 
     final List<BoxShadow> effectiveDropdownShadows = widget.dropdownShadows ??
-        context.moonTheme?.dropdownTheme.shadows.dropdownShadows ??
-        MoonShadows.light.sm;
+        context.selenicTheme?.dropdownTheme.shadows.dropdownShadows ??
+        SelenicShadows.light.sm;
 
-    MoonDropdownAnchorPosition dropdownAnchorPosition =
+    SelenicDropdownAnchorPosition dropdownAnchorPosition =
         widget.dropdownAnchorPosition;
 
     final RenderBox overlayRenderBox =
@@ -466,31 +467,31 @@ class _MoonDropdownState extends State<MoonDropdown>
     );
 
     if (Directionality.of(context) == TextDirection.rtl ||
-        dropdownAnchorPosition == MoonDropdownAnchorPosition.horizontal ||
-        dropdownAnchorPosition == MoonDropdownAnchorPosition.vertical) {
+        dropdownAnchorPosition == SelenicDropdownAnchorPosition.horizontal ||
+        dropdownAnchorPosition == SelenicDropdownAnchorPosition.vertical) {
       switch (dropdownAnchorPosition) {
-        case MoonDropdownAnchorPosition.left:
-          dropdownAnchorPosition = MoonDropdownAnchorPosition.right;
-        case MoonDropdownAnchorPosition.right:
-          dropdownAnchorPosition = MoonDropdownAnchorPosition.left;
-        case MoonDropdownAnchorPosition.topLeft:
-          dropdownAnchorPosition = MoonDropdownAnchorPosition.topRight;
-        case MoonDropdownAnchorPosition.topRight:
-          dropdownAnchorPosition = MoonDropdownAnchorPosition.topLeft;
-        case MoonDropdownAnchorPosition.bottomLeft:
-          dropdownAnchorPosition = MoonDropdownAnchorPosition.bottomRight;
-        case MoonDropdownAnchorPosition.bottomRight:
-          dropdownAnchorPosition = MoonDropdownAnchorPosition.bottomLeft;
-        case MoonDropdownAnchorPosition.vertical:
+        case SelenicDropdownAnchorPosition.left:
+          dropdownAnchorPosition = SelenicDropdownAnchorPosition.right;
+        case SelenicDropdownAnchorPosition.right:
+          dropdownAnchorPosition = SelenicDropdownAnchorPosition.left;
+        case SelenicDropdownAnchorPosition.topLeft:
+          dropdownAnchorPosition = SelenicDropdownAnchorPosition.topRight;
+        case SelenicDropdownAnchorPosition.topRight:
+          dropdownAnchorPosition = SelenicDropdownAnchorPosition.topLeft;
+        case SelenicDropdownAnchorPosition.bottomLeft:
+          dropdownAnchorPosition = SelenicDropdownAnchorPosition.bottomRight;
+        case SelenicDropdownAnchorPosition.bottomRight:
+          dropdownAnchorPosition = SelenicDropdownAnchorPosition.bottomLeft;
+        case SelenicDropdownAnchorPosition.vertical:
           dropdownAnchorPosition = dropdownTargetGlobalCenter.dy <
                   overlayRenderBox.size.center(Offset.zero).dy
-              ? MoonDropdownAnchorPosition.bottom
-              : MoonDropdownAnchorPosition.top;
-        case MoonDropdownAnchorPosition.horizontal:
+              ? SelenicDropdownAnchorPosition.bottom
+              : SelenicDropdownAnchorPosition.top;
+        case SelenicDropdownAnchorPosition.horizontal:
           dropdownAnchorPosition = dropdownTargetGlobalCenter.dx <
                   overlayRenderBox.size.center(Offset.zero).dx
-              ? MoonDropdownAnchorPosition.right
-              : MoonDropdownAnchorPosition.left;
+              ? SelenicDropdownAnchorPosition.right
+              : SelenicDropdownAnchorPosition.left;
         default:
           break;
       }
@@ -550,7 +551,7 @@ class _MoonDropdownState extends State<MoonDropdown>
                           ShapeDecorationWithPremultipliedAlpha(
                             color: effectiveBackgroundColor,
                             shadows: effectiveDropdownShadows,
-                            shape: MoonSquircleBorder(
+                            shape: SelenicSquircleBorder(
                               borderRadius: effectiveBorderRadius
                                   .squircleBorderRadius(context),
                               side: BorderSide(color: widget.borderColor),
@@ -574,12 +575,12 @@ class _MoonDropdownState extends State<MoonDropdown>
   @override
   Widget build(BuildContext context) {
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.dropdownTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.dropdownTheme.properties.transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.dropdownTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.dropdownTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     _animationController ??= AnimationController(
       duration: effectiveTransitionDuration,

@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class ButtonStory extends StatelessWidget {
@@ -13,26 +13,26 @@ class ButtonStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final customLabelTextKnob = context.knobs.text(
       label: "Label text",
-      initial: "MoonButton",
+      initial: "SelenicButton",
     );
 
     final buttonSizeKnob = context.knobs.nullable.options(
       label: "buttonSize",
-      description: "Size variants for MoonButton.",
+      description: "Size variants for SelenicButton.",
       enabled: false,
-      initial: MoonButtonSize.md,
+      initial: SelenicButtonSize.md,
       options: const [
-        Option(label: "xs", value: MoonButtonSize.xs),
-        Option(label: "sm", value: MoonButtonSize.sm),
-        Option(label: "md", value: MoonButtonSize.md),
-        Option(label: "lg", value: MoonButtonSize.lg),
-        Option(label: "xl", value: MoonButtonSize.xl),
+        Option(label: "xs", value: SelenicButtonSize.xs),
+        Option(label: "sm", value: SelenicButtonSize.sm),
+        Option(label: "md", value: SelenicButtonSize.md),
+        Option(label: "lg", value: SelenicButtonSize.lg),
+        Option(label: "xl", value: SelenicButtonSize.xl),
       ],
     );
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for base MoonButton background.",
+      description: "MoonColors variants for base SelenicButton background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -43,7 +43,7 @@ class ButtonStory extends StatelessWidget {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for MoonButton border.",
+      description: "MoonColors variants for SelenicButton border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -54,7 +54,7 @@ class ButtonStory extends StatelessWidget {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for MoonButton text.",
+      description: "MoonColors variants for SelenicButton text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -65,7 +65,7 @@ class ButtonStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for base MoonButton.",
+      description: "Border radius for base SelenicButton.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -73,7 +73,7 @@ class ButtonStory extends StatelessWidget {
 
     final showBorderKnob = context.knobs.boolean(
       label: "showBorder",
-      description: "Show border for base MoonButton.",
+      description: "Show border for base SelenicButton.",
       initial: true,
     );
 
@@ -89,42 +89,42 @@ class ButtonStory extends StatelessWidget {
 
     final showLeadingKnob = context.knobs.boolean(
       label: "leading",
-      description: "Show widget in MoonButton leading slot.",
+      description: "Show widget in SelenicButton leading slot.",
       initial: true,
     );
 
     final showLabelKnob = context.knobs.boolean(
       label: "label",
-      description: "Show widget in MoonButton label slot.",
+      description: "Show widget in SelenicButton label slot.",
       initial: true,
     );
 
     final showTrailingKnob = context.knobs.boolean(
       label: "trailing",
-      description: "Show widget in MoonButton trailing slot.",
+      description: "Show widget in SelenicButton trailing slot.",
     );
 
     final setFullWidthKnob = context.knobs.boolean(
       label: "isFullWidth",
-      description: "Set MoonButton to full width.",
+      description: "Set SelenicButton to full width.",
     );
 
     final isDisabledKnob = context.knobs.boolean(
       label: "Disabled",
-      description: "MoonButton onTap() or onLongPress() is null.",
+      description: "SelenicButton onTap() or onLongPress() is null.",
     );
 
-    IconData resolveIconVariant(MoonButtonSize? buttonSize) {
+    IconData resolveIconVariant(SelenicButtonSize? buttonSize) {
       switch (buttonSize) {
-        case MoonButtonSize.xs:
+        case SelenicButtonSize.xs:
           return MoonIcons.other_frame_16_light;
-        case MoonButtonSize.sm:
+        case SelenicButtonSize.sm:
           return MoonIcons.other_frame_24_light;
-        case MoonButtonSize.md:
+        case SelenicButtonSize.md:
           return MoonIcons.other_frame_24_light;
-        case MoonButtonSize.lg:
+        case SelenicButtonSize.lg:
           return MoonIcons.other_frame_24_light;
-        case MoonButtonSize.xl:
+        case SelenicButtonSize.xl:
           return MoonIcons.other_frame_24_light;
         default:
           return MoonIcons.other_frame_24_light;
@@ -143,10 +143,10 @@ class ButtonStory extends StatelessWidget {
         child: Column(
           children: [
             const TextDivider(
-              text: "Base and icon MoonButton",
+              text: "Base and icon SelenicButton",
               paddingTop: 0,
             ),
-            MoonButton(
+            SelenicButton(
               onTap: isDisabledKnob ? null : () {},
               borderRadius: borderRadius,
               showBorder: showBorderKnob,
@@ -162,7 +162,7 @@ class ButtonStory extends StatelessWidget {
               trailing: showTrailingKnob ? Icon(resolvedIconVariant) : null,
             ),
             const SizedBox(height: 32),
-            MoonButton.icon(
+            SelenicButton.icon(
               onTap: isDisabledKnob ? null : () {},
               borderRadius: borderRadius,
               showBorder: showBorderKnob,
@@ -174,41 +174,41 @@ class ButtonStory extends StatelessWidget {
               showPulseEffectJiggle: showPulseEffectJiggleKnob,
               icon: showLeadingKnob ? Icon(resolvedIconVariant) : null,
             ),
-            const TextDivider(text: "MoonButton variants"),
-            MoonFilledButton(
+            const TextDivider(text: "SelenicButton variants"),
+            SelenicFilledButton(
               onTap: isDisabledKnob ? null : () {},
               buttonSize: buttonSizeKnob,
               isFullWidth: setFullWidthKnob,
               showPulseEffect: showPulseEffectKnob,
               leading: showLeadingKnob ? Icon(resolvedIconVariant) : null,
-              label: showLabelKnob ? const Text("MoonFilledButton") : null,
+              label: showLabelKnob ? const Text("SelenicFilledButton") : null,
               trailing: showTrailingKnob ? Icon(resolvedIconVariant) : null,
             ),
             const SizedBox(height: 32),
-            MoonOutlinedButton(
+            SelenicOutlinedButton(
               onTap: isDisabledKnob ? null : () {},
               buttonSize: buttonSizeKnob,
               isFullWidth: setFullWidthKnob,
               showPulseEffect: showPulseEffectKnob,
               borderColor: borderColor,
               leading: showLeadingKnob ? Icon(resolvedIconVariant) : null,
-              label: showLabelKnob ? const Text("MoonOutlinedButton") : null,
+              label: showLabelKnob ? const Text("SelenicOutlinedButton") : null,
               trailing: showTrailingKnob ? Icon(resolvedIconVariant) : null,
             ),
             const SizedBox(height: 32),
-            MoonTextButton(
+            SelenicTextButton(
               onTap: isDisabledKnob ? null : () {},
               buttonSize: buttonSizeKnob,
               isFullWidth: setFullWidthKnob,
               showPulseEffect: showPulseEffectKnob,
               leading: showLeadingKnob ? Icon(resolvedIconVariant) : null,
-              label: showLabelKnob ? const Text("MoonTextButton") : null,
+              label: showLabelKnob ? const Text("SelenicTextButton") : null,
               trailing: showTrailingKnob ? Icon(resolvedIconVariant) : null,
             ),
             const TextDivider(
-              text: "Custom MoonButtons with non-standard children",
+              text: "Custom SelenicButtons with non-standard children",
             ),
-            MoonButton(
+            SelenicButton(
               onTap: isDisabledKnob ? null : () {},
               height: 40,
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -231,12 +231,12 @@ class ButtonStory extends StatelessWidget {
                 padding: const EdgeInsets.all(4),
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
-                  color: context.moonColors!.popo,
+                  color: context.selenicColors!.popo,
                 ),
               ),
             ),
             const SizedBox(height: 32),
-            MoonButton(
+            SelenicButton(
               onTap: isDisabledKnob ? null : () {},
               height: 72,
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -252,8 +252,8 @@ class ButtonStory extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    context.moonColors!.krillin,
-                    context.moonColors!.dodoria,
+                    context.selenicColors!.krillin,
+                    context.selenicColors!.dodoria,
                   ],
                 ),
                 shape: const StarBorder(
@@ -265,7 +265,7 @@ class ButtonStory extends StatelessWidget {
                 width: 32,
                 height: 32,
                 child: CircleAvatar(
-                  backgroundColor: context.moonColors!.frieza60,
+                  backgroundColor: context.selenicColors!.frieza60,
                   child: const Icon(
                     MoonIcons.other_rocket_24_light,
                     size: 24,

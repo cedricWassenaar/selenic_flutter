@@ -2,28 +2,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonAccordionShadows extends ThemeExtension<MoonAccordionShadows>
+class SelenicAccordionShadows extends ThemeExtension<SelenicAccordionShadows>
     with DiagnosticableTreeMixin {
-  /// The list of shadows applied to the MoonAccordion.
+  /// The list of shadows applied to the SelenicAccordion.
   final List<BoxShadow> shadows;
 
-  const MoonAccordionShadows({required this.shadows});
+  const SelenicAccordionShadows({required this.shadows});
 
   @override
-  MoonAccordionShadows copyWith({List<BoxShadow>? shadows}) {
-    return MoonAccordionShadows(
+  SelenicAccordionShadows copyWith({List<BoxShadow>? shadows}) {
+    return SelenicAccordionShadows(
       shadows: shadows ?? this.shadows,
     );
   }
 
   @override
-  MoonAccordionShadows lerp(
-    ThemeExtension<MoonAccordionShadows>? other,
+  SelenicAccordionShadows lerp(
+    ThemeExtension<SelenicAccordionShadows>? other,
     double t,
   ) {
-    if (other is! MoonAccordionShadows) return this;
+    if (other is! SelenicAccordionShadows) return this;
 
-    return MoonAccordionShadows(
+    return SelenicAccordionShadows(
       shadows: BoxShadow.lerpList(shadows, other.shadows, t)!,
     );
   }
@@ -32,7 +32,7 @@ class MoonAccordionShadows extends ThemeExtension<MoonAccordionShadows>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonAccordionShadows"))
+      ..add(DiagnosticsProperty("type", "SelenicAccordionShadows"))
       ..add(DiagnosticsProperty<List<BoxShadow>>("shadows", shadows));
   }
 }

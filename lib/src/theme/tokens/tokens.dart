@@ -1,64 +1,65 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/opacities.dart';
+import 'package:selenic_design/src/theme/tokens/shadows.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+
 @immutable
-class MoonTokens extends ThemeExtension<MoonTokens>
+class SelenicTokens extends ThemeExtension<SelenicTokens>
     with DiagnosticableTreeMixin {
-  static const light = MoonTokens(
-    borders: MoonBorders.borders,
+  static const light = SelenicTokens(
+    borders: SelenicBorders.borders,
     colors: MoonColors.light,
     complementaryColors: MoonColors.dark,
-    opacities: MoonOpacities.opacities,
-    shadows: MoonShadows.light,
-    sizes: MoonSizes.sizes,
-    transitions: MoonTransitions.transitions,
-    typography: MoonTypography.typography,
+    opacities: SelenicOpacities.opacities,
+    shadows: SelenicShadows.light,
+    sizes: SelenicSizes.sizes,
+    transitions: SelenicTransitions.transitions,
+    typography: SelenicTypography.typography,
   );
 
-  static const dark = MoonTokens(
-    borders: MoonBorders.borders,
+  static const dark = SelenicTokens(
+    borders: SelenicBorders.borders,
     colors: MoonColors.dark,
     complementaryColors: MoonColors.light,
-    opacities: MoonOpacities.opacities,
-    shadows: MoonShadows.dark,
-    sizes: MoonSizes.sizes,
-    transitions: MoonTransitions.transitions,
-    typography: MoonTypography.typography,
+    opacities: SelenicOpacities.opacities,
+    shadows: SelenicShadows.dark,
+    sizes: SelenicSizes.sizes,
+    transitions: SelenicTransitions.transitions,
+    typography: SelenicTypography.typography,
   );
 
-  /// The borders of the Moon Design System.
-  final MoonBorders borders;
+  /// The borders of the Selenic Design System.
+  final SelenicBorders borders;
 
-  /// The colors of the Moon Design System.
+  /// The colors of the Selenic Design System.
   final MoonColors colors;
 
-  /// The colors of the Moon Design System that are from complementary theme
+  /// The colors of the Selenic Design System that are from complementary theme
   /// (light -> dark, dark -> light).
   final MoonColors complementaryColors;
 
-  /// The opacities of the Moon Design System.
-  final MoonOpacities opacities;
+  /// The opacities of the Selenic Design System.
+  final SelenicOpacities opacities;
 
-  /// The shadows of the Moon Design System.
-  final MoonShadows shadows;
+  /// The shadows of the Selenic Design System.
+  final SelenicShadows shadows;
 
-  /// The sizes of the Moon Design System.
-  final MoonSizes sizes;
+  /// The sizes of the Selenic Design System.
+  final SelenicSizes sizes;
 
-  final MoonTransitions transitions;
+  final SelenicTransitions transitions;
 
-  /// The typography of the Moon Design System.
-  final MoonTypography typography;
+  /// The typography of the Selenic Design System.
+  final SelenicTypography typography;
 
-  const MoonTokens({
+  const SelenicTokens({
     required this.borders,
     required this.colors,
     required this.complementaryColors,
@@ -70,17 +71,17 @@ class MoonTokens extends ThemeExtension<MoonTokens>
   });
 
   @override
-  MoonTokens copyWith({
-    MoonBorders? borders,
+  SelenicTokens copyWith({
+    SelenicBorders? borders,
     MoonColors? colors,
     MoonColors? complementaryColors,
-    MoonOpacities? opacities,
-    MoonShadows? shadows,
-    MoonSizes? sizes,
-    MoonTransitions? transitions,
-    MoonTypography? typography,
+    SelenicOpacities? opacities,
+    SelenicShadows? shadows,
+    SelenicSizes? sizes,
+    SelenicTransitions? transitions,
+    SelenicTypography? typography,
   }) {
-    return MoonTokens(
+    return SelenicTokens(
       borders: borders ?? this.borders,
       colors: colors ?? this.colors,
       complementaryColors: complementaryColors ?? this.complementaryColors,
@@ -93,10 +94,10 @@ class MoonTokens extends ThemeExtension<MoonTokens>
   }
 
   @override
-  MoonTokens lerp(ThemeExtension<MoonTokens>? other, double t) {
-    if (other is! MoonTokens) return this;
+  SelenicTokens lerp(ThemeExtension<SelenicTokens>? other, double t) {
+    if (other is! SelenicTokens) return this;
 
-    return MoonTokens(
+    return SelenicTokens(
       borders: borders.lerp(other.borders, t),
       colors: colors.lerp(other.colors, t),
       complementaryColors:
@@ -113,22 +114,23 @@ class MoonTokens extends ThemeExtension<MoonTokens>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonTokens"))
-      ..add(DiagnosticsProperty<MoonBorders>("MoonBorders", borders))
+      ..add(DiagnosticsProperty("type", "SelenicTokens"))
+      ..add(DiagnosticsProperty<SelenicBorders>("SelenicBorders", borders))
       ..add(DiagnosticsProperty<MoonColors>("MoonColors", colors))
       ..add(DiagnosticsProperty<MoonColors>("MoonColors", complementaryColors))
-      ..add(DiagnosticsProperty<MoonOpacities>("MoonOpacities", opacities))
-      ..add(DiagnosticsProperty<MoonShadows>("MoonShadows", shadows))
-      ..add(DiagnosticsProperty<MoonSizes>("MoonSizes", sizes))
       ..add(
-        DiagnosticsProperty<MoonTransitions>(
-          "MoonTransitions",
+          DiagnosticsProperty<SelenicOpacities>("SelenicOpacities", opacities))
+      ..add(DiagnosticsProperty<SelenicShadows>("SelenicShadows", shadows))
+      ..add(DiagnosticsProperty<SelenicSizes>("SelenicSizes", sizes))
+      ..add(
+        DiagnosticsProperty<SelenicTransitions>(
+          "SelenicTransitions",
           transitions,
         ),
       )
       ..add(
-        DiagnosticsProperty<MoonTypography>(
-          "MoonTypography",
+        DiagnosticsProperty<SelenicTypography>(
+          "SelenicTypography",
           typography,
         ),
       );

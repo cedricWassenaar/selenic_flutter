@@ -2,7 +2,7 @@ import 'package:example/src/storybook/storybook.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 void main() async {
   usePathUrlStrategy();
@@ -28,18 +28,18 @@ class MyApp extends StatelessWidget {
         : MaterialApp(
             theme: ThemeData.light().copyWith(
               extensions: <ThemeExtension<dynamic>>[
-                MoonTheme(tokens: MoonTokens.light),
+                SelenicTheme(tokens: SelenicTokens.light),
               ],
             ),
             darkTheme: ThemeData.dark().copyWith(
               extensions: <ThemeExtension<dynamic>>[
-                MoonTheme(tokens: MoonTokens.dark),
+                SelenicTheme(tokens: SelenicTokens.dark),
               ],
             ),
             home: Scaffold(
               body: Center(
                 child: Text(
-                  "Moon Design for Flutter",
+                  "Selenic Design for Flutter",
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.width > 800 ? 72 : 32,
                   ),

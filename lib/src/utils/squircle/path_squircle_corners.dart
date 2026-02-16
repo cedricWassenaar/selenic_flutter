@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'dart:ui';
 
-import 'package:moon_design/src/utils/squircle/processed_squircle_radius.dart';
+import 'package:selenic_design/src/utils/squircle/processed_squircle_radius.dart';
 
 extension PathSquircleCornersExtensions on Path {
   void addSmoothTopRight(ProcessedSquircleRadius radius, Rect rect) {

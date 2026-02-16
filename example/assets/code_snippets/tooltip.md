@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class Tooltip extends StatefulWidget {
   const Tooltip({super.key});
@@ -13,13 +13,13 @@ class _TooltipState extends State<Tooltip> {
 
   @override
   Widget build(BuildContext context) {
-    return MoonTooltip(
+    return SelenicTooltip(
       show: showOnTap,
-      content: const Text('This is MoonTooltip'),
-      child: MoonFilledButton(
-        buttonSize: MoonButtonSize.sm,
+      content: const Text('This is SelenicTooltip'),
+      child: SelenicFilledButton(
+        buttonSize: SelenicButtonSize.sm,
         onTap: () => setState(() => showOnTap = true),
-        label: const Text("Show MoonTooltip"),
+        label: const Text("Show SelenicTooltip"),
       ),
     );
   }

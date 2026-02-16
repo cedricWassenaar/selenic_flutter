@@ -1,14 +1,14 @@
 import 'dart:ui';
 
-class MoonSquircleRadius extends Radius {
-  static const zero = MoonSquircleRadius(
+class SelenicSquircleRadius extends Radius {
+  static const zero = SelenicSquircleRadius(
     cornerRadius: 0,
     cornerSmoothing: 0,
   );
 
   final double cornerSmoothing;
 
-  const MoonSquircleRadius({
+  const SelenicSquircleRadius({
     required double cornerRadius,
     // The value of 1 or 1.0 leads to NaN error in mobile web/PWA for some
     // reason. So we use 0.9 instead.
@@ -26,7 +26,7 @@ class MoonSquircleRadius extends Radius {
   /// and then adding the result to another radius is equivalent to subtracting
   /// a radius of one pixel from the other.
   @override
-  Radius operator -() => MoonSquircleRadius(
+  Radius operator -() => SelenicSquircleRadius(
         cornerRadius: -cornerRadius,
         cornerSmoothing: cornerSmoothing,
       );
@@ -38,14 +38,14 @@ class MoonSquircleRadius extends Radius {
   /// left-hand-side operand's [y] minus the right-hand-side operand's [y].
   @override
   Radius operator -(Radius other) {
-    if (other is MoonSquircleRadius) {
-      return MoonSquircleRadius(
+    if (other is SelenicSquircleRadius) {
+      return SelenicSquircleRadius(
         cornerRadius: cornerRadius - other.cornerRadius,
         cornerSmoothing: (cornerSmoothing + other.cornerSmoothing) / 2,
       );
     }
 
-    return MoonSquircleRadius(
+    return SelenicSquircleRadius(
       cornerRadius: cornerRadius - other.x,
       cornerSmoothing: cornerSmoothing,
     );
@@ -58,14 +58,14 @@ class MoonSquircleRadius extends Radius {
   /// two operands.
   @override
   Radius operator +(Radius other) {
-    if (other is MoonSquircleRadius) {
-      return MoonSquircleRadius(
+    if (other is SelenicSquircleRadius) {
+      return SelenicSquircleRadius(
         cornerRadius: cornerRadius + other.cornerRadius,
         cornerSmoothing: (cornerSmoothing + other.cornerSmoothing) / 2,
       );
     }
 
-    return MoonSquircleRadius(
+    return SelenicSquircleRadius(
       cornerRadius: cornerRadius + other.x,
       cornerSmoothing: cornerSmoothing,
     );
@@ -77,7 +77,7 @@ class MoonSquircleRadius extends Radius {
   /// left-hand-side operand (a radius) multiplied by the scalar
   /// right-hand-side operand (a double).
   @override
-  MoonSquircleRadius operator *(double operand) => MoonSquircleRadius(
+  SelenicSquircleRadius operator *(double operand) => SelenicSquircleRadius(
         cornerRadius: cornerRadius * operand,
         cornerSmoothing: cornerSmoothing * operand,
       );
@@ -88,7 +88,7 @@ class MoonSquircleRadius extends Radius {
   /// left-hand-side operand (a radius) divided by the scalar right-hand-side
   /// operand (a double).
   @override
-  MoonSquircleRadius operator /(double operand) => MoonSquircleRadius(
+  SelenicSquircleRadius operator /(double operand) => SelenicSquircleRadius(
         cornerRadius: cornerRadius / operand,
         cornerSmoothing: cornerSmoothing / operand,
       );
@@ -99,7 +99,7 @@ class MoonSquircleRadius extends Radius {
   /// left-hand-side operand (a radius) divided by the scalar right-hand-side
   /// operand (a double), rounded towards zero.
   @override
-  MoonSquircleRadius operator ~/(double operand) => MoonSquircleRadius(
+  SelenicSquircleRadius operator ~/(double operand) => SelenicSquircleRadius(
         cornerRadius: (cornerRadius ~/ operand).toDouble(),
         cornerSmoothing: (cornerSmoothing ~/ operand).toDouble(),
       );
@@ -110,14 +110,14 @@ class MoonSquircleRadius extends Radius {
   /// coordinates of the left-hand-side operand (a radius) by the scalar
   /// right-hand-side operand (a double).
   @override
-  MoonSquircleRadius operator %(double operand) => MoonSquircleRadius(
+  SelenicSquircleRadius operator %(double operand) => SelenicSquircleRadius(
         cornerRadius: cornerRadius % operand,
         cornerSmoothing: cornerSmoothing % operand,
       );
 
   /// Linearly interpolate between two smooth radii.
   ///
-  /// If either is null, this function substitutes [MoonSquircleRadius.zero]
+  /// If either is null, this function substitutes [SelenicSquircleRadius.zero]
   /// instead.
   ///
   /// The `t` argument represents position on the timeline, with 0.0 meaning
@@ -131,9 +131,9 @@ class MoonSquircleRadius extends Radius {
   ///
   /// Values for `t` are usually obtained from an [Animation<double>], such as
   /// an [AnimationController].
-  static MoonSquircleRadius? lerp(
-    MoonSquircleRadius? a,
-    MoonSquircleRadius? b,
+  static SelenicSquircleRadius? lerp(
+    SelenicSquircleRadius? a,
+    SelenicSquircleRadius? b,
     double t,
   ) {
     if (b == null) {
@@ -141,19 +141,19 @@ class MoonSquircleRadius extends Radius {
         return null;
       } else {
         final double k = 1.0 - t;
-        return MoonSquircleRadius(
+        return SelenicSquircleRadius(
           cornerRadius: a.cornerRadius * k,
           cornerSmoothing: a.cornerSmoothing * k,
         );
       }
     } else {
       if (a == null) {
-        return MoonSquircleRadius(
+        return SelenicSquircleRadius(
           cornerRadius: b.cornerRadius * t,
           cornerSmoothing: b.cornerSmoothing * t,
         );
       } else {
-        return MoonSquircleRadius(
+        return SelenicSquircleRadius(
           cornerRadius: lerpDouble(a.cornerRadius, b.cornerRadius, t) ?? 0,
           cornerSmoothing: lerpDouble(
                 a.cornerSmoothing,
@@ -171,7 +171,7 @@ class MoonSquircleRadius extends Radius {
     if (identical(this, other)) return true;
     if (runtimeType != other.runtimeType) return false;
 
-    return other is MoonSquircleRadius &&
+    return other is SelenicSquircleRadius &&
         other.cornerRadius == cornerRadius &&
         other.cornerSmoothing == cornerSmoothing;
   }
@@ -181,7 +181,7 @@ class MoonSquircleRadius extends Radius {
 
   @override
   String toString() {
-    return 'MoonSquircleRadius('
+    return 'SelenicSquircleRadius('
         'cornerRadius: ${cornerRadius.toStringAsFixed(2)}, '
         'cornerSmoothing: ${cornerSmoothing.toStringAsFixed(2)}, '
         ')';

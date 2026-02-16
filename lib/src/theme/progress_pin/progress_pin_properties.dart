@@ -4,32 +4,32 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonProgressPinProperties
-    extends ThemeExtension<MoonProgressPinProperties>
+class SelenicProgressPinProperties
+    extends ThemeExtension<SelenicProgressPinProperties>
     with DiagnosticableTreeMixin {
-  /// The shadow elevation of the MoonProgressPin.
+  /// The shadow elevation of the SelenicProgressPin.
   final double shadowElevation;
 
-  /// The height of the MoonProgressPin arrow.
+  /// The height of the SelenicProgressPin arrow.
   final double arrowHeight;
 
-  /// The width of the MoonProgressPin arrow.
+  /// The width of the SelenicProgressPin arrow.
   final double arrowWidth;
 
-  /// The vertical distance between the MoonProgressPin and the
-  /// MoonLinearProgress widget.
+  /// The vertical distance between the SelenicProgressPin and the
+  /// SelenicLinearProgress widget.
   final double pinDistance;
 
-  /// The width of the MoonProgressPin.
+  /// The width of the SelenicProgressPin.
   final double pinWidth;
 
-  /// The border width of the MoonProgressPin.
+  /// The border width of the SelenicProgressPin.
   final double pinBorderWidth;
 
-  /// The text style of the MoonProgressPin.
+  /// The text style of the SelenicProgressPin.
   final TextStyle textStyle;
 
-  const MoonProgressPinProperties({
+  const SelenicProgressPinProperties({
     required this.shadowElevation,
     required this.arrowHeight,
     required this.arrowWidth,
@@ -40,7 +40,7 @@ class MoonProgressPinProperties
   });
 
   @override
-  MoonProgressPinProperties copyWith({
+  SelenicProgressPinProperties copyWith({
     double? shadowElevation,
     double? arrowHeight,
     double? arrowWidth,
@@ -49,7 +49,7 @@ class MoonProgressPinProperties
     double? pinBorderWidth,
     TextStyle? textStyle,
   }) {
-    return MoonProgressPinProperties(
+    return SelenicProgressPinProperties(
       shadowElevation: shadowElevation ?? this.shadowElevation,
       arrowHeight: arrowHeight ?? this.arrowHeight,
       arrowWidth: arrowWidth ?? this.arrowWidth,
@@ -61,13 +61,13 @@ class MoonProgressPinProperties
   }
 
   @override
-  MoonProgressPinProperties lerp(
-    ThemeExtension<MoonProgressPinProperties>? other,
+  SelenicProgressPinProperties lerp(
+    ThemeExtension<SelenicProgressPinProperties>? other,
     double t,
   ) {
-    if (other is! MoonProgressPinProperties) return this;
+    if (other is! SelenicProgressPinProperties) return this;
 
-    return MoonProgressPinProperties(
+    return SelenicProgressPinProperties(
       shadowElevation: lerpDouble(shadowElevation, other.shadowElevation, t)!,
       arrowHeight: lerpDouble(arrowHeight, other.arrowHeight, t)!,
       arrowWidth: lerpDouble(arrowWidth, other.arrowWidth, t)!,
@@ -82,7 +82,7 @@ class MoonProgressPinProperties
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonProgressPinProperties"))
+      ..add(DiagnosticsProperty("type", "SelenicProgressPinProperties"))
       ..add(DoubleProperty("shadowElevation", shadowElevation))
       ..add(DoubleProperty("arrowHeight", arrowHeight))
       ..add(DoubleProperty("arrowWidth", arrowWidth))

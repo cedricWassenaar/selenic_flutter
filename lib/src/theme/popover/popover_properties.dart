@@ -4,27 +4,27 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonPopoverProperties extends ThemeExtension<MoonPopoverProperties>
+class SelenicPopoverProperties extends ThemeExtension<SelenicPopoverProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonPopover.
+  /// The border radius of the SelenicPopover.
   final BorderRadiusGeometry borderRadius;
 
-  /// The distance between the MoonPopover and the target child widget.
+  /// The distance between the SelenicPopover and the target child widget.
   final double distanceToTarget;
 
-  /// The duration of the MoonPopover transition animation (fade in or out).
+  /// The duration of the SelenicPopover transition animation (fade in or out).
   final Duration transitionDuration;
 
-  /// The curve of the MoonPopover transition animation (fade in or out).
+  /// The curve of the SelenicPopover transition animation (fade in or out).
   final Curve transitionCurve;
 
-  /// The padding of the MoonPopover content.
+  /// The padding of the SelenicPopover content.
   final EdgeInsetsGeometry contentPadding;
 
-  /// The text style of the MoonPopover.
+  /// The text style of the SelenicPopover.
   final TextStyle textStyle;
 
-  const MoonPopoverProperties({
+  const SelenicPopoverProperties({
     required this.borderRadius,
     required this.distanceToTarget,
     required this.transitionDuration,
@@ -34,7 +34,7 @@ class MoonPopoverProperties extends ThemeExtension<MoonPopoverProperties>
   });
 
   @override
-  MoonPopoverProperties copyWith({
+  SelenicPopoverProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? distanceToTarget,
     Duration? transitionDuration,
@@ -42,7 +42,7 @@ class MoonPopoverProperties extends ThemeExtension<MoonPopoverProperties>
     EdgeInsetsGeometry? contentPadding,
     TextStyle? textStyle,
   }) {
-    return MoonPopoverProperties(
+    return SelenicPopoverProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       distanceToTarget: distanceToTarget ?? this.distanceToTarget,
       transitionDuration: transitionDuration ?? this.transitionDuration,
@@ -53,13 +53,13 @@ class MoonPopoverProperties extends ThemeExtension<MoonPopoverProperties>
   }
 
   @override
-  MoonPopoverProperties lerp(
-    ThemeExtension<MoonPopoverProperties>? other,
+  SelenicPopoverProperties lerp(
+    ThemeExtension<SelenicPopoverProperties>? other,
     double t,
   ) {
-    if (other is! MoonPopoverProperties) return this;
+    if (other is! SelenicPopoverProperties) return this;
 
-    return MoonPopoverProperties(
+    return SelenicPopoverProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       distanceToTarget:
@@ -78,7 +78,7 @@ class MoonPopoverProperties extends ThemeExtension<MoonPopoverProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonPopoverProperties"),
+        DiagnosticsProperty("type", "SelenicPopoverProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

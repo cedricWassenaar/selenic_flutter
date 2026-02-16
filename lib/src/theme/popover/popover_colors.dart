@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonPopoverColors extends ThemeExtension<MoonPopoverColors>
+class SelenicPopoverColors extends ThemeExtension<SelenicPopoverColors>
     with DiagnosticableTreeMixin {
-  /// The text color of the MoonPopover.
+  /// The text color of the SelenicPopover.
   final Color textColor;
 
-  /// The icon color of the MoonPopover.
+  /// The icon color of the SelenicPopover.
   final Color iconColor;
 
-  /// The background color of the MoonPopover.
+  /// The background color of the SelenicPopover.
   final Color backgroundColor;
 
-  const MoonPopoverColors({
+  const SelenicPopoverColors({
     required this.textColor,
     required this.iconColor,
     required this.backgroundColor,
   });
 
   @override
-  MoonPopoverColors copyWith({
+  SelenicPopoverColors copyWith({
     Color? textColor,
     Color? iconColor,
     Color? backgroundColor,
   }) {
-    return MoonPopoverColors(
+    return SelenicPopoverColors(
       textColor: textColor ?? this.textColor,
       iconColor: iconColor ?? this.iconColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -35,10 +35,11 @@ class MoonPopoverColors extends ThemeExtension<MoonPopoverColors>
   }
 
   @override
-  MoonPopoverColors lerp(ThemeExtension<MoonPopoverColors>? other, double t) {
-    if (other is! MoonPopoverColors) return this;
+  SelenicPopoverColors lerp(
+      ThemeExtension<SelenicPopoverColors>? other, double t) {
+    if (other is! SelenicPopoverColors) return this;
 
-    return MoonPopoverColors(
+    return SelenicPopoverColors(
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
       iconColor: colorPremulLerp(iconColor, other.iconColor, t)!,
       backgroundColor:
@@ -50,7 +51,7 @@ class MoonPopoverColors extends ThemeExtension<MoonPopoverColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonPopoverColors"))
+      ..add(DiagnosticsProperty("type", "SelenicPopoverColors"))
       ..add(ColorProperty("textColor", textColor))
       ..add(ColorProperty("iconColor", iconColor))
       ..add(ColorProperty("backgroundColor", backgroundColor));

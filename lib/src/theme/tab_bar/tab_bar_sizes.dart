@@ -1,27 +1,27 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/tab_bar/tab_bar_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tab_bar/tab_bar_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonTabBarSizes extends ThemeExtension<MoonTabBarSizes>
+class SelenicTabBarSizes extends ThemeExtension<SelenicTabBarSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the small MoonTabBar.
-  final MoonTabBarSizeProperties sm;
+  /// The properties of the small SelenicTabBar.
+  final SelenicTabBarSizeProperties sm;
 
-  /// The properties of the medium MoonTabBar.
-  final MoonTabBarSizeProperties md;
+  /// The properties of the medium SelenicTabBar.
+  final SelenicTabBarSizeProperties md;
 
-  MoonTabBarSizes({
+  SelenicTabBarSizes({
     required this.tokens,
-    MoonTabBarSizeProperties? sm,
-    MoonTabBarSizeProperties? md,
+    SelenicTabBarSizeProperties? sm,
+    SelenicTabBarSizeProperties? md,
   })  : sm = sm ??
-            MoonTabBarSizeProperties(
+            SelenicTabBarSizeProperties(
               borderRadius: tokens.borders.interactiveXs,
               tabGap: tokens.sizes.x5s,
               height: tokens.sizes.sm,
@@ -31,7 +31,7 @@ class MoonTabBarSizes extends ThemeExtension<MoonTabBarSizes>
               textStyle: tokens.typography.heading.textDefault,
             ),
         md = md ??
-            MoonTabBarSizeProperties(
+            SelenicTabBarSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               tabGap: tokens.sizes.x4s,
               height: tokens.sizes.md,
@@ -42,12 +42,12 @@ class MoonTabBarSizes extends ThemeExtension<MoonTabBarSizes>
             );
 
   @override
-  MoonTabBarSizes copyWith({
-    MoonTokens? tokens,
-    MoonTabBarSizeProperties? sm,
-    MoonTabBarSizeProperties? md,
+  SelenicTabBarSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicTabBarSizeProperties? sm,
+    SelenicTabBarSizeProperties? md,
   }) {
-    return MoonTabBarSizes(
+    return SelenicTabBarSizes(
       tokens: tokens ?? this.tokens,
       sm: sm ?? this.sm,
       md: md ?? this.md,
@@ -55,10 +55,10 @@ class MoonTabBarSizes extends ThemeExtension<MoonTabBarSizes>
   }
 
   @override
-  MoonTabBarSizes lerp(ThemeExtension<MoonTabBarSizes>? other, double t) {
-    if (other is! MoonTabBarSizes) return this;
+  SelenicTabBarSizes lerp(ThemeExtension<SelenicTabBarSizes>? other, double t) {
+    if (other is! SelenicTabBarSizes) return this;
 
-    return MoonTabBarSizes(
+    return SelenicTabBarSizes(
       tokens: tokens.lerp(other.tokens, t),
       sm: sm.lerp(other.sm, t),
       md: md.lerp(other.md, t),
@@ -69,8 +69,8 @@ class MoonTabBarSizes extends ThemeExtension<MoonTabBarSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonTabBarSizes"))
-      ..add(DiagnosticsProperty<MoonTabBarSizeProperties>("sm", sm))
-      ..add(DiagnosticsProperty<MoonTabBarSizeProperties>("md", md));
+      ..add(DiagnosticsProperty("type", "SelenicTabBarSizes"))
+      ..add(DiagnosticsProperty<SelenicTabBarSizeProperties>("sm", sm))
+      ..add(DiagnosticsProperty<SelenicTabBarSizeProperties>("md", md));
   }
 }

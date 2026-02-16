@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/tag/tag_size_properties.dart';
-import 'package:moon_design/src/theme/tag/tag_sizes.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonTagSize {
+import 'package:selenic_design/src/theme/tag/tag_size_properties.dart';
+import 'package:selenic_design/src/theme/tag/tag_sizes.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+
+enum SelenicTagSize {
   x2s,
   xs,
   sm,
 }
 
-class MoonTag extends StatelessWidget {
+class SelenicTag extends StatelessWidget {
   /// The border radius of the tag.
   final BorderRadiusGeometry? borderRadius;
 
@@ -35,7 +36,7 @@ class MoonTag extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
 
   /// The size of the tag.
-  final MoonTagSize? tagSize;
+  final SelenicTagSize? tagSize;
 
   /// The custom decoration of the tag.
   final Decoration? decoration;
@@ -58,8 +59,8 @@ class MoonTag extends StatelessWidget {
   /// The widget to display after the [label] widget of the tag.
   final Widget? trailing;
 
-  /// Creates a Moon Design tag.
-  const MoonTag({
+  /// Creates a Selenic Design tag.
+  const SelenicTag({
     super.key,
     this.borderRadius,
     this.backgroundColor,
@@ -77,48 +78,48 @@ class MoonTag extends StatelessWidget {
     this.trailing,
   });
 
-  MoonTagSizeProperties _getMoonTagSize(
+  SelenicTagSizeProperties _getSelenicTagSize(
     BuildContext context,
-    MoonTagSize? moonTagSize,
+    SelenicTagSize? tagSize,
   ) {
-    return switch (moonTagSize) {
-      MoonTagSize.x2s => context.moonTheme?.tagTheme.sizes.x2s ??
-          MoonTagSizes(tokens: MoonTokens.light).x2s,
-      MoonTagSize.xs => context.moonTheme?.tagTheme.sizes.xs ??
-          MoonTagSizes(tokens: MoonTokens.light).xs,
-      MoonTagSize.sm => context.moonTheme?.tagTheme.sizes.sm ??
-          MoonTagSizes(tokens: MoonTokens.light).sm,
-      _ => context.moonTheme?.tagTheme.sizes.xs ??
-          MoonTagSizes(tokens: MoonTokens.light).xs,
+    return switch (tagSize) {
+      SelenicTagSize.x2s => context.selenicTheme?.tagTheme.sizes.x2s ??
+          SelenicTagSizes(tokens: SelenicTokens.light).x2s,
+      SelenicTagSize.xs => context.selenicTheme?.tagTheme.sizes.xs ??
+          SelenicTagSizes(tokens: SelenicTokens.light).xs,
+      SelenicTagSize.sm => context.selenicTheme?.tagTheme.sizes.sm ??
+          SelenicTagSizes(tokens: SelenicTokens.light).sm,
+      _ => context.selenicTheme?.tagTheme.sizes.xs ??
+          SelenicTagSizes(tokens: SelenicTokens.light).xs,
     };
   }
 
   @override
   Widget build(BuildContext context) {
-    final MoonTagSizeProperties effectiveMoonTagSize =
-        _getMoonTagSize(context, tagSize);
+    final SelenicTagSizeProperties effectiveSelenicTagSize =
+        _getSelenicTagSize(context, tagSize);
 
     final BorderRadiusGeometry effectiveBorderRadius =
-        borderRadius ?? effectiveMoonTagSize.borderRadius;
+        borderRadius ?? effectiveSelenicTagSize.borderRadius;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.tagTheme.colors.backgroundColor ??
+        context.selenicTheme?.tagTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.tagTheme.colors.textColor ??
+        context.selenicTheme?.tagTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.tagTheme.colors.iconColor ??
+        context.selenicTheme?.tagTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
-    final double effectiveHeight = height ?? effectiveMoonTagSize.height;
+    final double effectiveHeight = height ?? effectiveSelenicTagSize.height;
 
-    final double effectiveGap = gap ?? effectiveMoonTagSize.gap;
+    final double effectiveGap = gap ?? effectiveSelenicTagSize.gap;
 
     final EdgeInsetsGeometry effectivePadding =
-        padding ?? effectiveMoonTagSize.padding;
+        padding ?? effectiveSelenicTagSize.padding;
 
     final EdgeInsets resolvedDirectionalPadding =
         effectivePadding.resolve(Directionality.of(context));
@@ -156,7 +157,7 @@ class MoonTag extends StatelessWidget {
             decoration: decoration ??
                 ShapeDecorationWithPremultipliedAlpha(
                   color: effectiveBackgroundColor,
-                  shape: MoonSquircleBorder(
+                  shape: SelenicSquircleBorder(
                     borderRadius:
                         effectiveBorderRadius.squircleBorderRadius(context),
                   ),
@@ -164,10 +165,10 @@ class MoonTag extends StatelessWidget {
             child: IconTheme(
               data: IconThemeData(
                 color: effectiveIconColor,
-                size: effectiveMoonTagSize.iconSizeValue,
+                size: effectiveSelenicTagSize.iconSizeValue,
               ),
               child: DefaultTextStyle(
-                style: effectiveMoonTagSize.textStyle.copyWith(
+                style: effectiveSelenicTagSize.textStyle.copyWith(
                   color: effectiveTextColor,
                 ),
                 child: Row(

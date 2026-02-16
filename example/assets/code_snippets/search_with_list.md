@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 enum Options {
   accordion,
@@ -65,7 +65,7 @@ class _SearchWithListState extends State<SearchWithList> {
       children: [
         Column(
           children: [
-            MoonTextInput(
+            SelenicTextInput(
               hintText: "Search components",
               controller: _searchController,
               // The onTap() and onChanged() properties are used instead of a listener to initiate search on every input tap.
@@ -73,8 +73,8 @@ class _SearchWithListState extends State<SearchWithList> {
               onTap: () => _performSearch(),
               onChanged: (String _) => _performSearch(),
               leading: const Icon(MoonIcons.generic_search_24_light),
-              trailing: MoonButton.icon(
-                buttonSize: MoonButtonSize.xs,
+              trailing: SelenicButton.icon(
+                buttonSize: SelenicButtonSize.xs,
                 hoverEffectColor: Colors.transparent,
                 onTap: () => _handleCloseButton(),
                 icon: const Icon(MoonIcons.controls_close_16_light),
@@ -90,7 +90,7 @@ class _SearchWithListState extends State<SearchWithList> {
                     if (index >= _filteredOptionsList.length) return const SizedBox.shrink();
                     final Options option = _filteredOptionsList[index];
   
-                    return MoonMenuItem(
+                    return SelenicMenuItem(
                       onTap: () => {},
                       label: Text(option.name),
                     );

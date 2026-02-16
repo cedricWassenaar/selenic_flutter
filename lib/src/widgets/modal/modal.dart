@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/shape_decoration_premul.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_tokens/moon_tokens.dart';
+
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/borders.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/shape_decoration_premul.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
 
 /// Displays a modal overlay over the app's current content, incorporating
 /// entrance and exit animations, modal barrier color, and modal barrier
 /// behavior, enabling dialog dismissal via barrier taps. Intended for use in
-/// conjunction with [MoonModal].
-Future<T?> showMoonModal<T>({
+/// conjunction with [SelenicModal].
+Future<T?> showSelenicModal<T>({
   bool barrierDismissible = true,
   bool useRootNavigator = true,
   bool useSafeArea = true,
@@ -35,19 +36,19 @@ Future<T?> showMoonModal<T>({
   );
 
   final Color effectiveBarrierColor = barrierColor ??
-      context.moonTheme?.modalTheme.colors.barrierColor ??
+      context.selenicTheme?.modalTheme.colors.barrierColor ??
       MoonColors.light.zeno;
 
   final Duration effectiveTransitionDuration = transitionDuration ??
-      context.moonTheme?.modalTheme.properties.transitionDuration ??
-      MoonTransitions.transitions.defaultTransitionDuration;
+      context.selenicTheme?.modalTheme.properties.transitionDuration ??
+      SelenicTransitions.transitions.defaultTransitionDuration;
 
   final Curve effectiveTransitionCurve = transitionCurve ??
-      context.moonTheme?.modalTheme.properties.transitionCurve ??
-      MoonTransitions.transitions.defaultTransitionCurve;
+      context.selenicTheme?.modalTheme.properties.transitionCurve ??
+      SelenicTransitions.transitions.defaultTransitionCurve;
 
   return Navigator.of(context, rootNavigator: useRootNavigator).push<T>(
-    MoonModalRoute<T>(
+    SelenicModalRoute<T>(
       context: context,
       builder: builder,
       barrierDismissible: barrierDismissible,
@@ -68,11 +69,11 @@ bool _debugIsActive(BuildContext context) {
     throw FlutterError.fromParts(<DiagnosticsNode>[
       ErrorSummary('This BuildContext is no longer valid.'),
       ErrorDescription(
-        'The showMoonModal function context parameter is a BuildContext that is '
+        'The showSelenicModal function context parameter is a BuildContext that is '
         'no longer valid.',
       ),
       ErrorHint(
-        'This can commonly occur when the showMoonModal function is called after '
+        'This can commonly occur when the showSelenicModal function is called after '
         'awaiting a Future. In this situation the BuildContext might refer to a '
         'widget that has already been disposed during the await. Consider using '
         'a parent context instead.',
@@ -83,11 +84,11 @@ bool _debugIsActive(BuildContext context) {
   return true;
 }
 
-class MoonModalRoute<T> extends RawDialogRoute<T> {
-  /// A Moon Design modal route with entrance and exit animations, modal barrier
+class SelenicModalRoute<T> extends RawDialogRoute<T> {
+  /// A Selenic Design modal route with entrance and exit animations, modal barrier
   /// color, and modal barrier behavior that allows dismissing the modal when
   /// tapped on the barrier.
-  MoonModalRoute({
+  SelenicModalRoute({
     super.anchorPoint,
     required super.barrierColor,
     super.barrierDismissible,
@@ -134,7 +135,7 @@ class MoonModalRoute<T> extends RawDialogRoute<T> {
         );
 }
 
-class MoonModal extends StatelessWidget {
+class SelenicModal extends StatelessWidget {
   /// The border radius of the modal.
   final BorderRadiusGeometry? borderRadius;
 
@@ -150,8 +151,8 @@ class MoonModal extends StatelessWidget {
   /// The widget to display inside the modal as its content.
   final Widget child;
 
-  /// Creates a Moon Design modal.
-  const MoonModal({
+  /// Creates a Selenic Design modal.
+  const SelenicModal({
     super.key,
     this.borderRadius,
     this.backgroundColor,
@@ -163,24 +164,24 @@ class MoonModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
-        context.moonTheme?.modalTheme.properties.borderRadius ??
-        MoonBorders.borders.surfaceSm;
+        context.selenicTheme?.modalTheme.properties.borderRadius ??
+        SelenicBorders.borders.surfaceSm;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.modalTheme.colors.backgroundColor ??
+        context.selenicTheme?.modalTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.modalTheme.colors.textColor ??
+        context.selenicTheme?.modalTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.modalTheme.colors.iconColor ??
+        context.selenicTheme?.modalTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.modalTheme.properties.textStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.selenicTheme?.modalTheme.properties.textStyle ??
+            SelenicTypography.typography.body.textDefault;
 
     return Semantics(
       label: semanticLabel,
@@ -193,7 +194,7 @@ class MoonModal extends StatelessWidget {
               decoration: decoration ??
                   ShapeDecorationWithPremultipliedAlpha(
                     color: effectiveBackgroundColor,
-                    shape: MoonSquircleBorder(
+                    shape: SelenicSquircleBorder(
                       borderRadius:
                           effectiveBorderRadius.squircleBorderRadius(context),
                     ),

@@ -1,35 +1,35 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/accordion/accordion_size_properties.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/accordion/accordion_size_properties.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonAccordionSizes extends ThemeExtension<MoonAccordionSizes>
+class SelenicAccordionSizes extends ThemeExtension<SelenicAccordionSizes>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The properties of the small MoonAccordion.
-  final MoonAccordionSizeProperties sm;
+  /// The properties of the small SelenicAccordion.
+  final SelenicAccordionSizeProperties sm;
 
-  /// The properties of the medium MoonAccordion.
-  final MoonAccordionSizeProperties md;
+  /// The properties of the medium SelenicAccordion.
+  final SelenicAccordionSizeProperties md;
 
-  /// The properties of the large MoonAccordion.
-  final MoonAccordionSizeProperties lg;
+  /// The properties of the large SelenicAccordion.
+  final SelenicAccordionSizeProperties lg;
 
-  /// The properties of the extra large MoonAccordion.
-  final MoonAccordionSizeProperties xl;
+  /// The properties of the extra large SelenicAccordion.
+  final SelenicAccordionSizeProperties xl;
 
-  MoonAccordionSizes({
+  SelenicAccordionSizes({
     required this.tokens,
-    MoonAccordionSizeProperties? sm,
-    MoonAccordionSizeProperties? md,
-    MoonAccordionSizeProperties? lg,
-    MoonAccordionSizeProperties? xl,
+    SelenicAccordionSizeProperties? sm,
+    SelenicAccordionSizeProperties? md,
+    SelenicAccordionSizeProperties? lg,
+    SelenicAccordionSizeProperties? xl,
   })  : sm = sm ??
-            MoonAccordionSizeProperties(
+            SelenicAccordionSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               headerHeight: tokens.sizes.sm,
               iconSizeValue: tokens.sizes.x2s,
@@ -38,7 +38,7 @@ class MoonAccordionSizes extends ThemeExtension<MoonAccordionSizes>
               contentTextStyle: tokens.typography.body.text12,
             ),
         md = md ??
-            MoonAccordionSizeProperties(
+            SelenicAccordionSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               headerHeight: tokens.sizes.md,
               iconSizeValue: tokens.sizes.xs,
@@ -47,7 +47,7 @@ class MoonAccordionSizes extends ThemeExtension<MoonAccordionSizes>
               contentTextStyle: tokens.typography.body.textDefault,
             ),
         lg = lg ??
-            MoonAccordionSizeProperties(
+            SelenicAccordionSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               headerHeight: tokens.sizes.lg,
               iconSizeValue: tokens.sizes.xs,
@@ -56,7 +56,7 @@ class MoonAccordionSizes extends ThemeExtension<MoonAccordionSizes>
               contentTextStyle: tokens.typography.body.textDefault,
             ),
         xl = xl ??
-            MoonAccordionSizeProperties(
+            SelenicAccordionSizeProperties(
               borderRadius: tokens.borders.interactiveSm,
               headerHeight: tokens.sizes.xl,
               iconSizeValue: tokens.sizes.xs,
@@ -66,14 +66,14 @@ class MoonAccordionSizes extends ThemeExtension<MoonAccordionSizes>
             );
 
   @override
-  MoonAccordionSizes copyWith({
-    MoonTokens? tokens,
-    MoonAccordionSizeProperties? sm,
-    MoonAccordionSizeProperties? md,
-    MoonAccordionSizeProperties? lg,
-    MoonAccordionSizeProperties? xl,
+  SelenicAccordionSizes copyWith({
+    SelenicTokens? tokens,
+    SelenicAccordionSizeProperties? sm,
+    SelenicAccordionSizeProperties? md,
+    SelenicAccordionSizeProperties? lg,
+    SelenicAccordionSizeProperties? xl,
   }) {
-    return MoonAccordionSizes(
+    return SelenicAccordionSizes(
       tokens: tokens ?? this.tokens,
       sm: sm ?? this.sm,
       md: md ?? this.md,
@@ -83,10 +83,11 @@ class MoonAccordionSizes extends ThemeExtension<MoonAccordionSizes>
   }
 
   @override
-  MoonAccordionSizes lerp(ThemeExtension<MoonAccordionSizes>? other, double t) {
-    if (other is! MoonAccordionSizes) return this;
+  SelenicAccordionSizes lerp(
+      ThemeExtension<SelenicAccordionSizes>? other, double t) {
+    if (other is! SelenicAccordionSizes) return this;
 
-    return MoonAccordionSizes(
+    return SelenicAccordionSizes(
       tokens: tokens.lerp(other.tokens, t),
       sm: sm.lerp(other.sm, t),
       md: md.lerp(other.md, t),
@@ -99,11 +100,11 @@ class MoonAccordionSizes extends ThemeExtension<MoonAccordionSizes>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonAccordionSizes"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonAccordionSizeProperties>("sm", sm))
-      ..add(DiagnosticsProperty<MoonAccordionSizeProperties>("md", md))
-      ..add(DiagnosticsProperty<MoonAccordionSizeProperties>("lg", lg))
-      ..add(DiagnosticsProperty<MoonAccordionSizeProperties>("xl", xl));
+      ..add(DiagnosticsProperty("type", "SelenicAccordionSizes"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicAccordionSizeProperties>("sm", sm))
+      ..add(DiagnosticsProperty<SelenicAccordionSizeProperties>("md", md))
+      ..add(DiagnosticsProperty<SelenicAccordionSizeProperties>("lg", lg))
+      ..add(DiagnosticsProperty<SelenicAccordionSizeProperties>("xl", xl));
   }
 }

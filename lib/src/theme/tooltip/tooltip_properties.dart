@@ -4,34 +4,34 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTooltipProperties extends ThemeExtension<MoonTooltipProperties>
+class SelenicTooltipProperties extends ThemeExtension<SelenicTooltipProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonTooltip.
+  /// The border radius of the SelenicTooltip.
   final BorderRadiusGeometry borderRadius;
 
-  /// The base width of the MoonTooltip arrow (tail).
+  /// The base width of the SelenicTooltip arrow (tail).
   final double arrowBaseWidth;
 
-  /// The length of the MoonTooltip arrow (tail).
+  /// The length of the SelenicTooltip arrow (tail).
   final double arrowLength;
 
-  /// The distance from the tip of the MoonTooltip arrow (tail) to the target
+  /// The distance from the tip of the SelenicTooltip arrow (tail) to the target
   /// widget.
   final double arrowTipDistance;
 
-  /// The duration of the MoonTooltip transition animation (fade in or out).
+  /// The duration of the SelenicTooltip transition animation (fade in or out).
   final Duration transitionDuration;
 
-  /// The curve of the MoonTooltip transition animation (fade in or out).
+  /// The curve of the SelenicTooltip transition animation (fade in or out).
   final Curve transitionCurve;
 
-  /// The padding of the MoonTooltip content.
+  /// The padding of the SelenicTooltip content.
   final EdgeInsetsGeometry contentPadding;
 
-  /// The text style of the MoonTooltip.
+  /// The text style of the SelenicTooltip.
   final TextStyle textStyle;
 
-  const MoonTooltipProperties({
+  const SelenicTooltipProperties({
     required this.borderRadius,
     required this.arrowBaseWidth,
     required this.arrowLength,
@@ -43,7 +43,7 @@ class MoonTooltipProperties extends ThemeExtension<MoonTooltipProperties>
   });
 
   @override
-  MoonTooltipProperties copyWith({
+  SelenicTooltipProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? arrowBaseWidth,
     double? arrowLength,
@@ -53,7 +53,7 @@ class MoonTooltipProperties extends ThemeExtension<MoonTooltipProperties>
     EdgeInsetsGeometry? contentPadding,
     TextStyle? textStyle,
   }) {
-    return MoonTooltipProperties(
+    return SelenicTooltipProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       arrowBaseWidth: arrowBaseWidth ?? this.arrowBaseWidth,
       arrowLength: arrowLength ?? this.arrowLength,
@@ -66,13 +66,13 @@ class MoonTooltipProperties extends ThemeExtension<MoonTooltipProperties>
   }
 
   @override
-  MoonTooltipProperties lerp(
-    ThemeExtension<MoonTooltipProperties>? other,
+  SelenicTooltipProperties lerp(
+    ThemeExtension<SelenicTooltipProperties>? other,
     double t,
   ) {
-    if (other is! MoonTooltipProperties) return this;
+    if (other is! SelenicTooltipProperties) return this;
 
-    return MoonTooltipProperties(
+    return SelenicTooltipProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       arrowBaseWidth: lerpDouble(arrowBaseWidth, other.arrowBaseWidth, t)!,
@@ -93,7 +93,7 @@ class MoonTooltipProperties extends ThemeExtension<MoonTooltipProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonTooltipProperties"),
+        DiagnosticsProperty("type", "SelenicTooltipProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

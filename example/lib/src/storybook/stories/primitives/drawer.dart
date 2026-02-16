@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class DrawerStory extends StatelessWidget {
@@ -12,7 +12,7 @@ class DrawerStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonDrawer background.",
+      description: "MoonColors variants for SelenicDrawer background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -23,7 +23,7 @@ class DrawerStory extends StatelessWidget {
 
     final barrierColorKnob = context.knobs.nullable.options(
       label: "barrierColor",
-      description: "MoonColors variants for MoonDrawer barrier.",
+      description: "MoonColors variants for SelenicDrawer barrier.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -34,7 +34,7 @@ class DrawerStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonDrawer.",
+      description: "Border radius for SelenicDrawer.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -42,7 +42,7 @@ class DrawerStory extends StatelessWidget {
 
     final drawerWidthKnob = context.knobs.nullable.sliderInt(
       label: "width",
-      description: "Width for MoonDrawer.",
+      description: "Width for SelenicDrawer.",
       enabled: false,
       initial: 200,
       max: MediaQuery.of(context).size.width.round(),
@@ -53,7 +53,7 @@ class DrawerStory extends StatelessWidget {
       maxWidth: MediaQuery.of(context).size.width,
       child: Scaffold(
         drawerScrimColor: barrierColor,
-        drawer: MoonDrawer(
+        drawer: SelenicDrawer(
           backgroundColor: backgroundColor,
           borderRadius: BorderRadiusDirectional.horizontal(
             end: Radius.circular(borderRadiusKnob?.toDouble() ?? 0),
@@ -63,11 +63,11 @@ class DrawerStory extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("MoonDrawer"),
+              const Text("SelenicDrawer"),
               const SizedBox(height: 32),
               Builder(
                 builder: (BuildContext context) {
-                  return MoonFilledButton(
+                  return SelenicFilledButton(
                     label: const Text("Close"),
                     onTap: () => Navigator.of(context).pop(),
                   );
@@ -84,7 +84,7 @@ class DrawerStory extends StatelessWidget {
                   vertical: 64.0,
                   horizontal: 16.0,
                 ),
-                child: MoonFilledButton(
+                child: SelenicFilledButton(
                   label: const Text("Tap me"),
                   onTap: () => Scaffold.of(context).openDrawer(),
                 ),

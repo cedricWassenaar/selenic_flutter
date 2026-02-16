@@ -4,28 +4,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonAccordionSizeProperties
-    extends ThemeExtension<MoonAccordionSizeProperties>
+class SelenicAccordionSizeProperties
+    extends ThemeExtension<SelenicAccordionSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonAccordion.
+  /// The border radius of the SelenicAccordion.
   final BorderRadiusGeometry borderRadius;
 
-  /// The height of the MoonAccordion header.
+  /// The height of the SelenicAccordion header.
   final double headerHeight;
 
-  /// The size value of the MoonAccordion icon.
+  /// The size value of the SelenicAccordion icon.
   final double iconSizeValue;
 
-  /// The padding of the MoonAccordion header.
+  /// The padding of the SelenicAccordion header.
   final EdgeInsetsGeometry headerPadding;
 
-  /// The text style of the MoonAccordion header.
+  /// The text style of the SelenicAccordion header.
   final TextStyle headerTextStyle;
 
-  /// The text style of the MoonAccordion content.
+  /// The text style of the SelenicAccordion content.
   final TextStyle contentTextStyle;
 
-  const MoonAccordionSizeProperties({
+  const SelenicAccordionSizeProperties({
     required this.borderRadius,
     required this.headerHeight,
     required this.iconSizeValue,
@@ -35,7 +35,7 @@ class MoonAccordionSizeProperties
   });
 
   @override
-  MoonAccordionSizeProperties copyWith({
+  SelenicAccordionSizeProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? headerHeight,
     double? iconSizeValue,
@@ -43,7 +43,7 @@ class MoonAccordionSizeProperties
     TextStyle? headerTextStyle,
     TextStyle? contentTextStyle,
   }) {
-    return MoonAccordionSizeProperties(
+    return SelenicAccordionSizeProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       headerHeight: headerHeight ?? this.headerHeight,
       iconSizeValue: iconSizeValue ?? this.iconSizeValue,
@@ -54,13 +54,13 @@ class MoonAccordionSizeProperties
   }
 
   @override
-  MoonAccordionSizeProperties lerp(
-    ThemeExtension<MoonAccordionSizeProperties>? other,
+  SelenicAccordionSizeProperties lerp(
+    ThemeExtension<SelenicAccordionSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonAccordionSizeProperties) return this;
+    if (other is! SelenicAccordionSizeProperties) return this;
 
-    return MoonAccordionSizeProperties(
+    return SelenicAccordionSizeProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       headerHeight: lerpDouble(headerHeight, other.headerHeight, t)!,
@@ -79,7 +79,7 @@ class MoonAccordionSizeProperties
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonAccordionSizeProperties"),
+        DiagnosticsProperty("type", "SelenicAccordionSizeProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

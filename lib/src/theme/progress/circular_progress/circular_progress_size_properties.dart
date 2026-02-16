@@ -4,39 +4,39 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonCircularProgressSizeProperties
-    extends ThemeExtension<MoonCircularProgressSizeProperties>
+class SelenicCircularProgressSizeProperties
+    extends ThemeExtension<SelenicCircularProgressSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The size value of the MoonCircularProgress.
+  /// The size value of the SelenicCircularProgress.
   final double progressSizeValue;
 
-  /// The stroke width of the MoonCircularProgress.
+  /// The stroke width of the SelenicCircularProgress.
   final double progressStrokeWidth;
 
-  const MoonCircularProgressSizeProperties({
+  const SelenicCircularProgressSizeProperties({
     required this.progressSizeValue,
     required this.progressStrokeWidth,
   });
 
   @override
-  MoonCircularProgressSizeProperties copyWith({
+  SelenicCircularProgressSizeProperties copyWith({
     double? progressSizeValue,
     double? progressStrokeWidth,
   }) {
-    return MoonCircularProgressSizeProperties(
+    return SelenicCircularProgressSizeProperties(
       progressSizeValue: progressSizeValue ?? this.progressSizeValue,
       progressStrokeWidth: progressStrokeWidth ?? this.progressStrokeWidth,
     );
   }
 
   @override
-  MoonCircularProgressSizeProperties lerp(
-    ThemeExtension<MoonCircularProgressSizeProperties>? other,
+  SelenicCircularProgressSizeProperties lerp(
+    ThemeExtension<SelenicCircularProgressSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonCircularProgressSizeProperties) return this;
+    if (other is! SelenicCircularProgressSizeProperties) return this;
 
-    return MoonCircularProgressSizeProperties(
+    return SelenicCircularProgressSizeProperties(
       progressSizeValue:
           lerpDouble(progressSizeValue, other.progressSizeValue, t)!,
       progressStrokeWidth:
@@ -48,7 +48,8 @@ class MoonCircularProgressSizeProperties
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonCircularProgressSizeProperties"))
+      ..add(
+          DiagnosticsProperty("type", "SelenicCircularProgressSizeProperties"))
       ..add(DoubleProperty("progressSizeValue", progressSizeValue))
       ..add(DoubleProperty("progressStrokeWidth", progressStrokeWidth));
   }

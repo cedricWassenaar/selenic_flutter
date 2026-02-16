@@ -2,28 +2,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonDropdownShadows extends ThemeExtension<MoonDropdownShadows>
+class SelenicDropdownShadows extends ThemeExtension<SelenicDropdownShadows>
     with DiagnosticableTreeMixin {
-  /// The list of shadows applied to the MoonDropdown.
+  /// The list of shadows applied to the SelenicDropdown.
   final List<BoxShadow> dropdownShadows;
 
-  const MoonDropdownShadows({required this.dropdownShadows});
+  const SelenicDropdownShadows({required this.dropdownShadows});
 
   @override
-  MoonDropdownShadows copyWith({List<BoxShadow>? dropdownShadows}) {
-    return MoonDropdownShadows(
+  SelenicDropdownShadows copyWith({List<BoxShadow>? dropdownShadows}) {
+    return SelenicDropdownShadows(
       dropdownShadows: dropdownShadows ?? this.dropdownShadows,
     );
   }
 
   @override
-  MoonDropdownShadows lerp(
-    ThemeExtension<MoonDropdownShadows>? other,
+  SelenicDropdownShadows lerp(
+    ThemeExtension<SelenicDropdownShadows>? other,
     double t,
   ) {
-    if (other is! MoonDropdownShadows) return this;
+    if (other is! SelenicDropdownShadows) return this;
 
-    return MoonDropdownShadows(
+    return SelenicDropdownShadows(
       dropdownShadows: BoxShadow.lerpList(
         dropdownShadows,
         other.dropdownShadows,
@@ -39,7 +39,7 @@ class MoonDropdownShadows extends ThemeExtension<MoonDropdownShadows>
       ..add(
         DiagnosticsProperty(
           "type",
-          "MoonDropdownShadows",
+          "SelenicDropdownShadows",
         ),
       )
       ..add(

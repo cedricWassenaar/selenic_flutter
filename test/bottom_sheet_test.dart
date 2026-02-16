@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _bottomSheetKey = Key("bottomSheetKey");
 const Key _showButtonKey = Key("showButtonKey");
@@ -122,7 +122,7 @@ class _BottomSheetTestWidget extends StatelessWidget {
       home: Scaffold(
         body: Builder(
           builder: (BuildContext context) {
-            return MoonFilledButton(
+            return SelenicFilledButton(
               key: _showButtonKey,
               onTap: () => bottomSheetBuilder(context),
             );
@@ -133,7 +133,7 @@ class _BottomSheetTestWidget extends StatelessWidget {
   }
 
   Future<dynamic> bottomSheetBuilder(BuildContext context) {
-    return showMoonModalBottomSheet(
+    return showSelenicModalBottomSheet(
       context: context,
       isExpanded: isExpanded,
       isDismissible: isDismissible,

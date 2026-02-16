@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonTagColors extends ThemeExtension<MoonTagColors>
+class SelenicTagColors extends ThemeExtension<SelenicTagColors>
     with DiagnosticableTreeMixin {
-  /// The text color of the MoonTag.
+  /// The text color of the SelenicTag.
   final Color textColor;
 
-  /// The icon color of the MoonTag.
+  /// The icon color of the SelenicTag.
   final Color iconColor;
 
-  /// The background color of the MoonTag.
+  /// The background color of the SelenicTag.
   final Color backgroundColor;
 
-  const MoonTagColors({
+  const SelenicTagColors({
     required this.textColor,
     required this.iconColor,
     required this.backgroundColor,
   });
 
   @override
-  MoonTagColors copyWith({
+  SelenicTagColors copyWith({
     Color? textColor,
     Color? iconColor,
     Color? backgroundColor,
   }) {
-    return MoonTagColors(
+    return SelenicTagColors(
       textColor: textColor ?? this.textColor,
       iconColor: iconColor ?? this.iconColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -35,10 +35,10 @@ class MoonTagColors extends ThemeExtension<MoonTagColors>
   }
 
   @override
-  MoonTagColors lerp(ThemeExtension<MoonTagColors>? other, double t) {
-    if (other is! MoonTagColors) return this;
+  SelenicTagColors lerp(ThemeExtension<SelenicTagColors>? other, double t) {
+    if (other is! SelenicTagColors) return this;
 
-    return MoonTagColors(
+    return SelenicTagColors(
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
       iconColor: colorPremulLerp(iconColor, other.iconColor, t)!,
       backgroundColor:
@@ -50,7 +50,7 @@ class MoonTagColors extends ThemeExtension<MoonTagColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonTagColors"))
+      ..add(DiagnosticsProperty("type", "SelenicTagColors"))
       ..add(ColorProperty("textColor", textColor))
       ..add(ColorProperty("iconColor", iconColor))
       ..add(ColorProperty("backgroundColor", backgroundColor));

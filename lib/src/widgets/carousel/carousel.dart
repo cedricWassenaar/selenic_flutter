@@ -7,12 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:flutter/rendering.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-class MoonCarousel extends StatefulWidget {
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
+
+class SelenicCarousel extends StatefulWidget {
   /// The axis direction in which the carousel scrolls.
   final Axis axisDirection;
 
@@ -57,10 +58,10 @@ class MoonCarousel extends StatefulWidget {
   /// sequence.
   final Duration? autoPlayDelay;
 
-  /// The duration of the MoonCarousel [autoplay] transition animation.
+  /// The duration of the SelenicCarousel [autoplay] transition animation.
   final Duration? transitionDuration;
 
-  /// The curve of the MoonCarousel [autoplay] transition animation.
+  /// The curve of the SelenicCarousel [autoplay] transition animation.
   final Curve? transitionCurve;
 
   /// The total number of items to build for the carousel.
@@ -71,7 +72,7 @@ class MoonCarousel extends StatefulWidget {
 
   /// The scroll physics of the carousel.
   ///
-  /// Defaults to [MoonCarouselScrollPhysics], which ensures that the carousel
+  /// Defaults to [SelenicCarouselScrollPhysics], which ensures that the carousel
   /// always lands on a specific item after scrolling.
   final ScrollPhysics? physics;
 
@@ -97,8 +98,8 @@ class MoonCarousel extends StatefulWidget {
   final Widget Function(BuildContext context, int itemIndex, int realIndex)
       itemBuilder;
 
-  /// Creates a Moon Design carousel.
-  const MoonCarousel({
+  /// Creates a Selenic Design carousel.
+  const SelenicCarousel({
     super.key,
     this.axisDirection = Axis.horizontal,
     this.autoPlay = false,
@@ -123,12 +124,12 @@ class MoonCarousel extends StatefulWidget {
         assert(velocityFactor > 0.0 && velocityFactor <= 1.0);
 
   @override
-  State<MoonCarousel> createState() => _MoonCarouselState();
+  State<SelenicCarousel> createState() => _SelenicCarouselState();
 }
 
-class _MoonCarouselState extends State<MoonCarousel> {
+class _SelenicCarouselState extends State<SelenicCarousel> {
   late int _lastReportedItemIndex;
-  late MoonCarouselScrollController _scrollController;
+  late SelenicCarouselScrollController _scrollController;
 
   final Key _forwardListKey = const ValueKey<String>("moon_carousel_key");
 
@@ -177,24 +178,25 @@ class _MoonCarouselState extends State<MoonCarousel> {
   void initState() {
     super.initState();
 
-    _scrollController = (widget.controller as MoonCarouselScrollController?) ??
-        MoonCarouselScrollController();
+    _scrollController =
+        (widget.controller as SelenicCarouselScrollController?) ??
+            SelenicCarouselScrollController();
 
     _lastReportedItemIndex = _scrollController.initialItem;
 
     if (widget.autoPlay) {
       WidgetsBinding.instance.addPostFrameCallback((Duration _) {
         final Duration effectiveAutoPlayDelay = widget.autoPlayDelay ??
-            context.moonTheme?.carouselTheme.properties.autoPlayDelay ??
+            context.selenicTheme?.carouselTheme.properties.autoPlayDelay ??
             const Duration(seconds: 3);
 
         final Duration effectiveTransitionDuration = widget
                 .transitionDuration ??
-            context.moonTheme?.carouselTheme.properties.transitionDuration ??
+            context.selenicTheme?.carouselTheme.properties.transitionDuration ??
             const Duration(milliseconds: 800);
 
         final Curve effectiveTransitionCurve = widget.transitionCurve ??
-            context.moonTheme?.carouselTheme.properties.transitionCurve ??
+            context.selenicTheme?.carouselTheme.properties.transitionCurve ??
             Curves.fastOutSlowIn;
 
         _scrollController.startAutoPlay(
@@ -207,22 +209,22 @@ class _MoonCarouselState extends State<MoonCarousel> {
   }
 
   @override
-  void didUpdateWidget(MoonCarousel oldWidget) {
+  void didUpdateWidget(SelenicCarousel oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.autoPlay != oldWidget.autoPlay) {
       if (widget.autoPlay) {
         final Duration effectiveAutoPlayDelay = widget.autoPlayDelay ??
-            context.moonTheme?.carouselTheme.properties.autoPlayDelay ??
+            context.selenicTheme?.carouselTheme.properties.autoPlayDelay ??
             const Duration(seconds: 3);
 
         final Duration effectiveTransitionDuration = widget
                 .transitionDuration ??
-            context.moonTheme?.carouselTheme.properties.transitionDuration ??
+            context.selenicTheme?.carouselTheme.properties.transitionDuration ??
             const Duration(milliseconds: 800);
 
         final Curve effectiveTransitionCurve = widget.transitionCurve ??
-            context.moonTheme?.carouselTheme.properties.transitionCurve ??
+            context.selenicTheme?.carouselTheme.properties.transitionCurve ??
             Curves.fastOutSlowIn;
 
         _scrollController.startAutoPlay(
@@ -300,16 +302,16 @@ class _MoonCarouselState extends State<MoonCarousel> {
   @override
   Widget build(BuildContext context) {
     final Color effectiveTextColor =
-        context.moonTheme?.carouselTheme.colors.textColor ??
+        context.selenicTheme?.carouselTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.carouselTheme.colors.iconColor ??
+        context.selenicTheme?.carouselTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.carouselTheme.properties.textStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.selenicTheme?.carouselTheme.properties.textStyle ??
+            SelenicTypography.typography.body.textDefault;
 
     final AxisDirection axisDirection = _getDirection(context);
 
@@ -324,13 +326,13 @@ class _MoonCarouselState extends State<MoonCarousel> {
         );
 
     _effectiveGap = widget.gap ??
-        context.moonTheme?.carouselTheme.properties.gap ??
-        MoonSizes.sizes.x2s;
+        context.selenicTheme?.carouselTheme.properties.gap ??
+        SelenicSizes.sizes.x2s;
 
     return NotificationListener<ScrollUpdateNotification>(
       onNotification: (ScrollUpdateNotification notification) {
-        final MoonCarouselExtentMetrics metrics =
-            notification.metrics as MoonCarouselExtentMetrics;
+        final SelenicCarouselExtentMetrics metrics =
+            notification.metrics as SelenicCarouselExtentMetrics;
 
         final int currentItem = metrics.itemIndex;
 
@@ -356,7 +358,7 @@ class _MoonCarouselState extends State<MoonCarousel> {
             ),
             child: DefaultTextStyle(
               style: effectiveTextStyle.copyWith(color: effectiveTextColor),
-              child: _MoonCarouselScrollable(
+              child: _SelenicCarouselScrollable(
                 anchor: centeredAnchor,
                 axisDirection: axisDirection,
                 controller: _scrollController,
@@ -365,7 +367,7 @@ class _MoonCarouselState extends State<MoonCarousel> {
                 itemCount: widget.itemCount,
                 itemExtent: widget.itemExtent + _effectiveGap,
                 loop: widget.loop,
-                physics: widget.physics ?? const MoonCarouselScrollPhysics(),
+                physics: widget.physics ?? const SelenicCarouselScrollPhysics(),
                 scrollBehavior: effectiveScrollBehavior,
                 velocityFactor: widget.velocityFactor,
                 viewportBuilder: (
@@ -395,7 +397,7 @@ class _MoonCarouselState extends State<MoonCarousel> {
 /// Extends Scrollable by including the viewport's itemExtent, itemCount, loop,
 /// and other values. This allows ScrollPosition and Physics to access these
 /// values directly from the scroll context.
-class _MoonCarouselScrollable extends Scrollable {
+class _SelenicCarouselScrollable extends Scrollable {
   final bool clampMaxExtent;
   final bool loop;
   final double anchor;
@@ -404,7 +406,7 @@ class _MoonCarouselScrollable extends Scrollable {
   final double velocityFactor;
   final int itemCount;
 
-  const _MoonCarouselScrollable({
+  const _SelenicCarouselScrollable({
     super.axisDirection = AxisDirection.right,
     super.controller,
     super.physics,
@@ -420,35 +422,37 @@ class _MoonCarouselScrollable extends Scrollable {
   });
 
   @override
-  _MoonCarouselScrollableState createState() => _MoonCarouselScrollableState();
+  _SelenicCarouselScrollableState createState() =>
+      _SelenicCarouselScrollableState();
 }
 
-class _MoonCarouselScrollableState extends ScrollableState {
-  bool get clampMaxExtent => (widget as _MoonCarouselScrollable).clampMaxExtent;
+class _SelenicCarouselScrollableState extends ScrollableState {
+  bool get clampMaxExtent =>
+      (widget as _SelenicCarouselScrollable).clampMaxExtent;
 
-  bool get loop => (widget as _MoonCarouselScrollable).loop;
+  bool get loop => (widget as _SelenicCarouselScrollable).loop;
 
-  double get anchor => (widget as _MoonCarouselScrollable).anchor;
+  double get anchor => (widget as _SelenicCarouselScrollable).anchor;
 
-  double get gap => (widget as _MoonCarouselScrollable).gap;
+  double get gap => (widget as _SelenicCarouselScrollable).gap;
 
-  double get itemExtent => (widget as _MoonCarouselScrollable).itemExtent;
+  double get itemExtent => (widget as _SelenicCarouselScrollable).itemExtent;
 
   double get velocityFactor =>
-      (widget as _MoonCarouselScrollable).velocityFactor;
+      (widget as _SelenicCarouselScrollable).velocityFactor;
 
-  int get itemCount => (widget as _MoonCarouselScrollable).itemCount;
+  int get itemCount => (widget as _SelenicCarouselScrollable).itemCount;
 }
 
-/// Scroll controller for [MoonCarousel].
-class MoonCarouselScrollController extends ScrollController {
-  /// The initial carousel item index for [MoonCarouselScrollController].
+/// Scroll controller for [SelenicCarousel].
+class SelenicCarouselScrollController extends ScrollController {
+  /// The initial carousel item index for [SelenicCarouselScrollController].
   ///
   /// Defaults to '0'.
   final int initialItem;
 
-  /// Scroll controller for [MoonCarousel].
-  MoonCarouselScrollController({this.initialItem = 0});
+  /// Scroll controller for [SelenicCarousel].
+  SelenicCarouselScrollController({this.initialItem = 0});
 
   // Timer for autoplay.
   Timer? _autoplayTimer;
@@ -481,11 +485,11 @@ class MoonCarouselScrollController extends ScrollController {
     super.dispose();
   }
 
-  /// Returns the index of the currently selected item. If [MoonCarousel.loop]
+  /// Returns the index of the currently selected item. If [SelenicCarousel.loop]
   /// is true it provides the modded index value.
   int get selectedItem => _getTrueIndex(
-        (position as _MoonCarouselScrollPosition).itemIndex,
-        (position as _MoonCarouselScrollPosition).itemCount,
+        (position as _SelenicCarouselScrollPosition).itemIndex,
+        (position as _SelenicCarouselScrollPosition).itemCount,
       );
 
   /// Animate to the specified item index.
@@ -497,7 +501,7 @@ class MoonCarouselScrollController extends ScrollController {
     if (!hasClients) return;
 
     await Future.wait<void>([
-      for (final position in positions.cast<_MoonCarouselScrollPosition>())
+      for (final position in positions.cast<_SelenicCarouselScrollPosition>())
         position.animateTo(
           itemIndex * position.itemExtent,
           duration: duration ?? const Duration(milliseconds: 800),
@@ -508,7 +512,7 @@ class MoonCarouselScrollController extends ScrollController {
 
   /// Jump to the specified item index.
   void jumpToItem(int itemIndex) {
-    for (final position in positions.cast<_MoonCarouselScrollPosition>()) {
+    for (final position in positions.cast<_SelenicCarouselScrollPosition>()) {
       position.jumpTo(itemIndex * position.itemExtent);
     }
   }
@@ -518,7 +522,7 @@ class MoonCarouselScrollController extends ScrollController {
     if (!hasClients) return;
 
     await Future.wait<void>([
-      for (final position in positions.cast<_MoonCarouselScrollPosition>())
+      for (final position in positions.cast<_SelenicCarouselScrollPosition>())
         position.animateTo(
           offset + position.itemExtent,
           duration: duration ?? const Duration(milliseconds: 800),
@@ -532,7 +536,7 @@ class MoonCarouselScrollController extends ScrollController {
     if (!hasClients) return;
 
     await Future.wait<void>([
-      for (final position in positions.cast<_MoonCarouselScrollPosition>())
+      for (final position in positions.cast<_SelenicCarouselScrollPosition>())
         position.animateTo(
           offset - position.itemExtent,
           duration: duration ?? const Duration(milliseconds: 800),
@@ -547,7 +551,7 @@ class MoonCarouselScrollController extends ScrollController {
     ScrollContext context,
     ScrollPosition? oldPosition,
   ) {
-    return _MoonCarouselScrollPosition(
+    return _SelenicCarouselScrollPosition(
       context: context,
       initialItem: initialItem,
       oldPosition: oldPosition,
@@ -556,15 +560,15 @@ class MoonCarouselScrollController extends ScrollController {
   }
 }
 
-/// The metrics for the [MoonCarouselScrollController].
-class MoonCarouselExtentMetrics extends FixedScrollMetrics {
+/// The metrics for the [SelenicCarouselScrollController].
+class SelenicCarouselExtentMetrics extends FixedScrollMetrics {
   /// The index of the currently selected item within the scroll view.
   final int itemIndex;
 
   /// Provides an immutable snapshot of the current scroll positions within the
   /// carousel. This snapshot can be directly accessed by [ScrollNotification]
   /// to retrieve the currently selected real item index at any given moment.
-  MoonCarouselExtentMetrics({
+  SelenicCarouselExtentMetrics({
     required super.minScrollExtent,
     required super.maxScrollExtent,
     required super.pixels,
@@ -575,7 +579,7 @@ class MoonCarouselExtentMetrics extends FixedScrollMetrics {
   });
 
   @override
-  MoonCarouselExtentMetrics copyWith({
+  SelenicCarouselExtentMetrics copyWith({
     AxisDirection? axisDirection,
     double? devicePixelRatio,
     double? minScrollExtent,
@@ -584,7 +588,7 @@ class MoonCarouselExtentMetrics extends FixedScrollMetrics {
     double? viewportDimension,
     int? itemIndex,
   }) {
-    return MoonCarouselExtentMetrics(
+    return SelenicCarouselExtentMetrics(
       axisDirection: axisDirection ?? this.axisDirection,
       devicePixelRatio: devicePixelRatio ?? this.devicePixelRatio,
       minScrollExtent: minScrollExtent ??
@@ -627,14 +631,14 @@ int _getTrueIndex(int currentIndex, int totalCount) {
   return (totalCount + (currentIndex % totalCount)) % totalCount;
 }
 
-class _MoonCarouselScrollPosition extends ScrollPositionWithSingleContext
-    implements MoonCarouselExtentMetrics {
-  _MoonCarouselScrollPosition({
+class _SelenicCarouselScrollPosition extends ScrollPositionWithSingleContext
+    implements SelenicCarouselExtentMetrics {
+  _SelenicCarouselScrollPosition({
     required super.physics,
     required super.context,
     required int initialItem,
     super.oldPosition,
-  })  : assert(context is _MoonCarouselScrollableState),
+  })  : assert(context is _SelenicCarouselScrollableState),
         super(
           initialPixels: _getItemExtentFromScrollContext(context) * initialItem,
         );
@@ -642,37 +646,37 @@ class _MoonCarouselScrollPosition extends ScrollPositionWithSingleContext
   double get anchor => _getAnchorFromScrollContext(context);
 
   static double _getAnchorFromScrollContext(ScrollContext context) =>
-      (context as _MoonCarouselScrollableState).anchor;
+      (context as _SelenicCarouselScrollableState).anchor;
 
   double get itemExtent => _getItemExtentFromScrollContext(context);
 
   static double _getItemExtentFromScrollContext(ScrollContext context) =>
-      (context as _MoonCarouselScrollableState).itemExtent;
+      (context as _SelenicCarouselScrollableState).itemExtent;
 
   double get gap => _getGapFromScrollContext(context);
 
   static double _getGapFromScrollContext(ScrollContext context) =>
-      (context as _MoonCarouselScrollableState).gap;
+      (context as _SelenicCarouselScrollableState).gap;
 
   int get itemCount => _getItemCountFromScrollContext(context);
 
   static int _getItemCountFromScrollContext(ScrollContext context) =>
-      (context as _MoonCarouselScrollableState).itemCount;
+      (context as _SelenicCarouselScrollableState).itemCount;
 
   bool get clampMaxExtent => _getDeferMaxExtentFromScrollContext(context);
 
   static bool _getDeferMaxExtentFromScrollContext(ScrollContext context) =>
-      (context as _MoonCarouselScrollableState).clampMaxExtent;
+      (context as _SelenicCarouselScrollableState).clampMaxExtent;
 
   bool get loop => _getLoopFromScrollContext(context);
 
   static bool _getLoopFromScrollContext(ScrollContext context) =>
-      (context as _MoonCarouselScrollableState).loop;
+      (context as _SelenicCarouselScrollableState).loop;
 
   double get velocityFactor => _getVelocityFactorFromScrollContext(context);
 
   static double _getVelocityFactorFromScrollContext(ScrollContext context) =>
-      (context as _MoonCarouselScrollableState).velocityFactor;
+      (context as _SelenicCarouselScrollableState).velocityFactor;
 
   @override
   int get itemIndex {
@@ -703,7 +707,7 @@ class _MoonCarouselScrollPosition extends ScrollPositionWithSingleContext
   }
 
   @override
-  MoonCarouselExtentMetrics copyWith({
+  SelenicCarouselExtentMetrics copyWith({
     AxisDirection? axisDirection,
     double? devicePixelRatio,
     double? minScrollExtent,
@@ -712,7 +716,7 @@ class _MoonCarouselScrollPosition extends ScrollPositionWithSingleContext
     double? viewportDimension,
     int? itemIndex,
   }) {
-    return MoonCarouselExtentMetrics(
+    return SelenicCarouselExtentMetrics(
       axisDirection: axisDirection ?? this.axisDirection,
       devicePixelRatio: devicePixelRatio ?? this.devicePixelRatio,
       minScrollExtent: minScrollExtent ??
@@ -725,17 +729,17 @@ class _MoonCarouselScrollPosition extends ScrollPositionWithSingleContext
   }
 }
 
-/// The physics for the [MoonCarousel].
-class MoonCarouselScrollPhysics extends ScrollPhysics {
+/// The physics for the [SelenicCarousel].
+class SelenicCarouselScrollPhysics extends ScrollPhysics {
   /// Extends Flutter's [FixedExtentScrollPhysics] to implement
-  /// carousel-specific behavior. When [MoonCarousel.loop] is false, friction is
+  /// carousel-specific behavior. When [SelenicCarousel.loop] is false, friction is
   /// applied when the user tries to scroll beyond the viewport. The friction
   /// factor is calculated the same way as in [BouncingScrollPhysics].
-  const MoonCarouselScrollPhysics({super.parent});
+  const SelenicCarouselScrollPhysics({super.parent});
 
   @override
-  MoonCarouselScrollPhysics applyTo(ScrollPhysics? ancestor) {
-    return MoonCarouselScrollPhysics(parent: buildParent(ancestor));
+  SelenicCarouselScrollPhysics applyTo(ScrollPhysics? ancestor) {
+    return SelenicCarouselScrollPhysics(parent: buildParent(ancestor));
   }
 
   @override
@@ -796,8 +800,8 @@ class MoonCarouselScrollPhysics extends ScrollPhysics {
     ScrollMetrics position,
     double velocity,
   ) {
-    final _MoonCarouselScrollPosition metrics =
-        position as _MoonCarouselScrollPosition;
+    final _SelenicCarouselScrollPosition metrics =
+        position as _SelenicCarouselScrollPosition;
 
     // Scenario 1:
     // If the carousel is out of range and not returning to range, we defer to

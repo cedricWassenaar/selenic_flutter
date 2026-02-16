@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class CircularProgressStory extends StatelessWidget {
@@ -15,13 +15,13 @@ class CircularProgressStory extends StatelessWidget {
       label: "circularProgressSize",
       description: "Size variants for CircularProgress.",
       enabled: false,
-      initial: MoonCircularProgressSize.md,
+      initial: SelenicCircularProgressSize.md,
       options: const [
-        Option(label: "x2s", value: MoonCircularProgressSize.x2s),
-        Option(label: "xs", value: MoonCircularProgressSize.xs),
-        Option(label: "sm", value: MoonCircularProgressSize.sm),
-        Option(label: "md", value: MoonCircularProgressSize.md),
-        Option(label: "lg", value: MoonCircularProgressSize.lg),
+        Option(label: "x2s", value: SelenicCircularProgressSize.x2s),
+        Option(label: "xs", value: SelenicCircularProgressSize.xs),
+        Option(label: "sm", value: SelenicCircularProgressSize.sm),
+        Option(label: "md", value: SelenicCircularProgressSize.md),
+        Option(label: "lg", value: SelenicCircularProgressSize.lg),
       ],
     );
 
@@ -69,7 +69,7 @@ class CircularProgressStory extends StatelessWidget {
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 64.0, horizontal: 16.0),
-        child: MoonCircularProgress(
+        child: SelenicCircularProgress(
           value: circularProgressValueKnob,
           color: color,
           backgroundColor: backgroundColor,

@@ -1,24 +1,24 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonChipColors extends ThemeExtension<MoonChipColors>
+class SelenicChipColors extends ThemeExtension<SelenicChipColors>
     with DiagnosticableTreeMixin {
-  /// The text and border color of the MoonChip in active state.
+  /// The text and border color of the SelenicChip in active state.
   final Color activeColor;
 
-  /// The background color of the MoonChip.
+  /// The background color of the SelenicChip.
   final Color backgroundColor;
 
-  /// The background color of the MoonChip in active state.
+  /// The background color of the SelenicChip in active state.
   final Color activeBackgroundColor;
 
-  /// The text color of the MoonChip.
+  /// The text color of the SelenicChip.
   final Color textColor;
 
-  const MoonChipColors({
+  const SelenicChipColors({
     required this.activeColor,
     required this.backgroundColor,
     required this.activeBackgroundColor,
@@ -26,13 +26,13 @@ class MoonChipColors extends ThemeExtension<MoonChipColors>
   });
 
   @override
-  MoonChipColors copyWith({
+  SelenicChipColors copyWith({
     Color? activeColor,
     Color? backgroundColor,
     Color? activeBackgroundColor,
     Color? textColor,
   }) {
-    return MoonChipColors(
+    return SelenicChipColors(
       activeColor: activeColor ?? this.activeColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       activeBackgroundColor:
@@ -42,10 +42,10 @@ class MoonChipColors extends ThemeExtension<MoonChipColors>
   }
 
   @override
-  MoonChipColors lerp(ThemeExtension<MoonChipColors>? other, double t) {
-    if (other is! MoonChipColors) return this;
+  SelenicChipColors lerp(ThemeExtension<SelenicChipColors>? other, double t) {
+    if (other is! SelenicChipColors) return this;
 
-    return MoonChipColors(
+    return SelenicChipColors(
       activeColor: colorPremulLerp(activeColor, other.activeColor, t)!,
       backgroundColor:
           colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
@@ -62,7 +62,7 @@ class MoonChipColors extends ThemeExtension<MoonChipColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonChipColors"))
+      ..add(DiagnosticsProperty("type", "SelenicChipColors"))
       ..add(ColorProperty("activeColor", activeColor))
       ..add(ColorProperty("backgroundColor", backgroundColor))
       ..add(ColorProperty("activeBackgroundColor", activeBackgroundColor))

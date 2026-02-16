@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 enum MenuItem { first, second }
@@ -25,7 +25,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
   Widget build(BuildContext context) {
     final leadingColorKnob = context.knobs.nullable.options(
       label: "Leading color",
-      description: "MoonColors variants for MoonMenuItem leading slot.",
+      description: "MoonColors variants for SelenicMenuItem leading slot.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -36,7 +36,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final labelColorKnob = context.knobs.nullable.options(
       label: "Label color",
-      description: "MoonColors variants for MoonMenuItem label slot.",
+      description: "MoonColors variants for SelenicMenuItem label slot.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -47,7 +47,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final contentTextColorKnob = context.knobs.nullable.options(
       label: "Content color",
-      description: "MoonColors variants for MoonMenuItem content slot.",
+      description: "MoonColors variants for SelenicMenuItem content slot.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -58,7 +58,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final trailingColorKnob = context.knobs.nullable.options(
       label: "Trailing color",
-      description: "MoonColors variants for MoonMenuItem trailing slot.",
+      description: "MoonColors variants for SelenicMenuItem trailing slot.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -69,7 +69,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonMenuItem background.",
+      description: "MoonColors variants for SelenicMenuItem background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -80,7 +80,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final menuItemCrossAxisAlignmentKnob = context.knobs.nullable.options(
       label: "menuItemCrossAxisAlignment",
-      description: "CrossAxisAlignment variants for MoonMenuItem.",
+      description: "CrossAxisAlignment variants for SelenicMenuItem.",
       enabled: false,
       initial: CrossAxisAlignment.center,
       options: [
@@ -101,7 +101,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonMenuItem.",
+      description: "Border radius for SelenicMenuItem.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -109,25 +109,25 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final showLeadingKnob = context.knobs.boolean(
       label: "leading",
-      description: "Show widget in MoonMenuItem leading slot.",
+      description: "Show widget in SelenicMenuItem leading slot.",
       initial: true,
     );
 
     final showContentKnob = context.knobs.boolean(
       label: "content",
-      description: "Show widget in MoonMenuItem content slot.",
+      description: "Show widget in SelenicMenuItem content slot.",
       initial: true,
     );
 
     final showTrailingKnob = context.knobs.boolean(
       label: "trailing",
-      description: "Show widget in MoonMenuItem trailing slot.",
+      description: "Show widget in SelenicMenuItem trailing slot.",
       initial: true,
     );
 
     final isDisabledKnob = context.knobs.boolean(
       label: "Disabled",
-      description: "MoonMenuItem onTap() is null.",
+      description: "SelenicMenuItem onTap() is null.",
     );
 
     final BorderRadiusGeometry? borderRadius = borderRadiusKnob != null
@@ -141,10 +141,10 @@ class _MenuItemStoryState extends State<MenuItemStory> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const TextDivider(
-              text: "MoonMenuItem",
+              text: "SelenicMenuItem",
               paddingTop: 0,
             ),
-            MoonMenuItem(
+            SelenicMenuItem(
               borderRadius: borderRadius,
               backgroundColor: backgroundColor,
               menuItemCrossAxisAlignment: menuItemCrossAxisAlignmentKnob,
@@ -155,15 +155,15 @@ class _MenuItemStoryState extends State<MenuItemStory> {
               ),
               content: showContentKnob
                   ? Text(
-                      "Multi-line default content field as an example for MoonMenuItem component.",
+                      "Multi-line default content field as an example for SelenicMenuItem component.",
                       style: TextStyle(color: contentTextColor),
                     )
                   : null,
               leading: showLeadingKnob
-                  ? MoonAvatar(
+                  ? SelenicAvatar(
                       borderRadius: borderRadius,
-                      backgroundColor: context.moonColors!.jiren,
-                      avatarSize: MoonAvatarSize.lg,
+                      backgroundColor: context.selenicColors!.jiren,
+                      avatarSize: SelenicAvatarSize.lg,
                       content: const Icon(
                         MoonIcons.travel_airplane_32_regular,
                         size: 32,
@@ -178,7 +178,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
                   : null,
             ),
             const SizedBox(height: 16),
-            MoonMenuItem(
+            SelenicMenuItem(
               backgroundColor: backgroundColor,
               borderRadius: borderRadius,
               menuItemCrossAxisAlignment: menuItemCrossAxisAlignmentKnob,
@@ -194,10 +194,10 @@ class _MenuItemStoryState extends State<MenuItemStory> {
                     )
                   : null,
               leading: showLeadingKnob
-                  ? MoonAvatar(
+                  ? SelenicAvatar(
                       borderRadius: borderRadius,
-                      backgroundColor: context.moonColors!.jiren,
-                      avatarSize: MoonAvatarSize.md,
+                      backgroundColor: context.selenicColors!.jiren,
+                      avatarSize: SelenicAvatarSize.md,
                       content: const Icon(
                         MoonIcons.notifications_activity_32_regular,
                         size: 24,
@@ -211,8 +211,8 @@ class _MenuItemStoryState extends State<MenuItemStory> {
                     )
                   : null,
             ),
-            const TextDivider(text: "MoonMenuItem with selection control"),
-            MoonMenuItem(
+            const TextDivider(text: "SelenicMenuItem with selection control"),
+            SelenicMenuItem(
               borderRadius: borderRadius,
               backgroundColor: backgroundColor,
               menuItemCrossAxisAlignment: menuItemCrossAxisAlignmentKnob,
@@ -221,7 +221,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
                   : () =>
                       setState(() => checkboxIsSelected = !checkboxIsSelected!),
               label: Text(
-                "Menu item with MoonCheckbox",
+                "Menu item with SelenicCheckbox",
                 style: TextStyle(color: labelTextColor),
               ),
               leading: showLeadingKnob
@@ -231,7 +231,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
                     )
                   : null,
               trailing: showTrailingKnob
-                  ? MoonCheckbox(
+                  ? SelenicCheckbox(
                       value: checkboxIsSelected,
                       tapAreaSizeValue: 24,
                       onChanged: (bool? isSelected) =>
@@ -240,7 +240,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
                   : null,
             ),
             const SizedBox(height: 16),
-            MoonMenuItem(
+            SelenicMenuItem(
               borderRadius: borderRadius,
               backgroundColor: backgroundColor,
               menuItemCrossAxisAlignment: menuItemCrossAxisAlignmentKnob,
@@ -248,7 +248,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
                   ? null
                   : () => setState(() => switchIsSelected = !switchIsSelected),
               label: Text(
-                "Menu item with MoonSwitch",
+                "Menu item with SelenicSwitch",
                 style: TextStyle(color: labelTextColor),
               ),
               leading: showLeadingKnob
@@ -258,28 +258,28 @@ class _MenuItemStoryState extends State<MenuItemStory> {
                     )
                   : null,
               trailing: showTrailingKnob
-                  ? MoonSwitch(
-                      switchSize: MoonSwitchSize.x2s,
+                  ? SelenicSwitch(
+                      switchSize: SelenicSwitchSize.x2s,
                       value: switchIsSelected,
                       onChanged: (bool isSelected) =>
                           setState(() => switchIsSelected = isSelected),
                     )
                   : null,
             ),
-            const TextDivider(text: "Expandable MoonMenuItem with divider"),
-            MoonAccordion<MoonMenuItem>(
+            const TextDivider(text: "Expandable SelenicMenuItem with divider"),
+            SelenicAccordion<SelenicMenuItem>(
               shadows: const [],
               isDisabled: isDisabledKnob,
               hasContentOutside: true,
               borderRadius: borderRadius,
-              accordionSize: MoonAccordionSize.md,
+              accordionSize: SelenicAccordionSize.md,
               iconColor: trailingColor,
               backgroundColor: backgroundColor ?? Colors.transparent,
               expandedBackgroundColor:
-                  backgroundColor ?? context.moonColors!.heles,
+                  backgroundColor ?? context.selenicColors!.heles,
               label: Text(
                 'Expandable menu item',
-                style: context.moonTypography!.body.textDefault.copyWith(
+                style: context.selenicTypography!.body.textDefault.copyWith(
                   color: labelTextColor,
                   fontWeight: FontWeight.w400,
                 ),
@@ -287,16 +287,16 @@ class _MenuItemStoryState extends State<MenuItemStory> {
               leading: showLeadingKnob
                   ? Icon(
                       MoonIcons.other_frame_24_light,
-                      color: leadingColor ?? context.moonColors!.iconPrimary,
+                      color: leadingColor ?? context.selenicColors!.iconPrimary,
                     )
                   : null,
               childrenPadding:
                   const EdgeInsets.only(top: 8, bottom: 8, left: 24),
-              children: MoonMenuItem.divideMenuItems(
+              children: SelenicMenuItem.divideMenuItems(
                 context: context,
                 menuItems: List.generate(
                   2,
-                  (index) => MoonMenuItem(
+                  (index) => SelenicMenuItem(
                     backgroundColor: backgroundColor,
                     borderRadius: borderRadius,
                     menuItemCrossAxisAlignment: menuItemCrossAxisAlignmentKnob,
@@ -304,11 +304,11 @@ class _MenuItemStoryState extends State<MenuItemStory> {
                       () => currentlySelectedMenuItem = MenuItem.values[index],
                     ),
                     label: Text(
-                      "Menu item ${index + 1} with MoonRadio",
+                      "Menu item ${index + 1} with SelenicRadio",
                       style: TextStyle(color: labelTextColor),
                     ),
                     leading: showLeadingKnob
-                        ? MoonRadio<MenuItem>(
+                        ? SelenicRadio<MenuItem>(
                             value: MenuItem.values[index],
                             groupValue: currentlySelectedMenuItem,
                             tapAreaSizeValue: 24,

@@ -1,29 +1,29 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonTableColors extends ThemeExtension<MoonTableColors>
+class SelenicTableColors extends ThemeExtension<SelenicTableColors>
     with DiagnosticableTreeMixin {
-  /// The text color of the MoonTable column.
+  /// The text color of the SelenicTable column.
   final Color columnTextColor;
 
-  /// The text color of the MoonTable row.
+  /// The text color of the SelenicTable row.
   final Color rowTextColor;
 
-  /// The text color of the MoonTable row label.
+  /// The text color of the SelenicTable row label.
   final Color rowLabelTextColor;
 
-  /// The text color of the MoonTable row pinned and animated label.
+  /// The text color of the SelenicTable row pinned and animated label.
   final Color rowPinnedAnimatedLabelTextColor;
 
-  /// The icon color of the MoonTable.
+  /// The icon color of the SelenicTable.
   final Color iconColor;
 
-  /// The background color of the MoonTable row.
+  /// The background color of the SelenicTable row.
   final Color rowBackgroundColor;
 
-  const MoonTableColors({
+  const SelenicTableColors({
     required this.columnTextColor,
     required this.rowTextColor,
     required this.rowLabelTextColor,
@@ -33,7 +33,7 @@ class MoonTableColors extends ThemeExtension<MoonTableColors>
   });
 
   @override
-  MoonTableColors copyWith({
+  SelenicTableColors copyWith({
     Color? columnTextColor,
     Color? rowTextColor,
     Color? rowLabelTextColor,
@@ -41,7 +41,7 @@ class MoonTableColors extends ThemeExtension<MoonTableColors>
     Color? iconColor,
     Color? rowBackgroundColor,
   }) {
-    return MoonTableColors(
+    return SelenicTableColors(
       columnTextColor: columnTextColor ?? this.columnTextColor,
       rowTextColor: rowTextColor ?? this.rowTextColor,
       rowLabelTextColor: rowLabelTextColor ?? this.rowLabelTextColor,
@@ -53,10 +53,10 @@ class MoonTableColors extends ThemeExtension<MoonTableColors>
   }
 
   @override
-  MoonTableColors lerp(ThemeExtension<MoonTableColors>? other, double t) {
-    if (other is! MoonTableColors) return this;
+  SelenicTableColors lerp(ThemeExtension<SelenicTableColors>? other, double t) {
+    if (other is! SelenicTableColors) return this;
 
-    return MoonTableColors(
+    return SelenicTableColors(
       columnTextColor:
           colorPremulLerp(columnTextColor, other.columnTextColor, t)!,
       rowTextColor: colorPremulLerp(rowTextColor, other.rowTextColor, t)!,
@@ -84,7 +84,7 @@ class MoonTableColors extends ThemeExtension<MoonTableColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonTableColors"))
+      ..add(DiagnosticsProperty("type", "SelenicTableColors"))
       ..add(ColorProperty("columnTextColor", columnTextColor))
       ..add(ColorProperty("rowTextColor", rowTextColor))
       ..add(ColorProperty("rowLabelTextColor", rowLabelTextColor))

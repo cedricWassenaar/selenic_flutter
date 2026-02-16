@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _authCodeKey = Key("authCodeKey");
 
@@ -71,7 +71,7 @@ class _AuthCodeTestWidget extends StatelessWidget {
       home: Scaffold(
         body: Directionality(
           textDirection: TextDirection.ltr,
-          child: MoonAuthCode(
+          child: SelenicAuthCode(
             key: authCodeKey,
             authInputFieldCount: 4,
             errorText: providedErrorMessage,

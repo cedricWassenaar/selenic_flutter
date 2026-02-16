@@ -4,29 +4,29 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:moon_design/src/widgets/text_input/text_input.dart';
+import 'package:selenic_design/src/widgets/text_input/text_input.dart';
 
 export 'package:flutter/services.dart' show SmartDashesType, SmartQuotesType;
 
-typedef MoonFormTextInputValidationStatusCallback = void Function(
+typedef SelenicFormTextInputValidationStatusCallback = void Function(
   String? validationErrorText,
 );
 
-class MoonFormTextInput extends FormField<String> {
-  final MoonFormTextInputConfiguration configuration;
+class SelenicFormTextInput extends FormField<String> {
+  final SelenicFormTextInputConfiguration configuration;
 
-  /// Creates a Moon Design [MoonFormTextInput] with a [MoonTextInput].
+  /// Creates a Selenic Design [SelenicFormTextInput] with a [SelenicTextInput].
   ///
   /// If a [controller] is specified, [initialValue] must be null.
   /// If [controller] is null, a [TextEditingController] is automatically
   /// created with its `text` initialized to [initialValue] or an empty string.
   ///
-  /// See [MoonTextInput] documentation for details on various parameters.
+  /// See [SelenicTextInput] documentation for details on various parameters.
   ///
   /// Validator errors take precedence over the provided [errorText].
-  MoonFormTextInput({
+  SelenicFormTextInput({
     super.key,
-    // Moon Design system properties.
+    // Selenic Design system properties.
     bool hasFloatingLabel = false,
     BorderRadiusGeometry? borderRadius,
     Color? backgroundColor,
@@ -45,13 +45,13 @@ class MoonFormTextInput extends FormField<String> {
     Curve? transitionCurve,
     EdgeInsetsGeometry? padding,
     EdgeInsetsGeometry? helperPadding,
-    MoonFormTextInputValidationStatusCallback? validationStatusCallback,
-    MoonTextInputSize? textInputSize,
+    SelenicFormTextInputValidationStatusCallback? validationStatusCallback,
+    SelenicTextInputSize? textInputSize,
     String? errorText,
     String? hintText,
     String? initialValue,
     TextStyle? helperTextStyle,
-    MoonTextInputErrorBuilder? errorBuilder,
+    SelenicTextInputErrorBuilder? errorBuilder,
     Widget? leading,
     Widget? trailing,
     Widget? helper,
@@ -140,10 +140,10 @@ class MoonFormTextInput extends FormField<String> {
         ),
         assert(
           maxLength == null ||
-              maxLength == MoonTextInput.noMaxLength ||
+              maxLength == SelenicTextInput.noMaxLength ||
               maxLength > 0,
         ),
-        configuration = MoonFormTextInputConfiguration(
+        configuration = SelenicFormTextInputConfiguration(
           activeBorderColor: activeBorderColor,
           autocorrect: autocorrect,
           autofillHints: autofillHints,
@@ -249,8 +249,8 @@ class MoonFormTextInput extends FormField<String> {
           enabled: enabled ?? true,
           autovalidateMode: autovalidateMode ?? AutovalidateMode.disabled,
           builder: (FormFieldState<String> field) {
-            final _MoonFormTextInputState state =
-                field as _MoonFormTextInputState;
+            final _SelenicFormTextInputState state =
+                field as _SelenicFormTextInputState;
 
             validationStatusCallback?.call(field.errorText);
 
@@ -263,7 +263,7 @@ class MoonFormTextInput extends FormField<String> {
 
             return UnmanagedRestorationScope(
               bucket: field.bucket,
-              child: MoonTextInput(
+              child: SelenicTextInput(
                 activeBorderColor: activeBorderColor,
                 autocorrect: autocorrect,
                 autofillHints: autofillHints,
@@ -327,7 +327,7 @@ class MoonFormTextInput extends FormField<String> {
                 padding: padding,
                 readOnly: readOnly,
                 restorationId: restorationId,
-                scribbleEnabled: scribbleEnabled,
+                stylusHandwritingEnabled: scribbleEnabled,
                 scrollController: scrollController,
                 scrollPadding: scrollPadding,
                 scrollPhysics: scrollPhysics,
@@ -379,16 +379,17 @@ class MoonFormTextInput extends FormField<String> {
   }
 
   @override
-  FormFieldState<String> createState() => _MoonFormTextInputState();
+  FormFieldState<String> createState() => _SelenicFormTextInputState();
 }
 
-class _MoonFormTextInputState extends FormFieldState<String> {
+class _SelenicFormTextInputState extends FormFieldState<String> {
   RestorableTextEditingController? _controller;
 
   TextEditingController get _effectiveController =>
-      _moonFormTextInput.controller ?? _controller!.value;
+      _formTextInput.controller ?? _controller!.value;
 
-  MoonFormTextInput get _moonFormTextInput => super.widget as MoonFormTextInput;
+  SelenicFormTextInput get _formTextInput =>
+      super.widget as SelenicFormTextInput;
 
   @override
   void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
@@ -418,31 +419,30 @@ class _MoonFormTextInputState extends FormFieldState<String> {
   @override
   void initState() {
     super.initState();
-    if (_moonFormTextInput.controller == null) {
+    if (_formTextInput.controller == null) {
       _createLocalController(
         widget.initialValue != null
             ? TextEditingValue(text: widget.initialValue!)
             : null,
       );
     } else {
-      _moonFormTextInput.controller!.addListener(_handleControllerChanged);
+      _formTextInput.controller!.addListener(_handleControllerChanged);
     }
   }
 
   @override
-  void didUpdateWidget(MoonFormTextInput oldWidget) {
+  void didUpdateWidget(SelenicFormTextInput oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (_moonFormTextInput.controller != oldWidget.controller) {
+    if (_formTextInput.controller != oldWidget.controller) {
       oldWidget.controller?.removeListener(_handleControllerChanged);
-      _moonFormTextInput.controller?.addListener(_handleControllerChanged);
+      _formTextInput.controller?.addListener(_handleControllerChanged);
 
-      if (oldWidget.controller != null &&
-          _moonFormTextInput.controller == null) {
+      if (oldWidget.controller != null && _formTextInput.controller == null) {
         _createLocalController(oldWidget.controller!.value);
       }
 
-      if (_moonFormTextInput.controller != null) {
-        setValue(_moonFormTextInput.controller!.text);
+      if (_formTextInput.controller != null) {
+        setValue(_formTextInput.controller!.text);
         if (oldWidget.controller == null) {
           unregisterFromRestoration(_controller!);
           _controller!.dispose();
@@ -454,7 +454,7 @@ class _MoonFormTextInputState extends FormFieldState<String> {
 
   @override
   void dispose() {
-    _moonFormTextInput.controller?.removeListener(_handleControllerChanged);
+    _formTextInput.controller?.removeListener(_handleControllerChanged);
     _controller?.dispose();
     super.dispose();
   }
@@ -485,8 +485,8 @@ class _MoonFormTextInputState extends FormFieldState<String> {
   }
 }
 
-class MoonFormTextInputConfiguration {
-  // Moon Design System properties.
+class SelenicFormTextInputConfiguration {
+  // Selenic Design System properties.
   final bool hasFloatingLabel;
   final BorderRadiusGeometry? borderRadius;
   final Color? backgroundColor;
@@ -505,13 +505,13 @@ class MoonFormTextInputConfiguration {
   final Curve? transitionCurve;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? helperPadding;
-  final MoonFormTextInputValidationStatusCallback? validationStatusCallback;
-  final MoonTextInputSize? textInputSize;
+  final SelenicFormTextInputValidationStatusCallback? validationStatusCallback;
+  final SelenicTextInputSize? textInputSize;
   final String? errorText;
   final String? hintText;
   final String? initialValue;
   final TextStyle? helperTextStyle;
-  final MoonTextInputErrorBuilder? errorBuilder;
+  final SelenicTextInputErrorBuilder? errorBuilder;
   final Widget? leading;
   final Widget? trailing;
   final Widget? helper;
@@ -581,8 +581,8 @@ class MoonFormTextInputConfiguration {
   final FormFieldValidator<String>? validator;
   final AutovalidateMode autovalidateMode;
 
-  const MoonFormTextInputConfiguration({
-    // Moon Design System properties.
+  const SelenicFormTextInputConfiguration({
+    // Selenic Design System properties.
     this.hasFloatingLabel = false,
     this.borderRadius,
     this.backgroundColor,
@@ -669,7 +669,7 @@ class MoonFormTextInputConfiguration {
     this.restorationId,
     this.scribbleEnabled = true,
     this.enableIMEPersonalizedLearning = true,
-    this.contextMenuBuilder = MoonFormTextInput.defaultContextMenuBuilder,
+    this.contextMenuBuilder = SelenicFormTextInput.defaultContextMenuBuilder,
     this.canRequestFocus = true,
     this.spellCheckConfiguration,
     this.magnifierConfiguration,

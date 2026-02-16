@@ -1,39 +1,39 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/dropdown/dropdown_colors.dart';
-import 'package:moon_design/src/theme/dropdown/dropdown_properties.dart';
-import 'package:moon_design/src/theme/dropdown/dropdown_shadows.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/dropdown/dropdown_colors.dart';
+import 'package:selenic_design/src/theme/dropdown/dropdown_properties.dart';
+import 'package:selenic_design/src/theme/dropdown/dropdown_shadows.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonDropdownTheme extends ThemeExtension<MoonDropdownTheme>
+class SelenicDropdownTheme extends ThemeExtension<SelenicDropdownTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonDropdown.
-  final MoonDropdownColors colors;
+  /// The colors of the SelenicDropdown.
+  final SelenicDropdownColors colors;
 
-  /// The properties of the MoonDropdown.
-  final MoonDropdownProperties properties;
+  /// The properties of the SelenicDropdown.
+  final SelenicDropdownProperties properties;
 
-  /// The shadows of the MoonDropdown.
-  final MoonDropdownShadows shadows;
+  /// The shadows of the SelenicDropdown.
+  final SelenicDropdownShadows shadows;
 
-  MoonDropdownTheme({
+  SelenicDropdownTheme({
     required this.tokens,
-    MoonDropdownColors? colors,
-    MoonDropdownProperties? properties,
-    MoonDropdownShadows? shadows,
+    SelenicDropdownColors? colors,
+    SelenicDropdownProperties? properties,
+    SelenicDropdownShadows? shadows,
   })  : colors = colors ??
-            MoonDropdownColors(
+            SelenicDropdownColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
               backgroundColor: tokens.colors.goku,
             ),
         properties = properties ??
-            MoonDropdownProperties(
+            SelenicDropdownProperties(
               borderRadius: tokens.borders.interactiveMd,
               distanceToTarget: tokens.sizes.x4s,
               transitionDuration: Duration.zero,
@@ -42,17 +42,17 @@ class MoonDropdownTheme extends ThemeExtension<MoonDropdownTheme>
               dropdownMargin: EdgeInsets.all(tokens.sizes.x4s),
               textStyle: tokens.typography.body.textDefault,
             ),
-        shadows =
-            shadows ?? MoonDropdownShadows(dropdownShadows: tokens.shadows.sm);
+        shadows = shadows ??
+            SelenicDropdownShadows(dropdownShadows: tokens.shadows.sm);
 
   @override
-  MoonDropdownTheme copyWith({
-    MoonTokens? tokens,
-    MoonDropdownColors? colors,
-    MoonDropdownProperties? properties,
-    MoonDropdownShadows? shadows,
+  SelenicDropdownTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicDropdownColors? colors,
+    SelenicDropdownProperties? properties,
+    SelenicDropdownShadows? shadows,
   }) {
-    return MoonDropdownTheme(
+    return SelenicDropdownTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -61,10 +61,11 @@ class MoonDropdownTheme extends ThemeExtension<MoonDropdownTheme>
   }
 
   @override
-  MoonDropdownTheme lerp(ThemeExtension<MoonDropdownTheme>? other, double t) {
-    if (other is! MoonDropdownTheme) return this;
+  SelenicDropdownTheme lerp(
+      ThemeExtension<SelenicDropdownTheme>? other, double t) {
+    if (other is! SelenicDropdownTheme) return this;
 
-    return MoonDropdownTheme(
+    return SelenicDropdownTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -77,19 +78,20 @@ class MoonDropdownTheme extends ThemeExtension<MoonDropdownTheme>
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
       ..add(
-        DiagnosticsProperty("type", "MoonDropdownTheme"),
+        DiagnosticsProperty("type", "SelenicDropdownTheme"),
       )
       ..add(
-        DiagnosticsProperty<MoonTokens>("tokens", tokens),
+        DiagnosticsProperty<SelenicTokens>("tokens", tokens),
       )
       ..add(
-        DiagnosticsProperty<MoonDropdownColors>("colors", colors),
+        DiagnosticsProperty<SelenicDropdownColors>("colors", colors),
       )
       ..add(
-        DiagnosticsProperty<MoonDropdownProperties>("properties", properties),
+        DiagnosticsProperty<SelenicDropdownProperties>(
+            "properties", properties),
       )
       ..add(
-        DiagnosticsProperty<MoonDropdownShadows>("shadows", shadows),
+        DiagnosticsProperty<SelenicDropdownShadows>("shadows", shadows),
       );
   }
 }

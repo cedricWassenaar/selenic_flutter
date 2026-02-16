@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _textAreaKey = Key("textAreaKey");
 const Key _submitButtonKey = Key("submitButtonKey");
@@ -123,7 +123,7 @@ class _TextAreaTestWidget extends StatelessWidget {
             builder: (BuildContext context) {
               return Column(
                 children: [
-                  MoonTextArea(
+                  SelenicTextArea(
                     key: textAreaKey,
                     enabled: enabled,
                     hintText: _hintText,
@@ -133,7 +133,7 @@ class _TextAreaTestWidget extends StatelessWidget {
                             : null,
                     helper: showHelper ? const Text(_helperText) : null,
                   ),
-                  MoonFilledButton(
+                  SelenicFilledButton(
                     key: _submitButtonKey,
                     onTap: () => Form.of(context).validate(),
                   ),

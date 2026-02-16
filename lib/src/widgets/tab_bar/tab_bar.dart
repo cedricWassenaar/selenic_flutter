@@ -1,39 +1,40 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/tab_bar/tab_bar_size_properties.dart';
-import 'package:moon_design/src/theme/tab_bar/tab_bar_sizes.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/utils/color_tween_premul.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_design/src/widgets/common/base_control.dart';
-import 'package:moon_design/src/widgets/common/base_segmented_tab_bar.dart';
-import 'package:moon_design/src/widgets/tab_bar/pill_tab.dart';
-import 'package:moon_design/src/widgets/tab_bar/pill_tab_style.dart';
-import 'package:moon_design/src/widgets/tab_bar/tab.dart';
-import 'package:moon_design/src/widgets/tab_bar/tab_style.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonTabBarVariant {
+import 'package:selenic_design/src/theme/tab_bar/tab_bar_size_properties.dart';
+import 'package:selenic_design/src/theme/tab_bar/tab_bar_sizes.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/utils/color_tween_premul.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border.dart';
+import 'package:selenic_design/src/widgets/common/base_control.dart';
+import 'package:selenic_design/src/widgets/common/base_segmented_tab_bar.dart';
+import 'package:selenic_design/src/widgets/tab_bar/pill_tab.dart';
+import 'package:selenic_design/src/widgets/tab_bar/pill_tab_style.dart';
+import 'package:selenic_design/src/widgets/tab_bar/tab.dart';
+import 'package:selenic_design/src/widgets/tab_bar/tab_style.dart';
+
+enum SelenicTabBarVariant {
   indicator,
   pill,
   custom,
 }
 
-enum MoonTabBarSize {
+enum SelenicTabBarSize {
   sm,
   md,
 }
 
-typedef MoonCustomTabBuilder = Widget Function(
+typedef SelenicCustomTabBuilder = Widget Function(
   BuildContext context,
   bool isSelected,
 );
 
-class MoonTabBar extends StatefulWidget {
+class SelenicTabBar extends StatefulWidget {
   /// Whether the tab bar is expanded to its full available width horizontally
   /// or resizes to fit its content.
   final bool isExpanded;
@@ -63,7 +64,7 @@ class MoonTabBar extends StatefulWidget {
   final int initialIndex;
 
   /// The size of the tab bar.
-  final MoonTabBarSize? tabBarSize;
+  final SelenicTabBarSize? tabBarSize;
 
   /// The custom decoration of the tab bar.
   final Decoration? decoration;
@@ -80,27 +81,27 @@ class MoonTabBar extends StatefulWidget {
   /// At least one child is required when this property is used.
   /// This property cannot be used in conjunction with the [pillTabs] or
   /// [customTabs] properties; both must be set to null.
-  final List<MoonTab>? tabs;
+  final List<SelenicTab>? tabs;
 
   /// The list of pill tabs to display as the children of the pill tab bar.
   /// At least one child is required when this property is used.
   /// This property cannot be used in conjunction with the [tabs] or
   /// [customTabs] properties; both must be set to null.
-  final List<MoonPillTab>? pillTabs;
+  final List<SelenicPillTab>? pillTabs;
 
   /// The list of custom tabs to display as the children of the custom tab bar.
   /// At least one child is required when this property is used.
   /// This property cannot be used in conjunction with the [tabs] or [pillTabs]
   /// properties; both must be set to null.
-  final List<MoonCustomTabBuilder>? customTabs;
+  final List<SelenicCustomTabBuilder>? customTabs;
 
-  /// Creates a Moon Design tab bar.
+  /// Creates a Selenic Design tab bar.
   ///
   /// See also:
   ///
-  ///   * [MoonTabBar.pill], Moon Design pill tab bar.
-  ///   * [MoonTabBar.custom], Moon Design custom tab bar.
-  const MoonTabBar({
+  ///   * [SelenicTabBar.pill], Selenic Design pill tab bar.
+  ///   * [SelenicTabBar.custom], Selenic Design custom tab bar.
+  const SelenicTabBar({
     super.key,
     this.isExpanded = false,
     this.gap,
@@ -120,12 +121,12 @@ class MoonTabBar extends StatefulWidget {
         pillTabs = null,
         customTabs = null;
 
-  /// Creates a Moon Design pill tab bar.
+  /// Creates a Selenic Design pill tab bar.
   ///
   /// See also:
   ///
-  ///   * [MoonTabBar.custom], Moon Design custom tab bar.
-  const MoonTabBar.pill({
+  ///   * [SelenicTabBar.custom], Selenic Design custom tab bar.
+  const SelenicTabBar.pill({
     super.key,
     this.isExpanded = false,
     this.gap,
@@ -145,12 +146,12 @@ class MoonTabBar extends StatefulWidget {
         tabs = null,
         customTabs = null;
 
-  /// Creates a Moon Design custom tab bar.
+  /// Creates a Selenic Design custom tab bar.
   ///
   /// See also:
   ///
-  ///   * [MoonTabBar.pill], Moon Design pill tab bar.
-  const MoonTabBar.custom({
+  ///   * [SelenicTabBar.pill], Selenic Design pill tab bar.
+  const SelenicTabBar.custom({
     super.key,
     this.isExpanded = false,
     this.gap,
@@ -171,51 +172,51 @@ class MoonTabBar extends StatefulWidget {
         pillTabs = null;
 
   @override
-  State<MoonTabBar> createState() => _MoonTabBarState();
+  State<SelenicTabBar> createState() => _SelenicTabBarState();
 }
 
-class _MoonTabBarState extends State<MoonTabBar> {
+class _SelenicTabBarState extends State<SelenicTabBar> {
   late int _selectedIndex = widget.tabController?.index ?? widget.initialIndex;
-  late MoonTabBarVariant _tabBarVariant;
+  late SelenicTabBarVariant _tabBarVariant;
 
   late Duration _effectiveTransitionDuration;
   late Curve _effectiveTransitionCurve;
-  late MoonTabBarSizeProperties _effectiveMoonTabBarSize;
+  late SelenicTabBarSizeProperties _effectiveSelenicTabBarSize;
 
-  MoonTabBarSizeProperties _getMoonTabBarSize(
+  SelenicTabBarSizeProperties _getSelenicTabBarSize(
     BuildContext context,
-    MoonTabBarSize? tabBarSize,
+    SelenicTabBarSize? tabBarSize,
   ) {
     switch (tabBarSize) {
-      case MoonTabBarSize.sm:
-        return context.moonTheme?.tabBarTheme.sizes.sm ??
-            MoonTabBarSizes(tokens: MoonTokens.light).sm;
-      case MoonTabBarSize.md:
-        return context.moonTheme?.tabBarTheme.sizes.md ??
-            MoonTabBarSizes(tokens: MoonTokens.light).md;
+      case SelenicTabBarSize.sm:
+        return context.selenicTheme?.tabBarTheme.sizes.sm ??
+            SelenicTabBarSizes(tokens: SelenicTokens.light).sm;
+      case SelenicTabBarSize.md:
+        return context.selenicTheme?.tabBarTheme.sizes.md ??
+            SelenicTabBarSizes(tokens: SelenicTokens.light).md;
       default:
-        return context.moonTheme?.tabBarTheme.sizes.md ??
-            MoonTabBarSizes(tokens: MoonTokens.light).md;
+        return context.selenicTheme?.tabBarTheme.sizes.md ??
+            SelenicTabBarSizes(tokens: SelenicTokens.light).md;
     }
   }
 
   void _setSelectedTabBarVariant() {
     if (widget.tabs != null) {
-      _tabBarVariant = MoonTabBarVariant.indicator;
+      _tabBarVariant = SelenicTabBarVariant.indicator;
     } else if (widget.pillTabs != null) {
-      _tabBarVariant = MoonTabBarVariant.pill;
+      _tabBarVariant = SelenicTabBarVariant.pill;
     } else {
-      _tabBarVariant = MoonTabBarVariant.custom;
+      _tabBarVariant = SelenicTabBarVariant.custom;
     }
   }
 
   void _updateTabsSelectedStatus() {
-    if (_tabBarVariant == MoonTabBarVariant.indicator) {
-      widget.tabs?.asMap().forEach((int index, MoonTab tab) {
+    if (_tabBarVariant == SelenicTabBarVariant.indicator) {
+      widget.tabs?.asMap().forEach((int index, SelenicTab tab) {
         tab.isSelected?.call(index == _selectedIndex);
       });
-    } else if (_tabBarVariant == MoonTabBarVariant.pill) {
-      widget.pillTabs?.asMap().forEach((int index, MoonPillTab pillTab) {
+    } else if (_tabBarVariant == SelenicTabBarVariant.pill) {
+      widget.pillTabs?.asMap().forEach((int index, SelenicPillTab pillTab) {
         pillTab.isSelected?.call(index == _selectedIndex);
       });
     } else {
@@ -260,9 +261,9 @@ class _MoonTabBarState extends State<MoonTabBar> {
 
   List<Widget> _generateTabs() {
     switch (_tabBarVariant) {
-      case MoonTabBarVariant.indicator:
+      case SelenicTabBarVariant.indicator:
         return _generateIndicatorTabs();
-      case MoonTabBarVariant.pill:
+      case SelenicTabBarVariant.pill:
         return _generatePillTabs();
       default:
         return _generateCustomTabs();
@@ -277,7 +278,7 @@ class _MoonTabBarState extends State<MoonTabBar> {
           transitionDuration: _effectiveTransitionDuration,
           transitionCurve: _effectiveTransitionCurve,
           isSelected: index == _selectedIndex,
-          moonTabBarSizeProperties: _effectiveMoonTabBarSize,
+          tabBarSizeProperties: _effectiveSelenicTabBarSize,
           tab: widget.tabs![index],
         );
       },
@@ -292,7 +293,7 @@ class _MoonTabBarState extends State<MoonTabBar> {
           transitionDuration: _effectiveTransitionDuration,
           transitionCurve: _effectiveTransitionCurve,
           isSelected: index == _selectedIndex,
-          moonTabBarSizeProperties: _effectiveMoonTabBarSize,
+          tabBarSizeProperties: _effectiveSelenicTabBarSize,
           tab: widget.pillTabs![index],
         );
       },
@@ -310,22 +311,23 @@ class _MoonTabBarState extends State<MoonTabBar> {
 
   @override
   Widget build(BuildContext context) {
-    _effectiveMoonTabBarSize = _getMoonTabBarSize(context, widget.tabBarSize);
+    _effectiveSelenicTabBarSize =
+        _getSelenicTabBarSize(context, widget.tabBarSize);
 
     _effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.tabBarTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.tabBarTheme.properties.transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     _effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.tabBarTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.tabBarTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     final double effectiveHeight =
-        widget.height ?? _effectiveMoonTabBarSize.height;
+        widget.height ?? _effectiveSelenicTabBarSize.height;
 
     final double effectiveGap = widget.gap ??
-        context.moonTheme?.tabBarTheme.properties.gap ??
-        MoonSizes.sizes.x5s;
+        context.selenicTheme?.tabBarTheme.properties.gap ??
+        SelenicSizes.sizes.x5s;
 
     return Container(
       height: effectiveHeight,
@@ -363,14 +365,14 @@ class _IndicatorTabBuilder extends StatefulWidget {
   final bool isSelected;
   final Duration transitionDuration;
   final Curve transitionCurve;
-  final MoonTabBarSizeProperties moonTabBarSizeProperties;
-  final MoonTab tab;
+  final SelenicTabBarSizeProperties tabBarSizeProperties;
+  final SelenicTab tab;
 
   const _IndicatorTabBuilder({
     required this.isSelected,
     required this.transitionDuration,
     required this.transitionCurve,
-    required this.moonTabBarSizeProperties,
+    required this.tabBarSizeProperties,
     required this.tab,
   });
 
@@ -419,32 +421,32 @@ class _IndicatorTabBuilderState extends State<_IndicatorTabBuilder>
 
   @override
   Widget build(BuildContext context) {
-    final MoonTabStyle? tabStyle = widget.tab.tabStyle;
+    final SelenicTabStyle? tabStyle = widget.tab.tabStyle;
 
     final Color effectiveIndicatorColor = tabStyle?.indicatorColor ??
-        context.moonTheme?.tabBarTheme.colors.indicatorColor ??
+        context.selenicTheme?.tabBarTheme.colors.indicatorColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveTextColor = tabStyle?.textStyle?.color ??
         tabStyle?.textColor ??
-        context.moonTheme?.tabBarTheme.colors.textColor ??
+        context.selenicTheme?.tabBarTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveSelectedTextColor = tabStyle?.selectedTextColor ??
-        context.moonTheme?.tabBarTheme.colors.selectedTextColor ??
+        context.selenicTheme?.tabBarTheme.colors.selectedTextColor ??
         MoonColors.light.piccolo;
 
     final TextStyle effectiveTextStyle =
-        widget.moonTabBarSizeProperties.textStyle.merge(tabStyle?.textStyle);
+        widget.tabBarSizeProperties.textStyle.merge(tabStyle?.textStyle);
 
     final double effectiveIndicatorHeight = tabStyle?.indicatorHeight ??
-        widget.moonTabBarSizeProperties.indicatorHeight;
+        widget.tabBarSizeProperties.indicatorHeight;
 
     final double effectiveTabGap =
-        tabStyle?.tabGap ?? widget.moonTabBarSizeProperties.tabGap;
+        tabStyle?.tabGap ?? widget.tabBarSizeProperties.tabGap;
 
     final EdgeInsetsGeometry effectiveTabPadding =
-        tabStyle?.tabPadding ?? widget.moonTabBarSizeProperties.tabPadding;
+        tabStyle?.tabPadding ?? widget.tabBarSizeProperties.tabPadding;
 
     final EdgeInsets resolvedDirectionalPadding =
         effectiveTabPadding.resolve(Directionality.of(context));
@@ -480,7 +482,7 @@ class _IndicatorTabBuilderState extends State<_IndicatorTabBuilder>
       ..begin = effectiveTextColor
       ..end = effectiveSelectedTextColor;
 
-    return MoonBaseControl(
+    return SelenicBaseControl(
       semanticLabel: widget.tab.semanticLabel,
       onLongPress: widget.tab.disabled ? null : () => {},
       autofocus: widget.tab.autoFocus,
@@ -513,7 +515,7 @@ class _IndicatorTabBuilderState extends State<_IndicatorTabBuilder>
                   return IconTheme(
                     data: IconThemeData(
                       color: _textColor!.value,
-                      size: widget.moonTabBarSizeProperties.iconSizeValue,
+                      size: widget.tabBarSizeProperties.iconSizeValue,
                     ),
                     child: DefaultTextStyle(
                       style: effectiveTextStyle.copyWith(
@@ -541,7 +543,7 @@ class _IndicatorTabBuilderState extends State<_IndicatorTabBuilder>
                           ConstrainedBox(
                             constraints: BoxConstraints(
                               minHeight:
-                                  widget.moonTabBarSizeProperties.iconSizeValue,
+                                  widget.tabBarSizeProperties.iconSizeValue,
                             ),
                             child: Center(child: widget.tab.label),
                           ),
@@ -595,14 +597,14 @@ class _PillTabBuilder extends StatefulWidget {
   final bool isSelected;
   final Duration transitionDuration;
   final Curve transitionCurve;
-  final MoonTabBarSizeProperties moonTabBarSizeProperties;
-  final MoonPillTab tab;
+  final SelenicTabBarSizeProperties tabBarSizeProperties;
+  final SelenicPillTab tab;
 
   const _PillTabBuilder({
     required this.isSelected,
     required this.transitionDuration,
     required this.transitionCurve,
-    required this.moonTabBarSizeProperties,
+    required this.tabBarSizeProperties,
     required this.tab,
   });
 
@@ -649,32 +651,32 @@ class _PillTabBuilderState extends State<_PillTabBuilder>
 
   @override
   Widget build(BuildContext context) {
-    final MoonPillTabStyle? tabStyle = widget.tab.tabStyle;
+    final SelenicPillTabStyle? tabStyle = widget.tab.tabStyle;
 
     final BorderRadiusGeometry effectiveTabBorderRadius =
-        tabStyle?.borderRadius ?? widget.moonTabBarSizeProperties.borderRadius;
+        tabStyle?.borderRadius ?? widget.tabBarSizeProperties.borderRadius;
 
     final Color effectiveSelectedTabColor = tabStyle?.selectedTabColor ??
-        context.moonTheme?.tabBarTheme.colors.selectedPillTabColor ??
+        context.selenicTheme?.tabBarTheme.colors.selectedPillTabColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor = tabStyle?.textStyle?.color ??
         tabStyle?.textColor ??
-        context.moonTheme?.tabBarTheme.colors.textColor ??
+        context.selenicTheme?.tabBarTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveSelectedTextColor = tabStyle?.selectedTextColor ??
-        context.moonTheme?.tabBarTheme.colors.selectedPillTextColor ??
+        context.selenicTheme?.tabBarTheme.colors.selectedPillTextColor ??
         MoonColors.light.textPrimary;
 
     final TextStyle effectiveTextStyle =
-        widget.moonTabBarSizeProperties.textStyle.merge(tabStyle?.textStyle);
+        widget.tabBarSizeProperties.textStyle.merge(tabStyle?.textStyle);
 
     final double effectiveTabGap =
-        tabStyle?.tabGap ?? widget.moonTabBarSizeProperties.tabGap;
+        tabStyle?.tabGap ?? widget.tabBarSizeProperties.tabGap;
 
     final EdgeInsetsGeometry effectiveTabPadding =
-        tabStyle?.tabPadding ?? widget.moonTabBarSizeProperties.tabPadding;
+        tabStyle?.tabPadding ?? widget.tabBarSizeProperties.tabPadding;
 
     final EdgeInsets resolvedDirectionalPadding =
         effectiveTabPadding.resolve(Directionality.of(context));
@@ -706,7 +708,7 @@ class _PillTabBuilderState extends State<_PillTabBuilder>
       ..begin = effectiveTextColor
       ..end = effectiveSelectedTextColor;
 
-    return MoonBaseControl(
+    return SelenicBaseControl(
       semanticLabel: widget.tab.semanticLabel,
       onLongPress: widget.tab.disabled ? null : () => {},
       autofocus: widget.tab.autoFocus,
@@ -737,14 +739,14 @@ class _PillTabBuilderState extends State<_PillTabBuilder>
               decoration: tabStyle?.decoration ??
                   ShapeDecoration(
                     color: _tabColor!.value,
-                    shape: MoonSquircleBorder(
+                    shape: SelenicSquircleBorder(
                       borderRadius: effectiveTabBorderRadius
                           .squircleBorderRadius(context),
                     ),
                   ),
               child: IconTheme(
                 data: IconThemeData(
-                  size: widget.moonTabBarSizeProperties.iconSizeValue,
+                  size: widget.tabBarSizeProperties.iconSizeValue,
                   color: _textColor!.value,
                 ),
                 child: DefaultTextStyle(

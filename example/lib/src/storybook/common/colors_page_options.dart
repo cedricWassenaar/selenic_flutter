@@ -11,7 +11,7 @@ enum ColorsPageSection {
 
   String get bodyText => switch (this) {
         header =>
-          'Moon Design System is decentralized and intended to support multiple '
+          'Selenic Design System is decentralized and intended to support multiple '
               'products. The use of different-color naming conventions and '
               'numbers makes maintenance more difficult. We decided to give '
               'each of our colors a distinct name, adopting the Dragon Ball Z '

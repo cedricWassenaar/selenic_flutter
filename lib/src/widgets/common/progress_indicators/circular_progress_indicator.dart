@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 
-import 'package:moon_design/src/widgets/common/progress_indicators/base_progress.dart';
-import 'package:moon_design/src/widgets/common/progress_indicators/painters/circular_progress_indicator_painter.dart';
+import 'package:selenic_design/src/widgets/common/progress_indicators/base_progress.dart';
+import 'package:selenic_design/src/widgets/common/progress_indicators/painters/circular_progress_indicator_painter.dart';
 
-class MoonCircularProgressIndicator extends MoonBaseProgressIndicator {
+class SelenicCircularProgressIndicator extends SelenicBaseProgressIndicator {
   /// The width of the stroke for the circular progress indicator.
   final double strokeWidth;
 
@@ -11,8 +11,8 @@ class MoonCircularProgressIndicator extends MoonBaseProgressIndicator {
   /// indicator.
   final StrokeCap strokeCap;
 
-  /// Creates a Moon Design circular progress indicator.
-  const MoonCircularProgressIndicator({
+  /// Creates a Selenic Design circular progress indicator.
+  const SelenicCircularProgressIndicator({
     super.key,
     super.value,
     required super.backgroundColor,
@@ -30,14 +30,14 @@ class MoonCircularProgressIndicator extends MoonBaseProgressIndicator {
   Color get backgroundColor => super.backgroundColor;
 
   @override
-  State<MoonCircularProgressIndicator> createState() =>
-      _MoonCircularProgressIndicatorState();
+  State<SelenicCircularProgressIndicator> createState() =>
+      _SelenicCircularProgressIndicatorState();
 }
 
-class _MoonCircularProgressIndicatorState
-    extends State<MoonCircularProgressIndicator>
+class _SelenicCircularProgressIndicatorState
+    extends State<SelenicCircularProgressIndicator>
     with SingleTickerProviderStateMixin {
-  static const double _kMinMoonCircularProgressIndicatorSize = 36.0;
+  static const double _kMinSelenicCircularProgressIndicatorSize = 36.0;
   static const int _kIndeterminateCircularDuration = 1333 * 2222;
   static const int _pathCount = _kIndeterminateCircularDuration ~/ 1333;
   static const int _rotationCount = _kIndeterminateCircularDuration ~/ 2222;
@@ -70,7 +70,7 @@ class _MoonCircularProgressIndicatorState
   }
 
   @override
-  void didUpdateWidget(MoonCircularProgressIndicator oldWidget) {
+  void didUpdateWidget(SelenicCircularProgressIndicator oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.value == null && !_controller.isAnimating) {
@@ -98,12 +98,12 @@ class _MoonCircularProgressIndicatorState
       context: context,
       child: Container(
         constraints: const BoxConstraints(
-          minWidth: _kMinMoonCircularProgressIndicatorSize,
-          minHeight: _kMinMoonCircularProgressIndicatorSize,
+          minWidth: _kMinSelenicCircularProgressIndicatorSize,
+          minHeight: _kMinSelenicCircularProgressIndicatorSize,
         ),
         child: RepaintBoundary(
           child: CustomPaint(
-            painter: MoonCircularProgressIndicatorPainter(
+            painter: SelenicCircularProgressIndicatorPainter(
               backgroundColor: widget.backgroundColor,
               valueColor: widget.color,
               value: widget.value,

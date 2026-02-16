@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const String _groupId = "dropdown";
 
@@ -38,22 +38,22 @@ class _DropdownState extends State<Dropdown> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // MoonDropdown with multiple choices.
-        MoonDropdown(
+        // SelenicDropdown with multiple choices.
+        SelenicDropdown(
           show: _showChoices,
           constrainWidthToChild: true,
           onTapOutside: () => setState(() => _showChoices = false),
           content: Column(
             children: List.generate(
               2,
-              (int index) => MoonMenuItem(
+              (int index) => SelenicMenuItem(
                 absorbGestures: true,
                 onTap: () => setState(
                   () => _availableChoices[Choices.values[index]] =
                       !_availableChoices[Choices.values[index]]!,
                 ),
                 label: Text(Choices.values[index].name),
-                trailing: MoonCheckbox(
+                trailing: SelenicCheckbox(
                   value: _availableChoices[Choices.values[index]],
                   tapAreaSizeValue: 0,
                   onChanged: (_) {},
@@ -61,7 +61,7 @@ class _DropdownState extends State<Dropdown> {
               ),
             ),
           ),
-          child: MoonTextInput(
+          child: SelenicTextInput(
             width: 250,
             readOnly: true,
             canRequestFocus: false,
@@ -70,17 +70,17 @@ class _DropdownState extends State<Dropdown> {
             onTap: () => setState(() => _showChoices = !_showChoices),
             leading: _availableChoices.values.any((element) => element == true)
                 ? Center(
-                    child: MoonTag(
-                      tagSize: MoonTagSize.xs,
-                      backgroundColor: context.moonColors!.bulma,
+                    child: SelenicTag(
+                      tagSize: SelenicTagSize.xs,
+                      backgroundColor: context.selenicColors!.bulma,
                       onTap: () => setState(() => _availableChoices.updateAll((key, value) => false)),
                       label: Text(
                         "${_availableChoices.values.where((element) => element == true).length}",
-                        style: TextStyle(color: context.moonColors!.gohan),
+                        style: TextStyle(color: context.selenicColors!.gohan),
                       ),
                       trailing: Icon(
                         MoonIcons.controls_close_small_16_light,
-                        color: context.moonColors!.gohan,
+                        color: context.selenicColors!.gohan,
                       ),
                     ),
                   )
@@ -95,8 +95,8 @@ class _DropdownState extends State<Dropdown> {
           ),
         ),
 
-        // MoonDropdown as a menu.
-        MoonDropdown(
+        // SelenicDropdown as a menu.
+        SelenicDropdown(
           show: _showMenu,
           groupId: _groupId,
           constrainWidthToChild: true,
@@ -106,15 +106,15 @@ class _DropdownState extends State<Dropdown> {
           }),
           content: Column(
             children: [
-              MoonMenuItem(
+              SelenicMenuItem(
                 onTap: () => setState(() {
                   _showMenu = false;
                   _buttonName = "Piccolo";
-                  _buttonColor = context.moonColors!.piccolo;
+                  _buttonColor = context.selenicColors!.piccolo;
                 }),
                 label: const Text("Piccolo"),
               ),
-              MoonDropdown(
+              SelenicDropdown(
                 show: _showMenuInner,
                 groupId: _groupId,
                 constrainWidthToChild: true,
@@ -123,37 +123,37 @@ class _DropdownState extends State<Dropdown> {
                 offset: const Offset(8, 0),
                 content: Column(
                   children: [
-                    MoonMenuItem(
+                    SelenicMenuItem(
                       onTap: () => setState(() {
                         _showMenu = false;
                         _showMenuInner = false;
                         _buttonName = "Roshi";
-                        _buttonColor = context.moonColors!.roshi;
+                        _buttonColor = context.selenicColors!.roshi;
                       }),
                       label: const Text("Roshi"),
                     ),
-                    MoonMenuItem(
+                    SelenicMenuItem(
                       onTap: () => setState(() {
                         _showMenu = false;
                         _showMenuInner = false;
                         _buttonName = "Roshi60";
-                        _buttonColor = context.moonColors!.roshi60;
+                        _buttonColor = context.selenicColors!.roshi60;
                       }),
                       label: const Text("Roshi60"),
                     ),
-                    MoonMenuItem(
+                    SelenicMenuItem(
                       onTap: () => setState(() {
                         _showMenu = false;
                         _showMenuInner = false;
                         _buttonName = "Roshi10";
-                        _buttonColor = context.moonColors!.roshi10;
+                        _buttonColor = context.selenicColors!.roshi10;
                       }),
                       label: const Text("Roshi10"),
                     ),
                   ],
                 ),
-                child: MoonMenuItem(
-                  backgroundColor: _showMenuInner ? context.moonColors!.heles : null,
+                child: SelenicMenuItem(
+                  backgroundColor: _showMenuInner ? context.selenicColors!.heles : null,
                   onTap: () => setState(() => _showMenuInner = !_showMenuInner),
                   label: const Text("Roshi"),
                   trailing: const Icon(
@@ -164,7 +164,7 @@ class _DropdownState extends State<Dropdown> {
               ),
             ],
           ),
-          child: MoonFilledButton(
+          child: SelenicFilledButton(
             width: 120,
             backgroundColor: _buttonColor,
             onTap: () => setState(() => _showMenu = !_showMenu),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _tabBarKey = Key("tab_bar_test");
 
@@ -115,29 +115,29 @@ class _TabBarTestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MoonTabBar(
+        body: SelenicTabBar(
           key: tabBarKey,
           onTabChanged: onTap,
           tabs: [
-            MoonTab(
+            SelenicTab(
               disabled: isDisabled,
               leading: showLeading ? const Icon(_tabLeadingIcon) : null,
               label: showLabel ? const Text(_firstTabLabel) : null,
               trailing: showTrailing ? const Icon(_tabTrailingIcon) : null,
             ),
-            MoonTab(
+            SelenicTab(
               disabled: isDisabled,
               leading: showLeading ? const Icon(_tabLeadingIcon) : null,
               label: showLabel ? const Text(_secondTabLabel) : null,
               trailing: showTrailing ? const Icon(_tabTrailingIcon) : null,
             ),
-            MoonTab(
+            SelenicTab(
               disabled: isDisabled,
               leading: showLeading ? const Icon(_tabLeadingIcon) : null,
               label: showLabel ? const Text(_thirdTabLabel) : null,
               trailing: showTrailing ? const Icon(_tabTrailingIcon) : null,
             ),
-            MoonTab(
+            SelenicTab(
               disabled: isDisabled,
               leading: showLeading ? const Icon(_tabLeadingIcon) : null,
               label: showLabel ? const Text(_fourthTabLabel) : null,

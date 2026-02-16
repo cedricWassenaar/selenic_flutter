@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 enum AccordionItems { first, second }
@@ -22,20 +22,20 @@ class _AccordionStoryState extends State<AccordionStory> {
   Widget build(BuildContext context) {
     final accordionSizeKnob = context.knobs.nullable.options(
       label: "accordionSize",
-      description: "Size variants for MoonAccordion.",
+      description: "Size variants for SelenicAccordion.",
       enabled: false,
-      initial: MoonAccordionSize.md,
+      initial: SelenicAccordionSize.md,
       options: const [
-        Option(label: "sm", value: MoonAccordionSize.sm),
-        Option(label: "md", value: MoonAccordionSize.md),
-        Option(label: "lg", value: MoonAccordionSize.lg),
-        Option(label: "xl", value: MoonAccordionSize.xl),
+        Option(label: "sm", value: SelenicAccordionSize.sm),
+        Option(label: "md", value: SelenicAccordionSize.md),
+        Option(label: "lg", value: SelenicAccordionSize.lg),
+        Option(label: "xl", value: SelenicAccordionSize.xl),
       ],
     );
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for MoonAccordion header text.",
+      description: "MoonColors variants for SelenicAccordion header text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -47,7 +47,7 @@ class _AccordionStoryState extends State<AccordionStory> {
     final expandedTextColorKnob = context.knobs.nullable.options(
       label: "expandedTextColor",
       description:
-          "MoonColors variants for expanded MoonAccordion header text.",
+          "MoonColors variants for expanded SelenicAccordion header text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -58,7 +58,7 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final contentTextColorKnob = context.knobs.nullable.options(
       label: "Content text color",
-      description: "MoonColors variants for MoonAccordion content text.",
+      description: "MoonColors variants for SelenicAccordion content text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -69,7 +69,7 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final iconColorKnob = context.knobs.nullable.options(
       label: "iconColor",
-      description: "MoonColors variants for MoonAccordion icon.",
+      description: "MoonColors variants for SelenicAccordion icon.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -80,7 +80,7 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final expandedIconColorKnob = context.knobs.nullable.options(
       label: "expandedIconColor",
-      description: "MoonColors variants for expanded MoonAccordion icon.",
+      description: "MoonColors variants for expanded SelenicAccordion icon.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -91,7 +91,7 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonAccordion background.",
+      description: "MoonColors variants for SelenicAccordion background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -102,7 +102,8 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final expandedBackgroundColorKnob = context.knobs.nullable.options(
       label: "expandedBackgroundColor",
-      description: "MoonColors variants for expanded MoonAccordion background.",
+      description:
+          "MoonColors variants for expanded SelenicAccordion background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -114,7 +115,7 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for MoonAccordion border.",
+      description: "MoonColors variants for SelenicAccordion border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -125,7 +126,7 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final dividerColorKnob = context.knobs.nullable.options(
       label: "dividerColor",
-      description: "MoonColors variants for expanded MoonAccordion divider.",
+      description: "MoonColors variants for expanded SelenicAccordion divider.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -136,7 +137,7 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonAccordion.",
+      description: "Border radius for SelenicAccordion.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -144,18 +145,18 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final showBorderKnob = context.knobs.boolean(
       label: "showBorder",
-      description: "Show border for MoonAccordion.",
+      description: "Show border for SelenicAccordion.",
     );
 
     final showDividerKnob = context.knobs.boolean(
       label: "showDivider",
-      description: "Show divider between MoonAccordion header and body.",
+      description: "Show divider between SelenicAccordion header and body.",
       initial: true,
     );
 
     final showShadowKnob = context.knobs.boolean(
       label: "Show shadows",
-      description: "Show shadows for MoonAccordion.",
+      description: "Show shadows for SelenicAccordion.",
       initial: true,
     );
 
@@ -177,10 +178,10 @@ class _AccordionStoryState extends State<AccordionStory> {
       padding: const EdgeInsets.symmetric(vertical: 64.0, horizontal: 16.0),
       children: [
         const TextDivider(
-          text: "Grouped MoonAccordion",
+          text: "Grouped SelenicAccordion",
           paddingTop: 0,
         ),
-        MoonAccordion<AccordionItems>(
+        SelenicAccordion<AccordionItems>(
           identityValue: AccordionItems.first,
           groupIdentityValue: _currentlyOpenAccordionItem,
           accordionSize: accordionSizeKnob,
@@ -200,7 +201,7 @@ class _AccordionStoryState extends State<AccordionStory> {
           onExpansionChanged: (AccordionItems? value) =>
               setState(() => _currentlyOpenAccordionItem = value),
           leading: const Icon(MoonIcons.other_frame_24_light),
-          label: const Text("Grouped MoonAccordion item #1"),
+          label: const Text("Grouped SelenicAccordion item #1"),
           children: [
             Text(
               contentText,
@@ -209,7 +210,7 @@ class _AccordionStoryState extends State<AccordionStory> {
           ],
         ),
         const SizedBox(height: 8),
-        MoonAccordion<AccordionItems>(
+        SelenicAccordion<AccordionItems>(
           identityValue: AccordionItems.second,
           groupIdentityValue: _currentlyOpenAccordionItem,
           accordionSize: accordionSizeKnob,
@@ -229,7 +230,7 @@ class _AccordionStoryState extends State<AccordionStory> {
           onExpansionChanged: (AccordionItems? value) =>
               setState(() => _currentlyOpenAccordionItem = value),
           leading: const Icon(MoonIcons.other_frame_24_light),
-          label: const Text("Grouped MoonAccordion item #2"),
+          label: const Text("Grouped SelenicAccordion item #2"),
           children: [
             Text(
               contentText,
@@ -237,8 +238,9 @@ class _AccordionStoryState extends State<AccordionStory> {
             ),
           ],
         ),
-        const TextDivider(text: "Ungrouped MoonAccordion with content outside"),
-        MoonAccordion<AccordionItems>(
+        const TextDivider(
+            text: "Ungrouped SelenicAccordion with content outside"),
+        SelenicAccordion<AccordionItems>(
           accordionSize: accordionSizeKnob,
           initiallyExpanded: true,
           hasContentOutside: true,
@@ -253,7 +255,7 @@ class _AccordionStoryState extends State<AccordionStory> {
           showBorder: showBorderKnob,
           shadows: showShadowKnob == true ? null : [],
           childrenPadding: const EdgeInsets.symmetric(vertical: 12),
-          label: const Text("Ungrouped MoonAccordion item #1"),
+          label: const Text("Ungrouped SelenicAccordion item #1"),
           children: [
             Text(
               contentText,
@@ -262,7 +264,7 @@ class _AccordionStoryState extends State<AccordionStory> {
           ],
         ),
         const SizedBox(height: 8),
-        MoonAccordion<AccordionItems>(
+        SelenicAccordion<AccordionItems>(
           accordionSize: accordionSizeKnob,
           hasContentOutside: true,
           textColor: textColor,
@@ -277,7 +279,7 @@ class _AccordionStoryState extends State<AccordionStory> {
           showBorder: showBorderKnob,
           shadows: showShadowKnob == true ? null : [],
           childrenPadding: const EdgeInsets.symmetric(vertical: 12),
-          label: const Text("Ungrouped MoonAccordion item #2"),
+          label: const Text("Ungrouped SelenicAccordion item #2"),
           children: [
             Text(
               contentText,

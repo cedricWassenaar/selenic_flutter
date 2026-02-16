@@ -1,33 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
-import 'package:moon_design/src/theme/breadcrumb/breadcrumb_colors.dart';
-import 'package:moon_design/src/theme/breadcrumb/breadcrumb_properties.dart';
+import 'package:selenic_design/selenic_design.dart';
+import 'package:selenic_design/src/theme/breadcrumb/breadcrumb_colors.dart';
+import 'package:selenic_design/src/theme/breadcrumb/breadcrumb_properties.dart';
 
 @immutable
-class MoonBreadcrumbTheme extends ThemeExtension<MoonBreadcrumbTheme>
+class SelenicBreadcrumbTheme extends ThemeExtension<SelenicBreadcrumbTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonBreadcrumb.
-  final MoonBreadcrumbColors colors;
+  /// The colors of the SelenicBreadcrumb.
+  final SelenicBreadcrumbColors colors;
 
-  /// The properties of the MoonBreadcrumb.
-  final MoonBreadcrumbProperties properties;
+  /// The properties of the SelenicBreadcrumb.
+  final SelenicBreadcrumbProperties properties;
 
-  MoonBreadcrumbTheme({
+  SelenicBreadcrumbTheme({
     required this.tokens,
-    MoonBreadcrumbColors? colors,
-    MoonBreadcrumbProperties? properties,
+    SelenicBreadcrumbColors? colors,
+    SelenicBreadcrumbProperties? properties,
   })  : colors = colors ??
-            MoonBreadcrumbColors(
+            SelenicBreadcrumbColors(
               itemColor: tokens.colors.textSecondary,
               currentItemColor: tokens.colors.textPrimary,
               hoverEffectColor: tokens.colors.textPrimary,
             ),
         properties = properties ??
-            MoonBreadcrumbProperties(
+            SelenicBreadcrumbProperties(
               gap: tokens.sizes.x4s,
               itemGap: tokens.sizes.x6s,
               transitionDuration: tokens.transitions.defaultTransitionDuration,
@@ -38,12 +38,12 @@ class MoonBreadcrumbTheme extends ThemeExtension<MoonBreadcrumbTheme>
             );
 
   @override
-  MoonBreadcrumbTheme copyWith({
-    MoonTokens? tokens,
-    MoonBreadcrumbColors? colors,
-    MoonBreadcrumbProperties? properties,
+  SelenicBreadcrumbTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicBreadcrumbColors? colors,
+    SelenicBreadcrumbProperties? properties,
   }) {
-    return MoonBreadcrumbTheme(
+    return SelenicBreadcrumbTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -51,13 +51,13 @@ class MoonBreadcrumbTheme extends ThemeExtension<MoonBreadcrumbTheme>
   }
 
   @override
-  MoonBreadcrumbTheme lerp(
-    ThemeExtension<MoonBreadcrumbTheme>? other,
+  SelenicBreadcrumbTheme lerp(
+    ThemeExtension<SelenicBreadcrumbTheme>? other,
     double t,
   ) {
-    if (other is! MoonBreadcrumbTheme) return this;
+    if (other is! SelenicBreadcrumbTheme) return this;
 
-    return MoonBreadcrumbTheme(
+    return SelenicBreadcrumbTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
     );
@@ -67,8 +67,8 @@ class MoonBreadcrumbTheme extends ThemeExtension<MoonBreadcrumbTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonBreadcrumbTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonBreadcrumbColors>("colors", colors));
+      ..add(DiagnosticsProperty("type", "SelenicBreadcrumbTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicBreadcrumbColors>("colors", colors));
   }
 }

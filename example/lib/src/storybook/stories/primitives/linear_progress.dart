@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class LinearProgressStory extends StatelessWidget {
@@ -12,21 +12,21 @@ class LinearProgressStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final progressSizeKnob = context.knobs.nullable.options(
       label: "linearProgressSize",
-      description: "Size variants for MoonLinearProgress.",
+      description: "Size variants for SelenicLinearProgress.",
       enabled: false,
-      initial: MoonLinearProgressSize.x4s,
+      initial: SelenicLinearProgressSize.x4s,
       options: const [
-        Option(label: "x6s", value: MoonLinearProgressSize.x6s),
-        Option(label: "x5s", value: MoonLinearProgressSize.x5s),
-        Option(label: "x4s", value: MoonLinearProgressSize.x4s),
-        Option(label: "x3s", value: MoonLinearProgressSize.x3s),
-        Option(label: "x2s", value: MoonLinearProgressSize.x2s),
+        Option(label: "x6s", value: SelenicLinearProgressSize.x6s),
+        Option(label: "x5s", value: SelenicLinearProgressSize.x5s),
+        Option(label: "x4s", value: SelenicLinearProgressSize.x4s),
+        Option(label: "x3s", value: SelenicLinearProgressSize.x3s),
+        Option(label: "x2s", value: SelenicLinearProgressSize.x2s),
       ],
     );
 
     final progressColorKnob = context.knobs.nullable.options(
       label: "color",
-      description: "MoonColors variants for MoonLinearProgress progress.",
+      description: "MoonColors variants for SelenicLinearProgress progress.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -37,7 +37,7 @@ class LinearProgressStory extends StatelessWidget {
 
     final progressBackgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for MoonLinearProgress background.",
+      description: "MoonColors variants for SelenicLinearProgress background.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -49,7 +49,7 @@ class LinearProgressStory extends StatelessWidget {
 
     final pinColorKnob = context.knobs.nullable.options(
       label: "pinColor",
-      description: "MoonColors variants for MoonLinearProgress pin.",
+      description: "MoonColors variants for SelenicLinearProgress pin.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -60,7 +60,7 @@ class LinearProgressStory extends StatelessWidget {
 
     final pinBorderColorKnob = context.knobs.nullable.options(
       label: "pinBorderColor",
-      description: "MoonColors variants for MoonLinearProgress pin border.",
+      description: "MoonColors variants for SelenicLinearProgress pin border.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -71,7 +71,7 @@ class LinearProgressStory extends StatelessWidget {
 
     final thumbColorKnob = context.knobs.nullable.options(
       label: "thumbColor",
-      description: "MoonColors variants for MoonLinearProgress thumb.",
+      description: "MoonColors variants for SelenicLinearProgress thumb.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -82,7 +82,7 @@ class LinearProgressStory extends StatelessWidget {
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for MoonLinearProgress.",
+      description: "Border radius for SelenicLinearProgress.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -90,35 +90,35 @@ class LinearProgressStory extends StatelessWidget {
 
     final linearProgressValueKnob = context.knobs.slider(
       label: "value",
-      description: "Progress value for MoonLinearProgress.",
+      description: "Progress value for SelenicLinearProgress.",
       initial: 0.5,
     );
 
     final showPinKnob = context.knobs.boolean(
       label: "showPin",
-      description: "Show pin for MoonLinearProgress.",
+      description: "Show pin for SelenicLinearProgress.",
     );
 
     final showMinLabelKnob = context.knobs.boolean(
       label: "showMinLabel",
-      description: "Show minimum label for MoonLinearProgress.",
+      description: "Show minimum label for SelenicLinearProgress.",
     );
 
     final showMaxLabelKnob = context.knobs.boolean(
       label: "showMaxLabel",
-      description: "Show maximum label for MoonLinearProgress.",
+      description: "Show maximum label for SelenicLinearProgress.",
     );
 
     final showPinShadowKnob = context.knobs.boolean(
       label: "showPinShadow",
-      description: "Show pin shadow for MoonLinearProgress.",
+      description: "Show pin shadow for SelenicLinearProgress.",
       initial: true,
     );
 
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 64, horizontal: 20),
-        child: MoonLinearProgress(
+        child: SelenicLinearProgress(
           linearProgressSize: progressSizeKnob,
           value: linearProgressValueKnob,
           color: color,

@@ -4,8 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonSizes extends ThemeExtension<MoonSizes> with DiagnosticableTreeMixin {
-  static const sizes = MoonSizes(
+class SelenicSizes extends ThemeExtension<SelenicSizes>
+    with DiagnosticableTreeMixin {
+  static const sizes = SelenicSizes(
     x6s: 2,
     x5s: 4,
     x4s: 8,
@@ -52,7 +53,7 @@ class MoonSizes extends ThemeExtension<MoonSizes> with DiagnosticableTreeMixin {
   /// The (2x) extra large size.
   final double x2l;
 
-  const MoonSizes({
+  const SelenicSizes({
     required this.x6s,
     required this.x5s,
     required this.x4s,
@@ -67,7 +68,7 @@ class MoonSizes extends ThemeExtension<MoonSizes> with DiagnosticableTreeMixin {
   });
 
   @override
-  MoonSizes copyWith({
+  SelenicSizes copyWith({
     double? x6s,
     double? x5s,
     double? x4s,
@@ -80,7 +81,7 @@ class MoonSizes extends ThemeExtension<MoonSizes> with DiagnosticableTreeMixin {
     double? xl,
     double? x2l,
   }) {
-    return MoonSizes(
+    return SelenicSizes(
       x6s: x6s ?? this.x6s,
       x5s: x5s ?? this.x5s,
       x4s: x4s ?? this.x4s,
@@ -96,10 +97,10 @@ class MoonSizes extends ThemeExtension<MoonSizes> with DiagnosticableTreeMixin {
   }
 
   @override
-  MoonSizes lerp(ThemeExtension<MoonSizes>? other, double t) {
-    if (other is! MoonSizes) return this;
+  SelenicSizes lerp(ThemeExtension<SelenicSizes>? other, double t) {
+    if (other is! SelenicSizes) return this;
 
-    return MoonSizes(
+    return SelenicSizes(
       x6s: lerpDouble(x6s, other.x6s, t)!,
       x5s: lerpDouble(x5s, other.x5s, t)!,
       x4s: lerpDouble(x4s, other.x4s, t)!,
@@ -118,7 +119,7 @@ class MoonSizes extends ThemeExtension<MoonSizes> with DiagnosticableTreeMixin {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonSizes"))
+      ..add(DiagnosticsProperty("type", "SelenicSizes"))
       ..add(DoubleProperty("x6s", x6s))
       ..add(DoubleProperty("x5s", x5s))
       ..add(DoubleProperty("x4s", x4s))

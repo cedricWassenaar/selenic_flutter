@@ -4,27 +4,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonButtonSizeProperties extends ThemeExtension<MoonButtonSizeProperties>
+class SelenicButtonSizeProperties
+    extends ThemeExtension<SelenicButtonSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonButton.
+  /// The border radius of the SelenicButton.
   final BorderRadiusGeometry borderRadius;
 
-  /// The gap between the leading, label and trailing widgets of the MoonButton.
+  /// The gap between the leading, label and trailing widgets of the SelenicButton.
   final double gap;
 
-  /// The height of the MoonButton.
+  /// The height of the SelenicButton.
   final double height;
 
-  /// The size value of the MoonButton icon.
+  /// The size value of the SelenicButton icon.
   final double iconSizeValue;
 
-  /// The padding of the MoonButton.
+  /// The padding of the SelenicButton.
   final EdgeInsetsGeometry padding;
 
-  /// The text style of the MoonButton.
+  /// The text style of the SelenicButton.
   final TextStyle textStyle;
 
-  const MoonButtonSizeProperties({
+  const SelenicButtonSizeProperties({
     required this.borderRadius,
     required this.gap,
     required this.height,
@@ -34,7 +35,7 @@ class MoonButtonSizeProperties extends ThemeExtension<MoonButtonSizeProperties>
   });
 
   @override
-  MoonButtonSizeProperties copyWith({
+  SelenicButtonSizeProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? gap,
     double? height,
@@ -42,7 +43,7 @@ class MoonButtonSizeProperties extends ThemeExtension<MoonButtonSizeProperties>
     EdgeInsetsGeometry? padding,
     TextStyle? textStyle,
   }) {
-    return MoonButtonSizeProperties(
+    return SelenicButtonSizeProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       gap: gap ?? this.gap,
       height: height ?? this.height,
@@ -53,13 +54,13 @@ class MoonButtonSizeProperties extends ThemeExtension<MoonButtonSizeProperties>
   }
 
   @override
-  MoonButtonSizeProperties lerp(
-    ThemeExtension<MoonButtonSizeProperties>? other,
+  SelenicButtonSizeProperties lerp(
+    ThemeExtension<SelenicButtonSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonButtonSizeProperties) return this;
+    if (other is! SelenicButtonSizeProperties) return this;
 
-    return MoonButtonSizeProperties(
+    return SelenicButtonSizeProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       gap: lerpDouble(gap, other.gap, t)!,
@@ -75,7 +76,7 @@ class MoonButtonSizeProperties extends ThemeExtension<MoonButtonSizeProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonButtonSizeProperties"),
+        DiagnosticsProperty("type", "SelenicButtonSizeProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

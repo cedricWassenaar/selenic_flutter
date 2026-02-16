@@ -1,7 +1,7 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class TabBarStory extends StatefulWidget {
@@ -35,18 +35,18 @@ class _TabBarStoryState extends State<TabBarStory>
   Widget build(BuildContext context) {
     final tabsSizeKnob = context.knobs.nullable.options(
       label: "tabBarSize",
-      description: "Size variants for MoonTabBar.",
+      description: "Size variants for SelenicTabBar.",
       enabled: false,
-      initial: MoonTabBarSize.md,
+      initial: SelenicTabBarSize.md,
       options: const [
-        Option(label: "sm", value: MoonTabBarSize.sm),
-        Option(label: "md", value: MoonTabBarSize.md),
+        Option(label: "sm", value: SelenicTabBarSize.sm),
+        Option(label: "md", value: SelenicTabBarSize.md),
       ],
     );
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for MoonTabBar default text.",
+      description: "MoonColors variants for SelenicTabBar default text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -57,7 +57,7 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final selectedTextColorKnob = context.knobs.nullable.options(
       label: "selectedTextColor",
-      description: "MoonColors variants for MoonTabBar selected tab text.",
+      description: "MoonColors variants for SelenicTabBar selected tab text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -68,7 +68,7 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final indicatorColorKnob = context.knobs.nullable.options(
       label: "indicatorColor",
-      description: "MoonColors variants for MoonTabBar indicator.",
+      description: "MoonColors variants for SelenicTabBar indicator.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -79,7 +79,7 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final selectedTabColorKnob = context.knobs.nullable.options(
       label: "selectedTabColor",
-      description: "MoonColors variants for pill MoonTabBar selected tab.",
+      description: "MoonColors variants for pill SelenicTabBar selected tab.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -90,7 +90,7 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "borderRadius",
-      description: "Border radius for pill MoonTabBar.",
+      description: "Border radius for pill SelenicTabBar.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -98,7 +98,7 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final indicatorHeightKnob = context.knobs.nullable.sliderInt(
       label: "indicatorHeight",
-      description: "Indicator height for MoonTabBar.",
+      description: "Indicator height for SelenicTabBar.",
       enabled: false,
       initial: 2,
       max: 4,
@@ -106,7 +106,7 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final gapKnob = context.knobs.nullable.sliderInt(
       label: "gap",
-      description: "Gap between MoonTabBar tabs.",
+      description: "Gap between SelenicTabBar tabs.",
       enabled: false,
       initial: 4,
       max: 12,
@@ -114,33 +114,33 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final showLeadingKnob = context.knobs.boolean(
       label: "leading",
-      description: "Show widget in MoonTabBar leading slot.",
+      description: "Show widget in SelenicTabBar leading slot.",
     );
 
     final showLabelKnob = context.knobs.boolean(
       label: "label",
-      description: "Show widget in MoonTabBar label slot.",
+      description: "Show widget in SelenicTabBar label slot.",
       initial: true,
     );
 
     final showTrailingKnob = context.knobs.boolean(
       label: "trailing",
-      description: "Show widget in MoonTabBar trailing slot.",
+      description: "Show widget in SelenicTabBar trailing slot.",
     );
 
     final isExpandedKnob = context.knobs.boolean(
       label: "isExpanded",
-      description: "Expand MoonTabBar horizontally.",
+      description: "Expand SelenicTabBar horizontally.",
     );
 
-    final tabStyle = MoonTabStyle(
+    final tabStyle = SelenicTabStyle(
       textColor: textColor,
       selectedTextColor: selectedTextColor,
       indicatorColor: indicatorColor,
       indicatorHeight: indicatorHeightKnob?.toDouble(),
     );
 
-    final pillTabStyle = MoonPillTabStyle(
+    final pillTabStyle = SelenicPillTabStyle(
       textColor: textColor,
       selectedTextColor: selectedTextColor,
       selectedTabColor: selectedTabColor,
@@ -155,18 +155,18 @@ class _TabBarStoryState extends State<TabBarStory>
         child: Column(
           children: [
             const TextDivider(
-              text: "MoonTabBar",
+              text: "SelenicTabBar",
               paddingTop: 0,
             ),
             Column(
               children: [
-                MoonTabBar(
+                SelenicTabBar(
                   tabBarSize: tabsSizeKnob,
                   isExpanded: isExpandedKnob,
                   gap: gapKnob?.toDouble(),
                   tabs: List.generate(
                     3,
-                    (int index) => MoonTab(
+                    (int index) => SelenicTab(
                       leading: showLeadingKnob
                           ? const Icon(MoonIcons.other_frame_24_light)
                           : null,
@@ -178,28 +178,28 @@ class _TabBarStoryState extends State<TabBarStory>
                     ),
                   ),
                 ),
-                const TextDivider(text: "MoonTabBar with disabled tab"),
-                MoonTabBar(
+                const TextDivider(text: "SelenicTabBar with disabled tab"),
+                SelenicTabBar(
                   tabBarSize: tabsSizeKnob,
                   isExpanded: isExpandedKnob,
                   gap: gapKnob?.toDouble(),
                   tabs: List.generate(
                     4,
-                    (int index) => MoonTab(
+                    (int index) => SelenicTab(
                       disabled: index == 1,
                       trailing: const Icon(MoonIcons.other_frame_24_light),
                       tabStyle: tabStyle,
                     ),
                   ),
                 ),
-                const TextDivider(text: "Pill MoonTabBar"),
-                MoonTabBar.pill(
+                const TextDivider(text: "Pill SelenicTabBar"),
+                SelenicTabBar.pill(
                   tabBarSize: tabsSizeKnob,
                   isExpanded: isExpandedKnob,
                   gap: gapKnob?.toDouble(),
                   pillTabs: List.generate(
                     3,
-                    (int index) => MoonPillTab(
+                    (int index) => SelenicPillTab(
                       leading: showLeadingKnob
                           ? const Icon(MoonIcons.other_frame_24_light)
                           : null,
@@ -211,13 +211,13 @@ class _TabBarStoryState extends State<TabBarStory>
                     ),
                   ),
                 ),
-                const TextDivider(text: "Custom MoonTabBar with TabBarView"),
-                MoonTabBar(
+                const TextDivider(text: "Custom SelenicTabBar with TabBarView"),
+                SelenicTabBar(
                   isExpanded: true,
                   tabController: _tabController,
                   tabs: List.generate(
                     3,
-                    (int index) => MoonTab(
+                    (int index) => SelenicTab(
                       label: Text('Tab${index + 1}'),
                       tabStyle: tabStyle,
                     ),
@@ -229,7 +229,7 @@ class _TabBarStoryState extends State<TabBarStory>
                     controller: _tabController,
                     children: [
                       Container(
-                        color: context.moonColors!.whis60,
+                        color: context.selenicColors!.whis60,
                         padding: const EdgeInsets.all(16),
                         child: Stack(
                           children: [
@@ -238,7 +238,7 @@ class _TabBarStoryState extends State<TabBarStory>
                             ),
                             Align(
                               alignment: Alignment.centerRight,
-                              child: MoonButton.icon(
+                              child: SelenicButton.icon(
                                 onTap: () => _tabController.animateTo(1),
                                 icon: const Icon(
                                   MoonIcons.controls_chevron_right_24_light,
@@ -249,19 +249,19 @@ class _TabBarStoryState extends State<TabBarStory>
                         ),
                       ),
                       Container(
-                        color: context.moonColors!.frieza60,
+                        color: context.selenicColors!.frieza60,
                         padding: const EdgeInsets.all(16),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            MoonButton.icon(
+                            SelenicButton.icon(
                               onTap: () => _tabController.animateTo(0),
                               icon: const Icon(
                                 MoonIcons.controls_chevron_left_24_light,
                               ),
                             ),
                             const Text('Tab2'),
-                            MoonButton.icon(
+                            SelenicButton.icon(
                               onTap: () => _tabController.animateTo(2),
                               icon: const Icon(
                                 MoonIcons.controls_chevron_right_24_light,
@@ -271,7 +271,7 @@ class _TabBarStoryState extends State<TabBarStory>
                         ),
                       ),
                       Container(
-                        color: context.moonColors!.whis60,
+                        color: context.selenicColors!.whis60,
                         padding: const EdgeInsets.all(16),
                         child: Stack(
                           children: [
@@ -280,7 +280,7 @@ class _TabBarStoryState extends State<TabBarStory>
                             ),
                             Align(
                               alignment: Alignment.centerLeft,
-                              child: MoonButton.icon(
+                              child: SelenicButton.icon(
                                 onTap: () => _tabController.animateTo(1),
                                 icon: const Icon(
                                   MoonIcons.controls_chevron_left_24_light,

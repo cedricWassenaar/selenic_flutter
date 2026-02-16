@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
 import 'package:moon_icons/moon_icons.dart';
 
-class MoonErrorMessages extends StatelessWidget {
+import 'package:selenic_design/src/theme/theme.dart';
+
+class SelenicErrorMessages extends StatelessWidget {
   final List<String> errors;
 
-  /// Creates a default error message widget, utilized in [MoonTextInputGroup].
-  const MoonErrorMessages({required this.errors});
+  /// Creates a default error message widget, utilized in [SelenicTextInputGroup].
+  const SelenicErrorMessages({required this.errors});
 
   List<String> get _nonEmptyErrors =>
       errors.where((String error) => error.isNotEmpty).toList();
@@ -20,21 +21,21 @@ class MoonErrorMessages extends StatelessWidget {
         final int derivedIndex = index ~/ 2;
 
         return index.isEven
-            ? MoonErrorMessage(errorText: _nonEmptyErrors[derivedIndex])
-            : SizedBox(height: context.moonSizes?.x5s ?? 4);
+            ? SelenicErrorMessage(errorText: _nonEmptyErrors[derivedIndex])
+            : SizedBox(height: context.selenicSizes?.x5s ?? 4);
       }),
     );
   }
 }
 
-class MoonErrorMessage extends StatefulWidget {
+class SelenicErrorMessage extends StatefulWidget {
   final String errorText;
   final Duration duration;
   final Curve curve;
 
-  /// Creates a default error message widget, utilized in [MoonTextInput]
-  /// and [MoonTextArea].
-  const MoonErrorMessage({
+  /// Creates a default error message widget, utilized in [SelenicTextInput]
+  /// and [SelenicTextArea].
+  const SelenicErrorMessage({
     super.key,
     required this.errorText,
     this.duration = const Duration(milliseconds: 167),
@@ -42,10 +43,10 @@ class MoonErrorMessage extends StatefulWidget {
   });
 
   @override
-  State<MoonErrorMessage> createState() => _MoonErrorMessageState();
+  State<SelenicErrorMessage> createState() => _SelenicErrorMessageState();
 }
 
-class _MoonErrorMessageState extends State<MoonErrorMessage>
+class _SelenicErrorMessageState extends State<SelenicErrorMessage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _opacityAnimation;
@@ -84,9 +85,9 @@ class _MoonErrorMessageState extends State<MoonErrorMessage>
         children: [
           Icon(
             MoonIcons.generic_info_16_light,
-            size: context.moonSizes?.x2s ?? 16,
+            size: context.selenicSizes?.x2s ?? 16,
           ),
-          SizedBox(width: context.moonSizes?.x5s ?? 4),
+          SizedBox(width: context.selenicSizes?.x5s ?? 4),
           Text(widget.errorText),
         ],
       ),

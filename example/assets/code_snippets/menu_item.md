@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class MenuItem extends StatefulWidget {
   const MenuItem({super.key});
@@ -11,7 +11,7 @@ class MenuItem extends StatefulWidget {
 class _MenuItemState extends State<MenuItem> {
   @override
   Widget build(BuildContext context) {
-    return MoonMenuItem(
+    return SelenicMenuItem(
       onTap: () {},
       label: const Text("Menu Item"),
       leading: const Icon(MoonIcons.notifications_activity_32_regular),

@@ -1,39 +1,39 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/popover/popover_colors.dart';
-import 'package:moon_design/src/theme/popover/popover_properties.dart';
-import 'package:moon_design/src/theme/popover/popover_shadows.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/popover/popover_colors.dart';
+import 'package:selenic_design/src/theme/popover/popover_properties.dart';
+import 'package:selenic_design/src/theme/popover/popover_shadows.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonPopoverTheme extends ThemeExtension<MoonPopoverTheme>
+class SelenicPopoverTheme extends ThemeExtension<SelenicPopoverTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonPopover.
-  final MoonPopoverColors colors;
+  /// The colors of the SelenicPopover.
+  final SelenicPopoverColors colors;
 
-  /// The properties of the MoonPopover.
-  final MoonPopoverProperties properties;
+  /// The properties of the SelenicPopover.
+  final SelenicPopoverProperties properties;
 
-  /// The shadows of the MoonPopover.
-  final MoonPopoverShadows shadows;
+  /// The shadows of the SelenicPopover.
+  final SelenicPopoverShadows shadows;
 
-  MoonPopoverTheme({
+  SelenicPopoverTheme({
     required this.tokens,
-    MoonPopoverColors? colors,
-    MoonPopoverProperties? properties,
-    MoonPopoverShadows? shadows,
+    SelenicPopoverColors? colors,
+    SelenicPopoverProperties? properties,
+    SelenicPopoverShadows? shadows,
   })  : colors = colors ??
-            MoonPopoverColors(
+            SelenicPopoverColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
               backgroundColor: tokens.colors.goku,
             ),
         properties = properties ??
-            MoonPopoverProperties(
+            SelenicPopoverProperties(
               borderRadius: tokens.borders.interactiveMd,
               distanceToTarget: tokens.sizes.x4s,
               transitionDuration: tokens.transitions.defaultTransitionDuration,
@@ -42,16 +42,16 @@ class MoonPopoverTheme extends ThemeExtension<MoonPopoverTheme>
               textStyle: tokens.typography.body.textDefault,
             ),
         shadows =
-            shadows ?? MoonPopoverShadows(popoverShadows: tokens.shadows.sm);
+            shadows ?? SelenicPopoverShadows(popoverShadows: tokens.shadows.sm);
 
   @override
-  MoonPopoverTheme copyWith({
-    MoonTokens? tokens,
-    MoonPopoverColors? colors,
-    MoonPopoverProperties? properties,
-    MoonPopoverShadows? shadows,
+  SelenicPopoverTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicPopoverColors? colors,
+    SelenicPopoverProperties? properties,
+    SelenicPopoverShadows? shadows,
   }) {
-    return MoonPopoverTheme(
+    return SelenicPopoverTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -60,10 +60,11 @@ class MoonPopoverTheme extends ThemeExtension<MoonPopoverTheme>
   }
 
   @override
-  MoonPopoverTheme lerp(ThemeExtension<MoonPopoverTheme>? other, double t) {
-    if (other is! MoonPopoverTheme) return this;
+  SelenicPopoverTheme lerp(
+      ThemeExtension<SelenicPopoverTheme>? other, double t) {
+    if (other is! SelenicPopoverTheme) return this;
 
-    return MoonPopoverTheme(
+    return SelenicPopoverTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -76,19 +77,19 @@ class MoonPopoverTheme extends ThemeExtension<MoonPopoverTheme>
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
       ..add(
-        DiagnosticsProperty("type", "MoonPopoverTheme"),
+        DiagnosticsProperty("type", "SelenicPopoverTheme"),
       )
       ..add(
-        DiagnosticsProperty<MoonTokens>("tokens", tokens),
+        DiagnosticsProperty<SelenicTokens>("tokens", tokens),
       )
       ..add(
-        DiagnosticsProperty<MoonPopoverColors>("colors", colors),
+        DiagnosticsProperty<SelenicPopoverColors>("colors", colors),
       )
       ..add(
-        DiagnosticsProperty<MoonPopoverProperties>("properties", properties),
+        DiagnosticsProperty<SelenicPopoverProperties>("properties", properties),
       )
       ..add(
-        DiagnosticsProperty<MoonPopoverShadows>("shadows", shadows),
+        DiagnosticsProperty<SelenicPopoverShadows>("shadows", shadows),
       );
   }
 }

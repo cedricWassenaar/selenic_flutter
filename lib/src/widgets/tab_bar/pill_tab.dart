@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/widgets/tab_bar/pill_tab_style.dart';
+import 'package:selenic_design/src/widgets/tab_bar/pill_tab_style.dart';
 
-class MoonPillTab {
+class SelenicPillTab {
   /// Whether the tab is disabled.
   final bool disabled;
 
@@ -19,7 +19,7 @@ class MoonPillTab {
   final FocusNode? focusNode;
 
   /// The styling options for the tab.
-  final MoonPillTabStyle? tabStyle;
+  final SelenicPillTabStyle? tabStyle;
 
   /// The semantic label for the tab.
   final String? semanticLabel;
@@ -37,8 +37,8 @@ class MoonPillTab {
   /// The widget to display after the [label] widget of the tab.
   final Widget? trailing;
 
-  /// Creates a Moon Design pill tab.
-  const MoonPillTab({
+  /// Creates a Selenic Design pill tab.
+  const SelenicPillTab({
     this.disabled = false,
     this.autoFocus = false,
     this.isFocusable = true,

@@ -2,21 +2,21 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonModalProperties extends ThemeExtension<MoonModalProperties>
+class SelenicModalProperties extends ThemeExtension<SelenicModalProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonModal.
+  /// The border radius of the SelenicModal.
   final BorderRadiusGeometry borderRadius;
 
-  /// The duration of the MoonModal transition animation (fade in or out).
+  /// The duration of the SelenicModal transition animation (fade in or out).
   final Duration transitionDuration;
 
-  /// The curve of the MoonModal transition animation (fade in or out).
+  /// The curve of the SelenicModal transition animation (fade in or out).
   final Curve transitionCurve;
 
-  /// The text style of the MoonModal.
+  /// The text style of the SelenicModal.
   final TextStyle textStyle;
 
-  const MoonModalProperties({
+  const SelenicModalProperties({
     required this.borderRadius,
     required this.transitionDuration,
     required this.transitionCurve,
@@ -24,13 +24,13 @@ class MoonModalProperties extends ThemeExtension<MoonModalProperties>
   });
 
   @override
-  MoonModalProperties copyWith({
+  SelenicModalProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     Duration? transitionDuration,
     Curve? transitionCurve,
     TextStyle? textStyle,
   }) {
-    return MoonModalProperties(
+    return SelenicModalProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       transitionDuration: transitionDuration ?? this.transitionDuration,
       transitionCurve: transitionCurve ?? this.transitionCurve,
@@ -39,13 +39,13 @@ class MoonModalProperties extends ThemeExtension<MoonModalProperties>
   }
 
   @override
-  MoonModalProperties lerp(
-    ThemeExtension<MoonModalProperties>? other,
+  SelenicModalProperties lerp(
+    ThemeExtension<SelenicModalProperties>? other,
     double t,
   ) {
-    if (other is! MoonModalProperties) return this;
+    if (other is! SelenicModalProperties) return this;
 
-    return MoonModalProperties(
+    return SelenicModalProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       transitionDuration:
@@ -60,7 +60,7 @@ class MoonModalProperties extends ThemeExtension<MoonModalProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonModalProperties"),
+        DiagnosticsProperty("type", "SelenicModalProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

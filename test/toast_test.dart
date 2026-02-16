@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 const Key _showButtonKey = Key('showButtonKey');
 
@@ -35,10 +35,10 @@ class _ToastTestWidget extends StatelessWidget {
       home: Scaffold(
         body: Builder(
           builder: (context) {
-            return MoonFilledButton(
+            return SelenicFilledButton(
               key: _showButtonKey,
               onTap: () {
-                MoonToast.show(
+                SelenicToast.show(
                   context,
                   displayDuration: const Duration(seconds: 2),
                   transitionDuration: Duration.zero,

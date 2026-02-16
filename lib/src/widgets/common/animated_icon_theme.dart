@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/src/utils/color_tween_premul.dart';
+import 'package:selenic_design/src/utils/color_tween_premul.dart';
 
 class AnimatedIconTheme extends ImplicitlyAnimatedWidget {
   /// The target color for the icon.

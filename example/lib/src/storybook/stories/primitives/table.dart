@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 const int _rowsPerPage = 25;
@@ -119,7 +119,7 @@ class _TableStoryState extends State<TableStory> {
   Widget _headerCheckBox() {
     return Padding(
       padding: const EdgeInsetsDirectional.only(start: 16.0),
-      child: MoonCheckbox(
+      child: SelenicCheckbox(
         tapAreaSizeValue: 0,
         value: _checkAllBoxes,
         onChanged: _rowsSelectableKnob
@@ -145,14 +145,14 @@ class _TableStoryState extends State<TableStory> {
                 left: Directionality.of(context) == TextDirection.ltr
                     ? Divider.createBorderSide(
                         context,
-                        color: context.moonColors!.beerus,
+                        color: context.selenicColors!.beerus,
                         width: 1,
                       )
                     : BorderSide.none,
                 right: Directionality.of(context) == TextDirection.rtl
                     ? Divider.createBorderSide(
                         context,
-                        color: context.moonColors!.beerus,
+                        color: context.selenicColors!.beerus,
                         width: 1,
                       )
                     : BorderSide.none,
@@ -174,8 +174,8 @@ class _TableStoryState extends State<TableStory> {
     );
   }
 
-  MoonTableHeader _generateTableHeader() {
-    return MoonTableHeader(
+  SelenicTableHeader _generateTableHeader() {
+    return SelenicTableHeader(
       columns: List.generate(
         _showCheckboxes ? 6 : 5,
         (int index) {
@@ -183,7 +183,7 @@ class _TableStoryState extends State<TableStory> {
           final double columnWidth =
               index == 0 || index == 1 && _showCheckboxes ? 64 : 128;
 
-          return MoonTableColumn(
+          return SelenicTableColumn(
             width: columnWidth,
             onTap: () {
               if (checkboxColumn && _rowsSelectableKnob) {
@@ -212,8 +212,8 @@ class _TableStoryState extends State<TableStory> {
     );
   }
 
-  MoonTableFooter _generateTableFooter() {
-    return MoonTableFooter(
+  SelenicTableFooter _generateTableFooter() {
+    return SelenicTableFooter(
       cells: List.generate(
         _showCheckboxes ? 6 : 5,
         (int index) {
@@ -238,13 +238,13 @@ class _TableStoryState extends State<TableStory> {
     );
   }
 
-  List<MoonTableRow> _generateTableRows() {
+  List<SelenicTableRow> _generateTableRows() {
     return List.generate(
       _rowsToShow,
       (int index) {
         final row = _tableDataToShow[index];
 
-        return MoonTableRow(
+        return SelenicTableRow(
           selected: row.selected,
           onSelectChanged: _rowsSelectableKnob
               ? (bool? selected) =>
@@ -253,14 +253,14 @@ class _TableStoryState extends State<TableStory> {
           decoration: ShapeDecorationWithPremultipliedAlpha(
             color: _zebraStyleKnob
                 ? row.selected
-                    ? _selectedRowColor ?? context.moonColors!.beerus
+                    ? _selectedRowColor ?? context.selenicColors!.beerus
                     : index.isEven
-                        ? _rowColor ?? context.moonColors!.goku
+                        ? _rowColor ?? context.selenicColors!.goku
                         : Colors.transparent
                 : row.selected
-                    ? _selectedRowColor ?? context.moonColors!.beerus
-                    : _rowColor ?? context.moonColors!.goku,
-            shape: MoonSquircleBorder(
+                    ? _selectedRowColor ?? context.selenicColors!.beerus
+                    : _rowColor ?? context.selenicColors!.goku,
+            shape: SelenicSquircleBorder(
               borderRadius: _borderRadiusKnob != null
                   ? BorderRadius.circular(_borderRadiusKnob!.toDouble())
                       .squircleBorderRadius(context)
@@ -271,7 +271,7 @@ class _TableStoryState extends State<TableStory> {
             if (_showCheckboxes)
               Padding(
                 padding: const EdgeInsetsDirectional.only(start: 16.0),
-                child: MoonCheckbox(
+                child: SelenicCheckbox(
                   tapAreaSizeValue: 0,
                   value: row.selected,
                   onChanged: _rowsSelectableKnob
@@ -295,22 +295,22 @@ class _TableStoryState extends State<TableStory> {
   Widget build(BuildContext context) {
     final tableRowSizeKnob = context.knobs.nullable.options(
       label: "tableRowSize",
-      description: "Size variants for MoonTable row.",
+      description: "Size variants for SelenicTable row.",
       enabled: false,
-      initial: MoonTableRowSize.md,
+      initial: SelenicTableRowSize.md,
       options: const [
-        Option(label: "xs", value: MoonTableRowSize.xs),
-        Option(label: "sm", value: MoonTableRowSize.sm),
-        Option(label: "md", value: MoonTableRowSize.md),
-        Option(label: "lg", value: MoonTableRowSize.lg),
-        Option(label: "xl", value: MoonTableRowSize.xl),
-        Option(label: "x2l", value: MoonTableRowSize.x2l),
+        Option(label: "xs", value: SelenicTableRowSize.xs),
+        Option(label: "sm", value: SelenicTableRowSize.sm),
+        Option(label: "md", value: SelenicTableRowSize.md),
+        Option(label: "lg", value: SelenicTableRowSize.lg),
+        Option(label: "xl", value: SelenicTableRowSize.xl),
+        Option(label: "x2l", value: SelenicTableRowSize.x2l),
       ],
     );
 
     final rowColorKnob = context.knobs.nullable.options(
       label: "Row color",
-      description: "MoonColors variants for MoonTable rows.",
+      description: "MoonColors variants for SelenicTable rows.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -321,7 +321,7 @@ class _TableStoryState extends State<TableStory> {
 
     final selectedRowColorKnob = context.knobs.nullable.options(
       label: "Selected row color",
-      description: "MoonColors variants for MoonTable selected rows.",
+      description: "MoonColors variants for SelenicTable selected rows.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -332,7 +332,7 @@ class _TableStoryState extends State<TableStory> {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for MoonTable text.",
+      description: "MoonColors variants for SelenicTable text.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -343,7 +343,7 @@ class _TableStoryState extends State<TableStory> {
 
     _borderRadiusKnob = context.knobs.nullable.sliderInt(
       label: "Border radius",
-      description: "Border radius for MoonTable row.",
+      description: "Border radius for SelenicTable row.",
       enabled: false,
       initial: 8,
       max: 32,
@@ -351,7 +351,7 @@ class _TableStoryState extends State<TableStory> {
 
     final rowGapKnob = context.knobs.nullable.sliderInt(
       label: "rowGap",
-      description: "Gap between MoonTable rows.",
+      description: "Gap between SelenicTable rows.",
       enabled: false,
       initial: 4,
       max: 16,
@@ -359,13 +359,13 @@ class _TableStoryState extends State<TableStory> {
 
     final isHeaderPinnedKnob = context.knobs.boolean(
       label: "isHeaderPinned",
-      description: "Show MoonTable with pinned header.",
+      description: "Show SelenicTable with pinned header.",
       initial: true,
     );
 
     final isFooterPinnedKnob = context.knobs.boolean(
       label: "isFooterPinned",
-      description: "Show MoonTable with pinned footer.",
+      description: "Show SelenicTable with pinned footer.",
       initial: true,
     );
 
@@ -377,22 +377,22 @@ class _TableStoryState extends State<TableStory> {
 
     _zebraStyleKnob = context.knobs.boolean(
       label: "Zebra style rows",
-      description: "Show MoonTable rows with zebra style.",
+      description: "Show SelenicTable rows with zebra style.",
     );
 
     final showCheckboxesKnob = context.knobs.boolean(
       label: "With checkboxes",
-      description: "Show MoonTable with checkboxes.",
+      description: "Show SelenicTable with checkboxes.",
     );
 
     _showDividerKnob = context.knobs.boolean(
       label: "With cell divider",
-      description: "Show MoonTable with cell divider.",
+      description: "Show SelenicTable with cell divider.",
     );
 
     final infiniteScrollKnob = context.knobs.boolean(
       label: "With infinite scroll",
-      description: "Show MoonTable with infinite scroll.",
+      description: "Show SelenicTable with infinite scroll.",
     );
 
     if (_showCheckboxes != showCheckboxesKnob) {
@@ -417,20 +417,20 @@ class _TableStoryState extends State<TableStory> {
       ),
       child: OverflowBox(
         maxWidth: MediaQuery.of(context).size.width,
-        child: MoonTable(
+        child: SelenicTable(
           columnsCount: _showCheckboxes ? 6 : 5,
           isHeaderPinned: isHeaderPinnedKnob,
           isFooterPinned: isFooterPinnedKnob,
           sortAscending: _sortAscending,
           sortColumnIndex: _sortColumnIndex,
           rowGap: rowGapKnob?.toDouble(),
-          rowSize: tableRowSizeKnob ?? MoonTableRowSize.md,
+          rowSize: tableRowSizeKnob ?? SelenicTableRowSize.md,
           header: _generateTableHeader(),
           footer: _generateTableFooter(),
           rows: _generateTableRows(),
           tablePadding: const EdgeInsets.symmetric(horizontal: 16),
           cellPadding: EdgeInsets.symmetric(
-            vertical: tableRowSizeKnob == MoonTableRowSize.xs ? 4 : 8,
+            vertical: tableRowSizeKnob == SelenicTableRowSize.xs ? 4 : 8,
           ),
           onScrollControllersReady: (
             ScrollController verticalScrollController,

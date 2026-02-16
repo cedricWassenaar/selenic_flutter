@@ -2,7 +2,7 @@ import 'package:example/src/storybook/common/color_options.dart';
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class SwitchStory extends StatefulWidget {
@@ -23,19 +23,19 @@ class _SwitchStoryState extends State<SwitchStory> {
   Widget build(BuildContext context) {
     final switchSizeKnob = context.knobs.nullable.options(
       label: "switchSize",
-      description: "Size variants for MoonSwitch.",
+      description: "Size variants for SelenicSwitch.",
       enabled: false,
-      initial: MoonSwitchSize.xs,
+      initial: SelenicSwitchSize.xs,
       options: const [
-        Option(label: "x2s", value: MoonSwitchSize.x2s),
-        Option(label: "xs", value: MoonSwitchSize.xs),
-        Option(label: "sm", value: MoonSwitchSize.sm),
+        Option(label: "x2s", value: SelenicSwitchSize.x2s),
+        Option(label: "xs", value: SelenicSwitchSize.xs),
+        Option(label: "sm", value: SelenicSwitchSize.sm),
       ],
     );
 
     final thumbColorKnob = context.knobs.nullable.options(
       label: "thumbColor",
-      description: "MoonColors variants for MoonSwitch thumb.",
+      description: "MoonColors variants for SelenicSwitch thumb.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -46,7 +46,7 @@ class _SwitchStoryState extends State<SwitchStory> {
 
     final activeTrackColorKnob = context.knobs.nullable.options(
       label: "activeTrackColor",
-      description: "MoonColors variants for MoonSwitch active track.",
+      description: "MoonColors variants for SelenicSwitch active track.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -57,7 +57,7 @@ class _SwitchStoryState extends State<SwitchStory> {
 
     final inactiveTrackColorKnob = context.knobs.nullable.options(
       label: "inactiveTrackColor",
-      description: "MoonColors variants for MoonSwitch inactive track.",
+      description: "MoonColors variants for SelenicSwitch inactive track.",
       enabled: false,
       initial: 0,
       // piccolo
@@ -69,7 +69,7 @@ class _SwitchStoryState extends State<SwitchStory> {
 
     final isDisabled = context.knobs.boolean(
       label: "Disabled",
-      description: "MoonSwitch onChanged() is null.",
+      description: "SelenicSwitch onChanged() is null.",
     );
 
     return Center(
@@ -78,10 +78,10 @@ class _SwitchStoryState extends State<SwitchStory> {
         child: Column(
           children: [
             const TextDivider(
-              text: "MoonSwitch",
+              text: "SelenicSwitch",
               paddingTop: 0,
             ),
-            MoonSwitch(
+            SelenicSwitch(
               switchSize: switchSizeKnob,
               thumbColor: thumbColor,
               activeTrackColor: activeTrackColor,
@@ -91,8 +91,8 @@ class _SwitchStoryState extends State<SwitchStory> {
                   ? null
                   : (bool newValue) => setState(() => switchValue = newValue),
             ),
-            const TextDivider(text: "Custom MoonSwitch"),
-            MoonSwitch(
+            const TextDivider(text: "Custom SelenicSwitch"),
+            SelenicSwitch(
               switchSize: switchSizeKnob,
               activeThumbWidget: const Icon(
                 MoonIcons.generic_check_alternative_16_light,
@@ -113,7 +113,7 @@ class _SwitchStoryState extends State<SwitchStory> {
                   setState(() => switchTextValue = newValue),
             ),
             const SizedBox(height: 32),
-            MoonSwitch(
+            SelenicSwitch(
               switchSize: switchSizeKnob,
               activeTrackWidget: const Icon(MoonIcons.other_moon_16_light),
               inactiveTrackWidget: const Icon(MoonIcons.other_sun_16_light),

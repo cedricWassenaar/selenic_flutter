@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 enum _Choice { first, second }
 
@@ -11,7 +11,7 @@ void main() {
   Finder findSelectorFirstRadio() {
     return find.byWidgetPredicate(
       (Widget widget) =>
-          widget is MoonRadio &&
+          widget is SelenicRadio &&
           widget.key == _firstRadioKey &&
           widget.value == _Choice.first &&
           widget.groupValue == _Choice.first,
@@ -21,7 +21,7 @@ void main() {
   Finder findSelectorSecondRadio() {
     return find.byWidgetPredicate(
       (Widget widget) =>
-          widget is MoonRadio &&
+          widget is SelenicRadio &&
           widget.key == _secondRadioKey &&
           widget.value == _Choice.second &&
           widget.groupValue == _Choice.second,
@@ -118,7 +118,7 @@ class _RadioTestWidgetState extends State<_RadioTestWidget> {
       home: Scaffold(
         body: Column(
           children: [
-            MoonRadio(
+            SelenicRadio(
               key: widget.firstRadioKey,
               toggleable: widget.toggleable,
               value: _Choice.first,
@@ -126,7 +126,7 @@ class _RadioTestWidgetState extends State<_RadioTestWidget> {
               onChanged: (_Choice? choice) => setState(() => _value = choice),
             ),
             const SizedBox(height: 8),
-            MoonRadio(
+            SelenicRadio(
               key: widget.secondRadioKey,
               toggleable: widget.toggleable,
               value: _Choice.second,

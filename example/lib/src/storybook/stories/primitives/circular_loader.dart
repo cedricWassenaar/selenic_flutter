@@ -1,6 +1,6 @@
 import 'package:example/src/storybook/common/color_options.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class CircularLoaderStory extends StatelessWidget {
@@ -15,13 +15,13 @@ class CircularLoaderStory extends StatelessWidget {
       label: "circularLoaderSize",
       description: "Size variants for CircularLoader.",
       enabled: false,
-      initial: MoonCircularLoaderSize.md,
+      initial: SelenicCircularLoaderSize.md,
       options: const [
-        Option(label: "x2s", value: MoonCircularLoaderSize.x2s),
-        Option(label: "xs", value: MoonCircularLoaderSize.xs),
-        Option(label: "sm", value: MoonCircularLoaderSize.sm),
-        Option(label: "md", value: MoonCircularLoaderSize.md),
-        Option(label: "lg", value: MoonCircularLoaderSize.lg),
+        Option(label: "x2s", value: SelenicCircularLoaderSize.x2s),
+        Option(label: "xs", value: SelenicCircularLoaderSize.xs),
+        Option(label: "sm", value: SelenicCircularLoaderSize.sm),
+        Option(label: "md", value: SelenicCircularLoaderSize.md),
+        Option(label: "lg", value: SelenicCircularLoaderSize.lg),
       ],
     );
 
@@ -63,7 +63,7 @@ class CircularLoaderStory extends StatelessWidget {
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 64.0, horizontal: 16.0),
-        child: MoonCircularLoader(
+        child: SelenicCircularLoader(
           color: color,
           backgroundColor: backgroundColor,
           circularLoaderSize: circularLoaderSizeKnob,

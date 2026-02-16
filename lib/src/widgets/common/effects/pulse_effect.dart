@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/widgets/common/effects/painters/pulse_effect_painter.dart';
+import 'package:selenic_design/src/widgets/common/effects/painters/pulse_effect_painter.dart';
 
-class MoonPulseEffect extends StatefulWidget {
+class SelenicPulseEffect extends StatefulWidget {
   final bool show;
   final bool showJiggle;
   final BorderRadiusGeometry? childBorderRadius;
@@ -12,8 +12,8 @@ class MoonPulseEffect extends StatefulWidget {
   final Curve effectCurve;
   final Widget child;
 
-  /// Creates a Moon Design pulse effect.
-  const MoonPulseEffect({
+  /// Creates a Selenic Design pulse effect.
+  const SelenicPulseEffect({
     super.key,
     required this.show,
     required this.showJiggle,
@@ -26,10 +26,10 @@ class MoonPulseEffect extends StatefulWidget {
   });
 
   @override
-  State<MoonPulseEffect> createState() => _MoonPulseEffectState();
+  State<SelenicPulseEffect> createState() => _SelenicPulseEffectState();
 }
 
-class _MoonPulseEffectState extends State<MoonPulseEffect>
+class _SelenicPulseEffectState extends State<SelenicPulseEffect>
     with SingleTickerProviderStateMixin {
   static const double _jiggleTimePercentage = 28.6;
   static const double _jiggleRestTimePercentage =
@@ -39,7 +39,7 @@ class _MoonPulseEffectState extends State<MoonPulseEffect>
     animationBehavior: AnimationBehavior.preserve,
     vsync: this,
     duration: widget.effectDuration,
-    debugLabel: "MoonPulseEffect animation controller.",
+    debugLabel: "SelenicPulseEffect animation controller.",
   );
 
   late final CurvedAnimation _pulseAnimation = CurvedAnimation(
@@ -77,7 +77,7 @@ class _MoonPulseEffectState extends State<MoonPulseEffect>
   ).animate(_animationController);
 
   @override
-  void didUpdateWidget(covariant MoonPulseEffect oldWidget) {
+  void didUpdateWidget(covariant SelenicPulseEffect oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.show != oldWidget.show) {

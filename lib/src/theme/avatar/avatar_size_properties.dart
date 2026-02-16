@@ -4,24 +4,25 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonAvatarSizeProperties extends ThemeExtension<MoonAvatarSizeProperties>
+class SelenicAvatarSizeProperties
+    extends ThemeExtension<SelenicAvatarSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonAvatar.
+  /// The border radius of the SelenicAvatar.
   final BorderRadiusGeometry borderRadius;
 
-  /// The size value of the MoonAvatar.
+  /// The size value of the SelenicAvatar.
   final double avatarSizeValue;
 
-  /// The margin value of the MoonAvatar badge.
+  /// The margin value of the SelenicAvatar badge.
   final double badgeMarginValue;
 
-  /// The size value of the MoonAvatar badge.
+  /// The size value of the SelenicAvatar badge.
   final double badgeSizeValue;
 
-  /// The text style of the MoonAvatar.
+  /// The text style of the SelenicAvatar.
   final TextStyle textStyle;
 
-  const MoonAvatarSizeProperties({
+  const SelenicAvatarSizeProperties({
     required this.avatarSizeValue,
     required this.badgeSizeValue,
     required this.badgeMarginValue,
@@ -30,14 +31,14 @@ class MoonAvatarSizeProperties extends ThemeExtension<MoonAvatarSizeProperties>
   });
 
   @override
-  MoonAvatarSizeProperties copyWith({
+  SelenicAvatarSizeProperties copyWith({
     BorderRadiusGeometry? borderRadius,
     double? avatarSizeValue,
     double? badgeMarginValue,
     double? badgeSizeValue,
     TextStyle? textStyle,
   }) {
-    return MoonAvatarSizeProperties(
+    return SelenicAvatarSizeProperties(
       borderRadius: borderRadius ?? this.borderRadius,
       avatarSizeValue: avatarSizeValue ?? this.avatarSizeValue,
       badgeMarginValue: badgeMarginValue ?? this.badgeMarginValue,
@@ -47,13 +48,13 @@ class MoonAvatarSizeProperties extends ThemeExtension<MoonAvatarSizeProperties>
   }
 
   @override
-  MoonAvatarSizeProperties lerp(
-    ThemeExtension<MoonAvatarSizeProperties>? other,
+  SelenicAvatarSizeProperties lerp(
+    ThemeExtension<SelenicAvatarSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonAvatarSizeProperties) return this;
+    if (other is! SelenicAvatarSizeProperties) return this;
 
-    return MoonAvatarSizeProperties(
+    return SelenicAvatarSizeProperties(
       borderRadius:
           BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
       avatarSizeValue: lerpDouble(avatarSizeValue, other.avatarSizeValue, t)!,
@@ -69,7 +70,7 @@ class MoonAvatarSizeProperties extends ThemeExtension<MoonAvatarSizeProperties>
     super.debugFillProperties(properties);
     properties
       ..add(
-        DiagnosticsProperty("type", "MoonAvatarSizeProperties"),
+        DiagnosticsProperty("type", "SelenicAvatarSizeProperties"),
       )
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),

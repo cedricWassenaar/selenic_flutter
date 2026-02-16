@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 
-class MoonCircularProgressIndicatorPainter extends CustomPainter {
+class SelenicCircularProgressIndicatorPainter extends CustomPainter {
   static const double _twoPi = math.pi * 2.0;
   static const double _epsilon = .001;
   static const double _sweep = _twoPi - _epsilon;
@@ -21,7 +21,7 @@ class MoonCircularProgressIndicatorPainter extends CustomPainter {
   final double arcSweep;
   final StrokeCap strokeCap;
 
-  MoonCircularProgressIndicatorPainter({
+  SelenicCircularProgressIndicatorPainter({
     this.backgroundColor,
     required this.valueColor,
     required this.value,
@@ -64,7 +64,7 @@ class MoonCircularProgressIndicatorPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(MoonCircularProgressIndicatorPainter oldPainter) {
+  bool shouldRepaint(SelenicCircularProgressIndicatorPainter oldPainter) {
     return oldPainter.backgroundColor != backgroundColor ||
         oldPainter.valueColor != valueColor ||
         oldPainter.value != value ||

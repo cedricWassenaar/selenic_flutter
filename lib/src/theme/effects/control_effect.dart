@@ -3,10 +3,10 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonControlEffect extends ThemeExtension<MoonControlEffect>
+class SelenicControlEffect extends ThemeExtension<SelenicControlEffect>
     with DiagnosticableTreeMixin {
   /// The effect color of the control.
   final Color? effectColor;
@@ -23,7 +23,7 @@ class MoonControlEffect extends ThemeExtension<MoonControlEffect>
   /// The effect scalar of the control.
   final double? effectScalar;
 
-  const MoonControlEffect({
+  const SelenicControlEffect({
     this.effectColor,
     required this.effectDuration,
     required this.effectCurve,
@@ -32,14 +32,14 @@ class MoonControlEffect extends ThemeExtension<MoonControlEffect>
   });
 
   @override
-  MoonControlEffect copyWith({
+  SelenicControlEffect copyWith({
     Color? effectColor,
     Duration? effectDuration,
     Curve? effectCurve,
     double? effectExtent,
     double? effectScalar,
   }) {
-    return MoonControlEffect(
+    return SelenicControlEffect(
       effectColor: effectColor ?? this.effectColor,
       effectDuration: effectDuration ?? this.effectDuration,
       effectCurve: effectCurve ?? this.effectCurve,
@@ -49,10 +49,11 @@ class MoonControlEffect extends ThemeExtension<MoonControlEffect>
   }
 
   @override
-  MoonControlEffect lerp(ThemeExtension<MoonControlEffect>? other, double t) {
-    if (other is! MoonControlEffect) return this;
+  SelenicControlEffect lerp(
+      ThemeExtension<SelenicControlEffect>? other, double t) {
+    if (other is! SelenicControlEffect) return this;
 
-    return MoonControlEffect(
+    return SelenicControlEffect(
       effectColor: colorPremulLerp(effectColor, other.effectColor, t),
       effectDuration: lerpDuration(effectDuration, other.effectDuration, t),
       effectCurve: other.effectCurve,
@@ -65,7 +66,7 @@ class MoonControlEffect extends ThemeExtension<MoonControlEffect>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonControlsEffects"))
+      ..add(DiagnosticsProperty("type", "SelenicControlsEffects"))
       ..add(ColorProperty("effectColor", effectColor))
       ..add(DiagnosticsProperty<Duration>("effectDuration", effectDuration))
       ..add(DiagnosticsProperty<Curve>("effectCurve", effectCurve))

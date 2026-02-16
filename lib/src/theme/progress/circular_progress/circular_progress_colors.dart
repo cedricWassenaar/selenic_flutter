@@ -1,42 +1,42 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
 @immutable
-class MoonCircularProgressColors
-    extends ThemeExtension<MoonCircularProgressColors>
+class SelenicCircularProgressColors
+    extends ThemeExtension<SelenicCircularProgressColors>
     with DiagnosticableTreeMixin {
-  /// The color of the MoonCircularProgress.
+  /// The color of the SelenicCircularProgress.
   final Color color;
 
-  /// The background color of the MoonCircularProgress.
+  /// The background color of the SelenicCircularProgress.
   final Color backgroundColor;
 
-  const MoonCircularProgressColors({
+  const SelenicCircularProgressColors({
     required this.color,
     required this.backgroundColor,
   });
 
   @override
-  MoonCircularProgressColors copyWith({
+  SelenicCircularProgressColors copyWith({
     Color? color,
     Color? backgroundColor,
   }) {
-    return MoonCircularProgressColors(
+    return SelenicCircularProgressColors(
       color: color ?? this.color,
       backgroundColor: backgroundColor ?? this.backgroundColor,
     );
   }
 
   @override
-  MoonCircularProgressColors lerp(
-    ThemeExtension<MoonCircularProgressColors>? other,
+  SelenicCircularProgressColors lerp(
+    ThemeExtension<SelenicCircularProgressColors>? other,
     double t,
   ) {
-    if (other is! MoonCircularProgressColors) return this;
+    if (other is! SelenicCircularProgressColors) return this;
 
-    return MoonCircularProgressColors(
+    return SelenicCircularProgressColors(
       color: colorPremulLerp(color, other.color, t)!,
       backgroundColor:
           colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
@@ -47,7 +47,7 @@ class MoonCircularProgressColors
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty("type", "MoonCircularProgressColors"))
+      ..add(DiagnosticsProperty("type", "SelenicCircularProgressColors"))
       ..add(ColorProperty("color", color))
       ..add(ColorProperty("backgroundColor", backgroundColor));
   }

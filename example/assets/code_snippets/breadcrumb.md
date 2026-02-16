@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 
 class BreadcrumbStory extends StatefulWidget {
   const BreadcrumbStory({super.key});
@@ -17,15 +17,15 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // The default MoonBreadcrumb. 
+        // The default SelenicBreadcrumb. 
         // Expands horizontally to the full path when the indicated show more item is tapped.
         Column(
           children: [
-            MoonBreadcrumb(
+            SelenicBreadcrumb(
               items: List.generate(
                 6,
                 (int index) {
-                  return MoonBreadcrumbItem(
+                  return SelenicBreadcrumbItem(
                     onTap: () {},
                     label: Text('Page $index'),
                   );
@@ -35,29 +35,29 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
             // Provides an explicit method to restore the expanded breadcrumb path 
             // to its collapsed state, enabling external control.
             // By default, the state is automatically restored during rebuild.
-            MoonButton(
+            SelenicButton(
               onTap: () => setState(() => {}),
               label: const Text('Reset'),
             ),
           ],
         ),
 
-        // MoonBreadcrumb with the MoonDropdown and a custom showMoreWidget.
-        MoonBreadcrumb(
+        // SelenicBreadcrumb with the SelenicDropdown and a custom showMoreWidget.
+        SelenicBreadcrumb(
           divider: Icon(
             Directionality.of(context) == TextDirection.ltr
                 ? MoonIcons.controls_chevron_right_small_16_light
                 : MoonIcons.controls_chevron_left_small_16_light,
           ),
-          showMoreWidget: MoonBreadcrumbItem(
+          showMoreWidget: SelenicBreadcrumbItem(
             onTap: () => setState(() => _showDropdown = !_showDropdown),
-            label: MoonDropdown(
+            label: SelenicDropdown(
               show: _showDropdown,
               onTapOutside: () => setState(() => _showDropdown = false),
               content: Column(
                 children: List.generate(
                   3,
-                  (int index) => MoonMenuItem(
+                  (int index) => SelenicMenuItem(
                     onTap: () {},
                     label: Text('Page ${index + 1}'),
                   ),
@@ -69,7 +69,7 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
           items: List.generate(
             6,
             (int index) {
-              return MoonBreadcrumbItem(
+              return SelenicBreadcrumbItem(
                 onTap: () {},
                 label: Text('Page $index'),
               );

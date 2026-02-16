@@ -3,10 +3,10 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
 
-import 'package:moon_design/src/utils/squircle/squircle_border_radius.dart';
-import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_border_radius.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_radius.dart';
 
 enum BorderAlign {
   inside,
@@ -14,17 +14,17 @@ enum BorderAlign {
   outside,
 }
 
-class MoonSquircleBorder extends OutlinedBorder {
+class SelenicSquircleBorder extends OutlinedBorder {
   /// The radius for each corner.
   ///
   /// Negative radius values are clamped to 0.0 by [getInnerPath] and
   /// [getOuterPath].
-  final MoonSquircleBorderRadius borderRadius;
+  final SelenicSquircleBorderRadius borderRadius;
   final BorderAlign borderAlign;
 
-  const MoonSquircleBorder({
-    super.side = MoonSquicleBorderSide.none,
-    this.borderRadius = MoonSquircleBorderRadius.zero,
+  const SelenicSquircleBorder({
+    super.side = SelenicSquircleBorderSide.none,
+    this.borderRadius = SelenicSquircleBorderRadius.zero,
     this.borderAlign = BorderAlign.inside,
   });
 
@@ -44,7 +44,7 @@ class MoonSquircleBorder extends OutlinedBorder {
 
   @override
   ShapeBorder scale(double t) {
-    return MoonSquircleBorder(
+    return SelenicSquircleBorder(
       side: side.scale(t),
       borderRadius: borderRadius * t,
     );
@@ -52,10 +52,10 @@ class MoonSquircleBorder extends OutlinedBorder {
 
   @override
   ShapeBorder? lerpFrom(ShapeBorder? a, double t) {
-    if (a is MoonSquircleBorder) {
-      return MoonSquircleBorder(
-        side: MoonSquicleBorderSide.lerp(a.side, side, t),
-        borderRadius: MoonSquircleBorderRadius.lerp(
+    if (a is SelenicSquircleBorder) {
+      return SelenicSquircleBorder(
+        side: SelenicSquircleBorderSide.lerp(a.side, side, t),
+        borderRadius: SelenicSquircleBorderRadius.lerp(
           a.borderRadius,
           borderRadius,
           t,
@@ -67,11 +67,11 @@ class MoonSquircleBorder extends OutlinedBorder {
 
   @override
   ShapeBorder? lerpTo(ShapeBorder? b, double t) {
-    if (b is MoonSquircleBorder) {
-      return MoonSquircleBorder(
-        side: MoonSquicleBorderSide.lerp(side, b.side, t),
+    if (b is SelenicSquircleBorder) {
+      return SelenicSquircleBorder(
+        side: SelenicSquircleBorderSide.lerp(side, b.side, t),
         borderRadius:
-            MoonSquircleBorderRadius.lerp(borderRadius, b.borderRadius, t)!,
+            SelenicSquircleBorderRadius.lerp(borderRadius, b.borderRadius, t)!,
       );
     }
     return super.lerpTo(b, t);
@@ -94,15 +94,15 @@ class MoonSquircleBorder extends OutlinedBorder {
       switch (borderAlign) {
         case BorderAlign.inside:
           return borderRadius -
-              MoonSquircleBorderRadius.all(
-                MoonSquircleRadius(
+              SelenicSquircleBorderRadius.all(
+                SelenicSquircleRadius(
                   cornerRadius: side.width,
                 ),
               );
         case BorderAlign.center:
           return borderRadius -
-              MoonSquircleBorderRadius.all(
-                MoonSquircleRadius(
+              SelenicSquircleBorderRadius.all(
+                SelenicSquircleRadius(
                   cornerRadius: side.width / 2,
                 ),
               );
@@ -126,7 +126,7 @@ class MoonSquircleBorder extends OutlinedBorder {
 
   Path _getPath(
     Rect rect,
-    MoonSquircleBorderRadius radius, {
+    SelenicSquircleBorderRadius radius, {
     TextDirection? textDirection,
   }) {
     if ([radius.bottomLeft, radius.bottomRight, radius.topLeft, radius.topRight]
@@ -138,12 +138,12 @@ class MoonSquircleBorder extends OutlinedBorder {
   }
 
   @override
-  MoonSquircleBorder copyWith({
+  SelenicSquircleBorder copyWith({
     BorderSide? side,
-    MoonSquircleBorderRadius? borderRadius,
+    SelenicSquircleBorderRadius? borderRadius,
     BorderAlign? borderAlign,
   }) {
-    return MoonSquircleBorder(
+    return SelenicSquircleBorder(
       side: side ?? this.side,
       borderRadius: borderRadius ?? this.borderRadius,
       borderAlign: borderAlign ?? this.borderAlign,
@@ -175,8 +175,8 @@ class MoonSquircleBorder extends OutlinedBorder {
           switch (borderAlign) {
             case BorderAlign.inside:
               return borderRadius -
-                  MoonSquircleBorderRadius.all(
-                    MoonSquircleRadius(
+                  SelenicSquircleBorderRadius.all(
+                    SelenicSquircleRadius(
                       cornerRadius: side.width / 2,
                     ),
                   );
@@ -184,8 +184,8 @@ class MoonSquircleBorder extends OutlinedBorder {
               return borderRadius;
             case BorderAlign.outside:
               return borderRadius +
-                  MoonSquircleBorderRadius.all(
-                    MoonSquircleRadius(
+                  SelenicSquircleBorderRadius.all(
+                    SelenicSquircleRadius(
                       cornerRadius: side.width / 2,
                     ),
                   );
@@ -208,7 +208,7 @@ class MoonSquircleBorder extends OutlinedBorder {
   @override
   bool operator ==(Object other) {
     if (other.runtimeType != runtimeType) return false;
-    return other is MoonSquircleBorder &&
+    return other is SelenicSquircleBorder &&
         other.side == side &&
         other.borderRadius == borderRadius &&
         other.borderAlign == borderAlign;
@@ -219,11 +219,11 @@ class MoonSquircleBorder extends OutlinedBorder {
 
   @override
   String toString() {
-    return '${objectRuntimeType(this, 'MoonSquircleBorder')}($side, $borderRadius, $borderAlign)';
+    return '${objectRuntimeType(this, 'SelenicSquircleBorder')}($side, $borderRadius, $borderAlign)';
   }
 }
 
-class MoonSquicleBorderSide with Diagnosticable {
+class SelenicSquircleBorderSide with Diagnosticable {
   /// This constant represents the border being drawn fully inside the border
   /// path.
   ///
@@ -334,7 +334,7 @@ class MoonSquicleBorderSide with Diagnosticable {
   /// Creates the side of a border with premultiplied alpha color.
   ///
   /// By default, the border is 1.0 logical pixels wide and solid black.
-  const MoonSquicleBorderSide({
+  const SelenicSquircleBorderSide({
     this.color = const Color(0xFF000000),
     this.width = 1.0,
     this.style = BorderStyle.solid,

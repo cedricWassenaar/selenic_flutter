@@ -1,54 +1,54 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/drawer/drawer_colors.dart';
-import 'package:moon_design/src/theme/drawer/drawer_properties.dart';
-import 'package:moon_design/src/theme/drawer/drawer_shadows.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/drawer/drawer_colors.dart';
+import 'package:selenic_design/src/theme/drawer/drawer_properties.dart';
+import 'package:selenic_design/src/theme/drawer/drawer_shadows.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
 
 @immutable
-class MoonDrawerTheme extends ThemeExtension<MoonDrawerTheme>
+class SelenicDrawerTheme extends ThemeExtension<SelenicDrawerTheme>
     with DiagnosticableTreeMixin {
-  /// The tokens of the Moon Design System.
-  final MoonTokens tokens;
+  /// The tokens of the Selenic Design System.
+  final SelenicTokens tokens;
 
-  /// The colors of the MoonDrawer.
-  final MoonDrawerColors colors;
+  /// The colors of the SelenicDrawer.
+  final SelenicDrawerColors colors;
 
-  /// The properties of the MoonDrawer.
-  final MoonDrawerProperties properties;
+  /// The properties of the SelenicDrawer.
+  final SelenicDrawerProperties properties;
 
-  /// The shadows of the MoonDrawer.
-  final MoonDrawerShadows shadows;
+  /// The shadows of the SelenicDrawer.
+  final SelenicDrawerShadows shadows;
 
-  MoonDrawerTheme({
+  SelenicDrawerTheme({
     required this.tokens,
-    MoonDrawerColors? colors,
-    MoonDrawerProperties? properties,
-    MoonDrawerShadows? shadows,
+    SelenicDrawerColors? colors,
+    SelenicDrawerProperties? properties,
+    SelenicDrawerShadows? shadows,
   })  : colors = colors ??
-            MoonDrawerColors(
+            SelenicDrawerColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
               backgroundColor: tokens.colors.goku,
             ),
         properties = properties ??
-            MoonDrawerProperties(
+            SelenicDrawerProperties(
               borderRadius: BorderRadius.zero,
               width: 448,
               textStyle: tokens.typography.body.textDefault,
             ),
         shadows =
-            shadows ?? MoonDrawerShadows(drawerShadows: tokens.shadows.lg);
+            shadows ?? SelenicDrawerShadows(drawerShadows: tokens.shadows.lg);
 
   @override
-  MoonDrawerTheme copyWith({
-    MoonTokens? tokens,
-    MoonDrawerColors? colors,
-    MoonDrawerProperties? properties,
-    MoonDrawerShadows? shadows,
+  SelenicDrawerTheme copyWith({
+    SelenicTokens? tokens,
+    SelenicDrawerColors? colors,
+    SelenicDrawerProperties? properties,
+    SelenicDrawerShadows? shadows,
   }) {
-    return MoonDrawerTheme(
+    return SelenicDrawerTheme(
       tokens: tokens ?? this.tokens,
       colors: colors ?? this.colors,
       properties: properties ?? this.properties,
@@ -57,10 +57,10 @@ class MoonDrawerTheme extends ThemeExtension<MoonDrawerTheme>
   }
 
   @override
-  MoonDrawerTheme lerp(ThemeExtension<MoonDrawerTheme>? other, double t) {
-    if (other is! MoonDrawerTheme) return this;
+  SelenicDrawerTheme lerp(ThemeExtension<SelenicDrawerTheme>? other, double t) {
+    if (other is! SelenicDrawerTheme) return this;
 
-    return MoonDrawerTheme(
+    return SelenicDrawerTheme(
       tokens: tokens.lerp(other.tokens, t),
       colors: colors.lerp(other.colors, t),
       properties: properties.lerp(other.properties, t),
@@ -72,10 +72,11 @@ class MoonDrawerTheme extends ThemeExtension<MoonDrawerTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(DiagnosticsProperty("type", "MoonDrawerTheme"))
-      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
-      ..add(DiagnosticsProperty<MoonDrawerColors>("colors", colors))
-      ..add(DiagnosticsProperty<MoonDrawerProperties>("properties", properties))
-      ..add(DiagnosticsProperty<MoonDrawerShadows>("shadows", shadows));
+      ..add(DiagnosticsProperty("type", "SelenicDrawerTheme"))
+      ..add(DiagnosticsProperty<SelenicTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<SelenicDrawerColors>("colors", colors))
+      ..add(DiagnosticsProperty<SelenicDrawerProperties>(
+          "properties", properties))
+      ..add(DiagnosticsProperty<SelenicDrawerShadows>("shadows", shadows));
   }
 }

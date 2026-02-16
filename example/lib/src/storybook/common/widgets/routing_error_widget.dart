@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:moon_design/moon_design.dart';
+import 'package:selenic_design/selenic_design.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class RoutingErrorWidget extends StatelessWidget {
@@ -19,22 +19,22 @@ class RoutingErrorWidget extends StatelessWidget {
               ),
               Text(
                 'Lost in space',
-                style: context.moonTypography!.heading.text32,
+                style: context.selenicTypography!.heading.text32,
               ),
               const SizedBox(height: 8),
               Text(
                 'Houston, we have a problem. Moon not found.',
-                style: context.moonTypography!.body.text16,
+                style: context.selenicTypography!.body.text16,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 32),
-              MoonButton(
+              SelenicButton(
                 onTap: () => context.go('/'),
-                borderColor: context.moonColors!.piccolo,
+                borderColor: context.selenicColors!.piccolo,
                 showBorder: true,
                 label: Text(
                   'Go back to home',
-                  style: TextStyle(color: context.moonColors!.piccolo),
+                  style: TextStyle(color: context.selenicColors!.piccolo),
                 ),
               ),
             ],

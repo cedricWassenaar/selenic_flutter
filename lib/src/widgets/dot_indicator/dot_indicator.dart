@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/utils/color_tween_premul.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
-class MoonDotIndicator extends StatefulWidget {
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/sizes.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/utils/color_tween_premul.dart';
+
+class SelenicDotIndicator extends StatefulWidget {
   /// The color of the selected dot.
   final Color? selectedColor;
 
@@ -31,8 +32,8 @@ class MoonDotIndicator extends StatefulWidget {
   /// The total number of dots to build for the indicator.
   final int dotCount;
 
-  /// Creates a Moon Design dot indicator.
-  const MoonDotIndicator({
+  /// Creates a Selenic Design dot indicator.
+  const SelenicDotIndicator({
     this.selectedColor,
     this.unselectedColor,
     this.gap,
@@ -47,7 +48,7 @@ class MoonDotIndicator extends StatefulWidget {
   _CarouselIndicatorState createState() => _CarouselIndicatorState();
 }
 
-class _CarouselIndicatorState extends State<MoonDotIndicator>
+class _CarouselIndicatorState extends State<SelenicDotIndicator>
     with TickerProviderStateMixin {
   final ColorTweenWithPremultipliedAlpha _dotColorTween =
       ColorTweenWithPremultipliedAlpha();
@@ -65,7 +66,7 @@ class _CarouselIndicatorState extends State<MoonDotIndicator>
   }
 
   @override
-  void didUpdateWidget(MoonDotIndicator oldWidget) {
+  void didUpdateWidget(SelenicDotIndicator oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.selectedDot != oldWidget.selectedDot) {
@@ -86,28 +87,28 @@ class _CarouselIndicatorState extends State<MoonDotIndicator>
   @override
   Widget build(BuildContext context) {
     final double effectiveSize = widget.size ??
-        context.moonTheme?.dotIndicatorTheme.properties.size ??
-        MoonSizes.sizes.x4s;
+        context.selenicTheme?.dotIndicatorTheme.properties.size ??
+        SelenicSizes.sizes.x4s;
 
     final double effectiveGap = widget.gap ??
-        context.moonTheme?.dotIndicatorTheme.properties.gap ??
-        MoonSizes.sizes.x4s;
+        context.selenicTheme?.dotIndicatorTheme.properties.gap ??
+        SelenicSizes.sizes.x4s;
 
     final Color effectiveSelectedColor = widget.selectedColor ??
-        context.moonTheme?.dotIndicatorTheme.colors.selectedColor ??
+        context.selenicTheme?.dotIndicatorTheme.colors.selectedColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveUnselectedColor = widget.unselectedColor ??
-        context.moonTheme?.dotIndicatorTheme.colors.unselectedColor ??
+        context.selenicTheme?.dotIndicatorTheme.colors.unselectedColor ??
         MoonColors.light.beerus;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.dotIndicatorTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.selenicTheme?.dotIndicatorTheme.properties.transitionDuration ??
+        SelenicTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.dotIndicatorTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.selenicTheme?.dotIndicatorTheme.properties.transitionCurve ??
+        SelenicTransitions.transitions.defaultTransitionCurve;
 
     _animationControllers ??= List.generate(
       widget.dotCount,

@@ -7,7 +7,7 @@ class BaseSegmentedTabBar extends StatefulWidget {
   final ValueChanged<int> valueChanged;
   final List<Widget> children;
 
-  /// Creates a Moon Design base segmented tab bar.
+  /// Creates a Selenic Design base segmented tab bar.
   const BaseSegmentedTabBar({
     super.key,
     required this.isExpanded,

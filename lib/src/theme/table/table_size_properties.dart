@@ -4,42 +4,43 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class MoonTableSizeProperties extends ThemeExtension<MoonTableSizeProperties>
+class SelenicTableSizeProperties
+    extends ThemeExtension<SelenicTableSizeProperties>
     with DiagnosticableTreeMixin {
-  /// The border radius of the MoonTable row.
+  /// The border radius of the SelenicTable row.
   final BorderRadiusGeometry rowBorderRadius;
 
-  /// The vertical gap between the MoonTable rows.
+  /// The vertical gap between the SelenicTable rows.
   final double rowGap;
 
-  /// The height of the MoonTable row.
+  /// The height of the SelenicTable row.
   final double rowHeight;
 
-  /// The horizontal gap between the MoonTable column label and sort icon.
+  /// The horizontal gap between the SelenicTable column label and sort icon.
   final double sortIconGap;
 
-  /// The size value of the MoonTable column sort icon.
+  /// The size value of the SelenicTable column sort icon.
   final double sortIconSizeValue;
 
-  /// The padding of the MoonTable cell.
+  /// The padding of the SelenicTable cell.
   final EdgeInsetsGeometry cellPadding;
 
-  /// The padding of the MoonTable row label.
+  /// The padding of the SelenicTable row label.
   final EdgeInsetsGeometry rowLabelPadding;
 
-  /// The text style of the MoonTable column.
+  /// The text style of the SelenicTable column.
   final TextStyle columnTextStyle;
 
-  /// The text style of the MoonTable row.
+  /// The text style of the SelenicTable row.
   final TextStyle rowTextStyle;
 
-  /// The text style of the MoonTable row label.
+  /// The text style of the SelenicTable row label.
   final TextStyle rowLabelTextStyle;
 
-  /// The text style of the MoonTable row pinned and animated label.
+  /// The text style of the SelenicTable row pinned and animated label.
   final TextStyle rowPinnedAnimatedLabelTextStyle;
 
-  const MoonTableSizeProperties({
+  const SelenicTableSizeProperties({
     required this.rowBorderRadius,
     required this.rowGap,
     required this.rowHeight,
@@ -54,7 +55,7 @@ class MoonTableSizeProperties extends ThemeExtension<MoonTableSizeProperties>
   });
 
   @override
-  MoonTableSizeProperties copyWith({
+  SelenicTableSizeProperties copyWith({
     BorderRadiusGeometry? rowBorderRadius,
     double? rowGap,
     double? rowHeight,
@@ -67,7 +68,7 @@ class MoonTableSizeProperties extends ThemeExtension<MoonTableSizeProperties>
     TextStyle? rowLabelTextStyle,
     TextStyle? rowPinnedAnimatedLabelTextStyle,
   }) {
-    return MoonTableSizeProperties(
+    return SelenicTableSizeProperties(
       rowBorderRadius: rowBorderRadius ?? this.rowBorderRadius,
       rowGap: rowGap ?? this.rowGap,
       rowHeight: rowHeight ?? this.rowHeight,
@@ -84,13 +85,13 @@ class MoonTableSizeProperties extends ThemeExtension<MoonTableSizeProperties>
   }
 
   @override
-  MoonTableSizeProperties lerp(
-    ThemeExtension<MoonTableSizeProperties>? other,
+  SelenicTableSizeProperties lerp(
+    ThemeExtension<SelenicTableSizeProperties>? other,
     double t,
   ) {
-    if (other is! MoonTableSizeProperties) return this;
+    if (other is! SelenicTableSizeProperties) return this;
 
-    return MoonTableSizeProperties(
+    return SelenicTableSizeProperties(
       rowBorderRadius:
           BorderRadiusGeometry.lerp(rowBorderRadius, other.rowBorderRadius, t)!,
       rowGap: lerpDouble(rowGap, other.rowGap, t)!,
@@ -121,7 +122,7 @@ class MoonTableSizeProperties extends ThemeExtension<MoonTableSizeProperties>
       ..add(
         DiagnosticsProperty(
           "type",
-          "MoonTableSizeProperties",
+          "SelenicTableSizeProperties",
         ),
       )
       ..add(

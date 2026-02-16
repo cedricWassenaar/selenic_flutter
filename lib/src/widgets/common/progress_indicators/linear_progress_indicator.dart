@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 
-import 'package:moon_design/src/widgets/common/progress_indicators/base_progress.dart';
-import 'package:moon_design/src/widgets/common/progress_indicators/painters/linear_progress_indicator_painter.dart';
+import 'package:selenic_design/src/widgets/common/progress_indicators/base_progress.dart';
+import 'package:selenic_design/src/widgets/common/progress_indicators/painters/linear_progress_indicator_painter.dart';
 
-class MoonLinearProgressIndicator extends MoonBaseProgressIndicator {
+class SelenicLinearProgressIndicator extends SelenicBaseProgressIndicator {
   /// The container radius of the linear progress indicator.
   final BorderRadiusGeometry containerRadius;
 
@@ -13,8 +13,8 @@ class MoonLinearProgressIndicator extends MoonBaseProgressIndicator {
   /// The minimum height of the linear progress indicator.
   final double minHeight;
 
-  /// Creates a Moon Design linear progress indicator.
-  const MoonLinearProgressIndicator({
+  /// Creates a Selenic Design linear progress indicator.
+  const SelenicLinearProgressIndicator({
     super.key,
     super.value,
     required super.backgroundColor,
@@ -33,12 +33,12 @@ class MoonLinearProgressIndicator extends MoonBaseProgressIndicator {
   Color get backgroundColor => super.backgroundColor;
 
   @override
-  State<MoonLinearProgressIndicator> createState() =>
-      _MoonLinearProgressIndicatorState();
+  State<SelenicLinearProgressIndicator> createState() =>
+      _SelenicLinearProgressIndicatorState();
 }
 
-class _MoonLinearProgressIndicatorState
-    extends State<MoonLinearProgressIndicator>
+class _SelenicLinearProgressIndicatorState
+    extends State<SelenicLinearProgressIndicator>
     with SingleTickerProviderStateMixin {
   static const int _kIndeterminateLinearDuration = 1800;
 
@@ -57,7 +57,7 @@ class _MoonLinearProgressIndicatorState
   }
 
   @override
-  void didUpdateWidget(MoonLinearProgressIndicator oldWidget) {
+  void didUpdateWidget(SelenicLinearProgressIndicator oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.value == null && !_controller.isAnimating) {
@@ -93,7 +93,7 @@ class _MoonLinearProgressIndicatorState
         ),
         child: RepaintBoundary(
           child: CustomPaint(
-            painter: MoonLinearProgressIndicatorPainter(
+            painter: SelenicLinearProgressIndicatorPainter(
               backgroundColor: widget.backgroundColor,
               valueColor: widget.color,
               value: widget.value,

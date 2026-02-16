@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/utils/color_premul_lerp.dart';
-import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
+import 'package:selenic_design/src/utils/color_premul_lerp.dart';
+import 'package:selenic_design/src/utils/squircle/squircle_radius.dart';
 
 class FocusEffectPainter extends CustomPainter {
   final Animation<double> animation;
@@ -51,16 +51,16 @@ class FocusEffectPainter extends CustomPainter {
             rect.width * widthIncrease,
             rect.height * heightIncrease,
           ),
-          topLeft: MoonSquircleRadius(
+          topLeft: SelenicSquircleRadius(
             cornerRadius: borderRadius.topLeft.x + resolvedExtent,
           ),
-          topRight: MoonSquircleRadius(
+          topRight: SelenicSquircleRadius(
             cornerRadius: borderRadius.topRight.x + resolvedExtent,
           ),
-          bottomLeft: MoonSquircleRadius(
+          bottomLeft: SelenicSquircleRadius(
             cornerRadius: borderRadius.bottomLeft.x + resolvedExtent,
           ),
-          bottomRight: MoonSquircleRadius(
+          bottomRight: SelenicSquircleRadius(
             cornerRadius: borderRadius.bottomRight.x + resolvedExtent,
           ),
         ),

@@ -1,13 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/widgets/bottom_sheet/bottom_sheet.dart';
 import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/widgets/bottom_sheet/bottom_sheet.dart';
 
-/// Displays a Moon Design modal bottom sheet.
-Future<T?> showMoonModalBottomSheet<T>({
+/// Displays a Selenic Design modal bottom sheet.
+Future<T?> showSelenicModalBottomSheet<T>({
   required BuildContext context,
   bool enableDrag = true,
   bool isExpanded = false,
@@ -43,20 +42,20 @@ Future<T?> showMoonModalBottomSheet<T>({
   );
 
   final Color effectiveBarrierColor = barrierColor ??
-      context.moonTheme?.bottomSheetTheme.colors.barrierColor ??
+      context.selenicTheme?.bottomSheetTheme.colors.barrierColor ??
       MoonColors.light.zeno;
 
   final Duration effectiveTransitionDuration = transitionDuration ??
-      context.moonTheme?.bottomSheetTheme.properties.transitionDuration ??
+      context.selenicTheme?.bottomSheetTheme.properties.transitionDuration ??
       const Duration(milliseconds: 350);
 
   final Curve effectiveTransitionCurve = transitionCurve ??
-      context.moonTheme?.bottomSheetTheme.properties.transitionCurve ??
+      context.selenicTheme?.bottomSheetTheme.properties.transitionCurve ??
       const Cubic(0.0, 0.0, 0.2, 1.0);
 
   final T? result =
       await Navigator.of(context, rootNavigator: useRootNavigator).push(
-    MoonModalBottomSheetRoute<T>(
+    SelenicModalBottomSheetRoute<T>(
       enableDrag: enableDrag,
       isExpanded: isExpanded,
       isDismissible: isDismissible,
@@ -80,7 +79,7 @@ Future<T?> showMoonModalBottomSheet<T>({
   return result;
 }
 
-class MoonModalBottomSheetRoute<T> extends PageRoute<T> {
+class SelenicModalBottomSheetRoute<T> extends PageRoute<T> {
   final bool enableDrag;
   final bool isExpanded;
   final bool isDismissible;
@@ -98,7 +97,7 @@ class MoonModalBottomSheetRoute<T> extends PageRoute<T> {
   final ScrollController? scrollController;
   final WidgetBuilder builder;
 
-  MoonModalBottomSheetRoute({
+  SelenicModalBottomSheetRoute({
     super.settings,
     this.enableDrag = true,
     this.isExpanded = false,
@@ -148,7 +147,7 @@ class MoonModalBottomSheetRoute<T> extends PageRoute<T> {
   AnimationController createAnimationController() {
     assert(_animationController == null);
 
-    _animationController = MoonBottomSheet.createAnimationController(
+    _animationController = SelenicBottomSheet.createAnimationController(
       navigator!.overlay!,
       transitionDuration,
     );
@@ -158,11 +157,12 @@ class MoonModalBottomSheetRoute<T> extends PageRoute<T> {
 
   @override
   bool canTransitionTo(TransitionRoute<dynamic> nextRoute) =>
-      nextRoute is MoonModalBottomSheetRoute;
+      nextRoute is SelenicModalBottomSheetRoute;
 
   @override
   bool canTransitionFrom(TransitionRoute<dynamic> previousRoute) =>
-      previousRoute is MoonModalBottomSheetRoute || previousRoute is PageRoute;
+      previousRoute is SelenicModalBottomSheetRoute ||
+      previousRoute is PageRoute;
 
   @override
   Widget buildPage(
@@ -206,7 +206,7 @@ class _ModalBottomSheet<T> extends StatefulWidget {
   final Curve? transitionCurve;
   final String? semanticLabel;
   final AnimationController? animationController;
-  final MoonModalBottomSheetRoute<T> route;
+  final SelenicModalBottomSheetRoute<T> route;
 
   const _ModalBottomSheet({
     super.key,
@@ -308,7 +308,7 @@ class _ModalBottomSheetState<T> extends State<_ModalBottomSheet<T>> {
               label: _getRouteLabel(),
               namesRoute: true,
               scopesRoute: true,
-              child: MoonBottomSheet(
+              child: SelenicBottomSheet(
                 enableDrag: widget.enableDrag,
                 isExpanded: widget.route.isExpanded,
                 borderRadius: widget.borderRadius,

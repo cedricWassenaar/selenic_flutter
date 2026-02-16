@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/widgets/tab_bar/tab_style.dart';
+import 'package:selenic_design/src/widgets/tab_bar/tab_style.dart';
 
-class MoonTab {
+class SelenicTab {
   /// Whether the tab is disabled.
   final bool disabled;
 
@@ -19,7 +19,7 @@ class MoonTab {
   final FocusNode? focusNode;
 
   /// The styling options for the tab.
-  final MoonTabStyle? tabStyle;
+  final SelenicTabStyle? tabStyle;
 
   /// The semantic label for the tab.
   final String? semanticLabel;
@@ -37,8 +37,8 @@ class MoonTab {
   /// The widget to display after the [label] widget of the tab.
   final Widget? trailing;
 
-  /// Creates a Moon Design tab.
-  const MoonTab({
+  /// Creates a Selenic Design tab.
+  const SelenicTab({
     this.disabled = false,
     this.autoFocus = false,
     this.isFocusable = true,

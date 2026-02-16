@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_design/src/theme/effects/effects_theme.dart';
-import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/utils/extensions.dart';
-import 'package:moon_design/src/utils/touch_target_padding.dart';
-import 'package:moon_design/src/widgets/common/effects/focus_effect.dart';
-import 'package:moon_design/src/widgets/common/effects/pulse_effect.dart';
+import 'package:selenic_design/src/theme/effects/effects_theme.dart';
+import 'package:selenic_design/src/theme/theme.dart';
+import 'package:selenic_design/src/theme/tokens/opacities.dart';
+import 'package:selenic_design/src/theme/tokens/tokens.dart';
+import 'package:selenic_design/src/theme/tokens/transitions.dart';
+import 'package:selenic_design/src/utils/extensions.dart';
+import 'package:selenic_design/src/utils/touch_target_padding.dart';
+import 'package:selenic_design/src/widgets/common/effects/focus_effect.dart';
+import 'package:selenic_design/src/widgets/common/effects/pulse_effect.dart';
 
-typedef MoonBaseControlBuilder = Widget Function(
+typedef SelenicBaseControlBuilder = Widget Function(
   BuildContext context,
   bool isEnabled,
   bool isHovered,
@@ -18,7 +18,7 @@ typedef MoonBaseControlBuilder = Widget Function(
   bool isPressed,
 );
 
-class MoonBaseControl extends StatefulWidget {
+class SelenicBaseControl extends StatefulWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
   final bool autofocus;
 
@@ -100,7 +100,7 @@ class MoonBaseControl extends StatefulWidget {
   /// A builder to build a custom child for the base control.
   /// Cannot be used in conjunction with the [child] property, one of them must
   /// be null.
-  final MoonBaseControlBuilder? builder;
+  final SelenicBaseControlBuilder? builder;
 
   /// The mouse cursor of the base control.
   final MouseCursor cursor;
@@ -125,8 +125,8 @@ class MoonBaseControl extends StatefulWidget {
   /// must be null.
   final Widget? child;
 
-  /// Creates a Moon Design base control.
-  const MoonBaseControl({
+  /// Creates a Selenic Design base control.
+  const SelenicBaseControl({
     super.key,
     this.autofocus = false,
     this.absorbDragEvents = false,
@@ -168,10 +168,10 @@ class MoonBaseControl extends StatefulWidget {
         );
 
   @override
-  State<MoonBaseControl> createState() => _MoonBaseControlState();
+  State<SelenicBaseControl> createState() => _SelenicBaseControlState();
 }
 
-class _MoonBaseControlState extends State<MoonBaseControl> {
+class _SelenicBaseControlState extends State<SelenicBaseControl> {
   late Map<Type, Action<Intent>> _actions;
 
   FocusNode? _focusNode;
@@ -236,13 +236,13 @@ class _MoonBaseControlState extends State<MoonBaseControl> {
     }
   }
 
-  void _handleTapDown(_) {
+  void _handleTapDown(TapDownDetails? _) {
     if (!_isPressed) {
       setState(() => _isPressed = true);
     }
   }
 
-  void _handleTapUp(_) {
+  void _handleTapUp(TapUpDetails? _) {
     if (_isPressed) {
       setState(() => _isPressed = false);
     }
@@ -262,7 +262,7 @@ class _MoonBaseControlState extends State<MoonBaseControl> {
     }
   }
 
-  void _handleLongPressStart(_) {
+  void _handleLongPressStart(LongPressStartDetails? _) {
     if (!_isLongPressed) {
       setState(() => _isLongPressed = true);
     }
@@ -301,8 +301,8 @@ class _MoonBaseControlState extends State<MoonBaseControl> {
   Color _getFocusColor({required Color focusColor}) {
     if (widget.backgroundColor != null) {
       return context.isDarkMode
-          ? widget.backgroundColor!.withOpacity(0.8)
-          : widget.backgroundColor!.withOpacity(0.2);
+          ? widget.backgroundColor!.withValues(alpha: 0.8)
+          : widget.backgroundColor!.withValues(alpha: 0.2);
     } else {
       return focusColor;
     }
@@ -328,7 +328,7 @@ class _MoonBaseControlState extends State<MoonBaseControl> {
   }
 
   @override
-  void didUpdateWidget(MoonBaseControl oldWidget) {
+  void didUpdateWidget(SelenicBaseControl oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.onTap != oldWidget.onTap ||
@@ -351,13 +351,13 @@ class _MoonBaseControlState extends State<MoonBaseControl> {
   @override
   Widget build(BuildContext context) {
     final double effectiveDisabledOpacityValue = widget.disabledOpacityValue ??
-        context.moonOpacities?.disabled ??
-        MoonOpacities.opacities.disabled;
+        context.selenicOpacities?.disabled ??
+        SelenicOpacities.opacities.disabled;
 
     // Focus effect properties.
     final Color effectiveFocusEffectColor = widget.focusEffectColor ??
-        context.moonEffects?.controlFocusEffect.effectColor ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectColor ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlFocusEffect
             .effectColor;
 
@@ -365,64 +365,64 @@ class _MoonBaseControlState extends State<MoonBaseControl> {
         _getFocusColor(focusColor: effectiveFocusEffectColor);
 
     final double effectiveFocusEffectExtent = widget.focusEffectExtent ??
-        context.moonEffects?.controlFocusEffect.effectExtent ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectExtent ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlFocusEffect
             .effectExtent;
 
     final Duration effectiveFocusEffectDuration = widget.focusEffectDuration ??
-        context.moonEffects?.controlFocusEffect.effectDuration ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectDuration ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlFocusEffect
             .effectDuration;
 
     final Curve effectiveFocusEffectCurve = widget.focusEffectCurve ??
-        context.moonEffects?.controlFocusEffect.effectCurve ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlFocusEffect.effectCurve ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlFocusEffect
             .effectCurve;
 
     // Pulse effect properties.
     final Color effectivePulseEffectColor = widget.pulseEffectColor ??
-        context.moonEffects?.controlPulseEffect.effectColor ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlPulseEffect.effectColor ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlPulseEffect
             .effectColor!;
 
     final double effectivePulseEffectExtent = widget.pulseEffectExtent ??
-        context.moonEffects?.controlPulseEffect.effectExtent ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlPulseEffect.effectExtent ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlPulseEffect
             .effectExtent!;
 
     final Duration effectivePulseEffectDuration = widget.pulseEffectDuration ??
-        context.moonEffects?.controlPulseEffect.effectDuration ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlPulseEffect.effectDuration ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlPulseEffect
             .effectDuration;
 
     final Curve effectivePulseEffectCurve = widget.pulseEffectCurve ??
-        context.moonEffects?.controlPulseEffect.effectCurve ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlPulseEffect.effectCurve ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlPulseEffect
             .effectCurve;
 
     // Scale effect properties.
     final double effectiveScaleEffectScalar = widget.scaleEffectScalar ??
-        context.moonEffects?.controlScaleEffect.effectScalar ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlScaleEffect.effectScalar ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlScaleEffect
             .effectScalar!;
 
     final Duration effectiveScaleEffectDuration = widget.scaleEffectDuration ??
-        context.moonEffects?.controlScaleEffect.effectDuration ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlScaleEffect.effectDuration ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlScaleEffect
             .effectDuration;
 
     final Curve effectiveScaleEffectCurve = widget.scaleEffectCurve ??
-        context.moonEffects?.controlScaleEffect.effectCurve ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
+        context.selenicEffects?.controlScaleEffect.effectCurve ??
+        SelenicEffectsTheme(tokens: SelenicTokens.light)
             .controlScaleEffect
             .effectCurve;
 
@@ -483,7 +483,7 @@ class _MoonBaseControlState extends State<MoonBaseControl> {
                       scale: _canAnimateScale ? effectiveScaleEffectScalar : 1,
                       duration: effectiveScaleEffectDuration,
                       curve: effectiveScaleEffectCurve,
-                      child: MoonPulseEffect(
+                      child: SelenicPulseEffect(
                         show: _canAnimatePulse,
                         showJiggle: widget.showPulseEffectJiggle,
                         childBorderRadius: widget.borderRadius,
@@ -494,15 +494,15 @@ class _MoonBaseControlState extends State<MoonBaseControl> {
                         child: AnimatedOpacity(
                           opacity:
                               _isEnabled ? 1 : effectiveDisabledOpacityValue,
-                          duration: context
-                                  .moonTransitions?.defaultTransitionDuration ??
-                              MoonTransitions
+                          duration: context.selenicTransitions
+                                  ?.defaultTransitionDuration ??
+                              SelenicTransitions
                                   .transitions.defaultTransitionDuration,
-                          curve:
-                              context.moonTransitions?.defaultTransitionCurve ??
-                                  MoonTransitions
-                                      .transitions.defaultTransitionCurve,
-                          child: MoonFocusEffect(
+                          curve: context
+                                  .selenicTransitions?.defaultTransitionCurve ??
+                              SelenicTransitions
+                                  .transitions.defaultTransitionCurve,
+                          child: SelenicFocusEffect(
                             show: _canAnimateFocus,
                             effectColor: focusColor,
                             effectExtent: effectiveFocusEffectExtent,
