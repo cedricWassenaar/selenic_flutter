@@ -1,5 +1,17 @@
 # Selenic Design System
 
+[![Analyze and test](https://github.com/cedricWassenaar/selenic_flutter/actions/workflows/analyze_and_test.yml/badge.svg?branch=main)](https://github.com/cedricWassenaar/selenic_flutter/actions/workflows/analyze_and_test.yml)
+[![Publish to pub.dev](https://github.com/cedricWassenaar/selenic_flutter/actions/workflows/publish.yml/badge.svg)](https://github.com/cedricWassenaar/selenic_flutter/actions/workflows/publish.yml)
+## Design overview
+
+![Search](example/assets/components/search.png)
+
+![Search](example/assets/components/button.png)
+
+![Search](example/assets/components/radio.png)
+
+![Search](example/assets/components/tab_bar.png)
+
 ## Disclaimer
 
 This project is a fork of moon_design (MIT-licensed), this project is not affiliated with yolo.com or moon.io.
