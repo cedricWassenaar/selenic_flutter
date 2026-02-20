@@ -146,7 +146,7 @@ class _IconsStoryState extends State<IconsStory> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: context.selenicColors?.goku,
+        backgroundColor: context.selenicColors?.backgroundPrimary,
         title: Theme(
           data: Theme.of(context),
           child: SelenicTextInput(

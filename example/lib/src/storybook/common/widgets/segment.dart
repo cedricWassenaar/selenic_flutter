@@ -43,11 +43,20 @@ class IconsSegment extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   if (segmentMap.keys.toList()[index].contains("16"))
-                    Icon(segmentMap.values.toList()[index], size: 16)
+                    Icon(
+                      segmentMap.values.toList()[index],
+                      size: 16,
+                    )
                   else if (segmentMap.keys.toList()[index].contains("24"))
-                    Icon(segmentMap.values.toList()[index], size: 24)
+                    Icon(
+                      segmentMap.values.toList()[index],
+                      size: 24,
+                    )
                   else
-                    Icon(segmentMap.values.toList()[index], size: 32),
+                    Icon(
+                      segmentMap.values.toList()[index],
+                      size: 32,
+                    ),
                   const SizedBox(height: 16),
                   Text(
                     segmentMap.keys.toList()[index],

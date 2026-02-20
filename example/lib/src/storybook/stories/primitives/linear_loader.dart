@@ -26,10 +26,9 @@ class LinearLoaderStory extends StatelessWidget {
 
     final loaderColorKnob = context.knobs.nullable.options(
       label: "color",
-      description: "MoonColors variants for SelenicLinearLoader.",
+      description: "SelenicColors variants for SelenicLinearLoader.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -37,10 +36,9 @@ class LinearLoaderStory extends StatelessWidget {
 
     final loaderBackgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicLinearLoader background.",
+      description: "SelenicColors variants for SelenicLinearLoader background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

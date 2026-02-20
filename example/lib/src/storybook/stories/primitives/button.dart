@@ -32,10 +32,9 @@ class ButtonStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for base SelenicButton background.",
+      description: "SelenicColors variants for base SelenicButton background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -43,10 +42,9 @@ class ButtonStory extends StatelessWidget {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for SelenicButton border.",
+      description: "SelenicColors variants for SelenicButton border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -54,10 +52,9 @@ class ButtonStory extends StatelessWidget {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for SelenicButton text.",
+      description: "SelenicColors variants for SelenicButton text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -231,7 +228,7 @@ class ButtonStory extends StatelessWidget {
                 padding: const EdgeInsets.all(4),
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
-                  color: context.selenicColors!.popo,
+                  color: context.selenicColors!.outlinedButton,
                 ),
               ),
             ),
@@ -252,8 +249,8 @@ class ButtonStory extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    context.selenicColors!.krillin,
-                    context.selenicColors!.dodoria,
+                    context.selenicColors!.warning,
+                    context.selenicColors!.supportive_2,
                   ],
                 ),
                 shape: const StarBorder(
@@ -265,7 +262,7 @@ class ButtonStory extends StatelessWidget {
                 width: 32,
                 height: 32,
                 child: CircleAvatar(
-                  backgroundColor: context.selenicColors!.frieza60,
+                  backgroundColor: context.selenicColors!.supportive_1_60,
                   child: const Icon(
                     MoonIcons.other_rocket_24_light,
                     size: 24,

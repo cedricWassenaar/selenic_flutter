@@ -20,10 +20,9 @@ class _AlertStoryState extends State<AlertStory> {
   Widget build(BuildContext context) {
     final leadingColorKnob = context.knobs.nullable.options(
       label: "Leading Color",
-      description: "MoonColors variants for SelenicAlert leading slot.",
+      description: "SelenicColors variants for SelenicAlert leading slot.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -31,10 +30,9 @@ class _AlertStoryState extends State<AlertStory> {
 
     final labelColorKnob = context.knobs.nullable.options(
       label: "Label color",
-      description: "MoonColors variants for SelenicAlert label slot.",
+      description: "SelenicColors variants for SelenicAlert label slot.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -42,10 +40,9 @@ class _AlertStoryState extends State<AlertStory> {
 
     final trailingColorKnob = context.knobs.nullable.options(
       label: "Trailing color",
-      description: "MoonColors variants for SelenicAlert trailing slot.",
+      description: "SelenicColors variants for SelenicAlert trailing slot.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -53,10 +50,9 @@ class _AlertStoryState extends State<AlertStory> {
 
     final contentColorKnob = context.knobs.nullable.options(
       label: "Content color",
-      description: "MoonColors variants for SelenicAlert content slot.",
+      description: "SelenicColors variants for SelenicAlert content slot.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -64,10 +60,9 @@ class _AlertStoryState extends State<AlertStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicAlert background.",
+      description: "SelenicColors variants for SelenicAlert background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -75,10 +70,9 @@ class _AlertStoryState extends State<AlertStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for SelenicAlert border.",
+      description: "SelenicColors variants for SelenicAlert border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -189,7 +183,7 @@ class _AlertStoryState extends State<AlertStory> {
                 const SizedBox(height: 16),
                 SelenicFilledButton(
                   label: const Text("Show/Hide SelenicAlert"),
-                  backgroundColor: context.selenicColors!.piccolo,
+                  backgroundColor: context.selenicColors!.accentPrimary,
                   onTap: () => setState(() => _showAlert = !_showAlert),
                 ),
               ],
@@ -197,8 +191,8 @@ class _AlertStoryState extends State<AlertStory> {
             const TextDivider(text: "Filled SelenicAlert variant"),
             SelenicAlert.filled(
               show: true,
-              color: context.selenicColors!.chichi,
-              backgroundColor: context.selenicColors!.chichi10,
+              color: context.selenicColors!.error,
+              backgroundColor: context.selenicColors!.error10,
               borderRadius: borderRadius,
               leading: showLeadingKnob
                   ? const Icon(MoonIcons.notifications_alert_24_light)
@@ -212,7 +206,7 @@ class _AlertStoryState extends State<AlertStory> {
                 icon: Icon(
                   MoonIcons.controls_close_small_24_light,
                   size: 24,
-                  color: context.selenicColors!.chichi,
+                  color: context.selenicColors!.error,
                 ),
               ),
               content: showContentKnob
@@ -228,8 +222,8 @@ class _AlertStoryState extends State<AlertStory> {
             const SizedBox(height: 16),
             SelenicAlert.filled(
               show: true,
-              color: context.selenicColors!.krillin,
-              backgroundColor: context.selenicColors!.krillin10,
+              color: context.selenicColors!.warning,
+              backgroundColor: context.selenicColors!.warning10,
               borderRadius: borderRadius,
               leading: showLeadingKnob
                   ? const Icon(MoonIcons.generic_alarm_round_24_light)
@@ -243,7 +237,7 @@ class _AlertStoryState extends State<AlertStory> {
                 icon: Icon(
                   MoonIcons.controls_close_small_24_light,
                   size: 24,
-                  color: context.selenicColors!.krillin,
+                  color: context.selenicColors!.warning,
                 ),
               ),
               content: showContentKnob
@@ -259,8 +253,8 @@ class _AlertStoryState extends State<AlertStory> {
             const TextDivider(text: "Outlined SelenicAlert variant"),
             SelenicAlert.outlined(
               show: true,
-              color: context.selenicColors!.roshi,
-              borderColor: context.selenicColors!.roshi,
+              color: context.selenicColors!.success,
+              borderColor: context.selenicColors!.success,
               borderRadius: borderRadius,
               leading: showLeadingKnob
                   ? const Icon(MoonIcons.generic_check_rounded_24_light)
@@ -274,7 +268,7 @@ class _AlertStoryState extends State<AlertStory> {
                 icon: Icon(
                   MoonIcons.controls_close_small_24_light,
                   size: 24,
-                  color: context.selenicColors!.roshi,
+                  color: context.selenicColors!.success,
                 ),
               ),
               content: showContentKnob
@@ -290,8 +284,8 @@ class _AlertStoryState extends State<AlertStory> {
             const SizedBox(height: 16),
             SelenicAlert.outlined(
               show: true,
-              color: context.selenicColors!.whis,
-              borderColor: context.selenicColors!.whis,
+              color: context.selenicColors!.supportive_6,
+              borderColor: context.selenicColors!.supportive_6,
               borderRadius: borderRadius,
               leading: showLeadingKnob
                   ? const Icon(MoonIcons.notifications_alert_24_light)
@@ -305,7 +299,7 @@ class _AlertStoryState extends State<AlertStory> {
                 icon: Icon(
                   MoonIcons.controls_close_small_24_light,
                   size: 24,
-                  color: context.selenicColors!.whis,
+                  color: context.selenicColors!.supportive_6,
                 ),
               ),
               content: showContentKnob

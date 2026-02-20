@@ -12,10 +12,9 @@ class ModalStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for SelenicModal text.",
+      description: "SelenicColors variants for SelenicModal text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -23,10 +22,9 @@ class ModalStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicModal background.",
+      description: "SelenicColors variants for SelenicModal background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -34,10 +32,9 @@ class ModalStory extends StatelessWidget {
 
     final barrierColorKnob = context.knobs.nullable.options(
       label: "barrierColor",
-      description: "MoonColors variants for SelenicModal barrier.",
+      description: "SelenicColors variants for SelenicModal barrier.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -80,7 +77,7 @@ class ModalStory extends StatelessWidget {
                     ),
                     Divider(
                       height: 1,
-                      color: context.selenicColors!.trunks,
+                      color: context.selenicColors!.bodyTextSecondary,
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),

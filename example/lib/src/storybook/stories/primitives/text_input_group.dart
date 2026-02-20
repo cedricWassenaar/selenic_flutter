@@ -22,10 +22,9 @@ class _TextInputGroupStoryState extends State<TextInputGroupStory> {
   Widget build(BuildContext context) {
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for SelenicTextInputGroup text.",
+      description: "SelenicColors variants for SelenicTextInputGroup text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -33,10 +32,10 @@ class _TextInputGroupStoryState extends State<TextInputGroupStory> {
 
     final hintTextColorKnob = context.knobs.nullable.options(
       label: "hintTextColor",
-      description: "MoonColors variants for SelenicTextInputGroup hint text.",
+      description:
+          "SelenicColors variants for SelenicTextInputGroup hint text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -44,10 +43,10 @@ class _TextInputGroupStoryState extends State<TextInputGroupStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicTextInputGroup background.",
+      description:
+          "SelenicColors variants for SelenicTextInputGroup background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -55,10 +54,9 @@ class _TextInputGroupStoryState extends State<TextInputGroupStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for SelenicTextInputGroup border.",
+      description: "SelenicColors variants for SelenicTextInputGroup border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -67,10 +65,9 @@ class _TextInputGroupStoryState extends State<TextInputGroupStory> {
     final activeChildrenBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
       description:
-          "MoonColors variants for SelenicTextInputGroup children active border.",
+          "SelenicColors variants for SelenicTextInputGroup children active border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -80,10 +77,9 @@ class _TextInputGroupStoryState extends State<TextInputGroupStory> {
     final errorBorderColorKnob = context.knobs.nullable.options(
       label: "errorBorderColor",
       description:
-          "MoonColors variants for SelenicTextInputGroup error state border.",
+          "SelenicColors variants for SelenicTextInputGroup error state border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -92,10 +88,9 @@ class _TextInputGroupStoryState extends State<TextInputGroupStory> {
     final errorColorKnob = context.knobs.nullable.options(
       label: "errorColor",
       description:
-          "MoonColors variants for SelenicTextInputGroup in error state.",
+          "SelenicColors variants for SelenicTextInputGroup in error state.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

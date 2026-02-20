@@ -75,10 +75,9 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
 
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for SelenicTextInput active border.",
+      description: "SelenicColors variants for SelenicTextInput active border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -86,10 +85,10 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for SelenicTextInput inactive border.",
+      description:
+          "SelenicColors variants for SelenicTextInput inactive border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -98,10 +97,10 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
 
     final hoverBorderColorKnob = context.knobs.nullable.options(
       label: "hoverBorderColor",
-      description: "MoonColors variants for SelenicTextInput border on hover.",
+      description:
+          "SelenicColors variants for SelenicTextInput border on hover.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -109,10 +108,9 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicTextInput background.",
+      description: "SelenicColors variants for SelenicTextInput background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -148,7 +146,7 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
                 enabled: enabledKnob,
                 hasFloatingLabel: hasFloatingLabelKnob,
                 activeBorderColor:
-                    activeBorderColor ?? context.selenicColors!.beerus,
+                    activeBorderColor ?? context.selenicColors!.lineAccent,
                 inactiveBorderColor: inactiveBorderColor,
                 backgroundColor: backgroundColor,
                 hoverBorderColor: hoverBorderColor,
@@ -169,14 +167,15 @@ class _SearchWithListStoryState extends State<SearchWithListStory> {
                       onTap: () => _handleClearButton(),
                       label: Text(
                         'Clear',
-                        style: TextStyle(color: context.selenicColors!.trunks),
+                        style: TextStyle(
+                            color: context.selenicColors!.bodyTextSecondary),
                       ),
                     ),
                     SizedBox(
                       height: 16,
                       child: VerticalDivider(
                         width: 8,
-                        color: context.selenicColors!.beerus,
+                        color: context.selenicColors!.lineAccent,
                       ),
                     ),
                     SelenicButton.icon(

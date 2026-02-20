@@ -46,10 +46,9 @@ class ToastStory extends StatelessWidget {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for SelenicToast text.",
+      description: "SelenicColors variants for SelenicToast text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -57,10 +56,9 @@ class ToastStory extends StatelessWidget {
 
     final iconColorKnob = context.knobs.nullable.options(
       label: "Icon color",
-      description: "MoonColors variants for SelenicToast icon.",
+      description: "SelenicColors variants for SelenicToast icon.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -68,10 +66,9 @@ class ToastStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicToast background.",
+      description: "SelenicColors variants for SelenicToast background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

@@ -29,10 +29,9 @@ class ChipStory extends StatelessWidget {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for SelenicChip text.",
+      description: "SelenicColors variants for SelenicChip text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -40,10 +39,9 @@ class ChipStory extends StatelessWidget {
 
     final activeColorKnob = context.knobs.nullable.options(
       label: "activeColor",
-      description: "MoonColors variants for active SelenicChip.",
+      description: "SelenicColors variants for active SelenicChip.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -51,10 +49,9 @@ class ChipStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicChip background.",
+      description: "SelenicColors variants for SelenicChip background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -62,10 +59,9 @@ class ChipStory extends StatelessWidget {
 
     final activeBackgroundColorKnob = context.knobs.nullable.options(
       label: "activeBackgroundColor",
-      description: "MoonColors variants for active SelenicChip background.",
+      description: "SelenicColors variants for active SelenicChip background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -74,10 +70,9 @@ class ChipStory extends StatelessWidget {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for SelenicChip border.",
+      description: "SelenicColors variants for SelenicChip border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -169,10 +164,10 @@ class ChipStory extends StatelessWidget {
             const TextDivider(text: "Custom SelenicChip"),
             SelenicChip(
               isActive: isActiveKnob,
-              activeColor: context.selenicColors!.dodoria,
-              backgroundColor: context.selenicColors!.krillin,
-              activeBackgroundColor: context.selenicColors!.chichi10,
-              textColor: context.selenicColors!.goten,
+              activeColor: context.selenicColors!.supportive_2,
+              backgroundColor: context.selenicColors!.warning,
+              activeBackgroundColor: context.selenicColors!.error10,
+              textColor: context.selenicColors!.filledButton,
               borderWidth: 2,
               showBorder: showBorderKnob,
               chipSize: chipSizeKnob,

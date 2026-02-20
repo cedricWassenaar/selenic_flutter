@@ -29,10 +29,9 @@ class TagStory extends StatelessWidget {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for SelenicTag text.",
+      description: "SelenicColors variants for SelenicTag text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -40,10 +39,9 @@ class TagStory extends StatelessWidget {
 
     final iconColorKnob = context.knobs.nullable.options(
       label: "Icon color",
-      description: "MoonColors variants for SelenicTag icon.",
+      description: "SelenicColors variants for SelenicTag icon.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -51,10 +49,9 @@ class TagStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicTag background.",
+      description: "SelenicColors variants for SelenicTag background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

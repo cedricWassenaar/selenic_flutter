@@ -16,7 +16,7 @@ The latest release of the Moon Design System has been archived and has not recei
 ```dart
 final lightTokens = SelenicTokens.light.copyWith(
   colors: SelenicColors.light.copyWith(
-    piccolo: Colors.blue,
+    accentPrimary: Colors.blue,
     textPrimary: Colors.amber,
   ),
   typography: SelenicTypography.typography.copyWith(

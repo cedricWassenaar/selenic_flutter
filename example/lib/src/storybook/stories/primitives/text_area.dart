@@ -12,10 +12,9 @@ class TextAreaStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for SelenicTextArea text.",
+      description: "SelenicColors variants for SelenicTextArea text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -23,10 +22,9 @@ class TextAreaStory extends StatelessWidget {
 
     final hintTextColorKnob = context.knobs.nullable.options(
       label: "hintTextColor",
-      description: "MoonColors variants for SelenicTextArea hint text.",
+      description: "SelenicColors variants for SelenicTextArea hint text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -34,10 +32,9 @@ class TextAreaStory extends StatelessWidget {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicTextArea background.",
+      description: "SelenicColors variants for SelenicTextArea background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -45,10 +42,9 @@ class TextAreaStory extends StatelessWidget {
 
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for SelenicTextArea active border.",
+      description: "SelenicColors variants for SelenicTextArea active border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -56,10 +52,10 @@ class TextAreaStory extends StatelessWidget {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for SelenicTextArea inactive border.",
+      description:
+          "SelenicColors variants for SelenicTextArea inactive border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -68,10 +64,9 @@ class TextAreaStory extends StatelessWidget {
 
     final errorColorKnob = context.knobs.nullable.options(
       label: "errorColor",
-      description: "MoonColors variants for SelenicTextArea in error state.",
+      description: "SelenicColors variants for SelenicTextArea in error state.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

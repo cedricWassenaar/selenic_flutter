@@ -1,7 +1,6 @@
 import 'package:example/src/storybook/common/pages/colors_page.dart';
 import 'package:example/src/storybook/common/pages/home_page.dart';
 import 'package:example/src/storybook/common/pages/typography_page.dart';
-import 'package:example/src/storybook/routing/app_router.dart';
 import 'package:example/src/storybook/stories/composites/combobox_multi_select.dart';
 import 'package:example/src/storybook/stories/composites/combobox_single_select.dart';
 import 'package:example/src/storybook/stories/composites/search_with_dropdown.dart';
@@ -46,243 +45,243 @@ const String directory = 'assets/code_snippets/';
 
 final List<Story> routeAwareStories = [
   // Pages.
-  Story.asRoute(
+  Story(
     name: 'Home',
-    routePath: HomePage.path,
-    router: router,
-    isPage: true,
+    builder: (context) {
+      return const HomePage();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Colors',
-    routePath: ColorsPage.path,
-    router: router,
-    isPage: true,
+    builder: (context) {
+      return const ColorsPage();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Typography',
-    routePath: TypographyPage.path,
-    router: router,
-    isPage: true,
+    builder: (context) {
+      return const TypographyPage();
+    },
   ),
 
   // Composite stories.
-  Story.asRoute(
+  Story(
     name: 'Composites/Combobox/single select combobox',
-    routePath: ComboboxSingleSelectStory.path,
-    router: router,
-    codeString: fetchAsset('combobox_single_select.md'),
+    builder: (context) {
+      return const ComboboxSingleSelectStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Composites/Combobox/multi select combobox',
-    routePath: ComboboxMultiSelectStory.path,
-    router: router,
-    codeString: fetchAsset('combobox_multi_select.md'),
+    builder: (context) {
+      return const ComboboxMultiSelectStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Composites/Search/search with list',
-    routePath: SearchWithListStory.path,
-    router: router,
-    codeString: fetchAsset('search_with_list.md'),
+    builder: (context) {
+      return const SearchWithListStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Composites/Search/search with dropdown',
-    routePath: SearchWithDropdownStory.path,
-    router: router,
-    codeString: fetchAsset('search_with_dropdown.md'),
+    builder: (context) {
+      return const SearchWithDropdownStory();
+    },
   ),
 
   // Primitive stories.
-  Story.asRoute(
+  Story(
     name: 'Primitives/Accordion',
-    routePath: AccordionStory.path,
-    router: router,
-    codeString: fetchAsset('accordion.md'),
+    builder: (context) {
+      return const AccordionStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Alert',
-    routePath: AlertStory.path,
-    router: router,
-    codeString: fetchAsset('alert.md'),
+    builder: (context) {
+      return const AlertStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/AuthCode',
-    routePath: AuthCodeStory.path,
-    router: router,
-    codeString: fetchAsset('auth_code.md'),
+    builder: (context) {
+      return const AuthCodeStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Avatar',
-    routePath: AvatarStory.path,
-    router: router,
-    codeString: fetchAsset('avatar.md'),
+    builder: (context) {
+      return const AvatarStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/BottomSheet',
-    routePath: BottomSheetStory.path,
-    router: router,
-    codeString: fetchAsset('bottom_sheet.md'),
+    builder: (context) {
+      return const BottomSheetStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Breadcrumb',
-    routePath: BreadcrumbStory.path,
-    router: router,
-    codeString: fetchAsset('breadcrumb.md'),
+    builder: (context) {
+      return const BreadcrumbStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Button',
-    routePath: ButtonStory.path,
-    router: router,
-    codeString: fetchAsset('button.md'),
+    builder: (context) {
+      return const ButtonStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Carousel',
-    routePath: CarouselStory.path,
-    router: router,
-    codeString: fetchAsset('carousel.md'),
+    builder: (context) {
+      return const CarouselStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Checkbox',
-    routePath: CheckboxStory.path,
-    router: router,
-    codeString: fetchAsset('checkbox.md'),
+    builder: (context) {
+      return const CheckboxStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Chip',
-    routePath: ChipStory.path,
-    router: router,
-    codeString: fetchAsset('chip.md'),
+    builder: (context) {
+      return const ChipStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Loader/CircularLoader',
-    routePath: CircularLoaderStory.path,
-    router: router,
-    codeString: fetchAsset('circular_loader.md'),
+    builder: (context) {
+      return const CircularLoaderStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Progress/CircularProgress',
-    routePath: CircularProgressStory.path,
-    router: router,
-    codeString: fetchAsset('circular_progress.md'),
+    builder: (context) {
+      return const CircularProgressStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/DotIndicator',
-    routePath: DotIndicatorStory.path,
-    router: router,
-    codeString: fetchAsset('dot_indicator.md'),
+    builder: (context) {
+      return const DotIndicatorStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Drawer',
-    routePath: DrawerStory.path,
-    router: router,
-    codeString: fetchAsset('drawer.md'),
+    builder: (context) {
+      return const DrawerStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Dropdown',
-    routePath: DropdownStory.path,
-    router: router,
-    codeString: fetchAsset('dropdown.md'),
+    builder: (context) {
+      return const DropdownStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Icons',
-    routePath: IconsStory.path,
-    router: router,
-    codeString: fetchAsset('icons.md'),
+    builder: (context) {
+      return const IconsStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Loader/LinearLoader',
-    routePath: LinearLoaderStory.path,
-    router: router,
-    codeString: fetchAsset('linear_loader.md'),
+    builder: (context) {
+      return const LinearLoaderStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Progress/LinearProgress',
-    routePath: LinearProgressStory.path,
-    router: router,
-    codeString: fetchAsset('linear_progress.md'),
+    builder: (context) {
+      return const LinearProgressStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/MenuItem',
-    routePath: MenuItemStory.path,
-    router: router,
-    codeString: fetchAsset('menu_item.md'),
+    builder: (context) {
+      return const MenuItemStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Modal',
-    routePath: ModalStory.path,
-    router: router,
-    codeString: fetchAsset('modal.md'),
+    builder: (context) {
+      return const ModalStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Popover',
-    routePath: PopoverStory.path,
-    router: router,
-    codeString: fetchAsset('popover.md'),
+    builder: (context) {
+      return const PopoverStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Radio',
-    routePath: RadioStory.path,
-    router: router,
-    codeString: fetchAsset('radio.md'),
+    builder: (context) {
+      return const RadioStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/SegmentedControl',
-    routePath: SegmentedControlStory.path,
-    router: router,
-    codeString: fetchAsset('segmented_control.md'),
+    builder: (context) {
+      return const SegmentedControlStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Switch',
-    routePath: SwitchStory.path,
-    router: router,
-    codeString: fetchAsset('switch.md'),
+    builder: (context) {
+      return const SwitchStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/TabBar',
-    routePath: TabBarStory.path,
-    router: router,
-    codeString: fetchAsset('tab_bar.md'),
+    builder: (context) {
+      return const TabBarStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Table',
-    routePath: TableStory.path,
-    router: router,
-    codeString: fetchAsset('table.md'),
+    builder: (context) {
+      return const TableStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Tag',
-    routePath: TagStory.path,
-    router: router,
-    codeString: fetchAsset('tag.md'),
+    builder: (context) {
+      return const TagStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/TextArea',
-    routePath: TextAreaStory.path,
-    router: router,
-    codeString: fetchAsset('text_area.md'),
+    builder: (context) {
+      return const TextAreaStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/TextInput',
-    routePath: TextInputStory.path,
-    router: router,
-    codeString: fetchAsset('text_input.md'),
+    builder: (context) {
+      return const TextInputStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/TextInputGroup',
-    routePath: TextInputGroupStory.path,
-    router: router,
-    codeString: fetchAsset('text_input_group.md'),
+    builder: (context) {
+      return const TextInputGroupStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Toast',
-    routePath: ToastStory.path,
-    router: router,
-    codeString: fetchAsset('toast.md'),
+    builder: (context) {
+      return const ToastStory();
+    },
   ),
-  Story.asRoute(
+  Story(
     name: 'Primitives/Tooltip',
-    routePath: TooltipStory.path,
-    router: router,
-    codeString: fetchAsset('tooltip.md'),
+    builder: (context) {
+      return const TooltipStory();
+    },
   ),
 ];
 

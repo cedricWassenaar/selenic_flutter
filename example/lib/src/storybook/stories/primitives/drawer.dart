@@ -12,10 +12,9 @@ class DrawerStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicDrawer background.",
+      description: "SelenicColors variants for SelenicDrawer background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -23,10 +22,9 @@ class DrawerStory extends StatelessWidget {
 
     final barrierColorKnob = context.knobs.nullable.options(
       label: "barrierColor",
-      description: "MoonColors variants for SelenicDrawer barrier.",
+      description: "SelenicColors variants for SelenicDrawer barrier.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

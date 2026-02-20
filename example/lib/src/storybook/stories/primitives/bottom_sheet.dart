@@ -12,10 +12,9 @@ class BottomSheetStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicBottomSheet background.",
+      description: "SelenicColors variants for SelenicBottomSheet background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -23,10 +22,9 @@ class BottomSheetStory extends StatelessWidget {
 
     final barrierColorKnob = context.knobs.nullable.options(
       label: "barrierColor",
-      description: "MoonColors variants for SelenicBottomSheet barrier.",
+      description: "SelenicColors variants for SelenicBottomSheet barrier.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -74,7 +72,7 @@ class BottomSheetStory extends StatelessWidget {
               width: 40,
               margin: const EdgeInsets.symmetric(vertical: 8),
               decoration: ShapeDecoration(
-                color: context.selenicColors!.beerus,
+                color: context.selenicColors!.lineAccent,
                 shape: const StadiumBorder(),
               ),
             ),
@@ -97,7 +95,7 @@ class BottomSheetStory extends StatelessWidget {
                     child: SelenicButton.icon(
                       icon: const Icon(MoonIcons.controls_close_small_16_light),
                       buttonSize: SelenicButtonSize.sm,
-                      backgroundColor: context.selenicColors!.beerus,
+                      backgroundColor: context.selenicColors!.lineAccent,
                       borderRadius: BorderRadius.circular(24),
                       onTap: () => Navigator.of(context).pop(),
                     ),
@@ -108,7 +106,7 @@ class BottomSheetStory extends StatelessWidget {
             Divider(
               height: 0,
               thickness: 1,
-              color: context.selenicColors!.beerus,
+              color: context.selenicColors!.lineAccent,
             ),
             Expanded(
               child: ListView.builder(

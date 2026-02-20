@@ -46,10 +46,9 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for SelenicTabBar default text.",
+      description: "SelenicColors variants for SelenicTabBar default text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -57,10 +56,10 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final selectedTextColorKnob = context.knobs.nullable.options(
       label: "selectedTextColor",
-      description: "MoonColors variants for SelenicTabBar selected tab text.",
+      description:
+          "SelenicColors variants for SelenicTabBar selected tab text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -68,10 +67,9 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final indicatorColorKnob = context.knobs.nullable.options(
       label: "indicatorColor",
-      description: "MoonColors variants for SelenicTabBar indicator.",
+      description: "SelenicColors variants for SelenicTabBar indicator.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -79,10 +77,10 @@ class _TabBarStoryState extends State<TabBarStory>
 
     final selectedTabColorKnob = context.knobs.nullable.options(
       label: "selectedTabColor",
-      description: "MoonColors variants for pill SelenicTabBar selected tab.",
+      description:
+          "SelenicColors variants for pill SelenicTabBar selected tab.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -229,7 +227,7 @@ class _TabBarStoryState extends State<TabBarStory>
                     controller: _tabController,
                     children: [
                       Container(
-                        color: context.selenicColors!.whis60,
+                        color: context.selenicColors!.supportive_6_60,
                         padding: const EdgeInsets.all(16),
                         child: Stack(
                           children: [
@@ -249,7 +247,7 @@ class _TabBarStoryState extends State<TabBarStory>
                         ),
                       ),
                       Container(
-                        color: context.selenicColors!.frieza60,
+                        color: context.selenicColors!.supportive_1_60,
                         padding: const EdgeInsets.all(16),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -271,7 +269,7 @@ class _TabBarStoryState extends State<TabBarStory>
                         ),
                       ),
                       Container(
-                        color: context.selenicColors!.whis60,
+                        color: context.selenicColors!.supportive_6_60,
                         padding: const EdgeInsets.all(16),
                         child: Stack(
                           children: [

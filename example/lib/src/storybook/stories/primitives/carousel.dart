@@ -23,10 +23,10 @@ class _CarouselStoryState extends State<CarouselStory> {
   Widget build(BuildContext context) {
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "Background color",
-      description: "MoonColors variants for SelenicCarousel item background.",
+      description:
+          "SelenicColors variants for SelenicCarousel item background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -120,7 +120,8 @@ class _CarouselStoryState extends State<CarouselStory> {
                       ) =>
                           Container(
                         decoration: ShapeDecoration(
-                          color: backgroundColor ?? context.selenicColors!.goku,
+                          color: backgroundColor ??
+                              context.selenicColors!.backgroundPrimary,
                           shape: SelenicSquircleBorder(
                             borderRadius: BorderRadius.circular(12)
                                 .squircleBorderRadius(context),
@@ -160,7 +161,7 @@ class _CarouselStoryState extends State<CarouselStory> {
                                   Container(
                                 decoration: ShapeDecoration(
                                   color: backgroundColor ??
-                                      context.selenicColors!.goku,
+                                      context.selenicColors!.backgroundPrimary,
                                   shape: SelenicSquircleBorder(
                                     borderRadius: BorderRadius.circular(12)
                                         .squircleBorderRadius(context),
@@ -193,7 +194,8 @@ class _CarouselStoryState extends State<CarouselStory> {
                                       ),
                                       decoration:
                                           ShapeDecorationWithPremultipliedAlpha(
-                                        color: context.selenicColors!.goku,
+                                        color: context
+                                            .selenicColors!.backgroundPrimary,
                                         shadows: context.selenicShadows!.sm,
                                         shape: SelenicSquircleBorder(
                                           borderRadius: BorderRadius.circular(8)
@@ -218,7 +220,8 @@ class _CarouselStoryState extends State<CarouselStory> {
                                       ),
                                       decoration:
                                           ShapeDecorationWithPremultipliedAlpha(
-                                        color: context.selenicColors!.goku,
+                                        color: context
+                                            .selenicColors!.backgroundPrimary,
                                         shadows: context.selenicShadows!.sm,
                                         shape: SelenicSquircleBorder(
                                           borderRadius: BorderRadius.circular(8)

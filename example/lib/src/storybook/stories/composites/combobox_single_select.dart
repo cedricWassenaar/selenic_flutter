@@ -97,10 +97,9 @@ class _ComboboxSingleSelectStoryState extends State<ComboboxSingleSelectStory> {
 
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for SelenicTextInput active border.",
+      description: "SelenicColors variants for SelenicTextInput active border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -108,10 +107,10 @@ class _ComboboxSingleSelectStoryState extends State<ComboboxSingleSelectStory> {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for SelenicTextInput inactive border.",
+      description:
+          "SelenicColors variants for SelenicTextInput inactive border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -120,10 +119,10 @@ class _ComboboxSingleSelectStoryState extends State<ComboboxSingleSelectStory> {
 
     final hoverBorderColorKnob = context.knobs.nullable.options(
       label: "hoverBorderColor",
-      description: "MoonColors variants for SelenicTextInput border on hover.",
+      description:
+          "SelenicColors variants for SelenicTextInput border on hover.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -132,10 +131,9 @@ class _ComboboxSingleSelectStoryState extends State<ComboboxSingleSelectStory> {
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
       description:
-          "MoonColors variants for SelenicTextInput and SelenicDropdown background.",
+          "SelenicColors variants for SelenicTextInput and SelenicDropdown background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

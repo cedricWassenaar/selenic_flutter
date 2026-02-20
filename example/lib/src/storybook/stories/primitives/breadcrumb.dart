@@ -22,10 +22,9 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
   Widget build(BuildContext context) {
     final itemColorKnob = context.knobs.nullable.options(
       label: "Item color",
-      description: "MoonColors variants for SelenicBreadcrumb item.",
+      description: "SelenicColors variants for SelenicBreadcrumb item.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -33,10 +32,9 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
 
     final currentItemColorKnob = context.knobs.nullable.options(
       label: "Current item color",
-      description: "MoonColors variants for SelenicBreadcrumb current item.",
+      description: "SelenicColors variants for SelenicBreadcrumb current item.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -44,10 +42,10 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
 
     final hoverEffectColorKnob = context.knobs.nullable.options(
       label: "hoverEffectColor",
-      description: "MoonColors variants for SelenicBreadcrumb item on hover.",
+      description:
+          "SelenicColors variants for SelenicBreadcrumb item on hover.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -55,10 +53,9 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
 
     final dividerColorKnob = context.knobs.nullable.options(
       label: "dividerColor",
-      description: "MoonColors variants for SelenicBreadcrumb divider.",
+      description: "SelenicColors variants for SelenicBreadcrumb divider.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -149,11 +146,11 @@ class _BreadcrumbStoryState extends State<BreadcrumbStory> {
             ),
             const SizedBox(height: 32),
             SelenicButton(
-              backgroundColor: context.selenicColors!.piccolo,
+              backgroundColor: context.selenicColors!.accentPrimary,
               onTap: () => setState(() => {}),
               label: Text(
                 'Reset',
-                style: TextStyle(color: context.selenicColors!.goten),
+                style: TextStyle(color: context.selenicColors!.filledButton),
               ),
             ),
             const TextDivider(

@@ -40,10 +40,9 @@ class AuthCodeStory extends StatelessWidget {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for SelenicAuthCode text.",
+      description: "SelenicColors variants for SelenicAuthCode text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -51,10 +50,9 @@ class AuthCodeStory extends StatelessWidget {
 
     final cursorColorKnob = context.knobs.nullable.options(
       label: "authFieldCursorColor",
-      description: "MoonColors variants for SelenicAuthCode cursor.",
+      description: "SelenicColors variants for SelenicAuthCode cursor.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -63,10 +61,9 @@ class AuthCodeStory extends StatelessWidget {
     final selectedFillColorKnob = context.knobs.nullable.options(
       label: "selectedFillColor",
       description:
-          "MoonColors variants for SelenicAuthCode selected input field.",
+          "SelenicColors variants for SelenicAuthCode selected input field.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -75,10 +72,9 @@ class AuthCodeStory extends StatelessWidget {
     final activeFillColorKnob = context.knobs.nullable.options(
       label: "activeFillColor",
       description:
-          "MoonColors variants for SelenicAuthCode active input field.",
+          "SelenicColors variants for SelenicAuthCode active input field.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -87,10 +83,9 @@ class AuthCodeStory extends StatelessWidget {
     final inactiveFillColorKnob = context.knobs.nullable.options(
       label: "inactiveFillColor",
       description:
-          "MoonColors variants for SelenicAuthCode inactive input field.",
+          "SelenicColors variants for SelenicAuthCode inactive input field.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -99,10 +94,9 @@ class AuthCodeStory extends StatelessWidget {
     final selectedBorderColorKnob = context.knobs.nullable.options(
       label: "selectedBorderColor",
       description:
-          "MoonColors variants for SelenicAuthCode selected input field border.",
+          "SelenicColors variants for SelenicAuthCode selected input field border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -112,10 +106,9 @@ class AuthCodeStory extends StatelessWidget {
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
       description:
-          "MoonColors variants for SelenicAuthCode active input field border.",
+          "SelenicColors variants for SelenicAuthCode active input field border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -124,10 +117,9 @@ class AuthCodeStory extends StatelessWidget {
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
       description:
-          "MoonColors variants for SelenicAuthCode inactive input field border.",
+          "SelenicColors variants for SelenicAuthCode inactive input field border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

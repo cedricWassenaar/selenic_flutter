@@ -19,10 +19,10 @@ class _DotIndicatorStoryState extends State<DotIndicatorStory> {
   Widget build(BuildContext context) {
     final selectedColorKnob = context.knobs.nullable.options(
       label: "selectedColor",
-      description: "MoonColors variants for SelenicDotIndicator selected dot.",
+      description:
+          "SelenicColors variants for SelenicDotIndicator selected dot.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -31,10 +31,9 @@ class _DotIndicatorStoryState extends State<DotIndicatorStory> {
     final unselectedColorKnob = context.knobs.nullable.options(
       label: "unselectedColor",
       description:
-          "MoonColors variants for SelenicDotIndicator unselected dot.",
+          "SelenicColors variants for SelenicDotIndicator unselected dot.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

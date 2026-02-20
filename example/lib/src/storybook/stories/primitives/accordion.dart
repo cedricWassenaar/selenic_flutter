@@ -35,10 +35,9 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for SelenicAccordion header text.",
+      description: "SelenicColors variants for SelenicAccordion header text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -47,10 +46,9 @@ class _AccordionStoryState extends State<AccordionStory> {
     final expandedTextColorKnob = context.knobs.nullable.options(
       label: "expandedTextColor",
       description:
-          "MoonColors variants for expanded SelenicAccordion header text.",
+          "SelenicColors variants for expanded SelenicAccordion header text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -58,10 +56,9 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final contentTextColorKnob = context.knobs.nullable.options(
       label: "Content text color",
-      description: "MoonColors variants for SelenicAccordion content text.",
+      description: "SelenicColors variants for SelenicAccordion content text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -69,10 +66,9 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final iconColorKnob = context.knobs.nullable.options(
       label: "iconColor",
-      description: "MoonColors variants for SelenicAccordion icon.",
+      description: "SelenicColors variants for SelenicAccordion icon.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -80,10 +76,9 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final expandedIconColorKnob = context.knobs.nullable.options(
       label: "expandedIconColor",
-      description: "MoonColors variants for expanded SelenicAccordion icon.",
+      description: "SelenicColors variants for expanded SelenicAccordion icon.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -91,10 +86,9 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicAccordion background.",
+      description: "SelenicColors variants for SelenicAccordion background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -103,10 +97,9 @@ class _AccordionStoryState extends State<AccordionStory> {
     final expandedBackgroundColorKnob = context.knobs.nullable.options(
       label: "expandedBackgroundColor",
       description:
-          "MoonColors variants for expanded SelenicAccordion background.",
+          "SelenicColors variants for expanded SelenicAccordion background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -115,10 +108,9 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for SelenicAccordion border.",
+      description: "SelenicColors variants for SelenicAccordion border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -126,10 +118,10 @@ class _AccordionStoryState extends State<AccordionStory> {
 
     final dividerColorKnob = context.knobs.nullable.options(
       label: "dividerColor",
-      description: "MoonColors variants for expanded SelenicAccordion divider.",
+      description:
+          "SelenicColors variants for expanded SelenicAccordion divider.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

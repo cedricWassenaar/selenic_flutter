@@ -22,10 +22,9 @@ class _CheckboxStoryState extends State<CheckboxStory> {
   Widget build(BuildContext context) {
     final checkColorKnob = context.knobs.nullable.options(
       label: "checkColor",
-      description: "MoonColors variants for SelenicCheckbox check icon.",
+      description: "SelenicColors variants for SelenicCheckbox check icon.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -33,10 +32,9 @@ class _CheckboxStoryState extends State<CheckboxStory> {
 
     final activeColorKnob = context.knobs.nullable.options(
       label: "activeColor",
-      description: "MoonColors variants for checked SelenicCheckbox.",
+      description: "SelenicColors variants for checked SelenicCheckbox.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -44,10 +42,9 @@ class _CheckboxStoryState extends State<CheckboxStory> {
 
     final inactiveColorKnob = context.knobs.nullable.options(
       label: "inactiveColor",
-      description: "MoonColors variants for unchecked SelenicCheckbox.",
+      description: "SelenicColors variants for unchecked SelenicCheckbox.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -55,10 +52,10 @@ class _CheckboxStoryState extends State<CheckboxStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for unchecked SelenicCheckbox border.",
+      description:
+          "SelenicColors variants for unchecked SelenicCheckbox border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

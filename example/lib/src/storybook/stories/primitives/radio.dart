@@ -26,10 +26,9 @@ class _RadioStoryState extends State<RadioStory> {
   Widget build(BuildContext context) {
     final activeColorKnob = context.knobs.nullable.options(
       label: "activeColor",
-      description: "MoonColors variants for checked SelenicRadio.",
+      description: "SelenicColors variants for checked SelenicRadio.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -37,10 +36,9 @@ class _RadioStoryState extends State<RadioStory> {
 
     final inactiveColorKnob = context.knobs.nullable.options(
       label: "inactiveColor",
-      description: "MoonColors variants for unchecked SelenicRadio.",
+      description: "SelenicColors variants for unchecked SelenicRadio.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

@@ -45,10 +45,9 @@ class _TooltipStoryState extends State<TooltipStory> {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for SelenicTooltip text.",
+      description: "SelenicColors variants for SelenicTooltip text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -56,10 +55,9 @@ class _TooltipStoryState extends State<TooltipStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicTooltip background.",
+      description: "SelenicColors variants for SelenicTooltip background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -67,10 +65,9 @@ class _TooltipStoryState extends State<TooltipStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for SelenicTooltip border.",
+      description: "SelenicColors variants for SelenicTooltip border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -192,9 +189,9 @@ class _TooltipStoryState extends State<TooltipStory> {
               ),
               child: SelenicChip(
                 borderRadius: BorderRadius.circular(20),
-                backgroundColor: context.selenicColors!.hit,
+                backgroundColor: context.selenicColors!.accentSecondary,
                 leading: const Icon(MoonIcons.other_frame_24_light),
-                textColor: context.selenicColors!.goten,
+                textColor: context.selenicColors!.filledButton,
                 label: const Text("SelenicChip"),
                 onLongPress: () => setState(() => showOnLongPress = true),
               ),

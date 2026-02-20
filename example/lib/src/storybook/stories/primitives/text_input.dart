@@ -36,10 +36,9 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for SelenicTextInput text.",
+      description: "SelenicColors variants for SelenicTextInput text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -47,10 +46,9 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final hintTextColorKnob = context.knobs.nullable.options(
       label: "hintTextColor",
-      description: "MoonColors variants for SelenicTextInput hint text.",
+      description: "SelenicColors variants for SelenicTextInput hint text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -58,10 +56,9 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicTextInput background.",
+      description: "SelenicColors variants for SelenicTextInput background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -69,10 +66,9 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for SelenicTextInput active border.",
+      description: "SelenicColors variants for SelenicTextInput active border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -80,10 +76,10 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for SelenicTextInput inactive border.",
+      description:
+          "SelenicColors variants for SelenicTextInput inactive border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -92,10 +88,10 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final hoverBorderColorKnob = context.knobs.nullable.options(
       label: "hoverBorderColor",
-      description: "MoonColors variants for SelenicTextInput border on hover.",
+      description:
+          "SelenicColors variants for SelenicTextInput border on hover.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -103,10 +99,10 @@ class _TextInputStoryState extends State<TextInputStory> {
 
     final errorColorKnob = context.knobs.nullable.options(
       label: "errorColor",
-      description: "MoonColors variants for SelenicTextInput in error state.",
+      description:
+          "SelenicColors variants for SelenicTextInput in error state.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

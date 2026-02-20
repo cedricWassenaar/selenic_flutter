@@ -77,10 +77,9 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
   Widget build(BuildContext context) {
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for SelenicTextInput active border.",
+      description: "SelenicColors variants for SelenicTextInput active border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -88,10 +87,10 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for SelenicTextInput inactive border.",
+      description:
+          "SelenicColors variants for SelenicTextInput inactive border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -100,10 +99,10 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
 
     final hoverBorderColorKnob = context.knobs.nullable.options(
       label: "hoverBorderColor",
-      description: "MoonColors variants for SelenicTextInput border on hover.",
+      description:
+          "SelenicColors variants for SelenicTextInput border on hover.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -111,10 +110,9 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicTextInput background.",
+      description: "SelenicColors variants for SelenicTextInput background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -185,7 +183,7 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
                 backgroundColor: backgroundColor,
                 borderRadius: getBorderRadius(_Section.dropdown),
                 decoration: BoxDecoration(
-                  color: context.selenicColors!.goku,
+                  color: context.selenicColors!.backgroundPrimary,
                   borderRadius: getBorderRadius(_Section.dropdown),
                   boxShadow: showShadowKnob == true
                       ? const [
@@ -198,13 +196,14 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
                         ]
                       : [],
                   border: Border(
-                    left: BorderSide(color: context.selenicColors!.beerus),
-                    right: BorderSide(color: context.selenicColors!.beerus),
-                    bottom: BorderSide(color: context.selenicColors!.beerus),
+                    left: BorderSide(color: context.selenicColors!.lineAccent),
+                    right: BorderSide(color: context.selenicColors!.lineAccent),
+                    bottom:
+                        BorderSide(color: context.selenicColors!.lineAccent),
                     top: distanceToTargetKnob == null ||
                             distanceToTargetKnob == 0
                         ? BorderSide.none
-                        : BorderSide(color: context.selenicColors!.beerus),
+                        : BorderSide(color: context.selenicColors!.lineAccent),
                   ),
                 ),
                 onTapOutside: () => _handleDropdownTapOutside(),
@@ -251,7 +250,7 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
                   width: constraints.maxWidth,
                   hasFloatingLabel: hasFloatingLabelKnob,
                   activeBorderColor:
-                      activeBorderColor ?? context.selenicColors!.beerus,
+                      activeBorderColor ?? context.selenicColors!.lineAccent,
                   inactiveBorderColor: inactiveBorderColor,
                   backgroundColor: backgroundColor,
                   hoverBorderColor: hoverBorderColor,
@@ -267,7 +266,8 @@ class _SearchWithDropdownStoryState extends State<SearchWithDropdownStory> {
                     onTap: () => _handleClearButton(),
                     label: Text(
                       'Clear',
-                      style: TextStyle(color: context.selenicColors!.trunks),
+                      style: TextStyle(
+                          color: context.selenicColors!.bodyTextSecondary),
                     ),
                   ),
                 ),

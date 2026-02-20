@@ -27,10 +27,9 @@ class CircularProgressStory extends StatelessWidget {
 
     final circularProgressColorKnob = context.knobs.nullable.options(
       label: "color",
-      description: "MoonColors variants for CircularProgress.",
+      description: "SelenicColors variants for CircularProgress.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -38,10 +37,9 @@ class CircularProgressStory extends StatelessWidget {
 
     final circularProgressBackgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for CircularProgress background.",
+      description: "SelenicColors variants for CircularProgress background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

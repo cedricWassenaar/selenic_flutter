@@ -26,10 +26,9 @@ class LinearProgressStory extends StatelessWidget {
 
     final progressColorKnob = context.knobs.nullable.options(
       label: "color",
-      description: "MoonColors variants for SelenicLinearProgress progress.",
+      description: "SelenicColors variants for SelenicLinearProgress progress.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -37,10 +36,10 @@ class LinearProgressStory extends StatelessWidget {
 
     final progressBackgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicLinearProgress background.",
+      description:
+          "SelenicColors variants for SelenicLinearProgress background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -49,10 +48,9 @@ class LinearProgressStory extends StatelessWidget {
 
     final pinColorKnob = context.knobs.nullable.options(
       label: "pinColor",
-      description: "MoonColors variants for SelenicLinearProgress pin.",
+      description: "SelenicColors variants for SelenicLinearProgress pin.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -60,10 +58,10 @@ class LinearProgressStory extends StatelessWidget {
 
     final pinBorderColorKnob = context.knobs.nullable.options(
       label: "pinBorderColor",
-      description: "MoonColors variants for SelenicLinearProgress pin border.",
+      description:
+          "SelenicColors variants for SelenicLinearProgress pin border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -71,10 +69,9 @@ class LinearProgressStory extends StatelessWidget {
 
     final thumbColorKnob = context.knobs.nullable.options(
       label: "thumbColor",
-      description: "MoonColors variants for SelenicLinearProgress thumb.",
+      description: "SelenicColors variants for SelenicLinearProgress thumb.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

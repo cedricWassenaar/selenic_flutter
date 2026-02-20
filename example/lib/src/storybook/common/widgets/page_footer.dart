@@ -30,7 +30,8 @@ class PageFooter extends StatelessWidget {
                   padding: const EdgeInsets.all(4.0),
                   child: Text(
                     '•',
-                    style: TextStyle(color: context.selenicColors!.trunks),
+                    style: TextStyle(
+                        color: context.selenicColors!.bodyTextSecondary),
                   ),
                 );
         },
@@ -46,11 +47,11 @@ class PageFooter extends StatelessWidget {
         Text.rich(
           textAlign: TextAlign.center,
           TextSpan(
-            text: 'With the help of ',
+            text: 'built using',
             style: context.selenicTypography!.body.text14,
             children: [
               TextSpan(
-                text: 'Yolo Group',
+                text: 'Selenic',
                 style: context.selenicTypography!.heading.text14,
                 recognizer: TapGestureRecognizer()
                   ..onTap = () => launchURL(yoloUrl),

@@ -35,10 +35,9 @@ class _SwitchStoryState extends State<SwitchStory> {
 
     final thumbColorKnob = context.knobs.nullable.options(
       label: "thumbColor",
-      description: "MoonColors variants for SelenicSwitch thumb.",
+      description: "SelenicColors variants for SelenicSwitch thumb.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -46,10 +45,9 @@ class _SwitchStoryState extends State<SwitchStory> {
 
     final activeTrackColorKnob = context.knobs.nullable.options(
       label: "activeTrackColor",
-      description: "MoonColors variants for SelenicSwitch active track.",
+      description: "SelenicColors variants for SelenicSwitch active track.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -57,10 +55,9 @@ class _SwitchStoryState extends State<SwitchStory> {
 
     final inactiveTrackColorKnob = context.knobs.nullable.options(
       label: "inactiveTrackColor",
-      description: "MoonColors variants for SelenicSwitch inactive track.",
+      description: "SelenicColors variants for SelenicSwitch inactive track.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

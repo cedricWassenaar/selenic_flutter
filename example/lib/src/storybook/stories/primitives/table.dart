@@ -145,14 +145,14 @@ class _TableStoryState extends State<TableStory> {
                 left: Directionality.of(context) == TextDirection.ltr
                     ? Divider.createBorderSide(
                         context,
-                        color: context.selenicColors!.beerus,
+                        color: context.selenicColors!.lineAccent,
                         width: 1,
                       )
                     : BorderSide.none,
                 right: Directionality.of(context) == TextDirection.rtl
                     ? Divider.createBorderSide(
                         context,
-                        color: context.selenicColors!.beerus,
+                        color: context.selenicColors!.lineAccent,
                         width: 1,
                       )
                     : BorderSide.none,
@@ -253,13 +253,13 @@ class _TableStoryState extends State<TableStory> {
           decoration: ShapeDecorationWithPremultipliedAlpha(
             color: _zebraStyleKnob
                 ? row.selected
-                    ? _selectedRowColor ?? context.selenicColors!.beerus
+                    ? _selectedRowColor ?? context.selenicColors!.lineAccent
                     : index.isEven
-                        ? _rowColor ?? context.selenicColors!.goku
+                        ? _rowColor ?? context.selenicColors!.backgroundPrimary
                         : Colors.transparent
                 : row.selected
-                    ? _selectedRowColor ?? context.selenicColors!.beerus
-                    : _rowColor ?? context.selenicColors!.goku,
+                    ? _selectedRowColor ?? context.selenicColors!.lineAccent
+                    : _rowColor ?? context.selenicColors!.backgroundPrimary,
             shape: SelenicSquircleBorder(
               borderRadius: _borderRadiusKnob != null
                   ? BorderRadius.circular(_borderRadiusKnob!.toDouble())
@@ -310,10 +310,9 @@ class _TableStoryState extends State<TableStory> {
 
     final rowColorKnob = context.knobs.nullable.options(
       label: "Row color",
-      description: "MoonColors variants for SelenicTable rows.",
+      description: "SelenicColors variants for SelenicTable rows.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -321,10 +320,9 @@ class _TableStoryState extends State<TableStory> {
 
     final selectedRowColorKnob = context.knobs.nullable.options(
       label: "Selected row color",
-      description: "MoonColors variants for SelenicTable selected rows.",
+      description: "SelenicColors variants for SelenicTable selected rows.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -332,10 +330,9 @@ class _TableStoryState extends State<TableStory> {
 
     final textColorKnob = context.knobs.nullable.options(
       label: "Text color",
-      description: "MoonColors variants for SelenicTable text.",
+      description: "SelenicColors variants for SelenicTable text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

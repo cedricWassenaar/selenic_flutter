@@ -33,10 +33,9 @@ class AvatarStory extends StatelessWidget {
 
     final avatarTextColorKnob = context.knobs.nullable.options(
       label: "textColor",
-      description: "MoonColors variants for SelenicAvatar text.",
+      description: "SelenicColors variants for SelenicAvatar text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -44,10 +43,9 @@ class AvatarStory extends StatelessWidget {
 
     final avatarBackgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicAvatar background.",
+      description: "SelenicColors variants for SelenicAvatar background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -56,10 +54,9 @@ class AvatarStory extends StatelessWidget {
 
     final badgeColorKnob = context.knobs.nullable.options(
       label: "badgeColor",
-      description: "MoonColors variants for SelenicAvatar badge.",
+      description: "SelenicColors variants for SelenicAvatar badge.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

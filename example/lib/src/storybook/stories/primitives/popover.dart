@@ -43,10 +43,9 @@ class _PopoverStoryState extends State<PopoverStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicPopover background.",
+      description: "SelenicColors variants for SelenicPopover background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -54,10 +53,9 @@ class _PopoverStoryState extends State<PopoverStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for SelenicPopover border.",
+      description: "SelenicColors variants for SelenicPopover border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -112,7 +110,8 @@ class _PopoverStoryState extends State<PopoverStory> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         SelenicAvatar(
-                          backgroundColor: context.selenicColors?.heles,
+                          backgroundColor:
+                              context.selenicColors?.hoverSecondary,
                           content: const Icon(MoonIcons.other_rocket_24_light),
                         ),
                         const SizedBox(width: 12),

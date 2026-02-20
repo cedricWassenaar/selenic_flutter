@@ -25,10 +25,9 @@ class SegmentedControlStory extends StatelessWidget {
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
       description:
-          "MoonColors variants for SelenicSegmentedControl background.",
+          "SelenicColors variants for SelenicSegmentedControl background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -37,10 +36,9 @@ class SegmentedControlStory extends StatelessWidget {
     final selectedSegmentColorKnob = context.knobs.nullable.options(
       label: "selectedSegmentColor",
       description:
-          "MoonColors variants for SelenicSegmentedControl selected segment.",
+          "SelenicColors variants for SelenicSegmentedControl selected segment.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -50,10 +48,9 @@ class SegmentedControlStory extends StatelessWidget {
     final textColorKnob = context.knobs.nullable.options(
       label: "textColor",
       description:
-          "MoonColors variants for SelenicSegmentedControl default text.",
+          "SelenicColors variants for SelenicSegmentedControl default text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -62,10 +59,9 @@ class SegmentedControlStory extends StatelessWidget {
     final selectedTextColorKnob = context.knobs.nullable.options(
       label: "selectedTextColor",
       description:
-          "MoonColors variants for SelenicSegmentedControl selected segment text.",
+          "SelenicColors variants for SelenicSegmentedControl selected segment text.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 

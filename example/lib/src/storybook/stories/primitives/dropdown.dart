@@ -40,7 +40,7 @@ class _DropdownStoryState extends State<DropdownStory> {
   bool _showMenu = false;
   bool _showMenuInner = false;
   Color? _buttonColor;
-  String _buttonName = "Piccolo";
+  String _buttonName = "accentPrimary";
 
   @override
   Widget build(BuildContext context) {
@@ -77,10 +77,9 @@ class _DropdownStoryState extends State<DropdownStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicDropdown background.",
+      description: "SelenicColors variants for SelenicDropdown background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -88,10 +87,9 @@ class _DropdownStoryState extends State<DropdownStory> {
 
     final borderColorKnob = context.knobs.nullable.options(
       label: "borderColor",
-      description: "MoonColors variants for SelenicDropdown border.",
+      description: "SelenicColors variants for SelenicDropdown border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -127,11 +125,11 @@ class _DropdownStoryState extends State<DropdownStory> {
     );
 
     // Used to avoid the stale closure within callbacks in Story.
-    final colorPiccolo = context.selenicColors!.piccolo;
-    final colorKrillin = context.selenicColors!.krillin;
-    final colorRoshi100 = context.selenicColors!.roshi;
-    final colorRoshi60 = context.selenicColors!.roshi60;
-    final colorRoshi10 = context.selenicColors!.roshi10;
+    final accentPrimary = context.selenicColors!.accentPrimary;
+    final accentSecondary = context.selenicColors!.warning;
+    final colorSuccess = context.selenicColors!.success;
+    final colorSuccess60 = context.selenicColors!.success60;
+    final colorSuccess10 = context.selenicColors!.success10;
 
     final BorderRadiusGeometry? borderRadius = borderRadiusKnob != null
         ? BorderRadius.circular(
@@ -192,28 +190,30 @@ class _DropdownStoryState extends State<DropdownStory> {
                   onTap: () => setState(() => _showChoices = !_showChoices),
                   onTapOutside: (PointerDownEvent _) =>
                       FocusManager.instance.primaryFocus?.unfocus(),
-                  leading:
-                      _availableChoices.values.any((element) => element == true)
-                          ? Center(
-                              child: SelenicTag(
-                                tagSize: SelenicTagSize.xs,
-                                backgroundColor: context.selenicColors!.bulma,
-                                onTap: () => setState(
-                                  () => _availableChoices
-                                      .updateAll((key, value) => false),
-                                ),
-                                label: Text(
-                                  "${_availableChoices.values.where((element) => element == true).length}",
-                                  style: TextStyle(
-                                      color: context.selenicColors!.gohan),
-                                ),
-                                trailing: Icon(
-                                  MoonIcons.controls_close_small_16_light,
-                                  color: context.selenicColors!.gohan,
-                                ),
-                              ),
-                            )
-                          : null,
+                  leading: _availableChoices.values
+                          .any((element) => element == true)
+                      ? Center(
+                          child: SelenicTag(
+                            tagSize: SelenicTagSize.xs,
+                            backgroundColor:
+                                context.selenicColors!.bodyTextPrimary,
+                            onTap: () => setState(
+                              () => _availableChoices
+                                  .updateAll((key, value) => false),
+                            ),
+                            label: Text(
+                              "${_availableChoices.values.where((element) => element == true).length}",
+                              style: TextStyle(
+                                  color: context
+                                      .selenicColors!.backgroundSecondary),
+                            ),
+                            trailing: Icon(
+                              MoonIcons.controls_close_small_16_light,
+                              color: context.selenicColors!.backgroundSecondary,
+                            ),
+                          ),
+                        )
+                      : null,
                   trailing: MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: Center(
@@ -250,19 +250,19 @@ class _DropdownStoryState extends State<DropdownStory> {
                     SelenicMenuItem(
                       onTap: () => setState(() {
                         _showMenu = false;
-                        _buttonName = "Piccolo";
-                        _buttonColor = colorPiccolo;
+                        _buttonName = "accentPrimary";
+                        _buttonColor = accentPrimary;
                       }),
-                      label: const Text("Piccolo"),
+                      label: const Text("accentPrimary"),
                     ),
                     const SizedBox(height: 4),
                     SelenicMenuItem(
                       onTap: () => setState(() {
                         _showMenu = false;
-                        _buttonName = "Krillin";
-                        _buttonColor = colorKrillin;
+                        _buttonName = "accentSecondary";
+                        _buttonColor = accentSecondary;
                       }),
-                      label: const Text("Krillin"),
+                      label: const Text("accentSecondary"),
                     ),
                     const SizedBox(height: 4),
                     SelenicDropdown(
@@ -288,40 +288,40 @@ class _DropdownStoryState extends State<DropdownStory> {
                             onTap: () => setState(() {
                               _showMenu = false;
                               _showMenuInner = false;
-                              _buttonName = "Roshi100";
-                              _buttonColor = colorRoshi100;
+                              _buttonName = "colorSuccess";
+                              _buttonColor = colorSuccess;
                             }),
-                            label: const Text("Roshi100"),
+                            label: const Text("colorSuccess"),
                           ),
                           const SizedBox(height: 4),
                           SelenicMenuItem(
                             onTap: () => setState(() {
                               _showMenu = false;
                               _showMenuInner = false;
-                              _buttonName = "Roshi60";
-                              _buttonColor = colorRoshi60;
+                              _buttonName = "colorSuccess60";
+                              _buttonColor = colorSuccess60;
                             }),
-                            label: const Text("Roshi60"),
+                            label: const Text("colorSuccess60"),
                           ),
                           const SizedBox(height: 4),
                           SelenicMenuItem(
                             onTap: () => setState(() {
                               _showMenu = false;
                               _showMenuInner = false;
-                              _buttonName = "Roshi10";
-                              _buttonColor = colorRoshi10;
+                              _buttonName = "colorSuccess10";
+                              _buttonColor = colorSuccess10;
                             }),
-                            label: const Text("Roshi10"),
+                            label: const Text("colorSuccess10"),
                           ),
                         ],
                       ),
                       child: SelenicMenuItem(
                         backgroundColor: _showMenuInner
-                            ? context.selenicColors!.heles
+                            ? context.selenicColors!.hoverSecondary
                             : null,
                         onTap: () =>
                             setState(() => _showMenuInner = !_showMenuInner),
-                        label: const Text("Roshi"),
+                        label: const Text("Success"),
                         trailing: const Icon(
                           MoonIcons.controls_chevron_right_16_light,
                           size: 16,

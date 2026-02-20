@@ -30,11 +30,11 @@ class RoutingErrorWidget extends StatelessWidget {
               const SizedBox(height: 32),
               SelenicButton(
                 onTap: () => context.go('/'),
-                borderColor: context.selenicColors!.piccolo,
+                borderColor: context.selenicColors!.accentPrimary,
                 showBorder: true,
                 label: Text(
                   'Go back to home',
-                  style: TextStyle(color: context.selenicColors!.piccolo),
+                  style: TextStyle(color: context.selenicColors!.accentPrimary),
                 ),
               ),
             ],

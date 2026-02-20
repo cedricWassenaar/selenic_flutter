@@ -82,19 +82,30 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
       enabled: false,
       initial: SelenicTextInputSize.md,
       options: const [
-        Option(label: "sm", value: SelenicTextInputSize.sm),
-        Option(label: "md", value: SelenicTextInputSize.md),
-        Option(label: "lg", value: SelenicTextInputSize.lg),
-        Option(label: "xl", value: SelenicTextInputSize.xl),
+        Option(
+          label: "sm",
+          value: SelenicTextInputSize.sm,
+        ),
+        Option(
+          label: "md",
+          value: SelenicTextInputSize.md,
+        ),
+        Option(
+          label: "lg",
+          value: SelenicTextInputSize.lg,
+        ),
+        Option(
+          label: "xl",
+          value: SelenicTextInputSize.xl,
+        ),
       ],
     );
 
     final activeBorderColorKnob = context.knobs.nullable.options(
       label: "activeBorderColor",
-      description: "MoonColors variants for SelenicTextInput active border.",
+      description: "SelenicColors variants for SelenicTextInput active border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -102,10 +113,10 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
 
     final inactiveBorderColorKnob = context.knobs.nullable.options(
       label: "inactiveBorderColor",
-      description: "MoonColors variants for SelenicTextInput inactive border.",
+      description:
+          "SelenicColors variants for SelenicTextInput inactive border.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -114,10 +125,10 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
 
     final hoverBorderColorKnob = context.knobs.nullable.options(
       label: "hoverBorderColor",
-      description: "MoonColors variants for SelenicTextInput border on hover.",
+      description:
+          "SelenicColors variants for SelenicTextInput border on hover.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -126,10 +137,9 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
       description:
-          "MoonColors variants for SelenicTextInput and SelenicDropdown background.",
+          "SelenicColors variants for SelenicTextInput and SelenicDropdown background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -246,15 +256,16 @@ class _ComboboxMultiSelectStoryState extends State<ComboboxMultiSelectStory> {
                 ? Center(
                     child: SelenicTag(
                       tagSize: SelenicTagSize.xs,
-                      backgroundColor: context.selenicColors!.bulma,
+                      backgroundColor: context.selenicColors!.bodyTextPrimary,
                       onTap: () => setState(() => _selectedOptions.clear()),
                       label: Text(
                         "${_selectedOptions.keys.length}",
-                        style: TextStyle(color: context.selenicColors!.gohan),
+                        style: TextStyle(
+                            color: context.selenicColors!.backgroundSecondary),
                       ),
                       trailing: Icon(
                         MoonIcons.controls_close_small_16_light,
-                        color: context.selenicColors!.gohan,
+                        color: context.selenicColors!.backgroundSecondary,
                       ),
                     ),
                   )

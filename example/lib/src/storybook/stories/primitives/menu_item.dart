@@ -25,10 +25,9 @@ class _MenuItemStoryState extends State<MenuItemStory> {
   Widget build(BuildContext context) {
     final leadingColorKnob = context.knobs.nullable.options(
       label: "Leading color",
-      description: "MoonColors variants for SelenicMenuItem leading slot.",
+      description: "SelenicColors variants for SelenicMenuItem leading slot.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -36,10 +35,9 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final labelColorKnob = context.knobs.nullable.options(
       label: "Label color",
-      description: "MoonColors variants for SelenicMenuItem label slot.",
+      description: "SelenicColors variants for SelenicMenuItem label slot.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -47,10 +45,9 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final contentTextColorKnob = context.knobs.nullable.options(
       label: "Content color",
-      description: "MoonColors variants for SelenicMenuItem content slot.",
+      description: "SelenicColors variants for SelenicMenuItem content slot.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -58,10 +55,9 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final trailingColorKnob = context.knobs.nullable.options(
       label: "Trailing color",
-      description: "MoonColors variants for SelenicMenuItem trailing slot.",
+      description: "SelenicColors variants for SelenicMenuItem trailing slot.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -69,10 +65,9 @@ class _MenuItemStoryState extends State<MenuItemStory> {
 
     final backgroundColorKnob = context.knobs.nullable.options(
       label: "backgroundColor",
-      description: "MoonColors variants for SelenicMenuItem background.",
+      description: "SelenicColors variants for SelenicMenuItem background.",
       enabled: false,
       initial: 0,
-      // piccolo
       options: colorOptions,
     );
 
@@ -162,7 +157,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
               leading: showLeadingKnob
                   ? SelenicAvatar(
                       borderRadius: borderRadius,
-                      backgroundColor: context.selenicColors!.jiren,
+                      backgroundColor: context.selenicColors!.hoverPrimary,
                       avatarSize: SelenicAvatarSize.lg,
                       content: const Icon(
                         MoonIcons.travel_airplane_32_regular,
@@ -196,7 +191,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
               leading: showLeadingKnob
                   ? SelenicAvatar(
                       borderRadius: borderRadius,
-                      backgroundColor: context.selenicColors!.jiren,
+                      backgroundColor: context.selenicColors!.hoverPrimary,
                       avatarSize: SelenicAvatarSize.md,
                       content: const Icon(
                         MoonIcons.notifications_activity_32_regular,
@@ -276,7 +271,7 @@ class _MenuItemStoryState extends State<MenuItemStory> {
               iconColor: trailingColor,
               backgroundColor: backgroundColor ?? Colors.transparent,
               expandedBackgroundColor:
-                  backgroundColor ?? context.selenicColors!.heles,
+                  backgroundColor ?? context.selenicColors!.hoverSecondary,
               label: Text(
                 'Expandable menu item',
                 style: context.selenicTypography!.body.textDefault.copyWith(
