@@ -192,7 +192,7 @@ class _AlertStoryState extends State<AlertStory> {
             SelenicAlert.filled(
               show: true,
               color: context.selenicColors!.error,
-              backgroundColor: context.selenicColors!.error10,
+              backgroundColor: context.selenicColors!.error_10,
               borderRadius: borderRadius,
               leading: showLeadingKnob
                   ? const Icon(MoonIcons.notifications_alert_24_light)
@@ -223,7 +223,7 @@ class _AlertStoryState extends State<AlertStory> {
             SelenicAlert.filled(
               show: true,
               color: context.selenicColors!.warning,
-              backgroundColor: context.selenicColors!.warning10,
+              backgroundColor: context.selenicColors!.warning_10,
               borderRadius: borderRadius,
               leading: showLeadingKnob
                   ? const Icon(MoonIcons.generic_alarm_round_24_light)

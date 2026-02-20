@@ -19,16 +19,16 @@ enum ColorsPageSection {
               'and the values vary according to the product. Please do not use '
               'hex values; they will not change if you need theme support.',
         mainColors =>
-          'The main colors serve a specific purpose. piccolo and hit are used '
-              'for accent colors; beerus for borders and lines; goku and gohan '
-              'for backgrounds; bulma and trunks for text and icons; goten and '
-              'popo for forced theme-less colors; and jiren, heles, and zeno '
+          'The main colors serve a specific purpose. accentPrimary and accentSecondary are used '
+              'for accent colors; lineAccent for borders and lines; backgroundPrimary and backgroundSecondary '
+              'for backgrounds; textPrimary and textSecondary for text and icons; blandPrimary and '
+              'blandSecondary for forced theme-less colors; and overlayPrimary, overlaySecondary, and overlayTertiary '
               'for semi-transparent overlays.',
         supportiveColors =>
           'Every HEX color in all supportive colors is represented by three '
               'shades. The difference between shades is in their transparency '
-              'levels. Some colors may have a semantic purpose. krillin is '
-              'usually used for warnings, chichi for errors, and roshi for '
+              'levels. Some colors may have a semantic purpose. warning_* is '
+              'usually used for warnings, error_* for errors, and success_* for '
               'success colors. Other colors are used for variety of secondary '
               'reasons.'
       };

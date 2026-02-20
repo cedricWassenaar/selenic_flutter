@@ -166,7 +166,7 @@ class ChipStory extends StatelessWidget {
               isActive: isActiveKnob,
               activeColor: context.selenicColors!.supportive_2,
               backgroundColor: context.selenicColors!.warning,
-              activeBackgroundColor: context.selenicColors!.error10,
+              activeBackgroundColor: context.selenicColors!.error_10,
               textColor: context.selenicColors!.filledButton,
               borderWidth: 2,
               showBorder: showBorderKnob,

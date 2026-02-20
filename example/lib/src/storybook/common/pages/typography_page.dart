@@ -51,7 +51,7 @@ class TypographyPage extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(24.0),
       decoration: BoxDecoration(
-        color: context.selenicColors!.gohan,
+        color: context.selenicColors!.backgroundSecondary,
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Column(

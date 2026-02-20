@@ -97,8 +97,8 @@ class HomePage extends StatelessWidget {
     return SelenicButton(
       width: double.infinity,
       backgroundColor: isGitHub
-          ? context.selenicColors!.piccolo
-          : context.selenicColors!.krillin,
+          ? context.selenicColors!.accentPrimary
+          : context.selenicColors!.warning,
       onTap: () => launchURL(socialMedia.url),
       leading: SvgPicture.asset(
         socialMedia.buttonIconPath,
@@ -110,7 +110,7 @@ class HomePage extends StatelessWidget {
           child: Text(
             socialMedia.name,
             style: isGitHub
-                ? TextStyle(color: context.selenicColors!.goten)
+                ? TextStyle(color: context.selenicColors!.filledButton)
                 : null,
           ),
         ),
@@ -149,13 +149,13 @@ class HomePage extends StatelessWidget {
                 height: cardHeight,
                 width: cardWidth,
                 decoration: BoxDecoration(
-                  color: context.selenicColors!.goten,
+                  color: context.selenicColors!.filledButton,
                   borderRadius: borderRadius,
-                  border: Border.all(color: context.selenicColors!.beerus),
+                  border: Border.all(color: context.selenicColors!.lineAccent),
                   boxShadow: isHovered
                       ? [
                           BoxShadow(
-                            color: context.selenicColors!.trunks
+                            color: context.selenicColors!.bodyTextSecondary
                                 .withValues(alpha: .4),
                             blurRadius: 6.0,
                             spreadRadius: -3.0,

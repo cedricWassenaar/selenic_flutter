@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:selenic_design/selenic_design.dart';
-import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/table/table_size_properties.dart';
 import 'package:selenic_design/src/theme/table/table_sizes.dart';
 import 'package:selenic_design/src/theme/tokens/transitions.dart';

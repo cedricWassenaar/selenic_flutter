@@ -128,8 +128,8 @@ class _DropdownStoryState extends State<DropdownStory> {
     final accentPrimary = context.selenicColors!.accentPrimary;
     final accentSecondary = context.selenicColors!.warning;
     final colorSuccess = context.selenicColors!.success;
-    final colorSuccess60 = context.selenicColors!.success60;
-    final colorSuccess10 = context.selenicColors!.success10;
+    final colorSuccess60 = context.selenicColors!.success_60;
+    final colorSuccess10 = context.selenicColors!.success_10;
 
     final BorderRadiusGeometry? borderRadius = borderRadiusKnob != null
         ? BorderRadius.circular(

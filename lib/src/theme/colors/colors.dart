@@ -7,8 +7,8 @@ import 'package:selenic_design/src/utils/color_premul_lerp.dart'
 class SelenicColors extends ThemeExtension<SelenicColors>
     with DiagnosticableTreeMixin {
   static const light = SelenicColors(
-    accentPrimary: Color.fromARGB(255, 99, 51, 231),
-    accentSecondary: Color(0xFF1BD29A),
+    accentPrimary: Color.fromARGB(255, 43, 54, 185),
+    accentSecondary: Color.fromARGB(255, 72, 51, 175),
     lineAccent: Color(0xFFDCDEE3),
     backgroundPrimary: Color(0xFFFFFFFF),
     backgroundSecondary: Color(0xFFF6F7F9),
@@ -20,14 +20,14 @@ class SelenicColors extends ThemeExtension<SelenicColors>
     hoverSecondary: Color(0x0A000000),
     overlayModal: Color(0x8F000000),
     warning: Color(0xFFFFB319),
-    warning60: Color(0x8FFFB319),
-    warning10: Color(0x14FFB319),
+    warning_60: Color(0x8FFFB319),
+    warning_10: Color(0x14FFB319),
     error: Color(0xFFFF4E64),
-    error60: Color(0x8FFF4E64),
-    error10: Color(0x14FF4E64),
+    error_60: Color(0x8FFF4E64),
+    error_10: Color(0x14FF4E64),
     success: Color(0xFF49B356),
-    success60: Color(0x8F49B356),
-    success10: Color(0x1449B356),
+    success_60: Color(0x8F49B356),
+    success_10: Color(0x1449B356),
     supportive_2: Color(0xFFD33030),
     supportive_2_60: Color(0x8FD33030),
     supportive_2_10: Color(0x14D33030),
@@ -53,8 +53,8 @@ class SelenicColors extends ThemeExtension<SelenicColors>
   );
 
   static const dark = SelenicColors(
-    accentPrimary: Color(0xFF5C33CF),
-    accentSecondary: Color(0xFF1BD29A),
+    accentPrimary: Color.fromARGB(255, 43, 54, 185),
+    accentSecondary: Color.fromARGB(255, 72, 51, 175),
     lineAccent: Color(0xFF292929),
     backgroundPrimary: Color(0xFF000000),
     backgroundSecondary: Color(0xFF1F1F1F),
@@ -66,14 +66,14 @@ class SelenicColors extends ThemeExtension<SelenicColors>
     hoverSecondary: Color(0x14FFFFFF),
     overlayModal: Color(0x8F000000),
     warning: Color(0xFFFFB319),
-    warning60: Color(0x8FFFB319),
-    warning10: Color(0x14FFB319),
+    warning_60: Color(0x8FFFB319),
+    warning_10: Color(0x14FFB319),
     error: Color(0xFFFF4E64),
-    error60: Color(0x8FFF4E64),
-    error10: Color(0x14FF4E64),
+    error_60: Color(0x8FFF4E64),
+    error_10: Color(0x14FF4E64),
     success: Color(0xFF49B356),
-    success60: Color(0x8F49B356),
-    success10: Color(0x1449B356),
+    success_60: Color(0x8F49B356),
+    success_10: Color(0x1449B356),
     supportive_2: Color(0xFFD33030),
     supportive_2_60: Color(0x8FD33030),
     supportive_2_10: Color(0x14D33030),
@@ -142,28 +142,28 @@ class SelenicColors extends ThemeExtension<SelenicColors>
   final Color warning;
 
   /// Warning color.
-  final Color warning60;
+  final Color warning_60;
 
   /// Warning color.
-  final Color warning10;
+  final Color warning_10;
 
   /// Error color.
   final Color error;
 
   /// Error color.
-  final Color error60;
+  final Color error_60;
 
   /// Error color.
-  final Color error10;
+  final Color error_10;
 
   /// Success color.
   final Color success;
 
   /// Success color.
-  final Color success60;
+  final Color success_60;
 
   /// Success color.
-  final Color success10;
+  final Color success_10;
 
   /// Supportive color.
   final Color supportive_1;
@@ -245,14 +245,14 @@ class SelenicColors extends ThemeExtension<SelenicColors>
     required this.hoverSecondary,
     required this.overlayModal,
     required this.warning,
-    required this.warning60,
-    required this.warning10,
+    required this.warning_60,
+    required this.warning_10,
     required this.error,
-    required this.error60,
-    required this.error10,
+    required this.error_60,
+    required this.error_10,
     required this.success,
-    required this.success60,
-    required this.success10,
+    required this.success_60,
+    required this.success_10,
     required this.supportive_1,
     required this.supportive_1_60,
     required this.supportive_1_10,
@@ -292,14 +292,14 @@ class SelenicColors extends ThemeExtension<SelenicColors>
     Color? hoverSecondary,
     Color? overlayModal,
     Color? warning,
-    Color? warning60,
-    Color? warning10,
+    Color? warning_60,
+    Color? warning_10,
     Color? error,
-    Color? error60,
-    Color? error10,
+    Color? error_60,
+    Color? error_10,
     Color? success,
-    Color? success60,
-    Color? success10,
+    Color? success_60,
+    Color? success_10,
     Color? supportive_1,
     Color? supportive_1_60,
     Color? supportive_1_10,
@@ -337,14 +337,14 @@ class SelenicColors extends ThemeExtension<SelenicColors>
       hoverSecondary: hoverSecondary ?? this.hoverSecondary,
       overlayModal: overlayModal ?? this.overlayModal,
       warning: warning ?? this.warning,
-      warning60: warning60 ?? this.warning60,
-      warning10: warning10 ?? this.warning10,
+      warning_60: warning_60 ?? this.warning_60,
+      warning_10: warning_10 ?? this.warning_10,
       error: error ?? this.error,
-      error60: error60 ?? this.error60,
-      error10: error10 ?? this.error10,
+      error_60: error_60 ?? this.error_60,
+      error_10: error_10 ?? this.error_10,
       success: success ?? this.success,
-      success60: success60 ?? this.success60,
-      success10: success10 ?? this.success10,
+      success_60: success_60 ?? this.success_60,
+      success_10: success_10 ?? this.success_10,
       supportive_1: supportive_1 ?? this.supportive_1,
       supportive_1_60: supportive_1_60 ?? this.supportive_1_60,
       supportive_1_10: supportive_1_10 ?? this.supportive_1_10,
@@ -440,14 +440,14 @@ class SelenicColors extends ThemeExtension<SelenicColors>
         other.warning,
         t,
       )!,
-      warning60: colorPremulLerp(
-        warning60,
-        other.warning60,
+      warning_60: colorPremulLerp(
+        warning_60,
+        other.warning_60,
         t,
       )!,
-      warning10: colorPremulLerp(
-        warning10,
-        other.warning10,
+      warning_10: colorPremulLerp(
+        warning_10,
+        other.warning_10,
         t,
       )!,
       error: colorPremulLerp(
@@ -455,14 +455,14 @@ class SelenicColors extends ThemeExtension<SelenicColors>
         other.error,
         t,
       )!,
-      error60: colorPremulLerp(
-        error60,
-        other.error60,
+      error_60: colorPremulLerp(
+        error_60,
+        other.error_60,
         t,
       )!,
-      error10: colorPremulLerp(
-        error10,
-        other.error10,
+      error_10: colorPremulLerp(
+        error_10,
+        other.error_10,
         t,
       )!,
       success: colorPremulLerp(
@@ -470,14 +470,14 @@ class SelenicColors extends ThemeExtension<SelenicColors>
         other.success,
         t,
       )!,
-      success60: colorPremulLerp(
-        success60,
-        other.success60,
+      success_60: colorPremulLerp(
+        success_60,
+        other.success_60,
         t,
       )!,
-      success10: colorPremulLerp(
-        success10,
-        other.success10,
+      success_10: colorPremulLerp(
+        success_10,
+        other.success_10,
         t,
       )!,
       supportive_1: colorPremulLerp(
@@ -611,14 +611,14 @@ class SelenicColors extends ThemeExtension<SelenicColors>
       ..add(ColorProperty("heles", hoverSecondary))
       ..add(ColorProperty("hoverSecondary", overlayModal))
       ..add(ColorProperty("warning", warning))
-      ..add(ColorProperty("warning60", warning60))
-      ..add(ColorProperty("warning10", warning10))
+      ..add(ColorProperty("warning60", warning_60))
+      ..add(ColorProperty("warning10", warning_10))
       ..add(ColorProperty("error", error))
-      ..add(ColorProperty("error60", error60))
-      ..add(ColorProperty("error10", error10))
+      ..add(ColorProperty("error60", error_60))
+      ..add(ColorProperty("error10", error_10))
       ..add(ColorProperty("success", success))
-      ..add(ColorProperty("success60", success60))
-      ..add(ColorProperty("success10", success10))
+      ..add(ColorProperty("success60", success_60))
+      ..add(ColorProperty("success10", success_10))
       ..add(ColorProperty("supportive_1", supportive_1))
       ..add(ColorProperty("supportive_1_60", supportive_1_60))
       ..add(ColorProperty("supportive_1_10", supportive_1_10))

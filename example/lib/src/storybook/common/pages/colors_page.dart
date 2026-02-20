@@ -84,9 +84,9 @@ class ColorsPage extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 6.0),
             decoration: BoxDecoration(
-              color: context.selenicColors!.gohan,
+              color: context.selenicColors!.backgroundSecondary,
               border: Border.all(
-                color: context.selenicColors!.goten,
+                color: context.selenicColors!.filledButton,
                 width: 0,
               ),
               borderRadius: BorderRadius.circular(4.0),
@@ -213,7 +213,7 @@ class ColorsPage extends StatelessWidget {
             width: colorContainerWidth,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16.0),
-              border: Border.all(color: context.selenicColors!.beerus),
+              border: Border.all(color: context.selenicColors!.lineAccent),
             ),
             child: DecoratedBox(
               decoration: BoxDecoration(
