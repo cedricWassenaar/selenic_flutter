@@ -30,7 +30,7 @@ class SelenicTooltipTheme extends ThemeExtension<SelenicTooltipTheme>
             SelenicTooltipColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
+              backgroundColor: tokens.colors.backgroundPrimary,
             ),
         properties = properties ??
             SelenicTooltipProperties(

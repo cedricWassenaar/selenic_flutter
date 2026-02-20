@@ -24,7 +24,7 @@ class SelenicCircularLoaderTheme
     SelenicCircularLoaderSizes? sizes,
   })  : colors = colors ??
             SelenicCircularLoaderColors(
-              color: tokens.colors.piccolo,
+              color: tokens.colors.accentPrimary,
               backgroundColor: Colors.transparent,
             ),
         sizes = sizes ?? SelenicCircularLoaderSizes(tokens: tokens);

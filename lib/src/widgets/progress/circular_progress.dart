@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/progress/circular_progress/circular_progress_size_properties.dart';
 import 'package:selenic_design/src/theme/progress/circular_progress/circular_progress_sizes.dart';
@@ -85,11 +84,11 @@ class SelenicCircularProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color effectiveColor = color ??
         context.selenicTheme?.circularProgressTheme.colors.color ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveBackgroundColor = backgroundColor ??
         context.selenicTheme?.circularProgressTheme.colors.backgroundColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final SelenicCircularProgressSizeProperties
         effectiveSelenicCircularProgressSize =

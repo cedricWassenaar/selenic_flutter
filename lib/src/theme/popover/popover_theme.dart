@@ -30,7 +30,7 @@ class SelenicPopoverTheme extends ThemeExtension<SelenicPopoverTheme>
             SelenicPopoverColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
+              backgroundColor: tokens.colors.backgroundPrimary,
             ),
         properties = properties ??
             SelenicPopoverProperties(

@@ -40,10 +40,10 @@ class SelenicAccordionTheme extends ThemeExtension<SelenicAccordionTheme>
               expandedIconColor: tokens.colors.iconPrimary,
               trailingIconColor: tokens.colors.iconPrimary,
               expandedTrailingIconColor: tokens.colors.iconSecondary,
-              backgroundColor: tokens.colors.goku,
-              expandedBackgroundColor: tokens.colors.goku,
-              borderColor: tokens.colors.beerus,
-              dividerColor: tokens.colors.beerus,
+              backgroundColor: tokens.colors.backgroundPrimary,
+              expandedBackgroundColor: tokens.colors.backgroundPrimary,
+              borderColor: tokens.colors.lineAccent,
+              dividerColor: tokens.colors.lineAccent,
             ),
         properties = properties ??
             SelenicAccordionProperties(

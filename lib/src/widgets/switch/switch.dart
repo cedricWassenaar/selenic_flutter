@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/effects/effects_theme.dart';
 import 'package:selenic_design/src/theme/switch/switch_size_properties.dart';
@@ -282,15 +281,15 @@ class _SelenicSwitchState extends State<SelenicSwitch>
 
     final Color effectiveActiveTrackColor = widget.activeTrackColor ??
         context.selenicTheme?.switchTheme.colors.activeTrackColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveInactiveTrackColor = widget.inactiveTrackColor ??
         context.selenicTheme?.switchTheme.colors.inactiveTrackColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final Color effectiveThumbColor = widget.thumbColor ??
         context.selenicTheme?.switchTheme.colors.thumbColor ??
-        MoonColors.light.goten;
+        SelenicColors.light.filledButton;
 
     final double effectiveHeight =
         widget.height ?? effectiveSelenicSwitchSize.height;
@@ -427,7 +426,7 @@ class _SelenicSwitchState extends State<SelenicSwitch>
 
     final Color effectiveInactiveTextColor =
         context.selenicTheme?.switchTheme.colors.inactiveTextColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final Color effectiveActiveIconColor =
         context.selenicTheme?.switchTheme.colors.activeIconColor ??
@@ -435,11 +434,11 @@ class _SelenicSwitchState extends State<SelenicSwitch>
 
     final Color effectiveInactiveIconColor =
         context.selenicTheme?.switchTheme.colors.inactiveIconColor ??
-            MoonColors.light.iconPrimary;
+            SelenicColors.light.iconPrimary;
 
     final Color effectiveThumbIconColor =
         context.selenicTheme?.switchTheme.colors.thumbIconColor ??
-            MoonColors.light.iconPrimary;
+            SelenicColors.light.iconPrimary;
 
     return Semantics(
       label: widget.semanticLabel,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/shadows.dart';
@@ -407,15 +406,15 @@ class _SelenicDropdownState extends State<SelenicDropdown>
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
         context.selenicTheme?.dropdownTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveTextColor =
         context.selenicTheme?.dropdownTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final Color effectiveIconColor =
         context.selenicTheme?.dropdownTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+            SelenicColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
         context.selenicTheme?.dropdownTheme.properties.textStyle ??

@@ -23,9 +23,9 @@ class SelenicChipTheme extends ThemeExtension<SelenicChipTheme>
     SelenicChipSizes? sizes,
   })  : colors = colors ??
             SelenicChipColors(
-              activeColor: tokens.colors.piccolo,
-              backgroundColor: tokens.colors.goku,
-              activeBackgroundColor: tokens.colors.jiren,
+              activeColor: tokens.colors.accentPrimary,
+              backgroundColor: tokens.colors.backgroundPrimary,
+              activeBackgroundColor: tokens.colors.hoverPrimary,
               textColor: tokens.colors.textPrimary,
             ),
         sizes = sizes ?? SelenicChipSizes(tokens: tokens);

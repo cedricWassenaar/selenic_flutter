@@ -23,7 +23,7 @@ class SelenicAlertTheme extends ThemeExtension<SelenicAlertTheme>
     SelenicAlertProperties? properties,
   })  : colors = colors ??
             SelenicAlertColors(
-              backgroundColor: tokens.colors.goku,
+              backgroundColor: tokens.colors.backgroundPrimary,
               borderColor: tokens.colors.textSecondary,
               iconColor: tokens.colors.iconPrimary,
               textColor: tokens.colors.textPrimary,

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:moon_tokens/moon_tokens.dart';
-
 import 'package:selenic_design/src/theme/chip/chip_size_properties.dart';
 import 'package:selenic_design/src/theme/chip/chip_sizes.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/effects/effects_theme.dart';
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/borders.dart';
@@ -270,19 +269,19 @@ class _SelenicChipState extends State<SelenicChip>
 
     final Color effectiveActiveColor = widget.activeColor ??
         context.selenicTheme?.chipTheme.colors.activeColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
         context.selenicTheme?.chipTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveActiveBackgroundColor = widget.activeBackgroundColor ??
         context.selenicTheme?.chipTheme.colors.activeBackgroundColor ??
-        MoonColors.light.jiren;
+        SelenicColors.light.hoverPrimary;
 
     final Color effectiveTextColor = widget.textColor ??
         context.selenicTheme?.chipTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Duration effectiveActiveEffectDuration =
         widget.activeEffectDuration ??

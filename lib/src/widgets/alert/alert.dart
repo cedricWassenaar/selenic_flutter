@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/borders.dart';
@@ -237,19 +236,19 @@ class _SelenicAlertState extends State<SelenicAlert>
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
         context.selenicTheme?.alertTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveBorderColor = widget.borderColor ??
         context.selenicTheme?.alertTheme.colors.borderColor ??
-        MoonColors.light.bulma;
+        SelenicColors.light.bodyTextPrimary;
 
     final Color effectiveTextColor = widget.color ??
         context.selenicTheme?.alertTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Color effectiveIconColor = widget.color ??
         context.selenicTheme?.alertTheme.colors.iconColor ??
-        MoonColors.light.iconPrimary;
+        SelenicColors.light.iconPrimary;
 
     final EdgeInsetsGeometry effectivePadding = widget.padding ??
         context.selenicTheme?.alertTheme.properties.padding ??

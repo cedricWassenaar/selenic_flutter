@@ -31,9 +31,9 @@ class SelenicTableTheme extends ThemeExtension<SelenicTableTheme>
               columnTextColor: tokens.colors.textPrimary,
               rowTextColor: tokens.colors.textPrimary,
               rowLabelTextColor: tokens.colors.textPrimary,
-              rowPinnedAnimatedLabelTextColor: tokens.colors.trunks,
+              rowPinnedAnimatedLabelTextColor: tokens.colors.bodyTextSecondary,
               iconColor: tokens.colors.iconPrimary,
-              rowBackgroundColor: tokens.colors.goku,
+              rowBackgroundColor: tokens.colors.backgroundPrimary,
             ),
         properties = properties ??
             SelenicTableProperties(

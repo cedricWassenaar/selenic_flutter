@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/widgets/bottom_sheet/bottom_sheet.dart';
 
@@ -43,7 +43,7 @@ Future<T?> showSelenicModalBottomSheet<T>({
 
   final Color effectiveBarrierColor = barrierColor ??
       context.selenicTheme?.bottomSheetTheme.colors.barrierColor ??
-      MoonColors.light.zeno;
+      SelenicColors.light.overlayModal;
 
   final Duration effectiveTransitionDuration = transitionDuration ??
       context.selenicTheme?.bottomSheetTheme.properties.transitionDuration ??

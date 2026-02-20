@@ -1,8 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_tokens/moon_tokens.dart';
-
 import 'package:selenic_design/src/theme/accordion/accordion_theme.dart';
 import 'package:selenic_design/src/theme/alert/alert_theme.dart';
 import 'package:selenic_design/src/theme/auth_code/auth_code_theme.dart';
@@ -13,6 +11,7 @@ import 'package:selenic_design/src/theme/button/button_theme.dart';
 import 'package:selenic_design/src/theme/carousel/carousel_theme.dart';
 import 'package:selenic_design/src/theme/checkbox/checkbox_theme.dart';
 import 'package:selenic_design/src/theme/chip/chip_theme.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/dot_indicator/dot_indicator_theme.dart';
 import 'package:selenic_design/src/theme/drawer/drawer_theme.dart';
 import 'package:selenic_design/src/theme/dropdown/dropdown_theme.dart';
@@ -576,7 +575,7 @@ extension SelenicThemeX on BuildContext {
 
   SelenicBorders? get selenicBorders => selenicTheme?.tokens.borders;
 
-  MoonColors? get selenicColors => selenicTheme?.tokens.colors;
+  SelenicColors? get selenicColors => selenicTheme?.tokens.colors;
 
   SelenicEffectsTheme? get selenicEffects => selenicTheme?.effects;
 

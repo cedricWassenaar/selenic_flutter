@@ -23,13 +23,13 @@ class SelenicAuthCodeTheme extends ThemeExtension<SelenicAuthCodeTheme>
     SelenicAuthCodeProperties? properties,
   })  : colors = colors ??
             SelenicAuthCodeColors(
-              selectedBorderColor: tokens.colors.piccolo,
-              activeBorderColor: tokens.colors.beerus,
-              inactiveBorderColor: tokens.colors.beerus,
-              errorBorderColor: tokens.colors.chichi,
-              selectedFillColor: tokens.colors.goku,
-              activeFillColor: tokens.colors.goku,
-              inactiveFillColor: tokens.colors.goku,
+              selectedBorderColor: tokens.colors.accentPrimary,
+              activeBorderColor: tokens.colors.lineAccent,
+              inactiveBorderColor: tokens.colors.lineAccent,
+              errorBorderColor: tokens.colors.error,
+              selectedFillColor: tokens.colors.backgroundPrimary,
+              activeFillColor: tokens.colors.backgroundPrimary,
+              inactiveFillColor: tokens.colors.backgroundPrimary,
               textColor: tokens.colors.textPrimary,
             ),
         properties = properties ??

@@ -23,13 +23,13 @@ class SelenicButtonTheme extends ThemeExtension<SelenicButtonTheme>
     SelenicButtonSizes? sizes,
   })  : colors = colors ??
             SelenicButtonColors(
-              borderColor: tokens.colors.trunks,
+              borderColor: tokens.colors.bodyTextSecondary,
               textColor: tokens.colors.textPrimary,
-              filledVariantBackgroundColor: tokens.colors.piccolo,
-              filledVariantTextColor: tokens.colors.goten,
+              filledVariantBackgroundColor: tokens.colors.accentPrimary,
+              filledVariantTextColor: tokens.colors.filledButton,
               textVariantTextColor: tokens.colors.textSecondary,
-              textVariantFocusColor: tokens.colors.piccolo,
-              textVariantHoverColor: tokens.colors.jiren,
+              textVariantFocusColor: tokens.colors.accentPrimary,
+              textVariantHoverColor: tokens.colors.hoverPrimary,
             ),
         sizes = sizes ?? SelenicButtonSizes(tokens: tokens);
 

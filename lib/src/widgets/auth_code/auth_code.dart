@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/borders.dart';
@@ -784,31 +783,31 @@ class _SelenicAuthCodeState extends State<SelenicAuthCode>
 
     _effectiveSelectedBorderColor = widget.selectedBorderColor ??
         context.selenicTheme?.authCodeTheme.colors.selectedBorderColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     _effectiveActiveBorderColor = widget.activeBorderColor ??
         context.selenicTheme?.authCodeTheme.colors.activeBorderColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     _effectiveInactiveBorderColor = widget.inactiveBorderColor ??
         context.selenicTheme?.authCodeTheme.colors.inactiveBorderColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     _effectiveErrorBorderColor = widget.errorBorderColor ??
         context.selenicTheme?.authCodeTheme.colors.errorBorderColor ??
-        MoonColors.light.chichi;
+        SelenicColors.light.error;
 
     _effectiveSelectedFillColor = widget.selectedFillColor ??
         context.selenicTheme?.authCodeTheme.colors.selectedFillColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     _effectiveActiveFillColor = widget.activeFillColor ??
         context.selenicTheme?.authCodeTheme.colors.activeFillColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     _effectiveInactiveFillColor = widget.inactiveFillColor ??
         context.selenicTheme?.authCodeTheme.colors.inactiveFillColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     _effectiveTextStyle =
         context.selenicTheme?.authCodeTheme.properties.textStyle ??
@@ -820,11 +819,11 @@ class _SelenicAuthCodeState extends State<SelenicAuthCode>
 
     _effectiveTextColor =
         context.selenicTheme?.authCodeTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     _effectiveCursorColor = widget.authFieldCursorColor ??
         context.selenicTheme?.authCodeTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     _animationDuration ??= widget.animationDuration ??
         context.selenicTheme?.authCodeTheme.properties.animationDuration ??

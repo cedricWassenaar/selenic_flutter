@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/loaders/circular_loader/circular_loader_size_properties.dart';
 import 'package:selenic_design/src/theme/loaders/circular_loader/circular_loader_sizes.dart';
@@ -80,7 +79,7 @@ class SelenicCircularLoader extends StatelessWidget {
 
     final Color effectiveColor = color ??
         context.selenicTheme?.circularLoaderTheme.colors.color ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveBackgroundColor = backgroundColor ??
         context.selenicTheme?.circularLoaderTheme.colors.backgroundColor ??

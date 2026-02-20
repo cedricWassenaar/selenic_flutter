@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/effects/effects_theme.dart';
 import 'package:selenic_design/src/theme/theme.dart';
@@ -139,7 +138,7 @@ class SelenicMenuItem extends StatefulWidget {
 
     final Color effectiveColor = color ??
         context.selenicTheme?.menuItemTheme.colors.dividerColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     Widget wrapMenuItem(Widget menuList) {
       return DecoratedBox(
@@ -215,15 +214,15 @@ class _SelenicMenuItemState extends State<SelenicMenuItem>
 
     final Color effectiveIconColor =
         context.selenicTheme?.menuItemTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+            SelenicColors.light.iconPrimary;
 
     final Color effectiveLabelTextColor =
         context.selenicTheme?.menuItemTheme.colors.labelTextColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final Color effectiveContentTextColor =
         context.selenicTheme?.menuItemTheme.colors.contentTextColor ??
-            MoonColors.light.textSecondary;
+            SelenicColors.light.textSecondary;
 
     final TextStyle effectiveLabelTextStyle =
         context.selenicTheme?.menuItemTheme.properties.labelTextStyle ??

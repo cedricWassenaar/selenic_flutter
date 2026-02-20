@@ -25,8 +25,8 @@ class SelenicBottomSheetTheme extends ThemeExtension<SelenicBottomSheetTheme>
             SelenicBottomSheetColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
-              barrierColor: tokens.colors.zeno,
+              backgroundColor: tokens.colors.backgroundPrimary,
+              barrierColor: tokens.colors.overlayModal,
             ),
         properties = properties ??
             SelenicBottomSheetProperties(

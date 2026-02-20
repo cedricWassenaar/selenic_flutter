@@ -23,7 +23,7 @@ class SelenicLinearLoaderTheme extends ThemeExtension<SelenicLinearLoaderTheme>
     SelenicLinearLoaderSizes? sizes,
   })  : colors = colors ??
             SelenicLinearLoaderColors(
-              color: tokens.colors.piccolo,
+              color: tokens.colors.accentPrimary,
               backgroundColor: Colors.transparent,
             ),
         sizes = sizes ?? SelenicLinearLoaderSizes(tokens: tokens);

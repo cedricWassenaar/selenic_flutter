@@ -1,5 +1,4 @@
 export 'package:moon_icons/moon_icons.dart';
-export 'package:moon_tokens/moon_tokens.dart';
 
 export 'package:selenic_design/src/theme/accordion/accordion_theme.dart';
 export 'package:selenic_design/src/theme/alert/alert_theme.dart';
@@ -10,6 +9,7 @@ export 'package:selenic_design/src/theme/button/button_theme.dart';
 export 'package:selenic_design/src/theme/carousel/carousel_theme.dart';
 export 'package:selenic_design/src/theme/checkbox/checkbox_theme.dart';
 export 'package:selenic_design/src/theme/chip/chip_theme.dart';
+export 'package:selenic_design/src/theme/colors/colors.dart';
 export 'package:selenic_design/src/theme/dot_indicator/dot_indicator_theme.dart';
 export 'package:selenic_design/src/theme/drawer/drawer_theme.dart';
 export 'package:selenic_design/src/theme/effects/effects_theme.dart';

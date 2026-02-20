@@ -29,8 +29,8 @@ class SelenicSegmentedControlTheme
     SelenicSegmentedControlSizes? sizes,
   })  : colors = colors ??
             SelenicSegmentedControlColors(
-              backgroundColor: tokens.colors.gohan,
-              selectedSegmentColor: tokens.colors.goku,
+              backgroundColor: tokens.colors.backgroundSecondary,
+              selectedSegmentColor: tokens.colors.backgroundPrimary,
               textColor: tokens.colors.textPrimary,
               selectedTextColor: tokens.colors.textPrimary,
             ),

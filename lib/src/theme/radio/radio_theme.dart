@@ -18,8 +18,8 @@ class SelenicRadioTheme extends ThemeExtension<SelenicRadioTheme>
     SelenicRadioColors? colors,
   }) : colors = colors ??
             SelenicRadioColors(
-              activeColor: tokens.colors.piccolo,
-              inactiveColor: tokens.colors.trunks,
+              activeColor: tokens.colors.accentPrimary,
+              inactiveColor: tokens.colors.bodyTextSecondary,
             );
 
   @override

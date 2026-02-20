@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 import 'package:selenic_design/src/theme/button/button_size_properties.dart';
 import 'package:selenic_design/src/theme/button/button_sizes.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/effects/effects_theme.dart';
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/borders.dart';
@@ -332,7 +332,7 @@ class _SelenicButtonState extends State<SelenicButton>
 
     final Color effectiveBorderColor = widget.borderColor ??
         context.selenicTheme?.buttonTheme.colors.borderColor ??
-        MoonColors.light.trunks;
+        SelenicColors.light.bodyTextSecondary;
 
     final double effectiveBorderWidth = widget.borderWidth ??
         context.selenicBorders?.defaultBorderWidth ??
@@ -340,7 +340,7 @@ class _SelenicButtonState extends State<SelenicButton>
 
     final Color effectiveTextColor = widget.textColor ??
         context.selenicTheme?.buttonTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Color effectiveHoverEffectColor = widget.hoverEffectColor ??
         context.selenicEffects?.controlHoverEffect.primaryHoverColor ??

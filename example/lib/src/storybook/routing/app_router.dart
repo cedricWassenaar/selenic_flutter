@@ -131,7 +131,7 @@ GoRouter router = GoRouter(
       pageBuilder: (BuildContext _, GoRouterState __) => const NoTransitionPage(
         child: BottomSheetStory(),
       ),
-      onExit: (BuildContext _) {
+      onExit: (context, state) {
         if (router.canPop()) router.pop();
         return true;
       },
@@ -237,7 +237,7 @@ GoRouter router = GoRouter(
       pageBuilder: (BuildContext _, GoRouterState __) => const NoTransitionPage(
         child: ModalStory(),
       ),
-      onExit: (BuildContext _) {
+      onExit: (context, state) {
         if (router.canPop()) router.pop();
         return true;
       },

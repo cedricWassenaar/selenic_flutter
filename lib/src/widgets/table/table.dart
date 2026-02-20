@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:selenic_design/selenic_design.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/table/table_size_properties.dart';
 import 'package:selenic_design/src/theme/table/table_sizes.dart';
 import 'package:selenic_design/src/theme/tokens/transitions.dart';
@@ -457,7 +458,7 @@ class _SelenicTableState extends State<SelenicTable> {
 
     final Color effectiveTextColor =
         context.selenicTheme?.tableTheme.colors.columnTextColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final double? effectiveHeight = header.height ??
         (widget.rowSize == null
@@ -542,7 +543,7 @@ class _SelenicTableState extends State<SelenicTable> {
   Widget _buildFooter() {
     final Color effectiveTextColor =
         context.selenicTheme?.tableTheme.colors.columnTextColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final double? effectiveFooterHeight = widget.footer?.height ??
         (widget.rowSize == null
@@ -593,11 +594,11 @@ class _SelenicTableState extends State<SelenicTable> {
 
     final Color effectiveTextColor =
         context.selenicTheme?.tableTheme.colors.rowTextColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final Color effectiveBackgroundColor =
         context.selenicTheme?.tableTheme.colors.rowBackgroundColor ??
-            MoonColors.light.gohan;
+            SelenicColors.light.backgroundSecondary;
 
     final double effectiveGap =
         widget.rowGap ?? _effectiveSelenicTableRowSize.rowGap;
@@ -735,7 +736,7 @@ class _SelenicTableState extends State<SelenicTable> {
 
     final Color effectiveIconColor =
         context.selenicTheme?.tableTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+            SelenicColors.light.iconPrimary;
 
     final ScrollBehavior effectiveScrollBehavior = widget.scrollBehaviour ??
         ScrollConfiguration.of(context).copyWith(
@@ -831,13 +832,13 @@ class _TableRowLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color effectiveLableTextColor = labelTextStyle.color ??
         context.selenicTheme?.tableTheme.colors.rowLabelTextColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Color effectiveAnimatedLabelTextColor =
         animatedLabelTextStyle.color ??
             context.selenicTheme?.tableTheme.colors
                 .rowPinnedAnimatedLabelTextColor ??
-            MoonColors.light.trunks;
+            SelenicColors.light.bodyTextSecondary;
 
     final Duration effectiveTransitionDuration = label.transitionDuration ??
         context.selenicTheme?.tableTheme.properties.transitionDuration ??

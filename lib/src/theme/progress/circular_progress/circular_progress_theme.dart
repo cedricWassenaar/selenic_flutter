@@ -24,8 +24,8 @@ class SelenicCircularProgressTheme
     SelenicCircularProgressSizes? sizes,
   })  : colors = colors ??
             SelenicCircularProgressColors(
-              color: tokens.colors.piccolo,
-              backgroundColor: tokens.colors.beerus,
+              color: tokens.colors.accentPrimary,
+              backgroundColor: tokens.colors.lineAccent,
             ),
         sizes = sizes ?? SelenicCircularProgressSizes(tokens: tokens);
 

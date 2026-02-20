@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/sizes.dart';
@@ -96,11 +95,11 @@ class _CarouselIndicatorState extends State<SelenicDotIndicator>
 
     final Color effectiveSelectedColor = widget.selectedColor ??
         context.selenicTheme?.dotIndicatorTheme.colors.selectedColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveUnselectedColor = widget.unselectedColor ??
         context.selenicTheme?.dotIndicatorTheme.colors.unselectedColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
         context.selenicTheme?.dotIndicatorTheme.properties.transitionDuration ??

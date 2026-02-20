@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/widgets/buttons/button.dart';
@@ -97,11 +96,11 @@ class SelenicFilledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color effectiveBackgroundColor = backgroundColor ??
         context.selenicTheme?.buttonTheme.colors.filledVariantBackgroundColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveTextColor =
         context.selenicTheme?.buttonTheme.colors.filledVariantTextColor ??
-            MoonColors.light.goten;
+            SelenicColors.light.filledButton;
 
     return SelenicButton(
       autofocus: autofocus,

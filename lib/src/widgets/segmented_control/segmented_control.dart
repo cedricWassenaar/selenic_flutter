@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/segmented_control/segmented_control_size_properties.dart';
 import 'package:selenic_design/src/theme/segmented_control/segmented_control_sizes.dart';
@@ -224,7 +223,7 @@ class _SelenicSegmentedControlState extends State<SelenicSegmentedControl> {
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
         context.selenicTheme?.segmentedControlTheme.colors.backgroundColor ??
-        MoonColors.light.gohan;
+        SelenicColors.light.backgroundSecondary;
 
     final double effectiveDisabledOpacityValue =
         context.selenicOpacities?.disabled ??
@@ -386,16 +385,16 @@ class _SegmentBuilderState extends State<_SegmentBuilder>
         segmentStyle?.selectedSegmentColor ??
             context.selenicTheme?.segmentedControlTheme.colors
                 .selectedSegmentColor ??
-            MoonColors.light.goku;
+            SelenicColors.light.backgroundPrimary;
 
     final Color effectiveTextColor = segmentStyle?.textStyle?.color ??
         segmentStyle?.textColor ??
         context.selenicTheme?.segmentedControlTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Color effectiveSelectedTextColor = segmentStyle?.selectedTextColor ??
         context.selenicTheme?.segmentedControlTheme.colors.selectedTextColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final TextStyle effectiveTextStyle = widget
         .selenicSegementedControlSizeProperties.textStyle

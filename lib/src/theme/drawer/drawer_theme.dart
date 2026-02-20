@@ -30,7 +30,7 @@ class SelenicDrawerTheme extends ThemeExtension<SelenicDrawerTheme>
             SelenicDrawerColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
+              backgroundColor: tokens.colors.backgroundPrimary,
             ),
         properties = properties ??
             SelenicDrawerProperties(

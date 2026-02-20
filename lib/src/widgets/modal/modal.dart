@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/borders.dart';
@@ -37,7 +36,7 @@ Future<T?> showSelenicModal<T>({
 
   final Color effectiveBarrierColor = barrierColor ??
       context.selenicTheme?.modalTheme.colors.barrierColor ??
-      MoonColors.light.zeno;
+      SelenicColors.light.overlayModal;
 
   final Duration effectiveTransitionDuration = transitionDuration ??
       context.selenicTheme?.modalTheme.properties.transitionDuration ??
@@ -169,15 +168,15 @@ class SelenicModal extends StatelessWidget {
 
     final Color effectiveBackgroundColor = backgroundColor ??
         context.selenicTheme?.modalTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveTextColor =
         context.selenicTheme?.modalTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final Color effectiveIconColor =
         context.selenicTheme?.modalTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+            SelenicColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
         context.selenicTheme?.modalTheme.properties.textStyle ??

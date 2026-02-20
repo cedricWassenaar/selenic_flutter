@@ -1,10 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_tokens/moon_tokens.dart';
-
 import 'package:selenic_design/src/theme/avatar/avatar_size_properties.dart';
 import 'package:selenic_design/src/theme/avatar/avatar_sizes.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/tokens.dart';
 import 'package:selenic_design/src/utils/extensions.dart';
@@ -156,19 +155,19 @@ class SelenicAvatar extends StatelessWidget {
 
     final Color effectiveBackgroundColor = backgroundColor ??
         context.selenicTheme?.avatarTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveBadgeColor = badgeColor ??
         context.selenicTheme?.avatarTheme.colors.badgeColor ??
-        MoonColors.light.roshi;
+        SelenicColors.light.success;
 
     final Color effectiveTextColor =
         context.selenicTheme?.avatarTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final Color effectiveIconColor =
         context.selenicTheme?.avatarTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+            SelenicColors.light.iconPrimary;
 
     final double effectiveAvatarHeight =
         height ?? effectiveSelenicAvatarSize.avatarSizeValue;

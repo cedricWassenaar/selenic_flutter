@@ -23,8 +23,8 @@ class SelenicDotIndicatorTheme extends ThemeExtension<SelenicDotIndicatorTheme>
     SelenicDotIndicatorProperties? properties,
   })  : colors = colors ??
             SelenicDotIndicatorColors(
-              selectedColor: tokens.colors.piccolo,
-              unselectedColor: tokens.colors.beerus,
+              selectedColor: tokens.colors.accentPrimary,
+              unselectedColor: tokens.colors.lineAccent,
             ),
         properties = properties ??
             SelenicDotIndicatorProperties(

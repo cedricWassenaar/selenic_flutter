@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/sizes.dart';
@@ -27,23 +26,23 @@ class SelenicProgressPin extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color effectivePinColor = pinStyle?.pinColor ??
         context.selenicTheme?.progressPinTheme.colors.pinColor ??
-        MoonColors.light.popo;
+        SelenicColors.light.outlinedButton;
 
     final Color effectivePinBorderColor = pinStyle?.pinBorderColor ??
         context.selenicTheme?.progressPinTheme.colors.pinBorderColor ??
-        MoonColors.light.goten;
+        SelenicColors.light.filledButton;
 
     final Color effectiveThumbColor = pinStyle?.thumbColor ??
         context.selenicTheme?.progressPinTheme.colors.thumbColor ??
-        MoonColors.light.goten;
+        SelenicColors.light.filledButton;
 
     final Color effectiveShadowColor = pinStyle?.shadowColor ??
         context.selenicTheme?.progressPinTheme.colors.shadowColor ??
-        MoonColors.light.popo;
+        SelenicColors.light.outlinedButton;
 
     final Color effectiveTextColor = pinStyle?.textStyle?.color ??
         context.selenicTheme?.progressPinTheme.colors.textColor ??
-        MoonColors.light.goten;
+        SelenicColors.light.filledButton;
 
     final TextStyle effectiveTextStyle = pinStyle?.textStyle ??
         context.selenicTheme?.progressPinTheme.properties.textStyle ??

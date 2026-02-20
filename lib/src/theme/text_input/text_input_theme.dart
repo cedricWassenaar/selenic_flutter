@@ -28,11 +28,11 @@ class SelenicTextInputTheme extends ThemeExtension<SelenicTextInputTheme>
     SelenicTextInputSizes? sizes,
   })  : colors = colors ??
             SelenicTextInputColors(
-              backgroundColor: tokens.colors.goku,
-              activeBorderColor: tokens.colors.piccolo,
-              inactiveBorderColor: tokens.colors.beerus,
-              errorColor: tokens.colors.chichi,
-              hoverBorderColor: tokens.colors.beerus,
+              backgroundColor: tokens.colors.backgroundPrimary,
+              activeBorderColor: tokens.colors.accentPrimary,
+              inactiveBorderColor: tokens.colors.lineAccent,
+              errorColor: tokens.colors.error,
+              hoverBorderColor: tokens.colors.lineAccent,
               textColor: tokens.colors.textPrimary,
               helperTextColor: tokens.colors.textSecondary,
             ),

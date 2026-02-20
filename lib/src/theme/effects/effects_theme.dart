@@ -32,21 +32,22 @@ class SelenicEffectsTheme extends ThemeExtension<SelenicEffectsTheme>
     SelenicControlEffect? controlScaleEffect,
   })  : controlFocusEffect = controlFocusEffect ??
             SelenicFocusEffect(
-              effectColor: tokens.colors.bulma.withValues(alpha: 0.25),
+              effectColor:
+                  tokens.colors.bodyTextPrimary.withValues(alpha: 0.25),
               effectExtent: 4,
               effectDuration: tokens.transitions.defaultTransitionDuration,
               effectCurve: tokens.transitions.defaultTransitionCurve,
             ),
         controlHoverEffect = controlHoverEffect ??
             SelenicHoverEffect(
-              primaryHoverColor: tokens.colors.heles,
-              secondaryHoverColor: tokens.colors.jiren,
+              primaryHoverColor: tokens.colors.hoverSecondary,
+              secondaryHoverColor: tokens.colors.hoverPrimary,
               hoverDuration: tokens.transitions.defaultTransitionDuration,
               hoverCurve: tokens.transitions.defaultTransitionCurve,
             ),
         controlPulseEffect = controlPulseEffect ??
             SelenicControlEffect(
-              effectColor: tokens.colors.piccolo,
+              effectColor: tokens.colors.accentPrimary,
               effectDuration: const Duration(milliseconds: 1400),
               effectCurve: tokens.transitions.defaultTransitionCurve,
               effectExtent: 24,

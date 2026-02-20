@@ -24,8 +24,8 @@ class SelenicLinearProgressTheme
     SelenicLinearProgressSizes? sizes,
   })  : colors = colors ??
             SelenicLinearProgressColors(
-              color: tokens.colors.piccolo,
-              backgroundColor: tokens.colors.beerus,
+              color: tokens.colors.accentPrimary,
+              backgroundColor: tokens.colors.lineAccent,
               textColor: tokens.colors.textPrimary,
             ),
         sizes = sizes ?? SelenicLinearProgressSizes(tokens: tokens);

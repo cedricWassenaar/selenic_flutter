@@ -23,9 +23,9 @@ class SelenicCheckboxTheme extends ThemeExtension<SelenicCheckboxTheme>
     SelenicCheckboxProperties? properties,
   })  : colors = colors ??
             SelenicCheckboxColors(
-              activeColor: tokens.colors.piccolo,
-              borderColor: tokens.colors.trunks,
-              checkColor: tokens.colors.goten,
+              activeColor: tokens.colors.accentPrimary,
+              borderColor: tokens.colors.bodyTextSecondary,
+              checkColor: tokens.colors.filledButton,
               inactiveColor: Colors.transparent,
             ),
         properties = properties ??

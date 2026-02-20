@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/shadows.dart';
@@ -377,15 +376,15 @@ class SelenicPopoverState extends State<SelenicPopover>
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
         context.selenicTheme?.popoverTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveTextColor =
         context.selenicTheme?.popoverTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final Color effectiveIconColor =
         context.selenicTheme?.popoverTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+            SelenicColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
         context.selenicTheme?.popoverTheme.properties.textStyle ??

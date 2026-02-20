@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/toast/toast_theme.dart';
@@ -118,21 +117,21 @@ class SelenicToast {
     final Color effectiveBackgroundColor = backgroundColor ??
         (variant == SelenicToastVariant.original
             ? (toastTheme?.colors.lightVariantBackgroundColor ??
-                MoonColors.light.goku)
+                SelenicColors.light.backgroundPrimary)
             : (toastTheme?.colors.darkVariantBackgroundColor ??
-                MoonColors.dark.goku));
+                SelenicColors.dark.backgroundPrimary));
 
     final Color effectiveTextColor = variant == SelenicToastVariant.original
         ? (toastTheme?.colors.lightVariantTextColor ??
-            MoonColors.light.textPrimary)
+            SelenicColors.light.textPrimary)
         : (toastTheme?.colors.darkVariantTextColor ??
-            MoonColors.dark.textPrimary);
+            SelenicColors.dark.textPrimary);
 
     final Color effectiveIconColor = variant == SelenicToastVariant.original
         ? (toastTheme?.colors.lightVariantIconColor ??
-            MoonColors.light.iconPrimary)
+            SelenicColors.light.iconPrimary)
         : (toastTheme?.colors.darkVariantIconColor ??
-            MoonColors.dark.iconPrimary);
+            SelenicColors.dark.iconPrimary);
 
     final TextStyle effectiveTextStyle = toastTheme?.properties.textStyle ??
         SelenicTypography.typography.body.textDefault;

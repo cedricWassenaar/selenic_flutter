@@ -6,8 +6,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/text_input/text_input_size_properties.dart';
 import 'package:selenic_design/src/theme/text_input/text_input_sizes.dart';
@@ -1247,35 +1246,35 @@ class _SelenicTextInputState extends State<SelenicTextInput>
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
         context.selenicTheme?.textInputTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveActiveBorderColor = widget.activeBorderColor ??
         context.selenicTheme?.textInputTheme.colors.activeBorderColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveInactiveBorderColor = widget.inactiveBorderColor ??
         context.selenicTheme?.textInputTheme.colors.inactiveBorderColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final Color effectiveErrorColor = widget.errorColor ??
         context.selenicTheme?.textInputTheme.colors.errorColor ??
-        MoonColors.light.chichi;
+        SelenicColors.light.error;
 
     final Color effectiveCursorErrorColor = widget.cursorErrorColor ??
         context.selenicTheme?.textInputTheme.colors.errorColor ??
-        MoonColors.light.chichi;
+        SelenicColors.light.error;
 
     final Color effectiveHoverBorderColor = widget.hoverBorderColor ??
         context.selenicTheme?.textInputTheme.colors.hoverBorderColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final Color effectiveTextColor = widget.textColor ??
         context.selenicTheme?.textInputTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Color effectiveHintTextColor = widget.hintTextColor ??
         context.selenicTheme?.textInputTheme.colors.helperTextColor ??
-        MoonColors.light.trunks;
+        SelenicColors.light.bodyTextSecondary;
 
     final double effectiveGap = widget.gap ?? effectiveSelenicTextInputSize.gap;
 

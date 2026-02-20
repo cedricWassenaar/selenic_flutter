@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/tag/tag_size_properties.dart';
 import 'package:selenic_design/src/theme/tag/tag_sizes.dart';
@@ -104,15 +103,15 @@ class SelenicTag extends StatelessWidget {
 
     final Color effectiveBackgroundColor = backgroundColor ??
         context.selenicTheme?.tagTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveTextColor =
         context.selenicTheme?.tagTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final Color effectiveIconColor =
         context.selenicTheme?.tagTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+            SelenicColors.light.iconPrimary;
 
     final double effectiveHeight = height ?? effectiveSelenicTagSize.height;
 

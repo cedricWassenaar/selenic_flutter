@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/sizes.dart';
@@ -299,31 +298,31 @@ class SelenicTextArea extends StatelessWidget {
 
     final Color effectiveBackgroundColor = backgroundColor ??
         context.selenicTheme?.textAreaTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveActiveBorderColor = activeBorderColor ??
         context.selenicTheme?.textAreaTheme.colors.activeBorderColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveInactiveBorderColor = inactiveBorderColor ??
         context.selenicTheme?.textAreaTheme.colors.inactiveBorderColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final Color effectiveErrorColor = errorColor ??
         context.selenicTheme?.textAreaTheme.colors.errorColor ??
-        MoonColors.light.chichi;
+        SelenicColors.light.error;
 
     final Color effectiveHoverBorderColor = hoverBorderColor ??
         context.selenicTheme?.textAreaTheme.colors.hoverBorderColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final Color effectiveTextColor = textColor ??
         context.selenicTheme?.textAreaTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Color effectiveHelperTextColor = hintTextColor ??
         context.selenicTheme?.textAreaTheme.colors.helperTextColor ??
-        MoonColors.light.trunks;
+        SelenicColors.light.bodyTextSecondary;
 
     final EdgeInsetsGeometry effectiveHelperPadding = helperPadding ??
         context.selenicTheme?.textAreaTheme.properties.helperPadding ??

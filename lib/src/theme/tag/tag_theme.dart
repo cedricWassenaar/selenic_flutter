@@ -25,7 +25,7 @@ class SelenicTagTheme extends ThemeExtension<SelenicTagTheme>
             SelenicTagColors(
               textColor: tokens.colors.textPrimary,
               iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
+              backgroundColor: tokens.colors.backgroundPrimary,
             ),
         sizes = sizes ?? SelenicTagSizes(tokens: tokens);
 

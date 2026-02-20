@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/borders.dart';
 import 'package:selenic_design/src/theme/tokens/typography/typography.dart';
@@ -356,15 +356,15 @@ class SelenicBottomSheetState extends State<SelenicBottomSheet>
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
         context.selenicTheme?.bottomSheetTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveIconColor =
         context.selenicTheme?.bottomSheetTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+            SelenicColors.light.iconPrimary;
 
     final Color effectiveTextColor =
         context.selenicTheme?.bottomSheetTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final TextStyle effectiveTextStyle =
         context.selenicTheme?.bottomSheetTheme.properties.textStyle ??

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/progress/linear_progress/linear_progress_size_properties.dart';
 import 'package:selenic_design/src/theme/progress/linear_progress/linear_progress_sizes.dart';
@@ -146,15 +145,15 @@ class SelenicLinearProgress extends StatelessWidget {
 
     final Color effectiveColor = color ??
         context.selenicTheme?.linearProgressTheme.colors.color ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveBackgroundColor = backgroundColor ??
         context.selenicTheme?.linearProgressTheme.colors.backgroundColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final Color effectiveTextColor = textColor ??
         context.selenicTheme?.linearProgressTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final double effectiveHeight =
         height ?? effectiveProgressSize.progressHeight;

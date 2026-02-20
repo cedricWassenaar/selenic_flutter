@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:moon_icons/moon_icons.dart';
-import 'package:moon_tokens/moon_tokens.dart';
+
 import 'package:selenic_design/src/theme/breadcrumb/breadcrumb_theme.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/sizes.dart';
 import 'package:selenic_design/src/theme/tokens/transitions.dart';
@@ -80,16 +82,16 @@ class _SelenicBreadcrumbState extends State<SelenicBreadcrumb> {
 
     final Color effectiveItemTextColor = widget.itemTextStyle?.color ??
         theme?.colors.itemColor ??
-        MoonColors.light.textSecondary;
+        SelenicColors.light.textSecondary;
 
     final Color effectiveCurrentItemTextColor =
         widget.currentItemTextStyle?.color ??
             theme?.colors.currentItemColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final Color effectiveHoverEffectColor = widget.hoverEffectColor ??
         theme?.colors.hoverEffectColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final TextStyle effectiveItemTextStyle = widget.itemTextStyle ??
         theme?.properties.itemTextStyle ??
@@ -213,7 +215,7 @@ class _SelenicBreadcrumbState extends State<SelenicBreadcrumb> {
     final Color effectiveDividerColor = widget.dividerColor ??
         widget.itemTextStyle?.color ??
         context.selenicTheme?.breadcrumbTheme.colors.itemColor ??
-        MoonColors.light.iconSecondary;
+        SelenicColors.light.iconSecondary;
 
     return IconTheme(
       data: IconThemeData(color: effectiveDividerColor),

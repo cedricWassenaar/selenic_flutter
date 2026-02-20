@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/loaders/linear_loader/linear_loader_size_properties.dart';
 import 'package:selenic_design/src/theme/loaders/linear_loader/linear_loader_sizes.dart';
@@ -78,7 +77,7 @@ class SelenicLinearLoader extends StatelessWidget {
 
     final Color effectiveColor = color ??
         context.selenicTheme?.linearLoaderTheme.colors.color ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveBackgroundColor = backgroundColor ??
         context.selenicTheme?.linearLoaderTheme.colors.backgroundColor ??

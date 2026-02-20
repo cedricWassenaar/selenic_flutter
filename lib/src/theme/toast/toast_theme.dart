@@ -28,12 +28,13 @@ class SelenicToastTheme extends ThemeExtension<SelenicToastTheme>
     SelenicToastShadows? shadows,
   })  : colors = colors ??
             SelenicToastColors(
-              lightVariantBackgroundColor: tokens.colors.goku,
-              darkVariantBackgroundColor: tokens.complementaryColors.goku,
-              lightVariantTextColor: tokens.colors.bulma,
-              darkVariantTextColor: tokens.complementaryColors.bulma,
-              lightVariantIconColor: tokens.colors.bulma,
-              darkVariantIconColor: tokens.complementaryColors.bulma,
+              lightVariantBackgroundColor: tokens.colors.backgroundPrimary,
+              darkVariantBackgroundColor:
+                  tokens.complementaryColors.backgroundPrimary,
+              lightVariantTextColor: tokens.colors.bodyTextPrimary,
+              darkVariantTextColor: tokens.complementaryColors.bodyTextPrimary,
+              lightVariantIconColor: tokens.colors.bodyTextPrimary,
+              darkVariantIconColor: tokens.complementaryColors.bodyTextPrimary,
             ),
         properties = properties ??
             SelenicToastProperties(

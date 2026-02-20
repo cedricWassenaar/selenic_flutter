@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/tab_bar/tab_bar_size_properties.dart';
 import 'package:selenic_design/src/theme/tab_bar/tab_bar_sizes.dart';
@@ -425,16 +424,16 @@ class _IndicatorTabBuilderState extends State<_IndicatorTabBuilder>
 
     final Color effectiveIndicatorColor = tabStyle?.indicatorColor ??
         context.selenicTheme?.tabBarTheme.colors.indicatorColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveTextColor = tabStyle?.textStyle?.color ??
         tabStyle?.textColor ??
         context.selenicTheme?.tabBarTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Color effectiveSelectedTextColor = tabStyle?.selectedTextColor ??
         context.selenicTheme?.tabBarTheme.colors.selectedTextColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final TextStyle effectiveTextStyle =
         widget.tabBarSizeProperties.textStyle.merge(tabStyle?.textStyle);
@@ -658,16 +657,16 @@ class _PillTabBuilderState extends State<_PillTabBuilder>
 
     final Color effectiveSelectedTabColor = tabStyle?.selectedTabColor ??
         context.selenicTheme?.tabBarTheme.colors.selectedPillTabColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveTextColor = tabStyle?.textStyle?.color ??
         tabStyle?.textColor ??
         context.selenicTheme?.tabBarTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Color effectiveSelectedTextColor = tabStyle?.selectedTextColor ??
         context.selenicTheme?.tabBarTheme.colors.selectedPillTextColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final TextStyle effectiveTextStyle =
         widget.tabBarSizeProperties.textStyle.merge(tabStyle?.textStyle);

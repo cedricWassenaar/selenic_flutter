@@ -23,11 +23,11 @@ class SelenicProgressPinTheme extends ThemeExtension<SelenicProgressPinTheme>
     SelenicProgressPinProperties? properties,
   })  : colors = colors ??
             SelenicProgressPinColors(
-              pinColor: tokens.colors.popo,
-              pinBorderColor: tokens.colors.goten,
-              thumbColor: tokens.colors.goten,
-              shadowColor: tokens.colors.popo,
-              textColor: tokens.colors.goten,
+              pinColor: tokens.colors.outlinedButton,
+              pinBorderColor: tokens.colors.filledButton,
+              thumbColor: tokens.colors.filledButton,
+              shadowColor: tokens.colors.outlinedButton,
+              textColor: tokens.colors.filledButton,
             ),
         properties = properties ??
             SelenicProgressPinProperties(

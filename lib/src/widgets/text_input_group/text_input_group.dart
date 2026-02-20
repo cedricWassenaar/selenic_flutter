@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
-import 'package:moon_tokens/moon_tokens.dart';
 import 'package:selenic_design/src/theme/theme.dart';
 
 import 'package:selenic_design/src/theme/tokens/sizes.dart';
@@ -162,19 +162,19 @@ class _SelenicTextInputGroupState extends State<SelenicTextInputGroup> {
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
         context.selenicTheme?.textInputGroupTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveBorderColor = widget.borderColor ??
         context.selenicTheme?.textInputGroupTheme.colors.borderColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final Color effectiveErrorColor = widget.errorColor ??
         context.selenicTheme?.textInputGroupTheme.colors.errorColor ??
-        MoonColors.light.chichi;
+        SelenicColors.light.error;
 
     final Color effectiveHelperTextColor = widget.hintTextColor ??
         context.selenicTheme?.textInputGroupTheme.colors.helperTextColor ??
-        MoonColors.light.trunks;
+        SelenicColors.light.bodyTextSecondary;
 
     final EdgeInsetsGeometry effectiveHelperPadding = widget.helperPadding ??
         context.selenicTheme?.textInputGroupTheme.properties.helperPadding ??

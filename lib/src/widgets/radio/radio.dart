@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/effects/effects_theme.dart';
 import 'package:selenic_design/src/theme/theme.dart';
@@ -138,11 +137,11 @@ class _RadioState<T> extends State<SelenicRadio<T>>
 
     final Color effectiveActiveColor = widget.activeColor ??
         context.selenicTheme?.radioTheme.colors.activeColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveInactiveColor = widget.inactiveColor ??
         context.selenicTheme?.radioTheme.colors.inactiveColor ??
-        MoonColors.light.trunks;
+        SelenicColors.light.bodyTextSecondary;
 
     final Color effectiveFocusEffectColor =
         context.selenicEffects?.controlFocusEffect.effectColor ??

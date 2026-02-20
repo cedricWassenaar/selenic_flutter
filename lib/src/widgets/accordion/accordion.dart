@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_icons/moon_icons.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 import 'package:selenic_design/src/theme/accordion/accordion_size_properties.dart';
 import 'package:selenic_design/src/theme/accordion/accordion_sizes.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/effects/effects_theme.dart';
 import 'package:selenic_design/src/theme/theme.dart';
 import 'package:selenic_design/src/theme/tokens/shadows.dart';
@@ -387,11 +387,11 @@ class _SelenicAccordionState<T> extends State<SelenicAccordion<T>>
 
     final Color effectiveTrailingIconColor = widget.iconColor ??
         context.selenicTheme?.accordionTheme.colors.trailingIconColor ??
-        MoonColors.light.textSecondary;
+        SelenicColors.light.textSecondary;
 
     final Color effectiveExpandedTrailingIconColor = widget.expandedIconColor ??
         context.selenicTheme?.accordionTheme.colors.expandedTrailingIconColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     _iconColor ??= _iconColorTween.animate(_expansionCurvedAnimation!);
 
@@ -418,7 +418,7 @@ class _SelenicAccordionState<T> extends State<SelenicAccordion<T>>
   Widget _buildDecorationContainer({required Widget child}) {
     final Color effectiveBorderColor = widget.borderColor ??
         context.selenicTheme?.accordionTheme.colors.borderColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final List<BoxShadow> effectiveShadows = widget.shadows ??
         context.selenicTheme?.accordionTheme.shadows.shadows ??
@@ -491,32 +491,32 @@ class _SelenicAccordionState<T> extends State<SelenicAccordion<T>>
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
         context.selenicTheme?.accordionTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveExpandedBackgroundColor = widget
             .expandedBackgroundColor ??
         context.selenicTheme?.accordionTheme.colors.expandedBackgroundColor ??
-        MoonColors.light.goku;
+        SelenicColors.light.backgroundPrimary;
 
     final Color effectiveIconColor = widget.iconColor ??
         context.selenicTheme?.accordionTheme.colors.iconColor ??
-        MoonColors.light.iconPrimary;
+        SelenicColors.light.iconPrimary;
 
     final Color effectiveExpandedIconColor = widget.expandedIconColor ??
         context.selenicTheme?.accordionTheme.colors.expandedIconColor ??
-        MoonColors.light.iconPrimary;
+        SelenicColors.light.iconPrimary;
 
     final Color effectiveTextColor = widget.textColor ??
         context.selenicTheme?.accordionTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Color effectiveExpandedTextColor = widget.expandedTextColor ??
         context.selenicTheme?.accordionTheme.colors.expandedTextColor ??
-        MoonColors.light.textPrimary;
+        SelenicColors.light.textPrimary;
 
     final Color effectiveContentTextColor =
         context.selenicTheme?.accordionTheme.colors.contentColor ??
-            MoonColors.light.textPrimary;
+            SelenicColors.light.textPrimary;
 
     final TextStyle effectiveHeaderTextStyle =
         _effectiveSelenicAccordionSize.headerTextStyle;
@@ -669,7 +669,7 @@ class _SelenicAccordionState<T> extends State<SelenicAccordion<T>>
   Widget build(BuildContext context) {
     final Color effectiveDividerColor = widget.dividerColor ??
         context.selenicTheme?.accordionTheme.colors.dividerColor ??
-        MoonColors.light.beerus;
+        SelenicColors.light.lineAccent;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
         context.selenicTheme?.accordionTheme.properties.transitionDuration ??

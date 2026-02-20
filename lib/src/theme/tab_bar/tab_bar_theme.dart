@@ -28,11 +28,11 @@ class SelenicTabBarTheme extends ThemeExtension<SelenicTabBarTheme>
     SelenicTabBarSizes? sizes,
   })  : colors = colors ??
             SelenicTabBarColors(
-              indicatorColor: tokens.colors.piccolo,
+              indicatorColor: tokens.colors.accentPrimary,
               textColor: tokens.colors.textPrimary,
-              selectedTextColor: tokens.colors.piccolo,
+              selectedTextColor: tokens.colors.accentPrimary,
               selectedPillTextColor: tokens.colors.textPrimary,
-              selectedPillTabColor: tokens.colors.goku,
+              selectedPillTabColor: tokens.colors.backgroundPrimary,
             ),
         properties = properties ??
             SelenicTabBarProperties(

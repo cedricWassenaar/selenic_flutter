@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:moon_tokens/moon_tokens.dart';
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 
 import 'package:selenic_design/src/theme/effects/effects_theme.dart';
 import 'package:selenic_design/src/theme/theme.dart';
@@ -148,7 +147,7 @@ class _SelenicCheckboxState extends State<SelenicCheckbox>
 
     final Color effectiveActiveColor = widget.activeColor ??
         context.selenicTheme?.checkboxTheme.colors.activeColor ??
-        MoonColors.light.piccolo;
+        SelenicColors.light.accentPrimary;
 
     final Color effectiveInactiveColor = widget.inactiveColor ??
         context.selenicTheme?.checkboxTheme.colors.inactiveColor ??
@@ -156,11 +155,11 @@ class _SelenicCheckboxState extends State<SelenicCheckbox>
 
     final Color effectiveCheckColor = widget.checkColor ??
         context.selenicTheme?.checkboxTheme.colors.checkColor ??
-        MoonColors.light.goten;
+        SelenicColors.light.filledButton;
 
     final Color effectiveBorderColor = widget.borderColor ??
         context.selenicTheme?.checkboxTheme.colors.borderColor ??
-        MoonColors.light.trunks;
+        SelenicColors.light.bodyTextSecondary;
 
     final Color effectiveFocusEffectColor =
         context.selenicEffects?.controlFocusEffect.effectColor ??

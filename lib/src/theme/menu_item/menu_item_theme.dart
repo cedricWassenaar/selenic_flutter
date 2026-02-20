@@ -23,7 +23,7 @@ class SelenicMenuItemTheme extends ThemeExtension<SelenicMenuItemTheme>
   })  : colors = colors ??
             SelenicMenuItemColors(
               backgroundColor: Colors.transparent,
-              dividerColor: tokens.colors.beerus,
+              dividerColor: tokens.colors.lineAccent,
               iconColor: tokens.colors.iconPrimary,
               labelTextColor: tokens.colors.textPrimary,
               contentTextColor: tokens.colors.textSecondary,

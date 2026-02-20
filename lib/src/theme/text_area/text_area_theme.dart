@@ -23,13 +23,13 @@ class SelenicTextAreaTheme extends ThemeExtension<SelenicTextAreaTheme>
     SelenicTextAreaProperties? properties,
   })  : colors = colors ??
             SelenicTextAreaColors(
-              backgroundColor: tokens.colors.goku,
-              activeBorderColor: tokens.colors.piccolo,
-              inactiveBorderColor: tokens.colors.beerus,
-              errorColor: tokens.colors.chichi,
-              hoverBorderColor: tokens.colors.beerus,
+              backgroundColor: tokens.colors.backgroundPrimary,
+              activeBorderColor: tokens.colors.accentPrimary,
+              inactiveBorderColor: tokens.colors.lineAccent,
+              errorColor: tokens.colors.error,
+              hoverBorderColor: tokens.colors.lineAccent,
               textColor: tokens.colors.textPrimary,
-              helperTextColor: tokens.colors.trunks,
+              helperTextColor: tokens.colors.bodyTextSecondary,
             ),
         properties = properties ??
             SelenicTextAreaProperties(

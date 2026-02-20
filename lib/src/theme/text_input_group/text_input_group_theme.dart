@@ -24,11 +24,11 @@ class SelenicTextInputGroupTheme
     SelenicTextInputGroupProperties? properties,
   })  : colors = colors ??
             SelenicTextInputGroupColors(
-              backgroundColor: tokens.colors.goku,
-              errorColor: tokens.colors.chichi,
-              helperTextColor: tokens.colors.trunks,
-              borderColor: tokens.colors.beerus,
-              hoverBorderColor: tokens.colors.beerus,
+              backgroundColor: tokens.colors.backgroundPrimary,
+              errorColor: tokens.colors.error,
+              helperTextColor: tokens.colors.bodyTextSecondary,
+              borderColor: tokens.colors.lineAccent,
+              hoverBorderColor: tokens.colors.lineAccent,
             ),
         properties = properties ??
             SelenicTextInputGroupProperties(

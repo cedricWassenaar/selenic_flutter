@@ -33,14 +33,14 @@ class SelenicSwitchTheme extends ThemeExtension<SelenicSwitchTheme>
     SelenicSwitchSizes? sizes,
   })  : colors = colors ??
             SelenicSwitchColors(
-              activeTrackColor: tokens.colors.piccolo,
-              inactiveTrackColor: tokens.colors.beerus,
-              activeTextColor: tokens.colors.goten,
-              inactiveTextColor: tokens.colors.bulma,
-              activeIconColor: tokens.colors.goten,
-              inactiveIconColor: tokens.colors.bulma,
-              thumbIconColor: tokens.colors.popo,
-              thumbColor: tokens.colors.goten,
+              activeTrackColor: tokens.colors.accentPrimary,
+              inactiveTrackColor: tokens.colors.lineAccent,
+              activeTextColor: tokens.colors.filledButton,
+              inactiveTextColor: tokens.colors.bodyTextPrimary,
+              activeIconColor: tokens.colors.filledButton,
+              inactiveIconColor: tokens.colors.bodyTextPrimary,
+              thumbIconColor: tokens.colors.outlinedButton,
+              thumbColor: tokens.colors.filledButton,
             ),
         properties = properties ??
             SelenicSwitchProperties(

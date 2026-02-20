@@ -23,8 +23,8 @@ class SelenicAvatarTheme extends ThemeExtension<SelenicAvatarTheme>
     SelenicAvatarSizes? sizes,
   })  : colors = colors ??
             SelenicAvatarColors(
-              backgroundColor: tokens.colors.goku,
-              badgeColor: tokens.colors.roshi,
+              backgroundColor: tokens.colors.backgroundPrimary,
+              badgeColor: tokens.colors.success,
               iconColor: tokens.colors.iconPrimary,
               textColor: tokens.colors.textPrimary,
             ),

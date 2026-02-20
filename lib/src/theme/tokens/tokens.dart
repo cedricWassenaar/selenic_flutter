@@ -1,8 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:moon_tokens/moon_tokens.dart';
-
+import 'package:selenic_design/src/theme/colors/colors.dart' show SelenicColors;
 import 'package:selenic_design/src/theme/tokens/borders.dart';
 import 'package:selenic_design/src/theme/tokens/opacities.dart';
 import 'package:selenic_design/src/theme/tokens/shadows.dart';
@@ -15,8 +14,8 @@ class SelenicTokens extends ThemeExtension<SelenicTokens>
     with DiagnosticableTreeMixin {
   static const light = SelenicTokens(
     borders: SelenicBorders.borders,
-    colors: MoonColors.light,
-    complementaryColors: MoonColors.dark,
+    colors: SelenicColors.light,
+    complementaryColors: SelenicColors.dark,
     opacities: SelenicOpacities.opacities,
     shadows: SelenicShadows.light,
     sizes: SelenicSizes.sizes,
@@ -26,8 +25,8 @@ class SelenicTokens extends ThemeExtension<SelenicTokens>
 
   static const dark = SelenicTokens(
     borders: SelenicBorders.borders,
-    colors: MoonColors.dark,
-    complementaryColors: MoonColors.light,
+    colors: SelenicColors.dark,
+    complementaryColors: SelenicColors.light,
     opacities: SelenicOpacities.opacities,
     shadows: SelenicShadows.dark,
     sizes: SelenicSizes.sizes,
@@ -39,11 +38,11 @@ class SelenicTokens extends ThemeExtension<SelenicTokens>
   final SelenicBorders borders;
 
   /// The colors of the Selenic Design System.
-  final MoonColors colors;
+  final SelenicColors colors;
 
   /// The colors of the Selenic Design System that are from complementary theme
   /// (light -> dark, dark -> light).
-  final MoonColors complementaryColors;
+  final SelenicColors complementaryColors;
 
   /// The opacities of the Selenic Design System.
   final SelenicOpacities opacities;
@@ -73,8 +72,8 @@ class SelenicTokens extends ThemeExtension<SelenicTokens>
   @override
   SelenicTokens copyWith({
     SelenicBorders? borders,
-    MoonColors? colors,
-    MoonColors? complementaryColors,
+    SelenicColors? colors,
+    SelenicColors? complementaryColors,
     SelenicOpacities? opacities,
     SelenicShadows? shadows,
     SelenicSizes? sizes,
@@ -116,8 +115,9 @@ class SelenicTokens extends ThemeExtension<SelenicTokens>
     properties
       ..add(DiagnosticsProperty("type", "SelenicTokens"))
       ..add(DiagnosticsProperty<SelenicBorders>("SelenicBorders", borders))
-      ..add(DiagnosticsProperty<MoonColors>("MoonColors", colors))
-      ..add(DiagnosticsProperty<MoonColors>("MoonColors", complementaryColors))
+      ..add(DiagnosticsProperty<SelenicColors>("SelenicColors", colors))
+      ..add(DiagnosticsProperty<SelenicColors>(
+          "SelenicColors", complementaryColors))
       ..add(
           DiagnosticsProperty<SelenicOpacities>("SelenicOpacities", opacities))
       ..add(DiagnosticsProperty<SelenicShadows>("SelenicShadows", shadows))
