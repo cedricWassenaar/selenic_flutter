@@ -1,5 +1,6 @@
 import 'package:example/src/storybook/common/widgets/text_divider.dart';
 import 'package:flutter/material.dart';
+import 'package:selenic_design/selenic_design.dart' show SelenicColors;
 
 class IconsSegment extends StatelessWidget {
   final Map<String, IconData> segmentMap;
@@ -62,7 +63,7 @@ class IconsSegment extends StatelessWidget {
                     segmentMap.keys.toList()[index],
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.grey[600],
+                      color: SelenicColors.light.bodyTextSecondary,
                     ),
                   ),
                 ],

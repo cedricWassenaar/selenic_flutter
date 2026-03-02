@@ -171,6 +171,7 @@ class _IconsStoryState extends State<IconsStory> {
       ),
       body: CustomScrollView(
         scrollBehavior: scrollBehaviour,
+        hitTestBehavior: HitTestBehavior.translucent,
         slivers: sortedIcons.map((e) => IconsSegment(segmentMap: e)).toList(),
       ),
     );
